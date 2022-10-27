@@ -15,7 +15,8 @@ public class Completado implements EstadoDesafio {
 
 	@Override
 	public void completar() {
-		desafio.setFechaAceptado(this.date);
+		desafio.setFechaCompletado(this.date);
+		
 	}
 	
 
