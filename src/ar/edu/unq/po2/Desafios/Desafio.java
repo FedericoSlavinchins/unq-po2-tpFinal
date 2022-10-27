@@ -103,6 +103,7 @@ public class Desafio implements ElementoDeLudificacion {
 
 	public void setEstado(EstadoDesafio estado) {
 		this.estado = estado;
+		this.estado.setDesafio(this); //guarda la referencia de el estado de este desafio
 	}
 
 	public int getDesafiosAceptados() {
