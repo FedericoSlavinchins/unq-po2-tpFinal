@@ -27,11 +27,9 @@ public class Desafio implements ElementoDeLudificacion {
 	
 	// construct 
 	
-	//Deberia Empezar como NoAceptado
-	
-	//public desafio() {
-		
-	//	}
+	public Desafio() {
+		setEstado(new NoAceptado());
+	}
 	
 	
 	//GETTERS AND SETTERS

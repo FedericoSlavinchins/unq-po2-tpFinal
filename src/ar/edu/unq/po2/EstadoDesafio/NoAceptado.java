@@ -23,4 +23,11 @@ public class NoAceptado implements EstadoDesafio {
 		
 	}
 
+	@Override
+	public void setDesafio(Desafio desafio) {
+		this.desafio = desafio;
+		
+	}
+	
+
 }
