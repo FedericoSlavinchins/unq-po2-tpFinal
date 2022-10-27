@@ -1,10 +1,19 @@
 package ar.edu.unq.po2.EstadoDesafio;
 
+import java.sql.Date;
+
+import ar.edu.unq.po2.Desafios.Desafio;
+
 public class NoAceptado implements EstadoDesafio {
+	private Desafio desafio;
+	private Date date;
 
 	@Override
 	public void aceptar() {
-		// TODO Auto-generated method stub
+		
+		desafio.setFechaAceptado(this.date);
+		desafio.desafiosAceptados = desafio.desafiosAceptados + 1 ; 
+		desafio.setEstado(new Aceptado()); // Setear el estado aceptados
 		
 	}
 

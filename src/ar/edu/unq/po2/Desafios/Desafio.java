@@ -15,8 +15,10 @@ public class Desafio implements ElementoDeLudificacion {
 	//private ArrayList<Actividad> actividades;
 	private int porcentaje;
 	private Date fechaCompletado;
-	private int desafiosAceptados;
+	// agregados
+	public int desafiosAceptados;
 	private int voto;
+	private int cantidadMuestrasRealizadas;
 	
 	
 	public ArrayList<Date> getRestriccionTemporal() {
@@ -93,19 +95,27 @@ public class Desafio implements ElementoDeLudificacion {
 	public int getDesafiosAceptados() {
 		return desafiosAceptados;
 	}
+	
+	// 
 
 	public void AceptarDesafio() {
-		this.desafiosAceptados = desafiosAceptados + 1 ;  
+		
 	}
 	
+	
+	// guarda el numero n si esta entre 0 y 5 
 	public void votar(int n ) {
 		if(n >= 0 && n <= 5 ) {
 			this.voto = n;
 		}
 	}
+	 
 	
+	public int porcentajeCompletitud() {
+		return (this.cantidadMuestrasRealizadas * 100) / this.cantidadObjetivoDeMuestras ;
+	}
 	
-	
+		
 	
 	
 
