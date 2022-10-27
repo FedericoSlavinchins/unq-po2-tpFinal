@@ -13,13 +13,13 @@ public class NoAceptado implements EstadoDesafio {
 		
 		desafio.setFechaAceptado(this.date);
 		desafio.desafiosAceptados = desafio.desafiosAceptados + 1 ; 
-		desafio.setEstado(new Aceptado()); // Setear el estado aceptados
+		desafio.setEstado(new Aceptado()); // Setea el estado Aceptados
 		
 	}
 
 	@Override
 	public void completar() {
-		// TODO Auto-generated method stub
+		
 		
 	}
 

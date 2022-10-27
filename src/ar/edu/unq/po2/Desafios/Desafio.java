@@ -119,10 +119,11 @@ public class Desafio implements ElementoDeLudificacion {
 	
 	
 	// guarda el numero n si esta entre 0 y 5 
+	// sino manda mensaje
 	public void votar(int n ) {
 		if(n >= 0 && n <= 5 ) {
 			this.voto = n;
-		}
+		} else { System. out. println("El voto debe ser entre 0 y 5"); }
 	}
 	 
 	
