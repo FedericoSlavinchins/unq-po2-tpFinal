@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.util.ArrayList;
 
 import ar.edu.unq.po2.EstadoDesafio.EstadoDesafio;
+import ar.edu.unq.po2.EstadoDesafio.NoAceptado;
 
 public class Desafio implements ElementoDeLudificacion {
 	
@@ -15,10 +16,25 @@ public class Desafio implements ElementoDeLudificacion {
 	//private ArrayList<Actividad> actividades;
 	private int porcentaje;
 	private Date fechaCompletado;
+	
 	// agregados
 	public int desafiosAceptados;
 	private int voto;
 	private int cantidadMuestrasRealizadas;
+	private Date fechaAceptado;
+	private EstadoDesafio estado;
+	
+	
+	// construct 
+	
+	//Deberia Empezar como NoAceptado
+	
+	//public desafio() {
+		
+	//	}
+	
+	
+	//GETTERS AND SETTERS
 	
 	
 	public ArrayList<Date> getRestriccionTemporal() {
@@ -61,8 +77,7 @@ public class Desafio implements ElementoDeLudificacion {
 		this.porcentaje = porcentaje;
 	}
 
-	private Date fechaAceptado;
-	private EstadoDesafio estado;
+	
 	
 	public Date getFechaCompletado() {
 		return fechaCompletado;
@@ -96,7 +111,7 @@ public class Desafio implements ElementoDeLudificacion {
 		return desafiosAceptados;
 	}
 	
-	// 
+	// MAS Methods
 
 	public void AceptarDesafio() {
 		
