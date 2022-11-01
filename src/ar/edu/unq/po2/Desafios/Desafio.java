@@ -1,7 +1,7 @@
 package ar.edu.unq.po2.Desafios;
 
 public class Desafio implements ElementoDeLudificacion {
-	
+	/*
 	private AreaGeografica area;
 	private ArrayList<Date> restriccionTemporal;
 	private int cantidadObjetivoDeMuestras;
@@ -11,5 +11,5 @@ public class Desafio implements ElementoDeLudificacion {
 	private int porcentaje;
 	private Date fechaCompletado;
 	private Date fechaAceptado;
-	
+	*/
 }

@@ -2,6 +2,7 @@ package ar.edu.unq.po2.SistemaUsuario;
 
 import java.util.ArrayList;
 
+
 import ar.edu.unq.po2.Desafios.Desafio;
 import ar.edu.unq.po2.Desafios.ElementoDeLudificacion;
 
@@ -12,6 +13,7 @@ public class Usuario {
 	private RecomendadorDeLudificacion 	recomendadorDeLudificacion 	= new RecomendadorDeLudificacion(); //Agregar params
 	private ArrayList<Desafio>			desafiosAceptados 			= new ArrayList<Desafio>();
 	private ArrayList<Desafio>			desafiosCompletados			= new ArrayList<Desafio>();
+
 	
 	
 	public void aceptarDesafio(Desafio desafio) {
