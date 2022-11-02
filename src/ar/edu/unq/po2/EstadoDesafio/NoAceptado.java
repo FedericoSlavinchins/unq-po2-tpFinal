@@ -5,6 +5,7 @@ import java.sql.Date;
 import ar.edu.unq.po2.Desafios.Desafio;
 
 public class NoAceptado implements EstadoDesafio {
+	
 	private Desafio desafio;
 	private Date date;
 
@@ -19,9 +20,7 @@ public class NoAceptado implements EstadoDesafio {
 		
 	}
 
-	private void excluirMuestrasAnteriores() { // Excluye las muestras que estan antes de aceptar el desafio
 
-	}
 
 	@Override
 	public void completar() {
@@ -34,6 +33,15 @@ public class NoAceptado implements EstadoDesafio {
 		this.desafio = desafio;
 		
 	}
+
+	@Override
+	public void valorar() {
 	
+		
+	}
+	@Override
+	public void excluirMuestrasAnteriores() { // Excluye las muestras que estan antes de aceptar el desafio
+
+	}
 
 }

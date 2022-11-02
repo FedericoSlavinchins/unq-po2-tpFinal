@@ -21,6 +21,17 @@ public class Completado implements EstadoDesafio {
 	public void setDesafio(Desafio desafio) {
 		this.desafio = desafio;
 	}
+
+	@Override
+	public void valorar() {
+		
+	}
+
+	@Override
+	public void excluirMuestrasAnteriores() {
+		
+		
+	}
 	
 
 }
