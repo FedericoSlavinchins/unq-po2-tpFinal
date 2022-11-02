@@ -4,6 +4,9 @@ import ar.edu.unq.po2.Desafios.Desafio;
 
 public class Completado implements EstadoDesafio {
 
+	// El protocolo de este estado es fijar que se completo el desafio 
+	// por ende los voids son vacios
+	
 	private Desafio desafio;
 	
 	@Override
@@ -13,8 +16,7 @@ public class Completado implements EstadoDesafio {
 
 	@Override
 	public void completar() {
-		
-		
+	
 	}
 
 	@Override
@@ -22,9 +24,5 @@ public class Completado implements EstadoDesafio {
 		this.desafio = desafio;
 	}
 
-	@Override
-	public void valorar() {
-		
-	}
 	
 

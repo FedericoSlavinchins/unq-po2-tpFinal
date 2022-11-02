@@ -6,21 +6,22 @@ import ar.edu.unq.po2.Desafios.Desafio;
 
 public class Aceptado implements EstadoDesafio {
 	private Desafio desafio;
-	private Date date;
+	private Date date; // Dia Actual 
 
 	@Override
-	public void aceptar() {
-		
-	}
+	public void aceptar() {}
 
 	@Override
 	public void completar() {
+		
+		//this.setDate(Date today)
 		desafio.setFechaCompletado(this.date);
 		desafio.setEstado(new Completado()); // Setea estado completado
 		this.valorar();
+		//Private Recompensa
 	}
 	@Override
-	public void valorar() { //Hace la votacion para ver cuanto le gusto el desafio
+	private void valorar() { //Hace la votacion para ver cuanto le gusto el desafio
 		
 	}
 

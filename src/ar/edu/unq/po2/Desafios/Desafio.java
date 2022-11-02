@@ -6,18 +6,14 @@ import java.util.ArrayList;
 
 import ar.edu.unq.po2.EstadoDesafio.EstadoDesafio;
 import ar.edu.unq.po2.EstadoDesafio.NoAceptado;
-
-public class Desafio  {
 	
-	//private AreaGeografica area;
+
+	public class Desafio  {
+
+
+	private AreaGeografica area;
 	private ArrayList<RestriccionTemporal> restriccionTemporal = new ArrayList<RestriccionTemporal>();
 
-public class Desafio  {
-
-	/*
-	private AreaGeografica area;
-	private ArrayList<Date> restriccionTemporal;
->>>>>>> branch 'main' of https://github.com/FedericoSlavinchins/unq-po2-tpFinal.git
 	private int cantidadObjetivoDeMuestras;
 	private Dificultad dificultad;
 	private double recompensa;
@@ -30,7 +26,7 @@ public class Desafio  {
 	private int voto;
 	private int cantidadMuestrasRealizadas;
 	private Date fechaAceptado;
-<<<<<<< HEAD
+
 	
 	private EstadoDesafio estado;
 	
@@ -140,6 +136,6 @@ public class Desafio  {
 	
 
 }
-=======
-	*/
+
+
 
