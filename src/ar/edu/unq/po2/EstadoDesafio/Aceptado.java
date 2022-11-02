@@ -30,9 +30,4 @@ public class Aceptado implements EstadoDesafio {
 		
 	}
 
-	@Override
-	public void excluirMuestrasAnteriores() {
-		
-		
-	}
 }

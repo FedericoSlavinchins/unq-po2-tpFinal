@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import ar.edu.unq.po2.EstadoDesafio.EstadoDesafio;
 import ar.edu.unq.po2.EstadoDesafio.NoAceptado;
 
-public class Desafio implements ElementoDeLudificacion {
+public class Desafio  {
 	
 	//private AreaGeografica area;
 	private ArrayList<RestriccionTemporal> restriccionTemporal = new ArrayList<RestriccionTemporal>();

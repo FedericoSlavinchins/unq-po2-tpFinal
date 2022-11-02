@@ -26,12 +26,6 @@ public class Completado implements EstadoDesafio {
 	public void valorar() {
 		
 	}
-
-	@Override
-	public void excluirMuestrasAnteriores() {
-		
-		
-	}
 	
 
 }

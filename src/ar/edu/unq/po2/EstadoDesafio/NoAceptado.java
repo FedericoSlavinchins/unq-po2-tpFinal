@@ -16,11 +16,9 @@ public class NoAceptado implements EstadoDesafio {
 		desafio.desafiosAceptados = desafio.desafiosAceptados + 1 ; // Se guardan los desafios aceptados una vez que se aceptan
 		desafio.setEstado(new Aceptado()); // Setea el estado Aceptados
 		
-		this.excluirMuestrasAnteriores();
+		
 		
 	}
-
-
 
 	@Override
 	public void completar() {
@@ -39,9 +37,7 @@ public class NoAceptado implements EstadoDesafio {
 	
 		
 	}
-	@Override
-	public void excluirMuestrasAnteriores() { // Excluye las muestras que estan antes de aceptar el desafio
 
-	}
+
 
 }
