@@ -28,4 +28,3 @@ public class Completado implements EstadoDesafio {
 	}
 	
 
-}

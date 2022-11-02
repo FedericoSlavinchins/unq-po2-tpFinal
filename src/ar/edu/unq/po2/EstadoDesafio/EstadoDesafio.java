@@ -1,5 +1,4 @@
 package ar.edu.unq.po2.EstadoDesafio;
-
 import ar.edu.unq.po2.Desafios.Desafio;
 
 public interface EstadoDesafio {
@@ -12,4 +11,3 @@ public interface EstadoDesafio {
 	public abstract void valorar();
 	
 	public void setDesafio(Desafio desafio);
-}
