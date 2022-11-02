@@ -7,8 +7,8 @@ public interface EstadoDesafio {
 //	private EstadoDesafio estado ; // Deberia empezar en NoAceptado 
 	
 	
-	public void aceptar();
-	public void completar();
+	public abstract void aceptar();
+	public abstract void completar();
 	
 	public void setDesafio(Desafio desafio);
 }

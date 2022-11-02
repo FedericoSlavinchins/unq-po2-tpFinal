@@ -19,6 +19,11 @@ public class Aceptado implements EstadoDesafio {
 	public void completar() {
 		desafio.setFechaCompletado(this.date);
 		desafio.setEstado(new Completado()); // Setea estado completado
+		this.valorar();
+	}
+
+	private void valorar() { //Hace la votacion para ver cuanto le gusto el desafio
+		
 	}
 
 	@Override

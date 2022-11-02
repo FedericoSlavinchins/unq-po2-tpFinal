@@ -12,9 +12,15 @@ public class NoAceptado implements EstadoDesafio {
 	public void aceptar() {
 		
 		desafio.setFechaAceptado(this.date); // guarda la fecha en la que se acepto
-		desafio.desafiosAceptados = desafio.desafiosAceptados + 1 ;  // ES NECESARIO?
+		desafio.desafiosAceptados = desafio.desafiosAceptados + 1 ; // Se guardan los desafios aceptados una vez que se aceptan
 		desafio.setEstado(new Aceptado()); // Setea el estado Aceptados
 		
+		this.excluirMuestrasAnteriores();
+		
+	}
+
+	private void excluirMuestrasAnteriores() { // Excluye las muestras que estan antes de aceptar el desafio
+
 	}
 
 	@Override
