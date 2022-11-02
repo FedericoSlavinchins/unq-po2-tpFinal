@@ -4,9 +4,8 @@ import ar.edu.unq.po2.Desafios.Desafio;
 
 public class Completado implements EstadoDesafio {
 
-	
 	private Desafio desafio;
-
+	
 	@Override
 	public void aceptar() {
 		
@@ -21,7 +20,6 @@ public class Completado implements EstadoDesafio {
 	@Override
 	public void setDesafio(Desafio desafio) {
 		this.desafio = desafio;
-		
 	}
 	
 

@@ -9,7 +9,7 @@ import ar.edu.unq.po2.EstadoDesafio.NoAceptado;
 public class Desafio implements ElementoDeLudificacion {
 	
 	//private AreaGeografica area;
-	private ArrayList<Date> restriccionTemporal;
+	private ArrayList<RestriccionTemporal> restriccionTemporal = new ArrayList<RestriccionTemporal>();
 	private int cantidadObjetivoDeMuestras;
 	private Dificultad dificultad;
 	private double recompensa;
@@ -22,6 +22,7 @@ public class Desafio implements ElementoDeLudificacion {
 	private int voto;
 	private int cantidadMuestrasRealizadas;
 	private Date fechaAceptado;
+	
 	private EstadoDesafio estado;
 	
 	
@@ -34,14 +35,6 @@ public class Desafio implements ElementoDeLudificacion {
 	
 	//GETTERS AND SETTERS
 	
-	
-	public ArrayList<Date> getRestriccionTemporal() {
-		return restriccionTemporal;
-	}
-
-	public void setRestriccionTemporal(ArrayList<Date> restriccionTemporal) {
-		this.restriccionTemporal = restriccionTemporal;
-	}
 
 	public int getCantidadObjetivoDeMuestras() {
 		return cantidadObjetivoDeMuestras;
@@ -129,6 +122,9 @@ public class Desafio implements ElementoDeLudificacion {
 	public int porcentajeCompletitud() {
 		return (this.cantidadMuestrasRealizadas * 100) / this.cantidadObjetivoDeMuestras ;
 	}
+
+	public void aceptar() {}
+	public void completar() {}
 	
 		
 	
