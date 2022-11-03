@@ -13,7 +13,7 @@ import ar.edu.unq.po2.Proyecto.AreaGeografica;
 	protected AreaGeografica area;
 	protected ArrayList<RestriccionTemporal> restriccionTemporal = new ArrayList<RestriccionTemporal>();
 	protected int cantidadObjetivoDeMuestras;
-	protected Dificultad dificultad;
+	protected int dificultad;
 	protected double recompensa;
 	protected int porcentaje;
 	protected Date fechaCompletado;
@@ -47,11 +47,11 @@ import ar.edu.unq.po2.Proyecto.AreaGeografica;
 		this.cantidadObjetivoDeMuestras = cantidadObjetivoDeMuestras;
 	}
 
-	public Dificultad getDificultad() {
+	public int getDificultad() {
 		return dificultad;
 	}
 
-	public void setDificultad(Dificultad dificultad) {
+	public void setDificultad(int dificultad) {
 		this.dificultad = dificultad;
 	}
 
