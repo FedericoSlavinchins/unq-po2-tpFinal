@@ -3,7 +3,13 @@ package ar.edu.unq.po2.SistemaUsuario;
 public class Preferencias {
 	private int cantMuestrasPreferidas;
 	private int dificultadPreferida;
-	private int recompensaPreferida;
+	private double recompensaPreferida;
+	
+	public Preferencias(int cantMuestrasPreferidas, int dificultadPreferida, double recompensaPreferida) {
+		this.setCantMuestrasPreferidas(cantMuestrasPreferidas);
+		this.setDificultadPreferida(dificultadPreferida);
+		this.setRecompensaPreferida(recompensaPreferida);
+	}
 
 	public int getCantMuestrasPreferidas() {
 		return cantMuestrasPreferidas;
@@ -21,11 +27,11 @@ public class Preferencias {
 		this.dificultadPreferida = dificultadPreferida;
 	}
 	
-	public int getRecompensaPreferida() {
+	public double getRecompensaPreferida() {
 		return recompensaPreferida;
 	}
 
-	public void setRecompensaPreferida(int recompensaPreferida) {
+	public void setRecompensaPreferida(double recompensaPreferida) {
 		this.recompensaPreferida = recompensaPreferida;
 	}
 }
