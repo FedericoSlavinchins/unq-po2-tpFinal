@@ -8,7 +8,7 @@ import ar.edu.unq.po2.EstadoDesafio.EstadoDesafio;
 import ar.edu.unq.po2.EstadoDesafio.NoAceptado;
 import ar.edu.unq.po2.Proyecto.AreaGeografica;
 
-	public class Desafio  {
+	public class Desafio  {//
 
 	protected AreaGeografica area;
 	protected ArrayList<RestriccionTemporal> restriccionTemporal = new ArrayList<RestriccionTemporal>();
