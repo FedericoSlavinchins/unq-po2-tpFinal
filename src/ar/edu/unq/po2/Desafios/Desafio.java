@@ -2,6 +2,7 @@ package ar.edu.unq.po2.Desafios;
 
 
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 import ar.edu.unq.po2.EstadoDesafio.EstadoDesafio;
@@ -25,7 +26,7 @@ import ar.edu.unq.po2.EstadoDesafio.NoAceptado;
 	public int desafiosAceptados;
 	private int voto;
 	private int cantidadMuestrasRealizadas;
-	private Date fechaAceptado;
+	private LocalDate fechaAceptado;
 
 	
 	private EstadoDesafio estado;
@@ -83,12 +84,12 @@ import ar.edu.unq.po2.EstadoDesafio.NoAceptado;
 		this.fechaCompletado = fechaCompletado;
 	}
 
-	public Date getFechaAceptado() {
+	public LocalDate getFechaAceptado() {
 		return fechaAceptado;
 	}
 
-	public void setFechaAceptado(Date fechaAceptado) {
-		this.fechaAceptado = fechaAceptado;
+	public void setFechaAceptado(LocalDate localDate) {
+		this.fechaAceptado = localDate;
 	}
 
 	public EstadoDesafio getEstado() {
@@ -106,6 +107,10 @@ import ar.edu.unq.po2.EstadoDesafio.NoAceptado;
 
 	public int getDesafiosAceptados() {
 		return desafiosAceptados;
+	}
+	
+	public void setDesafiosAceptados(int n) {
+		desafiosAceptados = n;
 	}
 	
 	// MAS Methods
