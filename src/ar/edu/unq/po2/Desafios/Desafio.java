@@ -20,7 +20,7 @@ import ar.edu.unq.po2.EstadoDesafio.NoAceptado;
 	private double recompensa;
 	//private ArrayList<Actividad> actividades;
 	private int porcentaje;
-	private Date fechaCompletado;
+	private LocalDate fechaCompletado;
 	
 	// agregados
 	public int desafiosAceptados;
@@ -76,12 +76,12 @@ import ar.edu.unq.po2.EstadoDesafio.NoAceptado;
 
 	
 	
-	public Date getFechaCompletado() {
+	public LocalDate getFechaCompletado() {
 		return fechaCompletado;
 	}
 
-	public void setFechaCompletado(Date fechaCompletado) {
-		this.fechaCompletado = fechaCompletado;
+	public void setFechaCompletado(LocalDate localDate) {
+		this.fechaCompletado = localDate;
 	}
 
 	public LocalDate getFechaAceptado() {
