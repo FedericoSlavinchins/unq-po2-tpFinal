@@ -18,11 +18,15 @@ public class Completado implements EstadoDesafio {
 	public void completar() {
 	
 	}
+	public void valorar() { //Hace la votacion para ver cuanto le gusto el desafio
+		
+	}
 
 	@Override
 	public void setDesafio(Desafio desafio) {
 		this.desafio = desafio;
 	}
+}
 
 	
 
