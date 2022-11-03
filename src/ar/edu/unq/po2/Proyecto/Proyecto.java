@@ -1,6 +1,7 @@
 package ar.edu.unq.po2.Proyecto;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import ar.edu.unq.po2.SistemaUsuario.Usuario;
 
@@ -34,5 +35,18 @@ public class Proyecto {
 	
 	public ArrayList<Usuario> getParticipantesActivos() {		// Retorna lista de Participantes activos del proyecto
 		return this.participantesActivos;
+	}
+	
+	public String getNombre() {
+		return this.nombre;
+	}
+
+	
+	public List<String> getNombresDeCategorias() {
+		ArrayList<String> nombres = new ArrayList<String>();
+		for (Categoria categoria : this.categorias) {
+			nombres.add(categoria.getNombre());
+		}
+		return nombres;
 	}
 }

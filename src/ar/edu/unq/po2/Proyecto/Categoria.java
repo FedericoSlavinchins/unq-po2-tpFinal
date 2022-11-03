@@ -1,7 +1,15 @@
 package ar.edu.unq.po2.Proyecto;
 
-public enum Categoria {
+public class Categoria {
 	
-	FÍSICA, QUÍMICA, ASTRONOMÍA, BIOLOGÍA, ZOOLOGÍA, BOTÁNICA, GEOLOGÍA, METEOROLOGÍA
+	private String nombre;
+	
+	public Categoria(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
 	
 }
