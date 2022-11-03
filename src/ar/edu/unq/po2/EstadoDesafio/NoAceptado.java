@@ -27,4 +27,4 @@ public class NoAceptado implements EstadoDesafio {
 		
 	}
 
-
+}

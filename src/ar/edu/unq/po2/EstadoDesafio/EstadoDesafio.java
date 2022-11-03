@@ -10,3 +10,4 @@ public interface EstadoDesafio {
 	public abstract void completar();
 	
 	public abstract void setDesafio(Desafio desafio);
+}

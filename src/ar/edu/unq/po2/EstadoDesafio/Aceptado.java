@@ -20,7 +20,7 @@ public class Aceptado implements EstadoDesafio {
 		this.valorar();
 		//Private Recompensa
 	}
-	@Override
+	
 	private void valorar() { //Hace la votacion para ver cuanto le gusto el desafio
 		
 	}
@@ -30,5 +30,5 @@ public class Aceptado implements EstadoDesafio {
 		this.desafio = desafio;
 		
 	}
-
+}
 

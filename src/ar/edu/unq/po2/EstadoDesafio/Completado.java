@@ -23,6 +23,6 @@ public class Completado implements EstadoDesafio {
 	public void setDesafio(Desafio desafio) {
 		this.desafio = desafio;
 	}
-
+}
 	
 

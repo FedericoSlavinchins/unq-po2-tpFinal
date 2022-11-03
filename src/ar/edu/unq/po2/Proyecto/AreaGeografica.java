@@ -1,9 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
-
-import organizacion.ObservadorZona;
-import organizacion.ZonaDeCobertura;
-import ubicacion.Ubicacion;
+package ar.edu.unq.po2.Proyecto;
 
 public class AreaGeografica {
 	private String nombre;

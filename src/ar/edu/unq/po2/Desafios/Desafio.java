@@ -6,17 +6,17 @@ import java.util.ArrayList;
 
 import ar.edu.unq.po2.EstadoDesafio.EstadoDesafio;
 import ar.edu.unq.po2.EstadoDesafio.NoAceptado;
+import ar.edu.unq.po2.Proyecto.AreaGeografica;
 
 	public class Desafio  {
 
-	private AreaGeografica area;
-	private ArrayList<RestriccionTemporal> restriccionTemporal = new ArrayList<RestriccionTemporal>();
-	private int cantidadObjetivoDeMuestras;
-	private Dificultad dificultad;
-	private double recompensa;
-	//private ArrayList<Actividad> actividades;
-	private int porcentaje;
-	private Date fechaCompletado;
+	protected AreaGeografica area;
+	protected ArrayList<RestriccionTemporal> restriccionTemporal = new ArrayList<RestriccionTemporal>();
+	protected int cantidadObjetivoDeMuestras;
+	protected Dificultad dificultad;
+	protected double recompensa;
+	protected int porcentaje;
+	protected Date fechaCompletado;
 //>>>>>>> refs/heads/main
 	
 	// agregados
