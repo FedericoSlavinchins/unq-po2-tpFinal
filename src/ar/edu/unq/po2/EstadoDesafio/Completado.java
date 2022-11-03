@@ -18,7 +18,7 @@ public class Completado implements EstadoDesafio {
 	public void completar() {
 	
 	}
-	private void valorar() { //Hace la votacion para ver cuanto le gusto el desafio
+	public void valorar() { //Hace la votacion para ver cuanto le gusto el desafio
 		
 	}
 
@@ -26,6 +26,7 @@ public class Completado implements EstadoDesafio {
 	public void setDesafio(Desafio desafio) {
 		this.desafio = desafio;
 	}
+}
 
 	
 

@@ -27,4 +27,10 @@ public class NoAceptado implements EstadoDesafio {
 		
 	}
 
+	@Override
+	public void valorar() {
+
+		
+	}
+}
 

@@ -11,7 +11,7 @@ import ar.edu.unq.po2.EstadoDesafio.NoAceptado;
 	public class Desafio  {
 
 
-	private AreaGeografica area;
+//	private AreaGeografica area;
 	private ArrayList<RestriccionTemporal> restriccionTemporal = new ArrayList<RestriccionTemporal>();
 
 	private int cantidadObjetivoDeMuestras;
@@ -132,7 +132,6 @@ import ar.edu.unq.po2.EstadoDesafio.NoAceptado;
 	public void completar() {}
 	
 		
-	
 	
 
 }
