@@ -17,8 +17,6 @@ import ar.edu.unq.po2.Proyecto.AreaGeografica;
 	protected double recompensa;
 	protected int porcentaje;
 	protected Date fechaCompletado;
-//>>>>>>> refs/heads/main
-	
 	// agregados
 	public int desafiosAceptados;
 	private int voto;
