@@ -22,6 +22,11 @@ public class BuscadorTitulo extends BuscadorDeProyectos {
 			}
 		}
 		return resultadoBusqueda;
+	}
+
+
+	public String getTextoABuscar() {
+		return textoABuscar;
 	}	
 	
 }

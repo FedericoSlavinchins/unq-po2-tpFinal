@@ -25,13 +25,16 @@ public abstract class BuscadorCompuesto extends BuscadorDeProyectos {
 	public BuscadorDeProyectos getPrimerBuscador() {
 		return primerBuscador;
 	}
-	public void setPrimerBuscador(BuscadorDeProyectos primerBuscador) {
+	
+	protected void setPrimerBuscador(BuscadorDeProyectos primerBuscador) {
 		this.primerBuscador = primerBuscador;
 	}
+	
 	public BuscadorDeProyectos getSegundoBuscador() {
 		return segundoBuscador;
 	}
-	public void setSegundoBuscador(BuscadorDeProyectos segundoBuscador) {
+	
+	protected void setSegundoBuscador(BuscadorDeProyectos segundoBuscador) {
 		this.segundoBuscador = segundoBuscador;
 	}
 	
