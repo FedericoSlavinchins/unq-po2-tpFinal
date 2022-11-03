@@ -21,9 +21,9 @@ public class Aceptado implements EstadoDesafio {
 		//Private Recompensa
 	}
 	@Override
-	private void valorar() { //Hace la votacion para ver cuanto le gusto el desafio
+//	private void valorar() { //Hace la votacion para ver cuanto le gusto el desafio
 		
-	}
+//	}
 
 	@Override
 	public void setDesafio(Desafio desafio) {

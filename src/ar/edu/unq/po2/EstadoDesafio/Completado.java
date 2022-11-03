@@ -18,6 +18,9 @@ public class Completado implements EstadoDesafio {
 	public void completar() {
 	
 	}
+	private void valorar() { //Hace la votacion para ver cuanto le gusto el desafio
+		
+	}
 
 	@Override
 	public void setDesafio(Desafio desafio) {

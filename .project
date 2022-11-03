@@ -14,4 +14,11 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>po2</name>
+			<type>2</type>
+			<location>C:/Users/Ivan/git/unq-po2-tpFinal/src/ar/edu/unq/po2</location>
+		</link>
+	</linkedResources>
 </projectDescription>
