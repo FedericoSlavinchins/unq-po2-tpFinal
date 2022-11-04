@@ -27,6 +27,3 @@ public class Completado implements EstadoDesafio {
 		this.desafio = desafio;
 	}
 }
-
-	
-

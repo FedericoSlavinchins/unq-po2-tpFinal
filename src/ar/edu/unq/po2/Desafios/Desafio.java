@@ -1,29 +1,25 @@
 package ar.edu.unq.po2.Desafios;
 
 
-import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
 import ar.edu.unq.po2.EstadoDesafio.EstadoDesafio;
 import ar.edu.unq.po2.EstadoDesafio.NoAceptado;
+
+import ar.edu.unq.po2.Proyecto.AreaGeografica;
+
+public class Desafio  {
 	
-
-	public class Desafio  {
-
-
-//	private AreaGeografica area;
+	private AreaGeografica area;
 	private ArrayList<RestriccionTemporal> restriccionTemporal = new ArrayList<RestriccionTemporal>();
-
 	private int cantidadObjetivoDeMuestras;
-	private Dificultad dificultad;
+	private int dificultad;
 	private double recompensa;
-	//private ArrayList<Actividad> actividades;
 	private int porcentaje;
-	private Date fechaCompletado;
-	
+	private LocalDate fechaCompletado;
 	// agregados
-	public int desafiosAceptados;
+	private int desafiosAceptados;
 	private int voto;
 	private int cantidadMuestrasRealizadas;
 	private LocalDate fechaAceptado;
@@ -50,11 +46,11 @@ import ar.edu.unq.po2.EstadoDesafio.NoAceptado;
 		this.cantidadObjetivoDeMuestras = cantidadObjetivoDeMuestras;
 	}
 
-	public Dificultad getDificultad() {
+	public int getDificultad() {
 		return dificultad;
 	}
 
-	public void setDificultad(Dificultad dificultad) {
+	public void setDificultad(int dificultad) {
 		this.dificultad = dificultad;
 	}
 
@@ -76,12 +72,12 @@ import ar.edu.unq.po2.EstadoDesafio.NoAceptado;
 
 	
 	
-	public Date getFechaCompletado() {
+	public LocalDate getFechaCompletado() {
 		return fechaCompletado;
 	}
 
-	public void setFechaCompletado(Date fechaCompletado) {
-		this.fechaCompletado = fechaCompletado;
+	public void setFechaCompletado(LocalDate date) {
+		this.fechaCompletado = date;
 	}
 
 	public LocalDate getFechaAceptado() {
