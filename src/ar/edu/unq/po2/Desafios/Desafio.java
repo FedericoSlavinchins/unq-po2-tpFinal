@@ -133,6 +133,19 @@ import ar.edu.unq.po2.EstadoDesafio.NoAceptado;
 
 	public void aceptar() {}
 	public void completar() {}
+
+
+	public int getCantidadMuestrasRealizadas() {
+		return cantidadMuestrasRealizadas;
+	}
+
+
+	public void setCantidadMuestrasRealizadas(int cantidadMuestrasRealizadas) {
+		this.cantidadMuestrasRealizadas = cantidadMuestrasRealizadas;
+	}
+
+
+
 	
 		
 	
