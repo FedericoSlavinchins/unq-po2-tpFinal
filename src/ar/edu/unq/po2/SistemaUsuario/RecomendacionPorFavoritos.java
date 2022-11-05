@@ -5,8 +5,8 @@ import java.util.List;
 import ar.edu.unq.po2.Desafios.Desafio;
 import ar.edu.unq.po2.Desafios.DesafioDeUsuario;
 
-public class RecomendacionPorFavoritos implements RecomendacionStrategy {
-	private Preferencias preferenciasDelUsuario;
+public class RecomendacionPorFavoritos implements RecomendadorDeDesafios {
+	private PreferenciaUsuario preferenciaDelUsuario;
 	private List<DesafioDeUsuario> desafiosCompletadosDeUsuario;
 
 

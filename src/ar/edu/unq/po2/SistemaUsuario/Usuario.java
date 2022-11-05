@@ -13,6 +13,8 @@ import ar.edu.unq.po2.Proyecto.Proyecto;
 public class Usuario {
 	
 	private PreferenciaUsuario preferenciaUsuario 	= new PreferenciaUsuario();
+	private RecomendadorDeDesafios estrategiaDeRecomendacionDeDesafios;	// FS: STRATEGY (!!!).
+	
 	private double recompensasAcumuladas;			 // FS: Las ganancias acumuladas que obtuvo por completar desafios.
 	private ArrayList<Muestra> muestrasSubidas 		= new ArrayList<Muestra>();
 	private ArrayList<Proyecto> proyectos 			= new ArrayList<Proyecto>();
