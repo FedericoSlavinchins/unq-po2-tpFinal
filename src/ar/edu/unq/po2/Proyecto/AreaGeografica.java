@@ -30,6 +30,12 @@ public class AreaGeografica {
 		this.radio = radio;
 	}
 	
+	//Da True si la ubicacion esta dentro del radio del Area.
+	public boolean estaEnRango(Ubicacion geocoordenada) {
+		return this.epicentro.distancia(geocoordenada) < this.radio;
+	}
+	
+	//Da True si dos Areas se solapan una con otra.
 	public boolean seSolapan(AreaGeografica area) {
 		return (this.radio + area.radio >= 
 				this.getEpicentro().distancia(area.getEpicentro()));

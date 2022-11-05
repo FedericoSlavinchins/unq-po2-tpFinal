@@ -56,7 +56,7 @@ public class Ubicacion {
 	 + ubicaciones: List<Ubicacion> - Lista de ubicaciones que se quiere saber si estan en el rango.
 	 + distancia: float - Distancia maxima entre ubicaciones.
 	 + return: List<Ubicacion> - Lista de ubicaciones que estan en el rango.
-	 */
+	 
 	public List<Ubicacion> ubicacionesAMenosDe(List<Ubicacion> ubicaciones, float distancia){
 		List<Ubicacion> ubicacionesEnRango = new ArrayList<Ubicacion>();
 		for (Ubicacion ubicacion : ubicaciones) {
@@ -65,7 +65,7 @@ public class Ubicacion {
 			}
 		}
 		return ubicacionesEnRango;
-	}
+	}*/
 
 	
 }
