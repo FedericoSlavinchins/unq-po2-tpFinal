@@ -3,11 +3,11 @@ package ar.edu.unq.po2.EstadoDesafio;
 import java.sql.Date;
 import java.time.LocalDate;
 
-import ar.edu.unq.po2.Desafios.Desafio;
+import ar.edu.unq.po2.Desafios.DesafioDeUsuario;
 
 public class NoAceptado implements EstadoDesafio {
 	
-	private Desafio desafio;
+	private DesafioDeUsuario desafio;
 	private LocalDate date;
 
 	@Override  
@@ -23,7 +23,7 @@ public class NoAceptado implements EstadoDesafio {
 	public void completar() {}
 
 	@Override
-	public void setDesafio(Desafio desafio) {
+	public void setDesafio(DesafioDeUsuario desafio) {
 		this.desafio = desafio;
 		
 	}

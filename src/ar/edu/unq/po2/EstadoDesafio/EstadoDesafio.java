@@ -1,5 +1,4 @@
 package ar.edu.unq.po2.EstadoDesafio;
-import ar.edu.unq.po2.Desafios.Desafio;
 import ar.edu.unq.po2.Desafios.DesafioDeUsuario;
 
 public interface EstadoDesafio {

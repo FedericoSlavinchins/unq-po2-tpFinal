@@ -1,13 +1,13 @@
 package ar.edu.unq.po2.EstadoDesafio;
 
-import ar.edu.unq.po2.Desafios.Desafio;
+import ar.edu.unq.po2.Desafios.DesafioDeUsuario;
 
 public class Completado implements EstadoDesafio {
 
 	// El protocolo de este estado es fijar que se completo el desafio 
 	// por ende los voids son vacios
 	
-	private Desafio desafio;
+	private DesafioDeUsuario desafio;
 	
 	@Override
 	public void aceptar() {
@@ -23,7 +23,7 @@ public class Completado implements EstadoDesafio {
 	}
 
 	@Override
-	public void setDesafio(Desafio desafio) {
+	public void setDesafio(DesafioDeUsuario desafio) {
 		this.desafio = desafio;
 	}
 }
