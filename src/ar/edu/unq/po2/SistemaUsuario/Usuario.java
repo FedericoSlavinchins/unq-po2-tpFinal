@@ -9,8 +9,9 @@ import ar.edu.unq.po2.Desafios.DesafioDeUsuario;
 public class Usuario {
 	
 	private Preferencias preferencias; //Agregar params
-	private ArrayList<DesafioDeUsuario>	desafiosAceptados 	= new ArrayList<DesafioDeUsuario>();
-	private ArrayList<DesafioDeUsuario>	desafiosCompletados	= new ArrayList<DesafioDeUsuario>();
+	private ArrayList<DesafioDeUsuario>	desafiosDisponibles	= new ArrayList<DesafioDeUsuario>();	// FS: No aceptados.
+	private ArrayList<DesafioDeUsuario>	desafiosAceptados 	= new ArrayList<DesafioDeUsuario>();	// FS: Aceptados.
+	private ArrayList<DesafioDeUsuario>	desafiosCompletados	= new ArrayList<DesafioDeUsuario>();	// FS: Completados.
 	
 	/*
 	public void aceptarDesafio(Desafio desafio) {

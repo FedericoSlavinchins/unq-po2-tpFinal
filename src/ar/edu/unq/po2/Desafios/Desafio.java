@@ -12,27 +12,24 @@ import ar.edu.unq.po2.Proyecto.AreaGeografica;
 public class Desafio  {
 	
 	private AreaGeografica area;
-	private ArrayList<RestriccionTemporal> restriccionTemporal = new ArrayList<RestriccionTemporal>();
+	private RestriccionTemporal restriccionTemporal;
 	private int cantidadObjetivoDeMuestras;
 	private int dificultad;
 	private double recompensa;
-	private int porcentaje;
-	private LocalDate fechaCompletado;
-	// agregados
-	private int desafiosAceptados;
-	private int voto;
-	private int cantidadMuestrasRealizadas;
-	private LocalDate fechaAceptado;
-
 	
-	private EstadoDesafio estado;
+	// private int porcentaje;			<--- FS: Lo moví a DesafioUsuario, tiene que ver con el progreso del usuario en el desafio.
+	// agregados
+	// private int desafiosAceptados;	<--- FS: Esto va en Usuario. No lo borré por las dudas.
+		private int voto;
+	// private LocalDate fechaAceptado; <--- FS: Esto va en DesafioUsuario. No lo borré por las dudas.
+
 	
 	
 	// construct 
-	
+	/*
 	public Desafio() {
-		setEstado(new NoAceptado());
-	}
+		setEstado(new NoAceptado());	FS: Revisar > El Estado del desafio es de DesafioUsuario
+	}*/
 	
 	
 	//GETTERS AND SETTERS
@@ -62,52 +59,11 @@ public class Desafio  {
 		this.recompensa = recompensa;
 	}
 
-	public int getPorcentaje() {
-		return porcentaje;
-	}
-
-	public void setPorcentaje(int porcentaje) {
-		this.porcentaje = porcentaje;
-	}
-
-	
-	
-	public LocalDate getFechaCompletado() {
-		return fechaCompletado;
-	}
-
-	public void setFechaCompletado(LocalDate date) {
-		this.fechaCompletado = date;
-	}
-
-	public LocalDate getFechaAceptado() {
-		return fechaAceptado;
-	}
-
-	public void setFechaAceptado(LocalDate localDate) {
-		this.fechaAceptado = localDate;
-	}
-
-	public EstadoDesafio getEstado() {
-		return estado;
-	}
-
 	public int getVoto() {
 		return voto;
 	}
 
-	public void setEstado(EstadoDesafio estado) {
-		this.estado = estado;
-		this.estado.setDesafio(this); //guarda la referencia de el estado de este desafio
-	}
-
-	public int getDesafiosAceptados() {
-		return desafiosAceptados;
-	}
 	
-	public void setDesafiosAceptados(int n) {
-		desafiosAceptados = n;
-	}
 	
 	// MAS Methods
 
@@ -125,9 +81,7 @@ public class Desafio  {
 	}
 	 
 	
-	public int porcentajeCompletitud() {
-		return (this.cantidadMuestrasRealizadas * 100) / this.cantidadObjetivoDeMuestras ;
-	}
+	
 
 	public void aceptar() {}
 	public void completar() {}
