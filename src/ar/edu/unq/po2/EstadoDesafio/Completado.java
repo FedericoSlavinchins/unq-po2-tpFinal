@@ -7,7 +7,7 @@ public class Completado implements EstadoDesafio {
 	// El protocolo de este estado es fijar que se completo el desafio 
 	// por ende los voids son vacios
 	
-	private DesafioDeUsuario desafio;
+	private DesafioDeUsuario desafioUsuario;
 	
 	@Override
 	public void aceptar() {
@@ -18,12 +18,9 @@ public class Completado implements EstadoDesafio {
 	public void completar() {
 	
 	}
-	public void valorar() { //Hace la votacion para ver cuanto le gusto el desafio
-		
-	}
 
 	@Override
 	public void setDesafio(DesafioDeUsuario desafio) {
-		this.desafio = desafio;
+		this.desafioUsuario = desafio;
 	}
 }
