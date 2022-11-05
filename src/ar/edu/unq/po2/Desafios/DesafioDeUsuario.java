@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import ar.edu.unq.po2.EstadoDesafio.EstadoDesafio;
 import ar.edu.unq.po2.EstadoDesafio.NoAceptado;
 import ar.edu.unq.po2.Proyecto.Muestra;
-import ar.edu.unq.po2.SistemaUsuario.Usuario;
+
 
 public class DesafioDeUsuario {
 	
@@ -18,38 +18,25 @@ public class DesafioDeUsuario {
 	private ArrayList<Muestra> muestrasValidas = new ArrayList<Muestra>();
 	private LocalDate fechaAceptado;
 	private LocalDate fechaCompletado;
-	private EstadoDesafio estado;			//FS: El estado debe estar en esta clase, ya que es parte del progreso del usuario.
-	private int valoracion;
-	
-	
-	
+	private EstadoDesafio estado;			//FS: El estado debe estar en esta clase, ya que es parte del progreso del usuario.	
+	private int voto;
 	
 	public DesafioDeUsuario (Desafio desafio) {
 		this.desafio = desafio;
 		this.estado  = new NoAceptado();
 	}
 	
-	
+
+	public EstadoDesafio getEstado() {
+			return estado;
+		}
+		
 	
 	public void setEstado(EstadoDesafio estado) {
 		this.estado = estado;
 	}
 	
-	
-	
-	
-	public int getValoracion() {
-		return valoracion;
-	}
-	
-	
-	
-	public void setValoracion(int valoracion) {
-		this.valoracion = valoracion;
-	}
-	
-	
-	
+		
 	public int cantidadMuestrasRecolectadasParaEsteDesafio() {
 		return this.muestrasRecolectadas.size();
 	}
@@ -74,6 +61,11 @@ public class DesafioDeUsuario {
 
 	
 	
+	public int getVoto() {
+		return voto;
+	}
+
+
 	public void setFechaAceptado(LocalDate fecha) {
 		this.fechaAceptado = fecha;
 	}
@@ -89,18 +81,12 @@ public class DesafioDeUsuario {
 	// sino manda mensaje
 		public void setVoto(int numero) {
 			if(numero >= 0 && numero <= 5 ) {
-				this.valoracion = numero;
+				voto = numero;
 			} else { System. out. println("El voto debe ser entre 0 y 5"); }
 		} 
-		
 
-		public ArrayList<DesafioDeUsuario> getDesafiosAceptados(Usuario usuario) {
-			return usuario.getDesafiosAceptados();
-		}
-
-			
 		
-		public boolean esMuestraValida(Muestra muestra) {
+	public boolean esMuestraValida(Muestra muestra) {
 			return (muestra.getFecha().isEqual(fechaAceptado) || muestra.getFecha().isAfter(fechaAceptado)) //primera parte valida si las muestra es posterior a la fecha de aceptacion
 					&& 
 			       this.getDesafio().getRestriccionTemporal().cumplioPeriodo(fechaAceptado) // segunda parte valida si cumple las restricciones temporales
@@ -110,8 +96,4 @@ public class DesafioDeUsuario {
 
 
 
-		public EstadoDesafio getEstado() {
-			return estado;
-		}
-		
 }
