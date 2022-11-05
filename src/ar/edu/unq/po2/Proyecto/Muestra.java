@@ -2,6 +2,7 @@ package ar.edu.unq.po2.Proyecto;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.temporal.ChronoUnit;
 
 import ar.edu.unq.po2.SistemaUsuario.Usuario;
 
@@ -22,7 +23,7 @@ public class Muestra {
 	}
 
 	public LocalTime getHora() {
-		return this.hora;
+		return this.hora.truncatedTo(ChronoUnit.SECONDS);
 	}
 	
 }
