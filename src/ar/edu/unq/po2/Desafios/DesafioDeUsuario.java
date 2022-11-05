@@ -14,10 +14,9 @@ public class DesafioDeUsuario {
 	
 	private Desafio desafio;
 	private ArrayList<Muestra> muestrasRecolectadas = new ArrayList<Muestra>();
-	private LocalDate fechaAceptado;		//FS: Se instancia cuando se acepta el desafio, por lo tanto, al instanciarse toma la fecha en que es aceptado.
+	private LocalDate fechaAceptado;
 	private LocalDate fechaCompletado;
 	private EstadoDesafio estado;			//FS: El estado debe estar en esta clase, ya que es parte del progreso del usuario.
-	private int porcentajeCompletitud;
 	
 	public DesafioDeUsuario (Desafio desafio) {
 		this.desafio = desafio;
@@ -36,13 +35,22 @@ public class DesafioDeUsuario {
 		return this.fechaCompletado;
 	}
 	
-	public int porcentajeCompletitud() {
+	public int porcentajeCompletitud() {	// FS: Este método nos lleva a no tener la necesidad de tener una variable porcentajeCompletitud, por lo tanto la borro.
 		return (this.cantidadMuestrasRecolectadasParaEsteDesafio() * 100) / this.desafio.getCantidadObjetivoDeMuestras() ;
 	}
 	
-	public void setEstado(EstadoDesafio estado) {
+	public void setEstado(EstadoDesafio estado) {	//FS: Revisar
 		this.estado = estado;
 		this.estado.setDesafio(this); //guarda la referencia de el estado de este desafio
 	}
+
+	public void setFechaAceptado(LocalDate fecha) {
+		this.fechaAceptado = fecha;
+	}
+
+	public Desafio getDesafio() {
+		return this.desafio;
+	}
+
 
 }
