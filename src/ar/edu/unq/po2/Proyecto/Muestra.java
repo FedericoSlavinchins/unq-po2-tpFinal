@@ -8,13 +8,13 @@ import ar.edu.unq.po2.SistemaUsuario.Usuario;
 
 public class Muestra {
 	
-    private Geocoordenada geocoordenada;
+    private Ubicacion geocoordenada;
 	private Usuario usuario;
 	private LocalDate fecha = LocalDate.now();
 	private LocalTime hora = LocalTime.now();
 	
 	
-	public Muestra(Usuario usuario, Geocoordenada geocoordenada) {
+	public Muestra(Usuario usuario, Ubicacion geocoordenada) {
 		this.usuario = usuario;
 		this.geocoordenada = geocoordenada;
 	}
