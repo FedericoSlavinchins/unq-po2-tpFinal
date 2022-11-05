@@ -20,7 +20,7 @@ public class Desafio  {
 	// private int porcentaje;			<--- FS: Lo moví a DesafioUsuario, tiene que ver con el progreso del usuario en el desafio.
 	// agregados
 	// private int desafiosAceptados;	<--- FS: Esto va en Usuario. No lo borré por las dudas.
-		private int voto;
+	// private int voto;				<--- FS: El voto es personal de cada usuario, no de todos los usuarios, lo muevo a DesafioDeUsuario.
 	// private LocalDate fechaAceptado; <--- FS: Esto va en DesafioUsuario. No lo borré por las dudas.
 
 	
@@ -59,27 +59,9 @@ public class Desafio  {
 		this.recompensa = recompensa;
 	}
 
-	public int getVoto() {
-		return voto;
-	}
-
 	
 	
 	// MAS Methods
-
-	public void AceptarDesafio() {
-		
-	}
-	
-	
-	// guarda el numero n si esta entre 0 y 5 
-	// sino manda mensaje
-	public void votar(int n ) {
-		if(n >= 0 && n <= 5 ) {
-			this.voto = n;
-		} else { System. out. println("El voto debe ser entre 0 y 5"); }
-	}
-	 
 	
 	
 
