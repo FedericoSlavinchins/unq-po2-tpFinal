@@ -17,11 +17,6 @@ public class Aceptado implements EstadoDesafio {
 		//this.setDate(Date today)
 		desafio.setFechaCompletado(LocalDate.now());
 		desafio.setEstado(new Completado()); // Setea estado completado
-		this.valorar();
-		
-	}
-	
-	public void valorar() { //Hace la votacion para ver cuanto le gusto el desafio
 		
 	}
 

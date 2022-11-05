@@ -24,10 +24,4 @@ public class NoAceptado implements EstadoDesafio {
 		this.desafio = desafio;
 		
 	}
-	
-	@Override
-	public void valorar() {
-
-		
-	}
 }
