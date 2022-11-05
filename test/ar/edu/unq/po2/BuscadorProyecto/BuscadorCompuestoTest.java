@@ -41,7 +41,7 @@ class BuscadorCompuestoTest {
 	}
 	
 	@Test
-	void cuandoSeSetteaUnBuscadorSobreBuscadorCompuestoElSegundoBuscadorEsElBuscadorTitulo() {
+	void cuandoSeSeteaUnBuscadorSobreBuscadorCompuestoElSegundoBuscadorEsElBuscadorTitulo() {
 		BuscadorTitulo resultadoEsperado = buscadorTitulo;
 		buscadorCompuesto.setSegundoBuscador(buscadorTitulo);
 		BuscadorTitulo resultado = (BuscadorTitulo) buscadorCompuesto.getSegundoBuscador();
