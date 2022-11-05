@@ -135,7 +135,10 @@ public class Usuario {
 	public ArrayList<DesafioDeUsuario> getDesafiosCompletados() {
 		return desafiosCompletados;
 	}
-	
+		
+	public void votar(DesafioDeUsuario desafio,int valorDeVoto) {
+		desafio.setVoto(valorDeVoto);
+	}
 	
 	
 	
