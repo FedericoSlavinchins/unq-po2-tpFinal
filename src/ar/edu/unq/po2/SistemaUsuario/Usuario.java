@@ -7,11 +7,13 @@ import java.util.List;
 import ar.edu.unq.po2.Desafios.Desafio;
 import ar.edu.unq.po2.Desafios.DesafioDeUsuario;
 import ar.edu.unq.po2.EstadoDesafio.Aceptado;
+import ar.edu.unq.po2.Proyecto.Categoria;
 import ar.edu.unq.po2.Proyecto.Muestra;
 import ar.edu.unq.po2.Proyecto.Proyecto;
 
 public class Usuario {
 	
+	private String nombre;
 	private PreferenciaUsuario preferenciaUsuario 	= new PreferenciaUsuario();
 	private RecomendadorDeDesafios estrategiaDeRecomendacionDeDesafios;	// FS: STRATEGY (!!!).
 	
@@ -24,9 +26,16 @@ public class Usuario {
 	private ArrayList<DesafioDeUsuario>	desafiosCompletados	= new ArrayList<DesafioDeUsuario>();	// FS: Completados.
 	
 	
+	public Usuario(String nombre) {
+		this.nombre = nombre;
+	}
 	
 	
-	
+	public ArrayList<Proyecto> getProyectos() {
+		return proyectos;
+	}
+
+
 	public void suscribirseAProyecto(Proyecto proyecto) {
 		proyectos.add(proyecto);
 		proyecto.agregarParticipante(this);
@@ -96,6 +105,26 @@ public class Usuario {
 		return (resultado + (this.desafiosCompletados.size() * 100)) / 
 					(this.desafiosAceptados.size() + 
 					this.desafiosCompletados.size());
+	}
+
+
+	public ArrayList<Muestra> getMuestrasSubidas() {
+		return this.muestrasSubidas;
+	}
+
+
+	public ArrayList<DesafioDeUsuario> getDesafiosDisponibles() {
+		return desafiosDisponibles;
+	}
+
+
+	public ArrayList<DesafioDeUsuario> getDesafiosAceptados() {
+		return desafiosAceptados;
+	}
+
+
+	public ArrayList<DesafioDeUsuario> getDesafiosCompletados() {
+		return desafiosCompletados;
 	}
 	
 	

@@ -9,9 +9,9 @@ public class Proyecto {
 	
 	private String nombre;
 	private String descripcion;
-	private ArrayList<Usuario> participantesActivos;		// Participantes activos en este proyecto actualmente
-	private ArrayList<Muestra> muestras;					// Muestras subidas para este proyecto
-	private ArrayList<Categoria> categorias;				// Las categorias a las que pertenece el proyecto
+	private ArrayList<Usuario> participantesActivos = new ArrayList<Usuario>();		// Participantes activos en este proyecto actualmente
+	private ArrayList<Muestra> muestras = new ArrayList<Muestra>();						// Muestras subidas para este proyecto
+	private ArrayList<Categoria> categorias = new ArrayList<Categoria>();				// Las categorias a las que pertenece el proyecto
 	
 	
 	
@@ -42,11 +42,15 @@ public class Proyecto {
 	}
 
 	
-	public List<String> getNombresDeCategorias() {
+	public List<String> nombresDeCategorias() {
 		ArrayList<String> nombres = new ArrayList<String>();
 		for (Categoria categoria : this.categorias) {
 			nombres.add(categoria.getNombre());
 		}
 		return nombres;
+	}
+
+	public String getDescripcion() {
+		return this.descripcion;
 	}
 }

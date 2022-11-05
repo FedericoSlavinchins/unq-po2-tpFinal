@@ -16,7 +16,7 @@ public class ExcluidorDeCategorias extends BuscadorCategoria {
 	public ArrayList<Proyecto> filtrar(ArrayList<Proyecto> proyectosAFiltrar) {
 		ArrayList<Proyecto> resultadoBusqueda = new ArrayList<Proyecto>();
 		for (Proyecto proyecto : proyectosAFiltrar) {
-			if (!(proyecto.getNombresDeCategorias().containsAll(this.getCategoriasObjetivo()))) {
+			if (!(proyecto.nombresDeCategorias().containsAll(this.getCategoriasObjetivo()))) {
 				resultadoBusqueda.add(proyecto);
 			}
 		}

@@ -19,7 +19,7 @@ class MuestraTest {
 	
 	@BeforeEach
 	public void setUp() {
-		usuario = new Usuario();
+		usuario = new Usuario("nombreUsuario");
 		geocoordenada = new Geocoordenada();
 		muestra = new Muestra(usuario, geocoordenada);
 	}
