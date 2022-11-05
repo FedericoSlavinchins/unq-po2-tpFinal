@@ -17,7 +17,12 @@ public class EntreFechas implements RestriccionTemporal {
 	
 	@Override 
 	public boolean cumplirPeriodo(LocalDate fechaObjetivo) {
-		return ((fechaObjetivo.isAfter(fechaInicio)) && (fechaObjetivo.isBefore(fechaFin)));
+		return (fechaObjetivo.isEqual(this.fechaInicio)				// FS: Completo el día de fecha inicio restricción.
+				||
+				(fechaObjetivo.isAfter(fechaInicio)) && (fechaObjetivo.isBefore(fechaFin)) // FS: Completó entre fecha inicio y fecha fin.
+				||
+				fechaObjetivo.isEqual(this.fechaFin)				// FS: Completo el desafío en el último día.
+				);
 	}
 	
 }
