@@ -11,13 +11,13 @@ public class RecomendacionPorFavoritos implements RecomendadorDeDesafios {
 
 
 	@Override
-	public int calcularCoincidencia(Desafio desafio) {
+	public double calcularCoincidencia(Desafio desafio) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public List<Desafio> DesafiosRecomendados(List<Desafio> recomendados) {
+	public List<DesafioDeUsuario> DesafiosRecomendados() {
 		// TODO Auto-generated method stub
 		return null;
 	}

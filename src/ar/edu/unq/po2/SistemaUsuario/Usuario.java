@@ -69,6 +69,7 @@ public class Usuario {
 	public void completarDesafioDeUsuario(DesafioDeUsuario desafioDeUsuario) {
 		// FS: Precondición: el desafio de usuario debe haber sido previamente aceptado.
 		this.desafiosAceptados.remove(desafioDeUsuario);
+		//Cambio de estado, deberia pasar de Aceptado a Completado.
 		this.desafiosCompletados.add(desafioDeUsuario);
 		desafioDeUsuario.setFechaCompletado(LocalDate.now());
 		this.recompensasAcumuladas += desafioDeUsuario.getDesafio().getRecompensa();	// FS: Otorga recompensa.
