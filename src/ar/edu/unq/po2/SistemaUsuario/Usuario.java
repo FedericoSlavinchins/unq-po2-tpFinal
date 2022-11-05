@@ -19,7 +19,7 @@ public class Usuario {
 	private RecomendadorDeLudificacion estrategiaDeRecomendacionDeDesafios;	// FS: Cambiada la referencia, referenciaba incorrectamente la interfaz y no la clase.
 	
 	private double recompensasAcumuladas;			 // FS: Las ganancias acumuladas que obtuvo por completar desafios.
-	private ArrayList<Muestra> muestrasSubidas;
+
 	private ArrayList<Proyecto> proyectos;
 	
 	private ArrayList<DesafioDeUsuario>	desafiosDisponibles;	// FS: No aceptados.
@@ -31,7 +31,6 @@ public class Usuario {
 		this.nombre = nombre;
 		this.preferenciaUsuario = new PreferenciaUsuario(0,0,0);
 		this.recompensasAcumuladas = 0;
-		this.muestrasSubidas = new ArrayList<Muestra>();
 		this.proyectos = new ArrayList<Proyecto>();
 		this.desafiosDisponibles = new ArrayList<DesafioDeUsuario>();
 		this.desafiosAceptados 	= new ArrayList<DesafioDeUsuario>();
@@ -51,8 +50,12 @@ public class Usuario {
 	}
 	
 	public void recolectarMuestra(Muestra muestra, Proyecto proyecto) {
-		this.muestrasSubidas.add(muestra);	// FS: Agregar a muestras subidas del usuario.
 		proyecto.agregarMuestra(muestra); 	// FS: Agregar la muestra al proyecto.
+		/*
+		for (DesafioDeUsuario desafioDeUsuario : desafiosAceptados) {
+			desafioDeUsuario.va
+		}
+		*/
 	}
 	
 	
@@ -117,10 +120,6 @@ public class Usuario {
 					this.desafiosCompletados.size());
 	}
 
-
-	public ArrayList<Muestra> getMuestrasSubidas() {
-		return this.muestrasSubidas;
-	}
 
 
 	public ArrayList<DesafioDeUsuario> getDesafiosDisponibles() {
