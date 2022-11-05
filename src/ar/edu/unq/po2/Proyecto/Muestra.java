@@ -26,5 +26,8 @@ public class Muestra {
 	public LocalTime getHora() {
 		return this.hora.truncatedTo(ChronoUnit.SECONDS);
 	}
+	public Ubicacion getGeocoordenada() {
+		return this.geocoordenada;
+	}
 	
 }
