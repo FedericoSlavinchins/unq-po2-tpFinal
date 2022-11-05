@@ -17,10 +17,7 @@ public class DesafioDeUsuario {
 	private ArrayList<Muestra> muestrasRecolectadas = new ArrayList<Muestra>(); // Muestras recolectadas para el desafio.
 	private LocalDate fechaAceptado;
 	private LocalDate fechaCompletado;
-	private EstadoDesafio estado;			//FS: El estado debe estar en esta clase, ya que es parte del progreso del usuario.
-	private int valoracion;
-	
-	
+	private EstadoDesafio estado;			//FS: El estado debe estar en esta clase, ya que es parte del progreso del usuario.	
 	
 	
 	public DesafioDeUsuario (Desafio desafio) {
@@ -34,21 +31,7 @@ public class DesafioDeUsuario {
 		this.estado = estado;
 	}
 	
-	
-	
-	
-	public int getValoracion() {
-		return valoracion;
-	}
-	
-	
-	
-	public void setValoracion(int valoracion) {
-		this.valoracion = valoracion;
-	}
-	
-	
-	
+		
 	public int cantidadMuestrasRecolectadasParaEsteDesafio() {
 		return this.muestrasRecolectadas.size();
 	}
@@ -88,7 +71,7 @@ public class DesafioDeUsuario {
 	// sino manda mensaje
 		public void setVoto(int numero) {
 			if(numero >= 0 && numero <= 5 ) {
-				this.valoracion = numero;
+				 = numero;
 			} else { System. out. println("El voto debe ser entre 0 y 5"); }
 		} 
 		

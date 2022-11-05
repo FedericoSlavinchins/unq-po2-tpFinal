@@ -66,14 +66,14 @@ public class Usuario {
 	}
 	
 	
-	public void completarDesafioDeUsuario(DesafioDeUsuario desafioDeUsuario) {
+	public void completarDesafioDeUsuario(DesafioDeUsuario desafioDeUsuario,int valorVoto) {
 		// FS: Precondición: el desafio de usuario debe haber sido previamente aceptado.
 		this.desafiosAceptados.remove(desafioDeUsuario);
 		//Cambio de estado, deberia pasar de Aceptado a Completado.
 		this.desafiosCompletados.add(desafioDeUsuario);
 		desafioDeUsuario.getEstado().completar();
 		this.recompensasAcumuladas += desafioDeUsuario.getDesafio().getRecompensa();	// FS: Otorga recompensa.
-		//this.votarDesafio(desafioDeUsuario, 0);	// El usuario debe elegir el voto.
+		this.votar(desafioDeUsuario,valorVoto);	// El usuario debe elegir el voto.
 	}
 	
 	
@@ -135,7 +135,7 @@ public class Usuario {
 		return desafiosCompletados;
 	}
 		
-	public void votar(DesafioDeUsuario desafio,int valorDeVoto) {
+	public void votar(DesafioDeUsuario desafioDeUsuario,int valorDeVoto) {
 		desafio.setVoto(valorDeVoto);
 	}
 	
