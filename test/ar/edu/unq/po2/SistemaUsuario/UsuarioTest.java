@@ -14,6 +14,8 @@ import ar.edu.unq.po2.Proyecto.Geocoordenada;
 import ar.edu.unq.po2.Proyecto.Muestra;
 import ar.edu.unq.po2.Proyecto.Proyecto;
 
+import static org.mockito.Mockito.*;
+
 class UsuarioTest {
 	
 	private Usuario usuario;
@@ -35,7 +37,7 @@ class UsuarioTest {
 		listaDeCategorias = new ArrayList<Categoria>();
 		categoria = new Categoria("Biología");
 		listaDeCategorias.add(categoria);
-		proyecto = new Proyecto("proyecto", "descripcion", listaDeCategorias);
+		proyecto = mock(Proyecto.class);
 	}
 
 	@Test
