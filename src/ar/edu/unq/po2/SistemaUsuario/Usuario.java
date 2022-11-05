@@ -14,20 +14,28 @@ import ar.edu.unq.po2.Proyecto.Proyecto;
 public class Usuario {
 	
 	private String nombre;
-	private PreferenciaUsuario preferenciaUsuario 	= new PreferenciaUsuario();
-	private RecomendadorDeDesafios estrategiaDeRecomendacionDeDesafios;	// FS: STRATEGY (!!!).
+	private PreferenciaUsuario preferenciaUsuario;
+	private RecomendadorDeLudificacion estrategiaDeRecomendacionDeDesafios;	// FS: Cambiada la referencia, referenciaba incorrectamente la interfaz y no la clase.
 	
 	private double recompensasAcumuladas;			 // FS: Las ganancias acumuladas que obtuvo por completar desafios.
-	private ArrayList<Muestra> muestrasSubidas 		= new ArrayList<Muestra>();
-	private ArrayList<Proyecto> proyectos 			= new ArrayList<Proyecto>();
+	private ArrayList<Muestra> muestrasSubidas;
+	private ArrayList<Proyecto> proyectos;
 	
-	private ArrayList<DesafioDeUsuario>	desafiosDisponibles	= new ArrayList<DesafioDeUsuario>();	// FS: No aceptados.
-	private ArrayList<DesafioDeUsuario>	desafiosAceptados 	= new ArrayList<DesafioDeUsuario>();	// FS: Aceptados.
-	private ArrayList<DesafioDeUsuario>	desafiosCompletados	= new ArrayList<DesafioDeUsuario>();	// FS: Completados.
+	private ArrayList<DesafioDeUsuario>	desafiosDisponibles;	// FS: No aceptados.
+	private ArrayList<DesafioDeUsuario>	desafiosAceptados;		// FS: Aceptados.
+	private ArrayList<DesafioDeUsuario>	desafiosCompletados;	// FS: Completados.
 	
 	
 	public Usuario(String nombre) {
 		this.nombre = nombre;
+		this.preferenciaUsuario = new PreferenciaUsuario(0,0,0);
+		this.recompensasAcumuladas = 0;
+		this.muestrasSubidas = new ArrayList<Muestra>();
+		this.proyectos = new ArrayList<Proyecto>();
+		this.desafiosDisponibles = new ArrayList<DesafioDeUsuario>();
+		this.desafiosAceptados 	= new ArrayList<DesafioDeUsuario>();
+		this.desafiosCompletados	= new ArrayList<DesafioDeUsuario>();
+		
 	}
 	
 	
