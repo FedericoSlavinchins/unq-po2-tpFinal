@@ -136,7 +136,7 @@ public class Usuario {
 	}
 		
 	public void votar(DesafioDeUsuario desafioDeUsuario,int valorDeVoto) {
-		desafio.setVoto(valorDeVoto);
+		desafioDeUsuario.setVoto(valorDeVoto);
 	}
 	
 	
