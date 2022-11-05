@@ -92,24 +92,20 @@ public class DesafioDeUsuario {
 				this.valoracion = numero;
 			} else { System. out. println("El voto debe ser entre 0 y 5"); }
 		} 
-		// 0 no gusto 1 gusto poco 2 regular 3 gusto 4 gusto mucho 5 encanto 
-		// como dividimos las votaciones?
+		
 
 		public ArrayList<DesafioDeUsuario> getDesafiosAceptados(Usuario usuario) {
 			return usuario.getDesafiosAceptados();
 		}
 
+			
 		
-	
-		//primera parte valida si las muestra es posterior a la fecha de aceptacion
-		// segunda parte valida si cumple las restricciones temporales
-		// Tercer parte valida el area de la muestra
-		public boolean validarMuestra(Muestra muestra) {
-			return (muestra.getFecha().isEqual(fechaAceptado) || muestra.getFecha().isAfter(fechaAceptado))
+		public boolean esMuestraValida(Muestra muestra) {
+			return (muestra.getFecha().isEqual(fechaAceptado) || muestra.getFecha().isAfter(fechaAceptado)) //primera parte valida si las muestra es posterior a la fecha de aceptacion
 					&& 
-			       this.getDesafio().getRestriccionTemporal().cumplioPeriodo(fechaAceptado) 
+			       this.getDesafio().getRestriccionTemporal().cumplioPeriodo(fechaAceptado) // segunda parte valida si cumple las restricciones temporales
 			       &&  
-			       desafio.getArea().estaEnRango(muestra.getGeocoordenada())	;		
+			       desafio.getArea().estaEnRango(muestra.getGeocoordenada());		// Tercer parte valida el area de la muestra
 		}
 		
 }
