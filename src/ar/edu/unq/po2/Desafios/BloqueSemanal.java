@@ -1,5 +1,6 @@
 package ar.edu.unq.po2.Desafios;
 
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 
 public class BloqueSemanal implements RestriccionTemporal {
@@ -22,21 +23,21 @@ public class BloqueSemanal implements RestriccionTemporal {
 	}
 	
 	private boolean cumplioDesafioFinDeSemana(LocalDate fechaObjetivo) {		
-		return  (fechaObjetivo.getDayOfWeek().getValue() == 6) 
+		return  (fechaObjetivo.getDayOfWeek() == DayOfWeek.SATURDAY) 
 				||
-			    (fechaObjetivo.getDayOfWeek().getValue() == 7);
+			    (fechaObjetivo.getDayOfWeek() == DayOfWeek.SUNDAY);
 	}
 
 	private boolean cumplioDesafioEnDiaDeSemana(LocalDate fechaObjetivo) {
-		return  (fechaObjetivo.getDayOfWeek().getValue() == 1) 
+		return  (fechaObjetivo.getDayOfWeek() == DayOfWeek.MONDAY) 
 				||
-				(fechaObjetivo.getDayOfWeek().getValue() == 2) 
+				(fechaObjetivo.getDayOfWeek() == DayOfWeek.TUESDAY) 
 				||
-				(fechaObjetivo.getDayOfWeek().getValue() == 3) 
+				(fechaObjetivo.getDayOfWeek() == DayOfWeek.WEDNESDAY) 
 				||
-				(fechaObjetivo.getDayOfWeek().getValue() == 4) 
+				(fechaObjetivo.getDayOfWeek() == DayOfWeek.THURSDAY) 
 				||
-			    (fechaObjetivo.getDayOfWeek().getValue() == 5);
+			    (fechaObjetivo.getDayOfWeek() == DayOfWeek.FRIDAY);
 	}
 	
 }
