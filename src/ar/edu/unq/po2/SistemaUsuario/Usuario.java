@@ -65,8 +65,7 @@ public class Usuario {
 		// FS: Precondición: el desafio de usuario debe estar disponible para el usuario.
 		desafiosDisponibles.remove(desafioDeUsuario);
 		this.desafiosAceptados.add(desafioDeUsuario);
-		desafioDeUsuario.setEstado(new Aceptado());			// FS: Setea instancia ACEPTADO en DesafioDeUsuario.
-		desafioDeUsuario.setFechaAceptado(LocalDate.now());
+		desafioDeUsuario.getEstado().aceptar();		// FS: Setea instancia ACEPTADO en DesafioDeUsuario.
 	}
 	
 	
@@ -75,8 +74,7 @@ public class Usuario {
 		this.desafiosAceptados.remove(desafioDeUsuario);
 		//Cambio de estado, deberia pasar de Aceptado a Completado.
 		this.desafiosCompletados.add(desafioDeUsuario);
-		desafioDeUsuario.setEstado(new Completado());	
-		desafioDeUsuario.setFechaCompletado(LocalDate.now());
+		desafioDeUsuario.getEstado().completar();
 		this.recompensasAcumuladas += desafioDeUsuario.getDesafio().getRecompensa();	// FS: Otorga recompensa.
 		//this.votarDesafio(desafioDeUsuario, 0);	// El usuario debe elegir el voto.
 	}
