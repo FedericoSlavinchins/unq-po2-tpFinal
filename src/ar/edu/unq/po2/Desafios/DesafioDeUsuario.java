@@ -106,5 +106,11 @@ public class DesafioDeUsuario {
 			       &&  
 			       desafio.getArea().estaEnRango(muestra.getGeocoordenada());		// Tercer parte valida el area de la muestra
 		}
+
+
+
+		public EstadoDesafio getEstado() {
+			return estado;
+		}
 		
 }
