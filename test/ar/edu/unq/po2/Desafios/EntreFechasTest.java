@@ -28,19 +28,19 @@ class EntreFechasTest {
 
 	@Test
 	void siSeCompletoElDesafioEl26Septiembre2022NoCumplioConElPeriodoDeRestriccion() {
-		boolean resultado   = restriccionEntreFechas.cumplirPeriodo(fechaEnQueSeCompletoDesafioTest1);
+		boolean resultado   = restriccionEntreFechas.cumplioPeriodo(fechaEnQueSeCompletoDesafioTest1);
 		assertFalse(resultado);
 	}
 	
 	@Test
 	void siSeCompletoElDesafioEl25Septiembre2022CumplioConElPeriodoDeRestriccion() {
-		boolean resultado   = restriccionEntreFechas.cumplirPeriodo(fechaEnQueSeCompletoDesafioTest2);
+		boolean resultado   = restriccionEntreFechas.cumplioPeriodo(fechaEnQueSeCompletoDesafioTest2);
 		assertTrue(resultado);
 	}
 	
 	@Test
 	void siSeCompletoElDesafioEl20Septiembre2022CumplioConElPeriodoDeRestriccion() {
-		boolean resultado   = restriccionEntreFechas.cumplirPeriodo(fechaEnQueSeCompletoDesafioTest3);
+		boolean resultado   = restriccionEntreFechas.cumplioPeriodo(fechaEnQueSeCompletoDesafioTest3);
 		assertTrue(resultado);
 	}
 

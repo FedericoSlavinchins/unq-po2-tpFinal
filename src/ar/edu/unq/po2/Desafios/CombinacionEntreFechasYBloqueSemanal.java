@@ -14,10 +14,10 @@ public class CombinacionEntreFechasYBloqueSemanal implements RestriccionTemporal
 		this.restriccionBloqueSemanal = restriccionBloqueSemanal;
 	}
 
-	public boolean cumplirPeriodo(LocalDate fechaObjetivo) {		// F.S.: Cumple periodo de restriccion si cumplió con periodo de ambas restricciones (EntreFechas y BloqueSemanal).
-		return( restriccionEntreFechas.cumplirPeriodo(fechaObjetivo)
+	public boolean cumplioPeriodo(LocalDate fechaObjetivo) {		// F.S.: Cumple periodo de restriccion si cumplió con periodo de ambas restricciones (EntreFechas y BloqueSemanal).
+		return( restriccionEntreFechas.cumplioPeriodo(fechaObjetivo)
 				&&
-				restriccionBloqueSemanal.cumplirPeriodo(fechaObjetivo));
+				restriccionBloqueSemanal.cumplioPeriodo(fechaObjetivo));
 	}
 	
 	
