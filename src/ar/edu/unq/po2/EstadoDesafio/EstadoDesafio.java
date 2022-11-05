@@ -8,7 +8,6 @@ public interface EstadoDesafio {
 	
 	public abstract void aceptar();
 	public abstract void completar();
-	public abstract void valorar() ;
 	
 	public abstract void setDesafio(DesafioDeUsuario desafioDeUsuario);
 }
