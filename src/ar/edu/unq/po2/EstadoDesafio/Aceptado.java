@@ -1,6 +1,5 @@
 package ar.edu.unq.po2.EstadoDesafio;
 
-import java.sql.Date;
 import java.time.LocalDate;
 
 import ar.edu.unq.po2.Desafios.DesafioDeUsuario;
