@@ -7,27 +7,49 @@ import java.util.List;
 import ar.edu.unq.po2.Desafios.Desafio;
 import ar.edu.unq.po2.Desafios.DesafioDeUsuario;
 import ar.edu.unq.po2.EstadoDesafio.Aceptado;
+import ar.edu.unq.po2.Proyecto.Muestra;
+import ar.edu.unq.po2.Proyecto.Proyecto;
 
 public class Usuario {
 	
-	private PreferenciaUsuario preferenciaUsuario = new PreferenciaUsuario();
-	private double recompensasAcumuladas;							// FS: Las ganancias acumuladas que obtuvo por completar desafios.
+	private PreferenciaUsuario preferenciaUsuario 	= new PreferenciaUsuario();
+	private double recompensasAcumuladas;			 // FS: Las ganancias acumuladas que obtuvo por completar desafios.
+	private ArrayList<Muestra> muestrasSubidas 		= new ArrayList<Muestra>();
+	private ArrayList<Proyecto> proyectos 			= new ArrayList<Proyecto>();
+	
 	private ArrayList<DesafioDeUsuario>	desafiosDisponibles	= new ArrayList<DesafioDeUsuario>();	// FS: No aceptados.
 	private ArrayList<DesafioDeUsuario>	desafiosAceptados 	= new ArrayList<DesafioDeUsuario>();	// FS: Aceptados.
 	private ArrayList<DesafioDeUsuario>	desafiosCompletados	= new ArrayList<DesafioDeUsuario>();	// FS: Completados.
 	
+	
+	
+	
+	
+	public void suscribirseAProyecto(Proyecto proyecto) {
+		proyectos.add(proyecto);
+		proyecto.agregarParticipante(this);
+	}
+	
+	public void recolectarMuestra(Muestra muestra, Proyecto proyecto) {
+		this.muestrasSubidas.add(muestra);	// FS: Agregar a muestras subidas del usuario.
+		proyecto.agregarMuestra(muestra); 	// FS: Agregar la muestra al proyecto.
+	}
+	
+	
+	
 	// FS: Métodos aceptar y completar desafío.
 	public void aceptarDesafioDeUsuario(DesafioDeUsuario desafioDeUsuario) {
-		if (desafiosDisponibles.contains(desafioDeUsuario)) {
-			this.desafiosAceptados.add(desafioDeUsuario);
-			desafioDeUsuario.setEstado(new Aceptado());			// FS: Setea instancia ACEPTADO en DesafioDeUsuario.
-			desafioDeUsuario.setFechaAceptado(LocalDate.now());
-		}
+		// FS: Precondición: el desafio de usuario debe estar disponible para el usuario.
+		desafiosDisponibles.remove(desafioDeUsuario);
+		this.desafiosAceptados.add(desafioDeUsuario);
+		desafioDeUsuario.setEstado(new Aceptado());			// FS: Setea instancia ACEPTADO en DesafioDeUsuario.
+		desafioDeUsuario.setFechaAceptado(LocalDate.now());
 		// FS: Si el desafio de usuario no está disponible para el usuario, este método no hace nada.
 	}
 	
 	
-	public void completarDesafioDeUsuario(DesafioDeUsuario desafioDeUsuario) {		// FS: Precondición: el desafio de usuario debe haber sido previamente aceptado.
+	public void completarDesafioDeUsuario(DesafioDeUsuario desafioDeUsuario) {
+		// FS: Precondición: el desafio de usuario debe haber sido previamente aceptado.
 		this.desafiosAceptados.remove(desafioDeUsuario);
 		this.desafiosCompletados.add(desafioDeUsuario);
 		desafioDeUsuario.setFechaCompletado(LocalDate.now());
@@ -38,7 +60,7 @@ public class Usuario {
 	
 	/*
 	public void votarDesafio(DesafioDeUsuario desafioDeUsuario, int voto) {
-		
+		Falta realizar.
 	}
 	*/
 	
