@@ -55,7 +55,6 @@ public class Usuario {
 		this.desafiosAceptados.add(desafioDeUsuario);
 		desafioDeUsuario.setEstado(new Aceptado());			// FS: Setea instancia ACEPTADO en DesafioDeUsuario.
 		desafioDeUsuario.setFechaAceptado(LocalDate.now());
-		// FS: Si el desafio de usuario no está disponible para el usuario, este método no hace nada.
 	}
 	
 	
