@@ -39,6 +39,19 @@ public class Desafio  {
 		return cantidadObjetivoDeMuestras;
 	}
 
+	public AreaGeografica getArea() {
+		return area;
+	}
+
+
+	public RestriccionTemporal getRestriccionTemporal() {
+		return restriccionTemporal;
+	}
+
+	public void setRestriccionTemporal(RestriccionTemporal restriccionTemporal) {
+		this.restriccionTemporal = restriccionTemporal;
+	}
+
 	public void setCantidadObjetivoDeMuestras(int cantidadObjetivoDeMuestras) {
 		this.cantidadObjetivoDeMuestras = cantidadObjetivoDeMuestras;
 	}
