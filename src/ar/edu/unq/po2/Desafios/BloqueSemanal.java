@@ -2,7 +2,7 @@ package ar.edu.unq.po2.Desafios;
 
 import java.time.LocalDate;
 
-public class BloqueSemanal extends RestriccionTemporal {
+public class BloqueSemanal implements RestriccionTemporal {
 
 	private boolean hayRestriccionesDiaSemana;
 	
@@ -10,12 +10,14 @@ public class BloqueSemanal extends RestriccionTemporal {
 		this.hayRestriccionesDiaSemana = hayRestriccionesDiaSemana;
 	}
 	
+	// F.S.: Fecha objetivo es una fecha que debe ser pasada como parámetro, y que corresponde a la fecha en que se completó el desafío.
+	
 	@Override 
 	public boolean cumplirPeriodo(LocalDate fechaObjetivo) {
-		if(hayRestriccionesDiaSemana) {
-			return cumplioDesafioEnDiaDeSemana(fechaObjetivo);
+		if (hayRestriccionesDiaSemana) {
+			return cumplioDesafioEnDiaDeSemana(fechaObjetivo);		// F.S.: Retorna true o false si realmente cumplió el desafío en día de semana.
 		} else {
-			return cumplioDesafioFinDeSemana(fechaObjetivo);
+			return cumplioDesafioFinDeSemana(fechaObjetivo);		// F.S.: Retorna true o false si realmente cumplió el desafío en fin de semana.
 		}	
 	}
 	
