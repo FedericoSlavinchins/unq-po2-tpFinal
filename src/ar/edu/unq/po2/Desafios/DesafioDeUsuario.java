@@ -105,9 +105,10 @@ public class DesafioDeUsuario {
 		// segunda parte valida si cumple las restricciones temporales
 		// Tercer parte valida el area de la muestra
 //		public boolean validarMuestras(Muestra muestra) {
-//			return muestra.getFecha().isAfter(fechaAceptado)                                && 
+//			return (muestra.getFecha().isEquals(fechaAceptado) || muestra.getFecha().isAfter(fechaAceptado))
+//					&& 
 //			       this.getDesafio().getRestriccionTemporal().cumplioPeriodo(fechaAceptado) &&  
-//  ;		
+//  	;		
 //		}
 		
 }

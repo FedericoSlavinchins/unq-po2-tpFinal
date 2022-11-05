@@ -7,6 +7,7 @@ import java.util.List;
 import ar.edu.unq.po2.Desafios.Desafio;
 import ar.edu.unq.po2.Desafios.DesafioDeUsuario;
 import ar.edu.unq.po2.EstadoDesafio.Aceptado;
+import ar.edu.unq.po2.EstadoDesafio.Completado;
 import ar.edu.unq.po2.Proyecto.Categoria;
 import ar.edu.unq.po2.Proyecto.Muestra;
 import ar.edu.unq.po2.Proyecto.Proyecto;
@@ -71,6 +72,7 @@ public class Usuario {
 		this.desafiosAceptados.remove(desafioDeUsuario);
 		//Cambio de estado, deberia pasar de Aceptado a Completado.
 		this.desafiosCompletados.add(desafioDeUsuario);
+		desafioDeUsuario.setEstado(new Completado());	
 		desafioDeUsuario.setFechaCompletado(LocalDate.now());
 		this.recompensasAcumuladas += desafioDeUsuario.getDesafio().getRecompensa();	// FS: Otorga recompensa.
 		//this.votarDesafio(desafioDeUsuario, 0);	// El usuario debe elegir el voto.
