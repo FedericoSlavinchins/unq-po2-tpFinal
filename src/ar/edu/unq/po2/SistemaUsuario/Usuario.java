@@ -120,11 +120,16 @@ public class Usuario {
 	public boolean completoDesafio(DesafioDeUsuario desafioDeUsuario) {		//FS: Indica si completó un desafio del usuario.
 		return (desafioDeUsuario.porcentajeDeCompletitud() == 100);	
 	}
+
+	//Devuelve el porcentaje de completitud del desafio en cuestion
+	public int porcentajeDeCompletitud(DesafioDeUsuario desafio) {
+		return desafio.porcentajeDeCompletitud();
+	}
 	
 	public int porcentajeDeCompletitudGeneral() {			// FS: Entre desafios aceptados.
 		int resultado = 0; 
 		for (DesafioDeUsuario desafioDeUsuario : this.desafiosAceptados) {
-			resultado += desafioDeUsuario.porcentajeDeCompletitud();
+			resultado += this.porcentajeDeCompletitud(desafioDeUsuario);
 		}
 		return ((resultado + (this.desafiosCompletados.size() * 100))) 
 				/ 
@@ -172,13 +177,9 @@ public class Usuario {
 	public List<DesafioDeUsuario> getDesafiosCompletados(){
 		return this.desafiosCompletados;
 	}
-	
-	
-	
-	public int porcentajeDeCompletitud(DesafioDeUsuario desafio) {
-		return desafio.porcentajeDeCompletitud();
-	}
-	
-	
 	*/
+	
+	
+	
+	
 
