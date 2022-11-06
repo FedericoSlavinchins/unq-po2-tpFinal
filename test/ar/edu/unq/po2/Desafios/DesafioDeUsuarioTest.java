@@ -13,7 +13,9 @@ import ar.edu.unq.po2.EstadoDesafio.Completado;
 import ar.edu.unq.po2.EstadoDesafio.EstadoDesafio;
 import ar.edu.unq.po2.EstadoDesafio.NoAceptado;
 import ar.edu.unq.po2.Proyecto.AreaGeografica;
+import ar.edu.unq.po2.Proyecto.Categoria;
 import ar.edu.unq.po2.Proyecto.Muestra;
+import ar.edu.unq.po2.Proyecto.Proyecto;
 import ar.edu.unq.po2.Proyecto.Ubicacion;
 import ar.edu.unq.po2.SistemaUsuario.Usuario;
 
@@ -29,12 +31,22 @@ class DesafioDeUsuarioTest {
 	private LocalDate fechaEnQueSeCompletoDesafioTest1;
 	private EstadoDesafio estadoObtenido;
 	private LocalDate fechaObtenida;
+	private BloqueSemanal restriccionBloqueSemanal;
+	private Muestra	muestra;
+	private AreaGeografica area;
+	private Proyecto proyecto;
+	private Categoria categoria;
+	private ArrayList<Categoria> listaCategorias;
 	
 	@BeforeEach
 	void setUp() throws Exception {
-		
+		restriccionBloqueSemanal = new BloqueSemanal(true);
+		categoria = new Categoria("Biología");
+		listaCategorias = new ArrayList<Categoria>();
+		listaCategorias.add(categoria);
+		area = new AreaGeografica(500, 500, 500);
+		desafio = new Desafio(area, 2, 3, restriccionBloqueSemanal, 1000);
 		usuario = new Usuario("nombreUsuario");
-		desafio = new Desafio();
 		estadoAceptado = new Aceptado();
 		estadoCompletado = new Completado();
 		desafioUsuario = new DesafioDeUsuario(desafio);

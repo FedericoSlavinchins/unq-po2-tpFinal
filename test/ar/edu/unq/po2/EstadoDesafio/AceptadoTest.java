@@ -3,6 +3,7 @@ package ar.edu.unq.po2.EstadoDesafio;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -10,7 +11,10 @@ import org.junit.jupiter.api.Test;
 import ar.edu.unq.po2.Desafios.BloqueSemanal;
 import ar.edu.unq.po2.Desafios.Desafio;
 import ar.edu.unq.po2.Desafios.DesafioDeUsuario;
+import ar.edu.unq.po2.Proyecto.AreaGeografica;
+import ar.edu.unq.po2.Proyecto.Categoria;
 import ar.edu.unq.po2.Proyecto.Muestra;
+import ar.edu.unq.po2.Proyecto.Proyecto;
 import ar.edu.unq.po2.SistemaUsuario.Usuario;
 
 class AceptadoTest {
@@ -24,11 +28,19 @@ class AceptadoTest {
 	private Aceptado aceptado;
 	private BloqueSemanal restriccionBloqueSemanal;
 	private Muestra	muestra;
+	private AreaGeografica area;
+	private Proyecto proyecto;
+	private Categoria categoria;
+	private ArrayList<Categoria> listaCategorias;
 	
 	@BeforeEach
 	void setUp() throws Exception {
 		restriccionBloqueSemanal = new BloqueSemanal(true);
-		desafio = new Desafio(2, 3, restriccionBloqueSemanal, 1000);
+		categoria = new Categoria("Biología");
+		listaCategorias = new ArrayList<Categoria>();
+		listaCategorias.add(categoria);
+		area = new AreaGeografica(500, 500, 500);
+		desafio = new Desafio(area, 2, 3, restriccionBloqueSemanal, 1000);
 		desafioUsuario = new DesafioDeUsuario(desafio);
 		aceptado = new Aceptado();
 		desafioUsuario.setEstado(aceptado);
@@ -36,7 +48,7 @@ class AceptadoTest {
 		//usuario = mock(Usuario.class);
 		usuario.agregarDesafiosDisponibles(desafioUsuario);
 		fechaEsperada = LocalDate.now();
-		
+		proyecto = new Proyecto("proyecto", "descripcion", listaCategorias);
 	}
 
 	@Test
@@ -54,7 +66,7 @@ class AceptadoTest {
 	void testEmiteVoto() {
 		desafio.setCantidadObjetivoDeMuestras(1);
 		usuario.aceptarDesafioDeUsuario(desafioUsuario);
-		usuario.recolectarMuestra(muestra, null);
+		usuario.recolectarMuestra(muestra, proyecto);
 		usuario.completarDesafioDeUsuario(desafioUsuario, 1);
 		assertEquals(1,desafioUsuario.getVoto());
 	
