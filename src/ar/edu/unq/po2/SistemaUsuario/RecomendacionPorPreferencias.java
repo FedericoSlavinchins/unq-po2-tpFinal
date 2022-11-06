@@ -44,7 +44,7 @@ public class RecomendacionPorPreferencias implements EstrategiaDeRecomendacion {
 
 
 	//Calcula el nivel de coincidencia con las preferencias del usuario haciendo una suma del valor absoluto de las diferencias
-	private double calcularCoincidencia(Desafio desafio) {
+	public double calcularCoincidencia(Desafio desafio) {
 		int resMuestras = 
 				this.valorAbsoluto(this.preferenciasDelUsuario.getCantidadDeMestrasARecolectar()
 						- desafio.getCantidadObjetivoDeMuestras()); //Calcula el valor absoluto de la diferencia de muestras
