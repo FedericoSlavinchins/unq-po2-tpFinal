@@ -18,40 +18,50 @@ import ar.edu.unq.po2.SistemaUsuario.Usuario;
 class NoAceptadoTest {
 
 	private DesafioDeUsuario desafioUsuario;
-	private Desafio desafio;
+	//private Desafio desafio;
 	private NoAceptado noAceptado;
-	private Usuario usuario;
+	//private Usuario usuario;
 	private LocalDate fechaEsperada;
-	private Aceptado aceptado;
 	
 	@BeforeEach
 	void setUp() throws Exception {
 		
-		desafio = new Desafio();
-		desafioUsuario = new DesafioDeUsuario(desafio);
+		desafioUsuario = mock(DesafioDeUsuario.class);
 		noAceptado = new NoAceptado();
-		desafioUsuario.setEstado(noAceptado);
-		usuario = new Usuario("pepe");
+		//desafioUsuario.setEstado(noAceptado);
+		//usuario = new Usuario("pepe");
 		//usuario = mock(Usuario.class);
-		usuario.agregarDesafiosDisponibles(desafioUsuario);
+		//usuario.agregarDesafiosDisponibles(desafioUsuario);
 		fechaEsperada = LocalDate.now();
 		
 	}
-
+	
 	@Test
 	void testComprobarQueElEstadoEsNoAceptado() {
+		when(desafioUsuario.getEstado()).thenReturn(noAceptado);
+		
 		assertEquals(noAceptado,desafioUsuario.getEstado());
+		verify(desafioUsuario, times(1)).getEstado();
+	}
+	
+	@Test
+	void testSeAceptaDesafio() {
+		this.noAceptado.aceptar(desafioUsuario);
+		
+		verify(desafioUsuario).setFechaAceptado(fechaEsperada);
 	}
 
+/*
 	@Test
 	void testFechaDeAceptadoEsLaCorrecta() {
+		
 		usuario.aceptarDesafioDeUsuario(desafioUsuario);
 		assertEquals(fechaEsperada,desafioUsuario.getFechaAceptado());
 	}
 	@Test
 	void testCambiaDeEstadoAceptado() {
 		usuario.aceptarDesafioDeUsuario(desafioUsuario);
-		//verify(usuario).aceptarDesafioDeUsuario(desafioUsuario);
+		verify(desafioUsuario).serAceptado();
 		
-	}
+	}*/
 }
