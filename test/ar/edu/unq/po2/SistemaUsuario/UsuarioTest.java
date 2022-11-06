@@ -97,7 +97,7 @@ class UsuarioTest {
 	@Test
 	void cuandoElUsuarioCambiaA5LaPreferenciaDeMuestrasARecolectarSeSeteaElCambioEnSusPreferencias() {
 		usuario.cambiarPreferenciaDeCantidadDeMuestrasARecolectar(5);
-		int resultadoActual = usuario.getPreferenciaUsuario().getCantidadDeMestrasARecolectar();
+		int resultadoActual = usuario.getPreferenciaUsuario().getCantidadDeMuestrasARecolectar();
 		int resultadoEsperado = 5;
 		assertEquals(resultadoEsperado, resultadoActual);
 	}
