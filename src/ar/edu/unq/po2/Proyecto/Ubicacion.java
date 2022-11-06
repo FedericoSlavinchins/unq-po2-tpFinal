@@ -1,31 +1,20 @@
 package ar.edu.unq.po2.Proyecto;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Ubicacion {
 	private float latitud;
 	private float longitud;
 	
 	public Ubicacion (float latitud, float longitud) {
-		this.setLatitud(latitud);
-		this.setLongitud(longitud);
+		this.latitud = latitud;
+		this.longitud = longitud;
 	}
 
 	public float getLatitud() {
 		return latitud;
 	}
 
-	public void setLatitud(float latitud) {
-		this.latitud = latitud;
-	}
-
 	public float getLongitud() {
 		return longitud;
-	}
-
-	public void setLongitud(float longitud) {
-		this.longitud = longitud;
 	}
 	
 	//Calcula la distancia entre dos ubicaciones
@@ -50,22 +39,5 @@ public class Ubicacion {
 		float dist = (float) (earthRadius * c); 
 		return dist;
 	}
-	
-	/* 
-	 Retorna las ubicaciones que se encuentran a menos de cierto rango.
-	 + ubicaciones: List<Ubicacion> - Lista de ubicaciones que se quiere saber si estan en el rango.
-	 + distancia: float - Distancia maxima entre ubicaciones.
-	 + return: List<Ubicacion> - Lista de ubicaciones que estan en el rango.
-	 
-	public List<Ubicacion> ubicacionesAMenosDe(List<Ubicacion> ubicaciones, float distancia){
-		List<Ubicacion> ubicacionesEnRango = new ArrayList<Ubicacion>();
-		for (Ubicacion ubicacion : ubicaciones) {
-			if (this.distancia(ubicacion) <= distancia) {
-				ubicacionesEnRango.add(ubicacion);
-			}
-		}
-		return ubicacionesEnRango;
-	}*/
-
 	
 }
