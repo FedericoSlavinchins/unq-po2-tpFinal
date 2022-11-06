@@ -37,11 +37,6 @@ public class Usuario {
 		this.desafiosCompletados	= new ArrayList<DesafioDeUsuario>();
 		
 	}
-	
-	
-	public void setDesafiosAceptados(ArrayList<DesafioDeUsuario> desafiosAceptados) {
-		this.desafiosAceptados = desafiosAceptados;
-	}
 
 
 	public ArrayList<Proyecto> getProyectos() {
@@ -82,15 +77,16 @@ public class Usuario {
 	
 	public void completarDesafioDeUsuario(DesafioDeUsuario desafioDeUsuario,int valorVoto) {
 		// FS: Precondición: el desafio de usuario debe haber sido previamente aceptado.
-		
-		
-		this.desafiosAceptados.remove(desafioDeUsuario);
-		desafioDeUsuario.getEstado().completar(desafioDeUsuario);
-		//Cambio de estado, deberia pasar de Aceptado a Completado.
-		this.desafiosCompletados.add(desafioDeUsuario);
-		
-		this.recompensasAcumuladas += desafioDeUsuario.getDesafio().getRecompensa();	// FS: Otorga recompensa.
-		this.votar(desafioDeUsuario,valorVoto);	// El usuario debe elegir el voto.
+		if (this.completoDesafio(desafioDeUsuario)) {
+			this.desafiosAceptados.remove(desafioDeUsuario);
+			desafioDeUsuario.getEstado().completar(desafioDeUsuario);
+			//Cambio de estado, deberia pasar de Aceptado a Completado.
+			this.desafiosCompletados.add(desafioDeUsuario);
+			this.recompensasAcumuladas += desafioDeUsuario.getDesafio().getRecompensa();	// FS: Otorga recompensa.
+			this.votar(desafioDeUsuario,valorVoto);	// El usuario debe elegir el voto.
+		} else {
+			System.out.println("El desafio no está completo. Debés recolectar mas muestras!");
+		}
 	}
 	
 	
@@ -119,7 +115,7 @@ public class Usuario {
 	// FS: Métodos de conocimiento de información acerca de Desafios del Usuario.
 	
 	public boolean completoDesafio(DesafioDeUsuario desafioDeUsuario) {		//FS: Indica si completó un desafio del usuario.
-		return (desafioDeUsuario.porcentajeDeCompletitud() == 100);			// FS: Revisar si este método sirve (?).
+		return (desafioDeUsuario.porcentajeDeCompletitud() == 100);	
 	}
 	
 	public int porcentajeDeCompletitudGeneral() {			// FS: Entre desafios aceptados.
@@ -159,9 +155,14 @@ public class Usuario {
 		return this.preferenciaUsuario;
 	}
 	
+	public String getNombre() {
+		return nombre;
+	}
+
 	
 	
 	
+}
 	
 	/* REALIZADO ANTERIORMENTE
 		
@@ -177,4 +178,4 @@ public class Usuario {
 	
 	
 	*/
-}
+
