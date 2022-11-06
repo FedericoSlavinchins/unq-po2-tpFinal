@@ -7,8 +7,10 @@ import java.util.ArrayList;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import ar.edu.unq.po2.Desafios.BloqueSemanal;
 import ar.edu.unq.po2.Desafios.Desafio;
 import ar.edu.unq.po2.Desafios.DesafioDeUsuario;
+import ar.edu.unq.po2.Proyecto.AreaGeografica;
 import ar.edu.unq.po2.Proyecto.Categoria;
 import ar.edu.unq.po2.Proyecto.Muestra;
 import ar.edu.unq.po2.Proyecto.Proyecto;
@@ -28,11 +30,16 @@ class UsuarioTest {
 	private Muestra muestra;
 	private Muestra muestra2;
 	private Ubicacion geocoordenada;
+	private BloqueSemanal restriccionBloqueSemanal;
+	private AreaGeografica area;
+	
 	
 	@BeforeEach
 	public void setUp() {
-		desafio = new Desafio();
-		desafio2 = new Desafio();
+		restriccionBloqueSemanal = new BloqueSemanal(true);
+		area = new AreaGeografica(500, 500, 500);
+		desafio = new Desafio(area, 1, 1, restriccionBloqueSemanal, 20000);
+		desafio2 = new Desafio(area, 1, 1, restriccionBloqueSemanal, 20000);
 		desafioDeUsuario = new DesafioDeUsuario(desafio);
 		desafioDeUsuario2 = new DesafioDeUsuario(desafio2);
 		usuario = new Usuario("nombreUsuario");
