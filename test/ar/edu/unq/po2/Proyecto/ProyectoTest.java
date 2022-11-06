@@ -9,24 +9,23 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import ar.edu.unq.po2.SistemaUsuario.Usuario;
+import static org.mockito.Mockito.*;
 
 class ProyectoTest {
 	
-	private Proyecto proyecto;
-	private ArrayList<Categoria> listaDeCategorias;
-	private Categoria categoria;
-	private Muestra muestra;
-	private Geocoordenada geocoordenada;
-	private Usuario usuario;
+	private Proyecto proyecto; //SUC
+	private ArrayList<Categoria> listaDeCategorias; 
+	private Categoria categoria; //DOC
+	private Muestra muestra; //DOC
+	private Usuario usuario; //DOC
 	
 	
 	@BeforeEach
 	public void setUp() {
-		usuario = new Usuario("nombreUsuario");
-		geocoordenada = new Geocoordenada();
-		muestra = new Muestra(usuario, geocoordenada);
+		usuario = mock(Usuario.class);
+		muestra = mock(Muestra.class);
 		listaDeCategorias = new ArrayList<Categoria>();
-		categoria = new Categoria("Biología");
+		categoria = mock(Categoria.class);
 		listaDeCategorias.add(categoria);
 		proyecto = new Proyecto("proyecto", "descripcion", listaDeCategorias);
 	}
@@ -40,7 +39,7 @@ class ProyectoTest {
 		String descripcionActual   = proyecto.getDescripcion();
 		
 		ArrayList<String> nombresDeCategoriaEsperados = new ArrayList<String>();
-		nombresDeCategoriaEsperados.add("Biología");
+		nombresDeCategoriaEsperados.add(categoria.getNombre());
 		
 		
 		assertEquals(nombreEsperado, nombreActual);				// FS: Assert por nombre del proyecto.

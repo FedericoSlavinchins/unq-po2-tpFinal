@@ -10,17 +10,18 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import ar.edu.unq.po2.SistemaUsuario.Usuario;
+import static org.mockito.Mockito.*;
 
 class MuestraTest {
 	
 	private Muestra muestra;
-	private Geocoordenada geocoordenada;
+	private Ubicacion geocoordenada;
 	private Usuario usuario;
 	
 	@BeforeEach
 	public void setUp() {
-		usuario = new Usuario("nombreUsuario");
-		geocoordenada = new Geocoordenada();
+		usuario = mock(Usuario.class);
+		geocoordenada = mock(Ubicacion.class);
 		muestra = new Muestra(usuario, geocoordenada);
 	}
 
@@ -36,6 +37,12 @@ class MuestraTest {
 		LocalTime resultadoEsperado = LocalTime.now().truncatedTo(ChronoUnit.SECONDS);
 		LocalTime resultadoActual	= muestra.getHora();
 		assertEquals(resultadoEsperado, resultadoActual);
+	}
+	
+	@Test
+	void seRecibeLaInformacionDeLaMuestraAlMomentoDeTomarseTest() {
+		assertEquals(muestra.getUsuario(), usuario);
+		assertEquals(muestra.getGeocoordenada(), geocoordenada);
 	}
 
 }
