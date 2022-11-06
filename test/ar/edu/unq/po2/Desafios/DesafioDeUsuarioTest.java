@@ -21,41 +21,18 @@ import ar.edu.unq.po2.SistemaUsuario.Usuario;
 
 class DesafioDeUsuarioTest {
 
-	private DesafioDeUsuario desafioUsuario;
-	private Usuario usuario;
-	private Desafio desafio;
-	private EstadoDesafio noAceptado;
-	private Aceptado estadoAceptado;
-	private LocalDate fechaAceptado;
-	private LocalDate fechaEnQueSeCompletoDesafioTest1;
-	private LocalDate fechaObtenida;
-	private BloqueSemanal restriccionBloqueSemanal;
-	private Muestra	muestra;
 	private AreaGeografica area;
-	private Proyecto proyecto;
-	private Categoria categoria;
-	private ArrayList<Categoria> listaCategorias;
+	private RestriccionTemporal restriccionTemporal;
+	private int cantidadObjetivoDeMuestras;
+	private int dificultad;
+	private double recompensa;
 	
 	@BeforeEach
 	void setUp() throws Exception {
-		restriccionBloqueSemanal = new BloqueSemanal(true);
-		categoria = new Categoria("Biología");
-		listaCategorias = new ArrayList<Categoria>();
-		listaCategorias.add(categoria);
-		area = new AreaGeografica(500, 500, 500);
-		desafio = new Desafio(area, 2, 3, restriccionBloqueSemanal, 1000);
-		usuario = new Usuario("nombreUsuario");
-		estadoAceptado = new Aceptado();
-		desafioUsuario = new DesafioDeUsuario(desafio);
-		
-		fechaAceptado = LocalDate.of(2022, 11, 06);
-		
-		usuario.agregarDesafiosDisponibles(desafioUsuario);
-		 
-		noAceptado = desafioUsuario.getEstado();
-		
-		proyecto = new Proyecto("proyecto", "descripcion", listaCategorias);
-		
+		this.area = new AreaGeografica(cantidadObjetivoDeMuestras, cantidadObjetivoDeMuestras, cantidadObjetivoDeMuestras);
+		this.restriccionTemporal = new RestriccionTemporal();
+		this.cantidadObjetivoDeMuestras = 0;
+		this.recompensa = 0;
 	}
 	
 	@Test
