@@ -19,6 +19,7 @@ public class DesafioDeUsuario {
 	private LocalDate fechaCompletado;
 	private EstadoDesafio estado;			//FS: El estado debe estar en esta clase, ya que es parte del progreso del usuario.	
 	private int voto;
+	private ValidadorDeMuestra validadorDeMuestra = new ValidadorDeMuestra(this);
 
 
 	public DesafioDeUsuario (Desafio desafio) {
@@ -96,12 +97,10 @@ public class DesafioDeUsuario {
 		} 
 
 		
-	public boolean esMuestraValida(Muestra muestra) {
-			return (muestra.getFecha().isEqual(fechaAceptado) || muestra.getFecha().isAfter(fechaAceptado)) //primera parte valida si las muestra es posterior a la fecha de aceptacion
-					&& 
-			       this.getDesafio().getRestriccionTemporal().cumplioPeriodo(fechaAceptado) // segunda parte valida si cumple las restricciones temporales
-			       &&  
-			       desafio.getArea().estaEnRango(muestra.getGeocoordenada());		// Tercer parte valida el area de la muestra
-		}
+	
+	
+	public ValidadorDeMuestra getValidadorDeMuestra() {
+		return validadorDeMuestra;
+	}
 
 }

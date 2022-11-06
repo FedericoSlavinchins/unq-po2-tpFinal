@@ -100,12 +100,6 @@ class DesafioDeUsuarioTest {
 	}
 	
 	
-	@Test
-	void cuandoElUsuarioSubeUnaMuestraQueCumpleConLasCondicionesEsUnaMuestraValida() {
-		usuario.aceptarDesafioDeUsuario(desafioUsuario);
-		usuario.recolectarMuestra(muestra, proyecto);
-		assertTrue(desafioUsuario.esMuestraValida(muestra));
-	}
 	
 	@Test
 	void testSetVoto() {

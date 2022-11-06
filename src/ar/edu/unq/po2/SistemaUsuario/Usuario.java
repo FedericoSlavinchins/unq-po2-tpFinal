@@ -57,7 +57,7 @@ public class Usuario {
 
 	private void contabilizarMuestraParaDesafiosAceptados(Muestra muestra) {
 		for (DesafioDeUsuario desafioDeUsuario : this.desafiosAceptados) {
-			if (desafioDeUsuario.esMuestraValida(muestra)) {
+			if (desafioDeUsuario.getValidadorDeMuestra().esMuestraValida(muestra)) {
 				// FS: Contabiliza la muestra solo para los desafios aceptados y sin completar, y si es una muestra válida para el desafio.
 				desafioDeUsuario.getMuestrasRecolectadas().add(muestra);
 			}

@@ -2,6 +2,7 @@ package ar.edu.unq.po2.SistemaUsuario;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -10,6 +11,7 @@ import org.junit.jupiter.api.Test;
 import ar.edu.unq.po2.Desafios.BloqueSemanal;
 import ar.edu.unq.po2.Desafios.Desafio;
 import ar.edu.unq.po2.Desafios.DesafioDeUsuario;
+import ar.edu.unq.po2.Desafios.EntreFechas;
 import ar.edu.unq.po2.Proyecto.AreaGeografica;
 import ar.edu.unq.po2.Proyecto.Categoria;
 import ar.edu.unq.po2.Proyecto.Muestra;
@@ -30,20 +32,20 @@ class UsuarioTest {
 	private Muestra muestra;
 	private Muestra muestra2;
 	private Ubicacion geocoordenada;
-	private BloqueSemanal restriccionBloqueSemanal;
+	private EntreFechas restriccionEntreFechas;
 	private AreaGeografica area;
 	
 	
 	@BeforeEach
 	public void setUp() {
-		restriccionBloqueSemanal = new BloqueSemanal(true);
+		restriccionEntreFechas = new EntreFechas(LocalDate.of(2022, 10, 10), LocalDate.of(2023, 10, 10));
 		area = new AreaGeografica(500, 500, 500);
-		desafio = new Desafio(area, 1, 1, restriccionBloqueSemanal, 20000);
-		desafio2 = new Desafio(area, 1, 1, restriccionBloqueSemanal, 20000);
+		desafio = new Desafio(area, 1, 1, restriccionEntreFechas, 20000);
+		desafio2 = new Desafio(area, 1, 1, restriccionEntreFechas, 20000);
 		desafioDeUsuario = new DesafioDeUsuario(desafio);
 		desafioDeUsuario2 = new DesafioDeUsuario(desafio2);
 		usuario = new Usuario("nombreUsuario");
-		geocoordenada = new Ubicacion(0, 0);
+		geocoordenada = new Ubicacion(500, 500);
 		muestra = new Muestra(usuario, geocoordenada);
 		muestra2 = new Muestra(usuario, geocoordenada);
 		listaDeCategorias = new ArrayList<Categoria>();
@@ -82,7 +84,7 @@ class UsuarioTest {
 		usuario.aceptarDesafioDeUsuario(desafioDeUsuario);
 		usuario.recolectarMuestra(muestra, proyecto);
 		usuario.completarDesafioDeUsuario(desafioDeUsuario, 5);
-		boolean resultadoActual = desafioDeUsuario.getVoto() == 5;
+		boolean resultadoActual = (desafioDeUsuario.getVoto() == 5);
 		assertTrue(resultadoActual);
 	}
 	
