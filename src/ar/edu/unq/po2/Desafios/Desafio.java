@@ -17,7 +17,6 @@ public class Desafio implements ElementoDeLudificacion {
 	private int dificultad;
 	private double recompensa;
 	
-<<<<<<< HEAD
 	// private int porcentaje;			<--- FS: Lo moví a DesafioUsuario, tiene que ver con el progreso del usuario en el desafio.
 	// agregados
 	// private int desafiosAceptados;	<--- FS: Esto va en Usuario. No lo borré por las dudas.
@@ -33,11 +32,6 @@ public class Desafio implements ElementoDeLudificacion {
 		this.dificultad = dificultad;
 		this.restriccionTemporal = restriccionTemporal;
 	}
-	
-	
-=======
->>>>>>> branch 'main-2' of https://github.com/FedericoSlavinchins/unq-po2-tpFinal.git
-	//GETTERS AND SETTERS
 	
 
 	public int getCantidadObjetivoDeMuestras() {
