@@ -6,16 +6,14 @@ import ar.edu.unq.po2.Desafios.DesafioDeUsuario;
 
 public class NoAceptado implements EstadoDesafio {
 	
-	private DesafioDeUsuario desafioUsuario;
+	private DesafioDeUsuario desafioDeUsuario;
 
 	@Override  
-	public void aceptar(DesafioDeUsuario desafioDeUsuario) {
-		this.desafioUsuario = desafioDeUsuario;
-		desafioUsuario.setFechaAceptado(); // guarda la fecha en la que se acepto
-		desafioUsuario.setEstado(new Aceptado()); // Setea el estado Aceptados
-		
+	public void actualizarEstado(DesafioDeUsuario desafioDeUsuario) {
+		this.desafioDeUsuario = desafioDeUsuario;
+		desafioDeUsuario.setFechaAceptado(); // guarda la fecha en la que se acepto
+		desafioDeUsuario.setEstado(new Aceptado()); // Setea el estado Aceptados
 	}
-
-	@Override
-	public void completar(DesafioDeUsuario desafioDeUsuario) {}
+	
 }
+

@@ -39,11 +39,26 @@ class SistemaTest {
 	
 	
 	@Test
-	void cuandoSeAgregaUnProyectoAlSistemaElSistemaContieneAlProyecto() {
+	public void cuandoSeAgregaUnProyectoAlSistemaElSistemaContieneAlProyecto() {
 		sistema.agregarProyecto(proyecto1);
 		assertTrue(sistema.getProyectos().contains(proyecto1));
 	}
 	
+	@Test
+	public void testSeAgregaLosUsuarios(){
+		this.sistema.agregarUsuario(usuario1);
+		this.sistema.agregarUsuario(usuario2);
+		
+		assertTrue(sistema.getUsuarios().contains(usuario1));
+		assertTrue(sistema.getUsuarios().contains(usuario2));
+	}
+	
+	@Test
+	public void testNuevoBuscador() {
+		this.sistema.setBuscadorDeProyectos(buscadorCategoria);
+		
+		assertEquals(buscadorCategoria, this.sistema.getBuscadorDeProyectos());
+	}
 	
 
 }
