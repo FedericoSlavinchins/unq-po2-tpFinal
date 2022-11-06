@@ -13,13 +13,7 @@ public class CompletadoTest {
 
 	//Este test no hace nada ya que el metodo tambien no hace nada.
 	@Test
-	public void aceptarTest() {
-		this.completado.aceptar(null);
-	}
-	
-	//Este test no hace nada ya que el metodo tambien no hace nada.
-	@Test
 	public void completarTest() {
-		this.completado.completar(null);
+		this.completado.actualizarEstado(null);
 	}
 }
