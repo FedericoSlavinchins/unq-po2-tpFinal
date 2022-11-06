@@ -54,7 +54,7 @@ class AceptadoTest {
 	void testEmiteVoto() {
 		desafio.setCantidadObjetivoDeMuestras(1);
 		usuario.aceptarDesafioDeUsuario(desafioUsuario);
-		usuario.recolectarMuestra(mues, null);
+		//usuario.recolectarMuestra(mues, null);
 		usuario.completarDesafioDeUsuario(desafioUsuario, 1);
 		assertEquals(1,desafioUsuario.getVoto());
 	
