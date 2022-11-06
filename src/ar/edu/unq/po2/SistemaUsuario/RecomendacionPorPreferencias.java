@@ -16,12 +16,12 @@ public class RecomendacionPorPreferencias implements EstrategiaDeRecomendacion {
 	
 	@Override
 	public ArrayList<DesafioDeUsuario> recomendar(List<DesafioDeUsuario> desafiosCompletados, PreferenciaUsuario preferencias) {
-		this.setPreferencias(preferencias);
-		this.setDesafiosCompletados(desafiosCompletados);
-		return this.filtrarDesafios();
+		//this.setPreferencias(preferencias);
+		//this.setDesafiosCompletados(desafiosCompletados);
+		return null; //this.filtrarDesafios();
 	}
 	
-	
+/*	
 	private ArrayList<DesafioDeUsuario> filtrarDesafios() {
 		ArrayList<DesafioDeUsuario> desafios;
 		for (DesafioDeUsuario desafioDeUsuario : this.desafiosCompletados) {
@@ -31,14 +31,14 @@ public class RecomendacionPorPreferencias implements EstrategiaDeRecomendacion {
 		}
 		return null;
 	}
+*/
 
-
-	private void setPreferencias(PreferenciaUsuario preferencias) {
+	public void setPreferencias(PreferenciaUsuario preferencias) {
 		this.preferenciasDelUsuario = preferencias;
 	}
 
 
-	private void setDesafiosCompletados(List<DesafioDeUsuario> desafiosCompletados2) {
+	public void setDesafiosCompletados(List<DesafioDeUsuario> desafiosCompletados2) {
 		this.desafiosCompletados = desafiosCompletados;
 	}
 
@@ -46,7 +46,7 @@ public class RecomendacionPorPreferencias implements EstrategiaDeRecomendacion {
 	//Calcula el nivel de coincidencia con las preferencias del usuario haciendo una suma del valor absoluto de las diferencias
 	public double calcularCoincidencia(Desafio desafio) {
 		int resMuestras = 
-				this.valorAbsoluto(this.preferenciasDelUsuario.getCantidadDeMestrasARecolectar()
+				this.valorAbsoluto(this.preferenciasDelUsuario.getCantidadDeMuestrasARecolectar()
 						- desafio.getCantidadObjetivoDeMuestras()); //Calcula el valor absoluto de la diferencia de muestras
 		int resDificultad = 
 				this.valorAbsoluto(this.preferenciasDelUsuario.getDificultadPreferida() 
