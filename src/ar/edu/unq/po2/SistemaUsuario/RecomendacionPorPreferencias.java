@@ -11,18 +11,49 @@ import ar.edu.unq.po2.Desafios.DesafioDeUsuario;
 public class RecomendacionPorPreferencias implements EstrategiaDeRecomendacion {
 	private PreferenciaUsuario preferenciasDelUsuario;
 	private List<Desafio> desafiosRecomendados;
+	private List<DesafioDeUsuario> desafiosCompletados;
+
+	
+	@Override
+	public ArrayList<DesafioDeUsuario> recomendar(List<DesafioDeUsuario> desafiosCompletados, PreferenciaUsuario preferencias) {
+		this.setPreferencias(preferencias);
+		this.setDesafiosCompletados(desafiosCompletados);
+		return this.filtrarDesafios();
+	}
+	
+	
+	private ArrayList<DesafioDeUsuario> filtrarDesafios() {
+		ArrayList<DesafioDeUsuario> desafios;
+		for (DesafioDeUsuario desafioDeUsuario : this.desafiosCompletados) {
+			if(this.desafiosRecomendados.contains(desafioDeUsuario.getDesafio())) {
+				this.desafiosRecomendados.remove(desafioDeUsuario.getDesafio());
+			}
+		}
+		return null;
+	}
+
+
+	private void setPreferencias(PreferenciaUsuario preferencias) {
+		this.preferenciasDelUsuario = preferencias;
+	}
+
+
+	private void setDesafiosCompletados(List<DesafioDeUsuario> desafiosCompletados2) {
+		this.desafiosCompletados = desafiosCompletados;
+	}
+
 
 	//Calcula el nivel de coincidencia con las preferencias del usuario haciendo una suma del valor absoluto de las diferencias
-	public double calcularCoincidencia(Desafio desafio) {
+	private double calcularCoincidencia(Desafio desafio) {
 		int resMuestras = 
 				this.valorAbsoluto(this.preferenciasDelUsuario.getCantidadDeMestrasARecolectar()
-						- desafio.getCantidadObjetivoDeMuestras());
+						- desafio.getCantidadObjetivoDeMuestras()); //Calcula el valor absoluto de la diferencia de muestras
 		int resDificultad = 
 				this.valorAbsoluto(this.preferenciasDelUsuario.getDificultadPreferida() 
-						- desafio.getDificultad());
+						- desafio.getDificultad()); //Calcula el valor absoluto de la diferencia de dificultades.
 		double resRecompensas =
 				this.valorAbsolutoDouble(this.preferenciasDelUsuario.getRecompensaPreferida() 
-						- desafio.getRecompensa());
+						- desafio.getRecompensa()); //Calcula el valor absoluto de la diferencia de recompensas.
 		return resMuestras + resDificultad + resRecompensas;
 	}
 
@@ -54,18 +85,12 @@ public class RecomendacionPorPreferencias implements EstrategiaDeRecomendacion {
 		return resultado;
 	}*/
 
-	public int valorAbsoluto(int numero) { 
+	private int valorAbsoluto(int numero) { 
 		return numero > 0 ? numero : -numero; 
 	}
 	
-	public double valorAbsolutoDouble (double numero) { 
+	private double valorAbsolutoDouble (double numero) { 
 		return numero > 0 ? numero : -numero; 
 	}
 
-
-	@Override
-	public void recomendar() {
-		// TODO Auto-generated method stub
-		
-	}
 }

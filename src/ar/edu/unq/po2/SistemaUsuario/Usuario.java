@@ -29,7 +29,7 @@ public class Usuario {
 	public Usuario(String nombre) {
 		this.nombre = nombre;
 		this.preferenciaUsuario = new PreferenciaUsuario(0,0,0);
-		this.recomendador = new RecomendadorDeLudificacion(this.desafiosCompletados);
+		this.recomendador = new RecomendadorDeLudificacion(this.desafiosCompletados, this.preferenciaUsuario);
 		this.recompensasAcumuladas = 0;
 		this.proyectos = new ArrayList<Proyecto>();
 		this.desafiosDisponibles = new ArrayList<DesafioDeUsuario>();
@@ -136,11 +136,15 @@ public class Usuario {
 		desafioDeUsuario.setVoto(valorDeVoto);
 	}
 	
+	//Metodos para ajustar y solicitar la recomendacion de desafios.
+	
 	public void cambiarEstrategiaDeRecomendadorDeDesafio(EstrategiaDeRecomendacion estrategia) {
 		this.recomendador.cambiarEstrategiaDeRecomendacion(estrategia);
 	}
 	
-	
+	public void recomendarmeDesafio() {
+		ArrayList<DesafioDeUsuario> desafiosRecomendados = this.recomendador.recomendarDesafios();
+	}
 	
 	/* REALIZADO ANTERIORMENTE
 		

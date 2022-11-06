@@ -1,6 +1,11 @@
 package ar.edu.unq.po2.SistemaUsuario;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import ar.edu.unq.po2.Desafios.DesafioDeUsuario;
+
 public interface EstrategiaDeRecomendacion {
 	
-	void recomendar();
+	ArrayList<DesafioDeUsuario> recomendar(List<DesafioDeUsuario> desafiosCompletados, PreferenciaUsuario preferencias);
 }
