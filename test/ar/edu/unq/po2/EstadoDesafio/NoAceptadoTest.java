@@ -1,6 +1,8 @@
 package ar.edu.unq.po2.EstadoDesafio;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
+
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -20,6 +22,7 @@ class NoAceptadoTest {
 	private NoAceptado noAceptado;
 	private Usuario usuario;
 	private LocalDate fechaEsperada;
+	private Aceptado aceptado;
 	
 	@BeforeEach
 	void setUp() throws Exception {
@@ -28,9 +31,11 @@ class NoAceptadoTest {
 		desafioUsuario = new DesafioDeUsuario(desafio);
 		noAceptado = new NoAceptado();
 		desafioUsuario.setEstado(noAceptado);
-		usuario = new Usuario("nombre");
+		usuario = new Usuario("pepe");
+		//usuario = mock(Usuario.class);
 		usuario.agregarDesafiosDisponibles(desafioUsuario);
 		fechaEsperada = LocalDate.now();
+		
 	}
 
 	@Test
@@ -42,5 +47,11 @@ class NoAceptadoTest {
 	void testFechaDeAceptadoEsLaCorrecta() {
 		usuario.aceptarDesafioDeUsuario(desafioUsuario);
 		assertEquals(fechaEsperada,desafioUsuario.getFechaAceptado());
+	}
+	@Test
+	void testCambiaDeEstadoAceptado() {
+		usuario.aceptarDesafioDeUsuario(desafioUsuario);
+		//verify(usuario).aceptarDesafioDeUsuario(desafioUsuario);
+		
 	}
 }
