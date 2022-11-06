@@ -21,18 +21,63 @@ import ar.edu.unq.po2.SistemaUsuario.Usuario;
 
 class DesafioDeUsuarioTest {
 
+<<<<<<< HEAD
+=======
+	private DesafioDeUsuario desafioUsuario;
+	private Usuario usuario;
+	private Desafio desafio;
+	private EstadoDesafio noAceptado;
+	private Aceptado estadoAceptado;
+	private LocalDate fechaAceptado;
+	private LocalDate fechaEnQueSeCompletoDesafioTest1;
+	private LocalDate fechaObtenida;
+	private EntreFechas restriccionEntreFechas;
+	private Muestra	muestra;
+>>>>>>> branch 'main-2' of https://github.com/FedericoSlavinchins/unq-po2-tpFinal.git
 	private AreaGeografica area;
+<<<<<<< HEAD
 	private RestriccionTemporal restriccionTemporal;
 	private int cantidadObjetivoDeMuestras;
 	private int dificultad;
 	private double recompensa;
+=======
+	private Proyecto proyecto;
+	private Categoria categoria;
+	private ArrayList<Categoria> listaCategorias;
+	private Ubicacion geocoordenada;
+>>>>>>> branch 'main-2' of https://github.com/FedericoSlavinchins/unq-po2-tpFinal.git
 	
 	@BeforeEach
 	void setUp() throws Exception {
+<<<<<<< HEAD
 		this.area = new AreaGeografica(cantidadObjetivoDeMuestras, cantidadObjetivoDeMuestras, cantidadObjetivoDeMuestras);
 		this.restriccionTemporal = new RestriccionTemporal();
 		this.cantidadObjetivoDeMuestras = 0;
 		this.recompensa = 0;
+=======
+		categoria = new Categoria("Biología");
+		listaCategorias = new ArrayList<Categoria>();
+		listaCategorias.add(categoria);
+		area = new AreaGeografica(500, 500, 500);
+		restriccionEntreFechas = new EntreFechas(LocalDate.of(2022, 10, 10), LocalDate.of(2023, 10, 10));
+		desafio = new Desafio(area, 2, 3, restriccionEntreFechas, 1000);
+		usuario = new Usuario("nombreUsuario");
+		estadoAceptado = new Aceptado();
+		desafioUsuario = new DesafioDeUsuario(desafio);
+		
+		fechaAceptado = LocalDate.of(2022, 11, 06);
+		
+		usuario.agregarDesafiosDisponibles(desafioUsuario);
+		 
+		noAceptado = desafioUsuario.getEstado();
+		
+		geocoordenada = new Ubicacion(500, 500);
+				
+		muestra = new Muestra(usuario, geocoordenada);
+		
+		proyecto = new Proyecto("proyecto", "descripcion", listaCategorias);
+		
+>>>>>>> branch 'main-2' of https://github.com/FedericoSlavinchins/unq-po2-tpFinal.git
 	}
 	
 	@Test
@@ -59,6 +104,21 @@ class DesafioDeUsuarioTest {
 		
 		assertEquals(estadoCompletado.getClass(), estadoObtenido.getClass());
 		
+	}
+	
+	
+	@Test
+	void cuandoElUsuarioSubeUnaMuestraQueCumpleConLasCondicionesEsUnaMuestraValida() {
+		usuario.aceptarDesafioDeUsuario(desafioUsuario);
+		usuario.recolectarMuestra(muestra, proyecto);
+		assertTrue(desafioUsuario.esMuestraValida(muestra));
+	}
+	
+	@Test
+	void testSetVoto() {
+		desafioUsuario.setVoto(5);
+		int resultadoEsperado = desafioUsuario.getVoto();
+		assertTrue(resultadoEsperado == 5);
 	}
 	
 }

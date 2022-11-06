@@ -19,16 +19,6 @@ public class DesafioDeUsuario {
 	private LocalDate fechaCompletado;
 	private EstadoDesafio estado;			//FS: El estado debe estar en esta clase, ya que es parte del progreso del usuario.	
 	private int voto;
-	private double recompensa;
-	
-	public double getRecompensa() {
-		return recompensa;
-	}
-
-
-	public void setRecompensa(double recompensa) {
-		this.recompensa = recompensa;
-	}
 
 
 	public DesafioDeUsuario (Desafio desafio) {
