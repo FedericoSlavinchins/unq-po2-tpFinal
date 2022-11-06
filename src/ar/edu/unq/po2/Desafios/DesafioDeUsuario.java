@@ -15,7 +15,6 @@ public class DesafioDeUsuario {
 	
 	private Desafio desafio;
 	private ArrayList<Muestra> muestrasRecolectadas = new ArrayList<Muestra>(); // Muestras recolectadas para el desafio.
-	private ArrayList<Muestra> muestrasValidas = new ArrayList<Muestra>();
 	private LocalDate fechaAceptado;
 	private LocalDate fechaCompletado;
 	private EstadoDesafio estado;			//FS: El estado debe estar en esta clase, ya que es parte del progreso del usuario.	
