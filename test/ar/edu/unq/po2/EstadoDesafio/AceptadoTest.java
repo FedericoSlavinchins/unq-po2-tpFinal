@@ -7,6 +7,7 @@ import java.time.LocalDate;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import ar.edu.unq.po2.Desafios.BloqueSemanal;
 import ar.edu.unq.po2.Desafios.Desafio;
 import ar.edu.unq.po2.Desafios.DesafioDeUsuario;
 import ar.edu.unq.po2.SistemaUsuario.Usuario;
@@ -20,11 +21,12 @@ class AceptadoTest {
 	private Usuario usuario;
 	private LocalDate fechaEsperada;
 	private Aceptado aceptado;
+	private BloqueSemanal restriccionBloqueSemanal;
 	
 	@BeforeEach
 	void setUp() throws Exception {
-		
-		desafio = new Desafio();
+		restriccionBloqueSemanal = new BloqueSemanal(true);
+		desafio = new Desafio(2, 3, restriccionBloqueSemanal, 1000);
 		desafioUsuario = new DesafioDeUsuario(desafio);
 		aceptado = new Aceptado();
 		desafioUsuario.setEstado(aceptado);
