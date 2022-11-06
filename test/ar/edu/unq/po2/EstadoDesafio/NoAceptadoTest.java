@@ -40,14 +40,9 @@ class NoAceptadoTest {
 	
 	@Test
 	void testSeAceptaDesafio() {
-		this.noAceptado.aceptar(desafioUsuario);
+		this.noAceptado.actualizarEstado(desafioUsuario);
 		
 		verify(desafioUsuario).setFechaAceptado();
 	}
 
-	//Este test no hace nada ya que el metodo tambien no hace nada.
-	@Test
-	void testCompletar() {
-		this.noAceptado.completar(desafioUsuario);
-	}
 }
