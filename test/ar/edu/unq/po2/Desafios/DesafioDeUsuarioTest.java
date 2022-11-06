@@ -26,10 +26,8 @@ class DesafioDeUsuarioTest {
 	private Desafio desafio;
 	private EstadoDesafio noAceptado;
 	private Aceptado estadoAceptado;
-	private Completado estadoCompletado;
 	private LocalDate fechaAceptado;
 	private LocalDate fechaEnQueSeCompletoDesafioTest1;
-	private EstadoDesafio estadoObtenido;
 	private LocalDate fechaObtenida;
 	private BloqueSemanal restriccionBloqueSemanal;
 	private Muestra	muestra;
@@ -48,34 +46,41 @@ class DesafioDeUsuarioTest {
 		desafio = new Desafio(area, 2, 3, restriccionBloqueSemanal, 1000);
 		usuario = new Usuario("nombreUsuario");
 		estadoAceptado = new Aceptado();
-		estadoCompletado = new Completado();
 		desafioUsuario = new DesafioDeUsuario(desafio);
 		
-		fechaEnQueSeCompletoDesafioTest1 = LocalDate.of(2022, 6, 11);	
-		estadoObtenido = desafioUsuario.getEstado();
+		fechaAceptado = LocalDate.of(2022, 11, 06);
 		
 		usuario.agregarDesafiosDisponibles(desafioUsuario);
 		 
 		noAceptado = desafioUsuario.getEstado();
+		
+		proyecto = new Proyecto("proyecto", "descripcion", listaCategorias);
 		
 	}
 	
 	@Test
 	void testgetDesafio() {
 		assertEquals(desafioUsuario.getDesafio(), desafio);
-		assertEquals(desafioUsuario.getEstado(), noAceptado );
+		assertEquals(desafioUsuario.getEstado(), noAceptado);
 	}
 	
 	@Test
-	void testGetFechaAceptado() {	
+	void testGetFechaAceptado() {
 		usuario.aceptarDesafioDeUsuario(desafioUsuario);
-		assertEquals(fechaEnQueSeCompletoDesafioTest1, desafioUsuario.getFechaAceptado()) ;
+		assertEquals(fechaAceptado, desafioUsuario.getFechaAceptado()) ;
 	}
+	
 	@Test
-	void testDeEstadoDesafioActualCorrecto() {	
+	void testDeEstadoDesafioActualCorrectoDebeSerCompletado() {
 		usuario.aceptarDesafioDeUsuario(desafioUsuario);
-		usuario.completarDesafioDeUsuario(desafioUsuario, 0);
-		assertEquals(estadoCompletado,estadoObtenido) ;
+		desafio.setCantidadObjetivoDeMuestras(1);
+		usuario.recolectarMuestra(muestra, proyecto);
+		usuario.completarDesafioDeUsuario(desafioUsuario, 5);
+		
+		EstadoDesafio estadoObtenido = desafioUsuario.getEstado();
+		EstadoDesafio estadoCompletado = new Completado();
+		
+		assertEquals(estadoCompletado.getClass(), estadoObtenido.getClass());
 		
 	}
 	
