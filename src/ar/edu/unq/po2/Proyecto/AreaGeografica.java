@@ -19,6 +19,6 @@ public class AreaGeografica {
 	
 	//Da True si la ubicacion esta dentro del radio del Area.
 	public boolean estaEnRango(Ubicacion geocoordenada) {
-		return this.getEpicentro().distancia(geocoordenada) < this.getRadio();
+		return this.getEpicentro().distancia(geocoordenada) <= this.getRadio();
 	}
 }
