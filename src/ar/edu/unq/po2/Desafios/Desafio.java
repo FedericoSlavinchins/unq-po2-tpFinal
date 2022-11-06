@@ -17,21 +17,6 @@ public class Desafio implements ElementoDeLudificacion {
 	private int dificultad;
 	private double recompensa;
 	
-	// private int porcentaje;			<--- FS: Lo moví a DesafioUsuario, tiene que ver con el progreso del usuario en el desafio.
-	// agregados
-	// private int desafiosAceptados;	<--- FS: Esto va en Usuario. No lo borré por las dudas.
-	// private int voto;				<--- FS: El voto es personal de cada usuario, no de todos los usuarios, lo muevo a DesafioDeUsuario.
-	// private LocalDate fechaAceptado; <--- FS: Esto va en DesafioUsuario. No lo borré por las dudas.
-
-	
-	
-	// construct 
-	/*
-	public Desafio() {
-		setEstado(new NoAceptado());	FS: Revisar > El Estado del desafio es de DesafioUsuario
-	}*/
-	
-	
 	//GETTERS AND SETTERS
 	
 
