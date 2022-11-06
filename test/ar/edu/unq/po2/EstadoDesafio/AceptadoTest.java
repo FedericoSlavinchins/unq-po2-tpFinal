@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import ar.edu.unq.po2.Desafios.BloqueSemanal;
 import ar.edu.unq.po2.Desafios.Desafio;
 import ar.edu.unq.po2.Desafios.DesafioDeUsuario;
+import ar.edu.unq.po2.Proyecto.Muestra;
 import ar.edu.unq.po2.SistemaUsuario.Usuario;
 
 class AceptadoTest {
@@ -22,6 +23,7 @@ class AceptadoTest {
 	private LocalDate fechaEsperada;
 	private Aceptado aceptado;
 	private BloqueSemanal restriccionBloqueSemanal;
+	private Muestra	muestra;
 	
 	@BeforeEach
 	void setUp() throws Exception {
@@ -50,7 +52,9 @@ class AceptadoTest {
 	}
 	@Test
 	void testEmiteVoto() {
+		desafio.setCantidadObjetivoDeMuestras(1);
 		usuario.aceptarDesafioDeUsuario(desafioUsuario);
+		//usuario.recolectarMuestra(mues, null);
 		usuario.completarDesafioDeUsuario(desafioUsuario, 1);
 		assertEquals(1,desafioUsuario.getVoto());
 	

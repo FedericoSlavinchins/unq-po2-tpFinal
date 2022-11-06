@@ -26,6 +26,8 @@ public class Desafio implements ElementoDeLudificacion {
 		this.restriccionTemporal = restriccionTemporal;
 		this.recompensa = recompensa;
 	}
+
+
 	
 	public int getCantidadObjetivoDeMuestras() {
 		return cantidadObjetivoDeMuestras;
