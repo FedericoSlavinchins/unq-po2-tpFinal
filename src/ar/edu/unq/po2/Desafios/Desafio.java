@@ -18,10 +18,11 @@ public class Desafio implements ElementoDeLudificacion {
 	private double recompensa;
 	
 	
-	public Desafio(int cantidadObjetivoDeMuestras,int dificultad,RestriccionTemporal restriccionTemporal) {
+	public Desafio(int cantidadObjetivoDeMuestras,int dificultad,RestriccionTemporal restriccionTemporal, double recompensa) {
 		this.cantidadObjetivoDeMuestras = cantidadObjetivoDeMuestras;	//FS: Revisar > El Estado del desafio es de DesafioUsuario
 		this.dificultad = dificultad;
 		this.restriccionTemporal = restriccionTemporal;
+		this.recompensa = recompensa;
 	}
 	
 	//GETTERS AND SETTERS
