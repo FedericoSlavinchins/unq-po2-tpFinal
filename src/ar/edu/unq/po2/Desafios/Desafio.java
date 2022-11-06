@@ -25,8 +25,8 @@ public class Desafio implements ElementoDeLudificacion {
 		this.recompensa = recompensa;
 	}
 
-	
 
+	
 	public int getCantidadObjetivoDeMuestras() {
 		return cantidadObjetivoDeMuestras;
 	}

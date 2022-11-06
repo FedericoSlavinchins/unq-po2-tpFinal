@@ -45,6 +45,7 @@ class NoAceptadoTest {
 		verify(desafioUsuario).setFechaAceptado();
 	}
 
+	//Este test no hace nada ya que el metodo tambien no hace nada.
 	@Test
 	void testCompletar() {
 		this.noAceptado.completar(desafioUsuario);
