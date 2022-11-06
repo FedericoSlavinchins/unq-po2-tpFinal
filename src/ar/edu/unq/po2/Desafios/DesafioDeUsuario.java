@@ -68,8 +68,13 @@ public class DesafioDeUsuario {
 	
 	
 	
+	public ArrayList<Muestra> getMuestrasRecolectadas() {
+		return muestrasRecolectadas;
+	}
+
+
 	public int porcentajeDeCompletitud() {	// FS: Este método nos lleva a no tener la necesidad de tener una variable porcentajeCompletitud, por lo tanto la borro.
-		return (this.cantidadMuestrasRecolectadasParaEsteDesafio() * 100) / this.desafio.getCantidadObjetivoDeMuestras() ;
+		return ((this.cantidadMuestrasRecolectadasParaEsteDesafio() * 100) / this.desafio.getCantidadObjetivoDeMuestras()) ;
 	}
 
 	

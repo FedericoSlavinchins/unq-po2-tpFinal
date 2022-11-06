@@ -56,11 +56,14 @@ public class Usuario {
 	
 	public void recolectarMuestra(Muestra muestra, Proyecto proyecto) {
 		proyecto.agregarMuestra(muestra); 	// FS: Agregar la muestra al proyecto.
-		/*
-		for (DesafioDeUsuario desafioDeUsuario : desafiosAceptados) {
-			desafioDeUsuario.va
+		contabilizarMuestraParaDesafiosAceptados(muestra);
+	}
+
+
+	private void contabilizarMuestraParaDesafiosAceptados(Muestra muestra) {
+		for (DesafioDeUsuario desafioDeUsuario : this.desafiosAceptados) {
+			desafioDeUsuario.getMuestrasRecolectadas().add(muestra);		// FS: Contabiliza la muestra solo para los desafios aceptados y sin completar.
 		}
-		*/
 	}
 	
 	
@@ -124,9 +127,9 @@ public class Usuario {
 		for (DesafioDeUsuario desafioDeUsuario : this.desafiosAceptados) {
 			resultado += desafioDeUsuario.porcentajeDeCompletitud();
 		}
-		return (resultado + (this.desafiosCompletados.size() * 100)) / 
-					(this.desafiosAceptados.size() + 
-					this.desafiosCompletados.size());
+		return ((resultado + (this.desafiosCompletados.size() * 100))) 
+				/ 
+				(this.desafiosAceptados.size() + this.desafiosCompletados.size());
 	}
 
 
@@ -150,6 +153,10 @@ public class Usuario {
 		
 	public void votar(DesafioDeUsuario desafioDeUsuario,int valorDeVoto) {
 		desafioDeUsuario.setVoto(valorDeVoto);
+	}
+	
+	public PreferenciaUsuario getPreferenciaUsuario() {
+		return this.preferenciaUsuario;
 	}
 	
 	
