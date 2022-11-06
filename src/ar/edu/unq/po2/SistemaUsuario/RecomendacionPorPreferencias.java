@@ -12,7 +12,6 @@ public class RecomendacionPorPreferencias implements EstrategiaDeRecomendacion {
 	private PreferenciaUsuario preferenciasDelUsuario;
 	private List<Desafio> desafiosRecomendados;
 
-	@Override
 	//Calcula el nivel de coincidencia con las preferencias del usuario haciendo una suma del valor absoluto de las diferencias
 	public double calcularCoincidencia(Desafio desafio) {
 		int resMuestras = 
@@ -27,7 +26,7 @@ public class RecomendacionPorPreferencias implements EstrategiaDeRecomendacion {
 		return resMuestras + resDificultad + resRecompensas;
 	}
 
-
+/*
 	@Override
 	public List<DesafioDeUsuario> DesafiosRecomendados() {
 		List<DesafioDeUsuario> recomendados = new ArrayList<DesafioDeUsuario>();
@@ -37,7 +36,7 @@ public class RecomendacionPorPreferencias implements EstrategiaDeRecomendacion {
 			recomendados.add(desafioRecomendado);
 		}
 		return recomendados;
-	}
+	}*/
 	
 	/*private List<Desafio> filtrarCoincidencias(Desafio desafio, double valorCoincidencia) {
 		List<Desafio> resultado = this.desafiosRecomendados;
@@ -48,12 +47,12 @@ public class RecomendacionPorPreferencias implements EstrategiaDeRecomendacion {
 		}
 		return this.desafiosRecomendados = resultado;
 	}*/
-	
+	/*
 	private Desafio filtrarMasCoincidente(Desafio desafio1, Desafio desafio2) {
 		Desafio resultado = 
 				this.calcularCoincidencia(desafio1) > this.calcularCoincidencia(desafio2) ? desafio2 : desafio1;
 		return resultado;
-	}
+	}*/
 
 	public int valorAbsoluto(int numero) { 
 		return numero > 0 ? numero : -numero; 
@@ -61,5 +60,12 @@ public class RecomendacionPorPreferencias implements EstrategiaDeRecomendacion {
 	
 	public double valorAbsolutoDouble (double numero) { 
 		return numero > 0 ? numero : -numero; 
+	}
+
+
+	@Override
+	public void recomendar() {
+		// TODO Auto-generated method stub
+		
 	}
 }

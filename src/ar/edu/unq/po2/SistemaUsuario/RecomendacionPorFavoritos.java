@@ -10,16 +10,22 @@ public class RecomendacionPorFavoritos implements EstrategiaDeRecomendacion {
 	private List<DesafioDeUsuario> desafiosCompletadosDeUsuario;
 
 
-	@Override
 	public double calcularCoincidencia(Desafio desafio) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
+/*
 	@Override
 	public List<DesafioDeUsuario> DesafiosRecomendados() {
 		// TODO Auto-generated method stub
 		return null;
 	}
+*/
 
+
+	@Override
+	public void recomendar() {
+		// TODO Auto-generated method stub
+		
+	}
 }

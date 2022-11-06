@@ -11,19 +11,14 @@ public class RecomendadorDeLudificacion {
 	public RecomendadorDeLudificacion(List<DesafioDeUsuario> desafiosCompletados) {
 		this.desafiosCompletadosDelUsuario = desafiosCompletados;
 		//El recomendador basico es por preferencias
-		this.setRecomendador(new RecomendacionPorPreferencias());
+		this.cambiarEstrategiaDeRecomendacion(new RecomendacionPorPreferencias());
 	}
 
-	public EstrategiaDeRecomendacion getRecomendador() {
+	public void cambiarEstrategiaDeRecomendacion(EstrategiaDeRecomendacion estrategia) {
+		this.estrategia = estrategia;
+	}
+
+	public EstrategiaDeRecomendacion getEstrategia() {
 		return estrategia;
-	}
-
-	public void setRecomendador(EstrategiaDeRecomendacion recomendador) {
-		this.estrategia = recomendador;
-	}
-	
-	public List<DesafioDeUsuario> RecomendarDesafios(){
-		
-		return this.estrategia.DesafiosRecomendados();
 	}
 }

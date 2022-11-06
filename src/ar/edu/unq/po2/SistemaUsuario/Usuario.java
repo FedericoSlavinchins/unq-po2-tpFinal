@@ -19,7 +19,6 @@ public class Usuario {
 	private RecomendadorDeLudificacion recomendador;	// FS: Cambiada la referencia, referenciaba incorrectamente la interfaz y no la clase.
 	
 	private double recompensasAcumuladas;			 // FS: Las ganancias acumuladas que obtuvo por completar desafios.
-
 	private ArrayList<Proyecto> proyectos;
 	
 	private ArrayList<DesafioDeUsuario>	desafiosDisponibles;	// FS: No aceptados.
@@ -30,14 +29,21 @@ public class Usuario {
 	public Usuario(String nombre) {
 		this.nombre = nombre;
 		this.preferenciaUsuario = new PreferenciaUsuario(0,0,0);
+		this.recomendador = new RecomendadorDeLudificacion(this.desafiosCompletados);
 		this.recompensasAcumuladas = 0;
 		this.proyectos = new ArrayList<Proyecto>();
 		this.desafiosDisponibles = new ArrayList<DesafioDeUsuario>();
 		this.desafiosAceptados 	= new ArrayList<DesafioDeUsuario>();
-		this.desafiosCompletados	= new ArrayList<DesafioDeUsuario>();
-		
+		this.desafiosCompletados= new ArrayList<DesafioDeUsuario>();
 	}
 	
+	public String getNombre() {
+		return this.nombre;
+	}
+	
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
 	
 	public ArrayList<Proyecto> getProyectos() {
 		return proyectos;
@@ -72,19 +78,11 @@ public class Usuario {
 	public void completarDesafioDeUsuario(DesafioDeUsuario desafioDeUsuario,int valorVoto) {
 		// FS: Precondición: el desafio de usuario debe haber sido previamente aceptado.
 		this.desafiosAceptados.remove(desafioDeUsuario);
-		//Cambio de estado, deberia pasar de Aceptado a Completado.
 		this.desafiosCompletados.add(desafioDeUsuario);
 		desafioDeUsuario.getEstado().completar();
 		this.recompensasAcumuladas += desafioDeUsuario.getDesafio().getRecompensa();	// FS: Otorga recompensa.
 		this.votar(desafioDeUsuario,valorVoto);	// El usuario debe elegir el voto.
 	}
-	
-	
-	/*
-	public void votarDesafio(DesafioDeUsuario desafioDeUsuario, int voto) {
-		Falta realizar.
-	}
-	*/
 	
 	
 	//FS: Métodos para cambiar preferencias de jugabilidad del usuario.
@@ -138,16 +136,14 @@ public class Usuario {
 		desafioDeUsuario.setVoto(valorDeVoto);
 	}
 	
-	
+	public void cambiarEstrategiaDeRecomendadorDeDesafio(EstrategiaDeRecomendacion estrategia) {
+		this.recomendador.cambiarEstrategiaDeRecomendacion(estrategia);
+	}
 	
 	
 	
 	/* REALIZADO ANTERIORMENTE
 		
-	public List<DesafioDeUsuario> getDesafiosCompletados(){
-		return this.desafiosCompletados;
-	}
-	
 	
 	
 	public int porcentajeDeCompletitud(DesafioDeUsuario desafio) {
