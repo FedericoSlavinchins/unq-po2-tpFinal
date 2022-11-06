@@ -2,13 +2,62 @@ package ar.edu.unq.po2.EstadoDesafio;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.time.LocalDate;
+
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import ar.edu.unq.po2.Desafios.Desafio;
+import ar.edu.unq.po2.Desafios.DesafioDeUsuario;
+import ar.edu.unq.po2.SistemaUsuario.Usuario;
 
 class AceptadoTest {
 
-	@Test
-	void test() {
-		fail("Not yet implemented");
+
+	private DesafioDeUsuario desafioUsuario;
+	private Desafio desafio;
+	private NoAceptado noAceptado;
+	private Usuario usuario;
+	private LocalDate fechaEsperada;
+	private Aceptado aceptado;
+	
+	@BeforeEach
+	void setUp() throws Exception {
+		
+		desafio = new Desafio();
+		desafioUsuario = new DesafioDeUsuario(desafio);
+		aceptado = new Aceptado();
+		desafioUsuario.setEstado(aceptado);
+		usuario = new Usuario("pepe");
+		//usuario = mock(Usuario.class);
+		usuario.agregarDesafiosDisponibles(desafioUsuario);
+		fechaEsperada = LocalDate.now();
+		
 	}
 
+	@Test
+	void testComprobarQueElEstadoEsAceptado() {
+		assertEquals(aceptado,desafioUsuario.getEstado());
+	}
+
+	@Test
+	void testFechaDeCompletadoEsLaCorrecta() {
+		usuario.aceptarDesafioDeUsuario(desafioUsuario);
+		usuario.completarDesafioDeUsuario(desafioUsuario, 1);
+		assertEquals(fechaEsperada,desafioUsuario.getFechaCompletado());
+	}
+	@Test
+	void testEmiteVoto() {
+		usuario.aceptarDesafioDeUsuario(desafioUsuario);
+		usuario.completarDesafioDeUsuario(desafioUsuario, 1);
+		assertEquals(1,desafioUsuario.getVoto());
+	
+	}
+	
+	@Test
+	void testCambiaDeEstadoAceptado() {
+		usuario.aceptarDesafioDeUsuario(desafioUsuario);
+		//verify(usuario).aceptarDesafioDeUsuario(desafioUsuario);
+		
+	}
 }

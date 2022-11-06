@@ -1,5 +1,7 @@
 package ar.edu.unq.po2.EstadoDesafio;
 
+import java.time.LocalDate;
+
 import ar.edu.unq.po2.Desafios.DesafioDeUsuario;
 
 public class Completado implements EstadoDesafio {
@@ -12,7 +14,8 @@ public class Completado implements EstadoDesafio {
 
 	@Override
 	public void completar(DesafioDeUsuario desafioDeUsuario) {
-	
+		 
+		
 	}
 
 	@Override

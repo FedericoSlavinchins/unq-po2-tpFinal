@@ -39,6 +39,11 @@ public class Usuario {
 	}
 	
 	
+	public void setDesafiosAceptados(ArrayList<DesafioDeUsuario> desafiosAceptados) {
+		this.desafiosAceptados = desafiosAceptados;
+	}
+
+
 	public ArrayList<Proyecto> getProyectos() {
 		return proyectos;
 	}
