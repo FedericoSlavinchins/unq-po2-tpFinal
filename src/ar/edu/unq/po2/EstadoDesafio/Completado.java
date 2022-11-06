@@ -15,11 +15,11 @@ public class Completado implements EstadoDesafio {
 	@Override
 	public void completar(DesafioDeUsuario desafioDeUsuario) {
 		 
-		
 	}
 
 	@Override
 	public void aceptar(DesafioDeUsuario desafioDeUsuario) {		
+		
 	}
 
 

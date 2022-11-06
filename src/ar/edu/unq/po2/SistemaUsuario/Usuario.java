@@ -162,7 +162,7 @@ public class Usuario {
 	
 	
 	
-	
+}
 	
 	/* REALIZADO ANTERIORMENTE
 		
@@ -178,4 +178,4 @@ public class Usuario {
 	
 	
 	*/
-}
+
