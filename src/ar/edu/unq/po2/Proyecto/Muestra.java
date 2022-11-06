@@ -18,6 +18,10 @@ public class Muestra {
 		this.usuario = usuario;
 		this.geocoordenada = geocoordenada;
 	}
+	
+	public Usuario getUsuario() {
+		return this.usuario;
+	}
 
 	public LocalDate getFecha() {
 		return this.fecha;
