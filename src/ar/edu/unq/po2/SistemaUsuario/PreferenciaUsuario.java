@@ -6,8 +6,6 @@ public class PreferenciaUsuario {
 	private int dificultadPreferida;
 	private double recompensaPreferida;
 	
-	
-	
 	public PreferenciaUsuario(int cantidadDeMestrasARecolectar, int dificultadPreferida, double recompensaPreferida) {
 		this.setCantidadDeMestrasARecolectar(cantidadDeMestrasARecolectar);
 		this.setDificultadPreferida(dificultadPreferida);

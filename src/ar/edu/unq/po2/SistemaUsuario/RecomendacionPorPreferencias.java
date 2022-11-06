@@ -8,7 +8,7 @@ import java.util.stream.Stream;
 import ar.edu.unq.po2.Desafios.Desafio;
 import ar.edu.unq.po2.Desafios.DesafioDeUsuario;
 
-public class RecomendacionPorPreferencias implements RecomendadorDeDesafios {
+public class RecomendacionPorPreferencias implements EstrategiaDeRecomendacion {
 	private PreferenciaUsuario preferenciasDelUsuario;
 	private List<Desafio> desafiosRecomendados;
 

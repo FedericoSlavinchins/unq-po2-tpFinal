@@ -16,7 +16,7 @@ public class Usuario {
 	
 	private String nombre;
 	private PreferenciaUsuario preferenciaUsuario;
-	private RecomendadorDeLudificacion estrategiaDeRecomendacionDeDesafios;	// FS: Cambiada la referencia, referenciaba incorrectamente la interfaz y no la clase.
+	private RecomendadorDeLudificacion recomendador;	// FS: Cambiada la referencia, referenciaba incorrectamente la interfaz y no la clase.
 	
 	private double recompensasAcumuladas;			 // FS: Las ganancias acumuladas que obtuvo por completar desafios.
 

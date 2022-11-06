@@ -6,7 +6,7 @@ import ar.edu.unq.po2.Desafios.DesafioDeUsuario;
 public class RecomendadorDeLudificacion {
 	
 	private List<DesafioDeUsuario> desafiosCompletadosDelUsuario;
-	private RecomendadorDeDesafios recomendador;
+	private EstrategiaDeRecomendacion estrategia;
 	
 	public RecomendadorDeLudificacion(List<DesafioDeUsuario> desafiosCompletados) {
 		this.desafiosCompletadosDelUsuario = desafiosCompletados;
@@ -14,16 +14,16 @@ public class RecomendadorDeLudificacion {
 		this.setRecomendador(new RecomendacionPorPreferencias());
 	}
 
-	public RecomendadorDeDesafios getRecomendador() {
-		return recomendador;
+	public EstrategiaDeRecomendacion getRecomendador() {
+		return estrategia;
 	}
 
-	public void setRecomendador(RecomendadorDeDesafios recomendador) {
-		this.recomendador = recomendador;
+	public void setRecomendador(EstrategiaDeRecomendacion recomendador) {
+		this.estrategia = recomendador;
 	}
 	
 	public List<DesafioDeUsuario> RecomendarDesafios(){
 		
-		return this.recomendador.DesafiosRecomendados();
+		return this.estrategia.DesafiosRecomendados();
 	}
 }
