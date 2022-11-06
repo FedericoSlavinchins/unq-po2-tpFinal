@@ -2,7 +2,6 @@ package ar.edu.unq.po2.Proyecto;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 
 import org.junit.jupiter.api.BeforeEach;
