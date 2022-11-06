@@ -77,7 +77,7 @@ public class Usuario {
 		
 		
 		this.desafiosAceptados.remove(desafioDeUsuario);
-		desafioDeUsuario.getEstado().completar();
+		desafioDeUsuario.getEstado().completar(desafioDeUsuario);
 		//Cambio de estado, deberia pasar de Aceptado a Completado.
 		this.desafiosCompletados.add(desafioDeUsuario);
 		
