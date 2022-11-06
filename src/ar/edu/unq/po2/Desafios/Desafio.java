@@ -26,10 +26,12 @@ public class Desafio implements ElementoDeLudificacion {
 	
 	
 	// construct 
-	/*
-	public Desafio() {
-		setEstado(new NoAceptado());	FS: Revisar > El Estado del desafio es de DesafioUsuario
-	}*/
+	
+	public Desafio(int cantidadObjetivoDeMuestras,int dificultad,RestriccionTemporal restriccionTemporal) {
+		this.cantidadObjetivoDeMuestras = cantidadObjetivoDeMuestras;	//FS: Revisar > El Estado del desafio es de DesafioUsuario
+		this.dificultad = dificultad;
+		this.restriccionTemporal = restriccionTemporal;
+	}
 	
 	
 	//GETTERS AND SETTERS
@@ -60,17 +62,11 @@ public class Desafio implements ElementoDeLudificacion {
 		return dificultad;
 	}
 
-	public void setDificultad(int dificultad) {
-		this.dificultad = dificultad;
-	}
 
 	public double getRecompensa() {
 		return recompensa;
 	}
 
-	public void setRecompensa(double recompensa) {
-		this.recompensa = recompensa;
-	}
 	
 
 }
