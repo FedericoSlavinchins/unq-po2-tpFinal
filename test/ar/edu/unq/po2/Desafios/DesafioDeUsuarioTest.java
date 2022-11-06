@@ -29,21 +29,22 @@ class DesafioDeUsuarioTest {
 	private LocalDate fechaAceptado;
 	private LocalDate fechaEnQueSeCompletoDesafioTest1;
 	private LocalDate fechaObtenida;
-	private BloqueSemanal restriccionBloqueSemanal;
+	private EntreFechas restriccionEntreFechas;
 	private Muestra	muestra;
 	private AreaGeografica area;
 	private Proyecto proyecto;
 	private Categoria categoria;
 	private ArrayList<Categoria> listaCategorias;
+	private Ubicacion geocoordenada;
 	
 	@BeforeEach
 	void setUp() throws Exception {
-		restriccionBloqueSemanal = new BloqueSemanal(true);
 		categoria = new Categoria("Biología");
 		listaCategorias = new ArrayList<Categoria>();
 		listaCategorias.add(categoria);
 		area = new AreaGeografica(500, 500, 500);
-		desafio = new Desafio(area, 2, 3, restriccionBloqueSemanal, 1000);
+		restriccionEntreFechas = new EntreFechas(LocalDate.of(2022, 10, 10), LocalDate.of(2023, 10, 10));
+		desafio = new Desafio(area, 2, 3, restriccionEntreFechas, 1000);
 		usuario = new Usuario("nombreUsuario");
 		estadoAceptado = new Aceptado();
 		desafioUsuario = new DesafioDeUsuario(desafio);
@@ -53,6 +54,10 @@ class DesafioDeUsuarioTest {
 		usuario.agregarDesafiosDisponibles(desafioUsuario);
 		 
 		noAceptado = desafioUsuario.getEstado();
+		
+		geocoordenada = new Ubicacion(500, 500);
+				
+		muestra = new Muestra(usuario, geocoordenada);
 		
 		proyecto = new Proyecto("proyecto", "descripcion", listaCategorias);
 		
@@ -82,6 +87,21 @@ class DesafioDeUsuarioTest {
 		
 		assertEquals(estadoCompletado.getClass(), estadoObtenido.getClass());
 		
+	}
+	
+	
+	@Test
+	void cuandoElUsuarioSubeUnaMuestraQueCumpleConLasCondicionesEsUnaMuestraValida() {
+		usuario.aceptarDesafioDeUsuario(desafioUsuario);
+		usuario.recolectarMuestra(muestra, proyecto);
+		assertTrue(desafioUsuario.esMuestraValida(muestra));
+	}
+	
+	@Test
+	void testSetVoto() {
+		desafioUsuario.setVoto(5);
+		int resultadoEsperado = desafioUsuario.getVoto();
+		assertTrue(resultadoEsperado == 5);
 	}
 	
 }
