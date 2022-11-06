@@ -47,7 +47,7 @@ public class DesafioDeUsuario {
 	}
 
 	public void serAceptado() {
-		this.getEstado().aceptar(this);
+		this.getEstado().actualizarEstado(this);
 	}
 		
 	public int cantidadMuestrasRecolectadasParaEsteDesafio() {
