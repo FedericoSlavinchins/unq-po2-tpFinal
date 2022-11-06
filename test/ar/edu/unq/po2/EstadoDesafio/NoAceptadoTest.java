@@ -18,9 +18,7 @@ import ar.edu.unq.po2.SistemaUsuario.Usuario;
 class NoAceptadoTest {
 
 	private DesafioDeUsuario desafioUsuario;
-	//private Desafio desafio;
 	private NoAceptado noAceptado;
-	//private Usuario usuario;
 	private LocalDate fechaEsperada;
 	
 	@BeforeEach
@@ -28,10 +26,6 @@ class NoAceptadoTest {
 		
 		desafioUsuario = mock(DesafioDeUsuario.class);
 		noAceptado = new NoAceptado();
-		//desafioUsuario.setEstado(noAceptado);
-		//usuario = new Usuario("pepe");
-		//usuario = mock(Usuario.class);
-		//usuario.agregarDesafiosDisponibles(desafioUsuario);
 		fechaEsperada = LocalDate.now();
 		
 	}
@@ -51,17 +45,8 @@ class NoAceptadoTest {
 		verify(desafioUsuario).setFechaAceptado();
 	}
 
-/*
 	@Test
-	void testFechaDeAceptadoEsLaCorrecta() {
-		
-		usuario.aceptarDesafioDeUsuario(desafioUsuario);
-		assertEquals(fechaEsperada,desafioUsuario.getFechaAceptado());
+	void testCompletar() {
+		this.noAceptado.completar(desafioUsuario);
 	}
-	@Test
-	void testCambiaDeEstadoAceptado() {
-		usuario.aceptarDesafioDeUsuario(desafioUsuario);
-		verify(desafioUsuario).serAceptado();
-		
-	}*/
 }
