@@ -10,16 +10,10 @@ public class Completado implements EstadoDesafio {
 	// por ende los voids son vacios
 	
 	private DesafioDeUsuario desafioUsuario;
-	
 
 	@Override
-	public void completar(DesafioDeUsuario desafioDeUsuario) {
-		 
-	}
-
-	@Override
-	public void aceptar(DesafioDeUsuario desafioDeUsuario) {		
-		
+	public void actualizarEstado(DesafioDeUsuario desafioDeUsuario) {
+		// El comportamiento es hacer nada. El desafio debe quedarse en Completado.
 	}
 
 

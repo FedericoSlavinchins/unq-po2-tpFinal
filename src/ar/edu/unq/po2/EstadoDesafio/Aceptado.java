@@ -6,18 +6,13 @@ import ar.edu.unq.po2.Desafios.DesafioDeUsuario;
 
 public class Aceptado implements EstadoDesafio {
 
-	private DesafioDeUsuario desafioUsuario;
+	private DesafioDeUsuario desafioDeUsuario;
 
 	@Override
-	public void aceptar(DesafioDeUsuario desafioDeUsuario) {}
-
-	@Override
-	public void completar(DesafioDeUsuario desafioDeUsuario) {
-		
-		this.desafioUsuario = desafioDeUsuario;
-		desafioUsuario.setFechaCompletado();
-		desafioUsuario.setEstado(new Completado()); // Setea estado completado
-		
+	public void actualizarEstado(DesafioDeUsuario desafioDeUsuario) {
+		this.desafioDeUsuario = desafioDeUsuario;
+		desafioDeUsuario.setFechaCompletado();
+		desafioDeUsuario.setEstado(new Completado()); // Setea estado completado
 	}
 }
 
