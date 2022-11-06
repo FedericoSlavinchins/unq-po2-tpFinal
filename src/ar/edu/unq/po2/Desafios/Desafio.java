@@ -17,6 +17,26 @@ public class Desafio implements ElementoDeLudificacion {
 	private int dificultad;
 	private double recompensa;
 	
+<<<<<<< HEAD
+	// private int porcentaje;			<--- FS: Lo moví a DesafioUsuario, tiene que ver con el progreso del usuario en el desafio.
+	// agregados
+	// private int desafiosAceptados;	<--- FS: Esto va en Usuario. No lo borré por las dudas.
+	// private int voto;				<--- FS: El voto es personal de cada usuario, no de todos los usuarios, lo muevo a DesafioDeUsuario.
+	// private LocalDate fechaAceptado; <--- FS: Esto va en DesafioUsuario. No lo borré por las dudas.
+
+	
+	
+	// construct 
+	
+	public Desafio(int cantidadObjetivoDeMuestras,int dificultad,RestriccionTemporal restriccionTemporal) {
+		this.cantidadObjetivoDeMuestras = cantidadObjetivoDeMuestras;	//FS: Revisar > El Estado del desafio es de DesafioUsuario
+		this.dificultad = dificultad;
+		this.restriccionTemporal = restriccionTemporal;
+	}
+	
+	
+=======
+>>>>>>> branch 'main-2' of https://github.com/FedericoSlavinchins/unq-po2-tpFinal.git
 	//GETTERS AND SETTERS
 	
 
@@ -45,17 +65,11 @@ public class Desafio implements ElementoDeLudificacion {
 		return dificultad;
 	}
 
-	public void setDificultad(int dificultad) {
-		this.dificultad = dificultad;
-	}
 
 	public double getRecompensa() {
 		return recompensa;
 	}
 
-	public void setRecompensa(double recompensa) {
-		this.recompensa = recompensa;
-	}
 	
 
 }
