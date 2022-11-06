@@ -11,7 +11,7 @@ public class NoAceptado implements EstadoDesafio {
 	@Override  
 	public void aceptar(DesafioDeUsuario desafioDeUsuario) {
 		this.desafioUsuario = desafioDeUsuario;
-		desafioUsuario.setFechaAceptado(LocalDate.now()); // guarda la fecha en la que se acepto
+		desafioUsuario.setFechaAceptado(); // guarda la fecha en la que se acepto
 		desafioUsuario.setEstado(new Aceptado()); // Setea el estado Aceptados
 		
 	}

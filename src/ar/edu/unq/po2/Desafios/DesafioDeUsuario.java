@@ -56,8 +56,8 @@ public class DesafioDeUsuario {
 	
 	
 	
-	public void setFechaCompletado(LocalDate fechaEnQueCompletoDesafio) {
-		this.fechaCompletado = fechaEnQueCompletoDesafio;
+	public void setFechaCompletado() {
+		this.fechaCompletado = LocalDate.now();
 	}
 	
 	
@@ -84,8 +84,8 @@ public class DesafioDeUsuario {
 	}
 
 
-	public void setFechaAceptado(LocalDate fecha) {
-		this.fechaAceptado = fecha;
+	public void setFechaAceptado() {
+		this.fechaAceptado = LocalDate.now();
 	}
 	
 	public LocalDate getFechaAceptado() {

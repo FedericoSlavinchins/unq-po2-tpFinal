@@ -8,9 +8,15 @@ import ar.edu.unq.po2.SistemaUsuario.Usuario;
 
 public class Sistema {			// Representa al sistema de Ciencia Participativa.
 	
-	private ArrayList<Proyecto> proyectos = new ArrayList<Proyecto>();
-	private ArrayList<Usuario> 	usuarios  = new ArrayList<Usuario>();
+	private ArrayList<Proyecto> proyectos;
+	private ArrayList<Usuario> 	usuarios;
 	private BuscadorDeProyectos buscadorDeProyectos;
+	
+	public Sistema(BuscadorDeProyectos buscador) {
+		this.proyectos = new ArrayList<Proyecto>();
+		this.usuarios = new ArrayList<Usuario>();
+		this.buscadorDeProyectos = buscador;
+	}
 	
 	
 	public void agregarProyecto(Proyecto proyecto) {

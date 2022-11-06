@@ -15,7 +15,7 @@ public class Aceptado implements EstadoDesafio {
 	public void completar(DesafioDeUsuario desafioDeUsuario) {
 		
 		this.desafioUsuario = desafioDeUsuario;
-		desafioUsuario.setFechaCompletado(LocalDate.now());
+		desafioUsuario.setFechaCompletado();
 		desafioUsuario.setEstado(new Completado()); // Setea estado completado
 		
 	}
