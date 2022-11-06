@@ -61,6 +61,9 @@ class UsuarioTest {
 	
 	@Test
 	void cuandoElUsuarioCompletaUnDesafioDeUsuarioElMismoSeGuardaEnSuListaDeDesafiosCompletadosYDesapareceDeAceptados() {
+		desafio.setCantidadObjetivoDeMuestras(1);
+		usuario.aceptarDesafioDeUsuario(desafioDeUsuario);
+		usuario.recolectarMuestra(muestra, proyecto);
 		usuario.completarDesafioDeUsuario(desafioDeUsuario, 5);
 		assertTrue(usuario.getDesafiosCompletados().contains(desafioDeUsuario));
 		assertFalse(usuario.getDesafiosAceptados().contains(desafioDeUsuario));
@@ -68,6 +71,9 @@ class UsuarioTest {
 	
 	@Test
 	void cuandoElUsuarioCompletaUnDesafioDeUsuarioElMismoVotaAlUsuario() {
+		desafio.setCantidadObjetivoDeMuestras(1);
+		usuario.aceptarDesafioDeUsuario(desafioDeUsuario);
+		usuario.recolectarMuestra(muestra, proyecto);
 		usuario.completarDesafioDeUsuario(desafioDeUsuario, 5);
 		boolean resultadoActual = desafioDeUsuario.getVoto() == 5;
 		assertTrue(resultadoActual);
@@ -131,6 +137,13 @@ class UsuarioTest {
 		usuario.recolectarMuestra(muestra, proyecto);
 		int resultadoActual = usuario.porcentajeDeCompletitudGeneral();
 		int resultadoEsperado = 50;
+		assertEquals(resultadoEsperado, resultadoActual);
+	}
+	
+	@Test
+	void cuandoElUsuarioSeRegistraSuNombreEsUsuarioNombre() {
+		String resultadoActual = usuario.getNombre();
+		String resultadoEsperado = "nombreUsuario";
 		assertEquals(resultadoEsperado, resultadoActual);
 	}
 	
