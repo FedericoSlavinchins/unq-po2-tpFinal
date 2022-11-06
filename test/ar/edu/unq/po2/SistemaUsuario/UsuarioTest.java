@@ -13,6 +13,7 @@ import ar.edu.unq.po2.Proyecto.Categoria;
 import ar.edu.unq.po2.Proyecto.Geocoordenada;
 import ar.edu.unq.po2.Proyecto.Muestra;
 import ar.edu.unq.po2.Proyecto.Proyecto;
+import ar.edu.unq.po2.Proyecto.Ubicacion;
 
 import static org.mockito.Mockito.*;
 
@@ -25,14 +26,14 @@ class UsuarioTest {
 	private ArrayList<Categoria> listaDeCategorias;
 	private Categoria categoria;
 	private Muestra muestra;
-	private Geocoordenada geocoordenada;
+	private Ubicacion geocoordenada;
 	
 	@BeforeEach
 	public void setUp() {
 		desafio = new Desafio();
 		desafioDeUsuario = new DesafioDeUsuario(desafio);
 		usuario = new Usuario("nombreUsuario");
-		geocoordenada = new Geocoordenada();
+		geocoordenada = new Ubicacion(0, 0);
 		muestra = new Muestra(usuario, geocoordenada);
 		listaDeCategorias = new ArrayList<Categoria>();
 		categoria = new Categoria("Biología");
