@@ -19,6 +19,7 @@ class DesafioTest {
 	
 	private Desafio desafio;
 	private AreaGeografica area;
+	private RestriccionTemporal restriccionTemporal;
 	private BloqueSemanal restriccionBloqueSemanalDiaSemana;
 	private Ubicacion ubicacion;
 	private LocalDate diaDeSemana;
@@ -34,7 +35,7 @@ class DesafioTest {
 	esDiaDeSemana = true;
 	restriccionBloqueSemanalDiaSemana = new BloqueSemanal(esDiaDeSemana);
 	diaDeSemana = LocalDate.of(2022, 12, 1);
-		
+	restriccionTemporal = restriccionBloqueSemanalDiaSemana;
 	}
 	
 	@Test
@@ -58,11 +59,17 @@ class DesafioTest {
 	@Test
 	void testDelArea() {
 		assertTrue(area.estaEnRango(ubicacion));
+
 	}
 	@Test
 	void testRestriccionTemporal() {
 			boolean resultado = restriccionBloqueSemanalDiaSemana.cumplioPeriodo(diaDeSemana);
 			assertTrue(resultado);
+		}
+	@Test
+	void testSetRestriccionTemporal() {
+			desafio.setRestriccionTemporal(restriccionTemporal);
+			assertEquals(restriccionTemporal,desafio.getRestriccionTemporal());
 		}
 }
 	

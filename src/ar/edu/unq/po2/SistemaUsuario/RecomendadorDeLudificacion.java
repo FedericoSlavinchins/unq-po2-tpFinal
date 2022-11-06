@@ -18,6 +18,14 @@ public class RecomendadorDeLudificacion {
 		this.cambiarEstrategiaDeRecomendacion(new RecomendacionPorPreferencias());
 	}
 
+	public List<DesafioDeUsuario> getDesafiosCompletados(){
+		return this.desafiosCompletadosDelUsuario;
+	}
+	
+	public PreferenciaUsuario getPreferencias() {
+		return this.preferenciasDelUsuario;
+	}
+	
 	public void cambiarEstrategiaDeRecomendacion(EstrategiaDeRecomendacion estrategia) {
 		this.estrategia = estrategia;
 	}

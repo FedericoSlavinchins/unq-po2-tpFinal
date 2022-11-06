@@ -20,7 +20,6 @@ import ar.edu.unq.po2.Proyecto.Ubicacion;
 import ar.edu.unq.po2.SistemaUsuario.Usuario;
 
 class DesafioDeUsuarioTest {
-
 	private DesafioDeUsuario desafioUsuario;
 	private Usuario usuario;
 	private Desafio desafio;
@@ -40,11 +39,9 @@ class DesafioDeUsuarioTest {
 	private Categoria categoria;
 	private ArrayList<Categoria> listaCategorias;
 	private Ubicacion geocoordenada;
-
 	
 	@BeforeEach
 	void setUp() throws Exception {
-
 		this.area = new AreaGeografica(cantidadObjetivoDeMuestras, cantidadObjetivoDeMuestras, cantidadObjetivoDeMuestras);
 		this.cantidadObjetivoDeMuestras = 0;
 		this.recompensa = 0;
@@ -69,8 +66,6 @@ class DesafioDeUsuarioTest {
 		muestra = new Muestra(usuario, geocoordenada);
 		
 		proyecto = new Proyecto("proyecto", "descripcion", listaCategorias);
-		
-
 	}
 	
 	@Test
