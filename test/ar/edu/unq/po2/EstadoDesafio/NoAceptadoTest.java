@@ -48,7 +48,7 @@ class NoAceptadoTest {
 	void testSeAceptaDesafio() {
 		this.noAceptado.aceptar(desafioUsuario);
 		
-		verify(desafioUsuario).setFechaAceptado(fechaEsperada);
+		verify(desafioUsuario).setFechaAceptado();
 	}
 
 /*
