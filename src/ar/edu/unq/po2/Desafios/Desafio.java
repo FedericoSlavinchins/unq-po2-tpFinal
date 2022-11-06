@@ -9,7 +9,7 @@ import ar.edu.unq.po2.EstadoDesafio.NoAceptado;
 
 import ar.edu.unq.po2.Proyecto.AreaGeografica;
 
-public class Desafio  {
+public class Desafio implements ElementoDeLudificacion {
 	
 	private AreaGeografica area;
 	private RestriccionTemporal restriccionTemporal;
@@ -71,17 +71,6 @@ public class Desafio  {
 	public void setRecompensa(double recompensa) {
 		this.recompensa = recompensa;
 	}
-
-	
-	
-	// MAS Methods
-	
-	
-
-	public void aceptar() {}
-	public void completar() {}
-	
-		
 	
 
 }
