@@ -62,19 +62,25 @@ public class Usuario {
 	
 	// FS: Métodos aceptar y completar desafío.
 	public void aceptarDesafioDeUsuario(DesafioDeUsuario desafioDeUsuario) {
+		
+		desafioDeUsuario.serAceptado();	// FS: Setea instancia ACEPTADO en DesafioDeUsuario.
 		// FS: Precondición: el desafio de usuario debe estar disponible para el usuario.
 		desafiosDisponibles.remove(desafioDeUsuario);
 		this.desafiosAceptados.add(desafioDeUsuario);
-		desafioDeUsuario.getEstado().aceptar();		// FS: Setea instancia ACEPTADO en DesafioDeUsuario.
+		
 	}
+	
 	
 	
 	public void completarDesafioDeUsuario(DesafioDeUsuario desafioDeUsuario,int valorVoto) {
 		// FS: Precondición: el desafio de usuario debe haber sido previamente aceptado.
+		
+		
 		this.desafiosAceptados.remove(desafioDeUsuario);
+		desafioDeUsuario.getEstado().completar();
 		//Cambio de estado, deberia pasar de Aceptado a Completado.
 		this.desafiosCompletados.add(desafioDeUsuario);
-		desafioDeUsuario.getEstado().completar();
+		
 		this.recompensasAcumuladas += desafioDeUsuario.getDesafio().getRecompensa();	// FS: Otorga recompensa.
 		this.votar(desafioDeUsuario,valorVoto);	// El usuario debe elegir el voto.
 	}
@@ -122,6 +128,9 @@ public class Usuario {
 
 	public ArrayList<DesafioDeUsuario> getDesafiosDisponibles() {
 		return desafiosDisponibles;
+	}
+	public void agregarDesafiosDisponibles(DesafioDeUsuario desafioUsuario) {
+		 desafiosDisponibles.add(desafioUsuario);
 	}
 
 

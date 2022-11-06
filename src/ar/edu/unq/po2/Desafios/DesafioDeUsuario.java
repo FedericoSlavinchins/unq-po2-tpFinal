@@ -34,7 +34,10 @@ public class DesafioDeUsuario {
 	public void setEstado(EstadoDesafio estado) {
 		this.estado = estado;
 	}
-	
+
+	public void serAceptado() {
+		this.getEstado().aceptar(this);
+	}
 		
 	public int cantidadMuestrasRecolectadasParaEsteDesafio() {
 		return this.muestrasRecolectadas.size();
@@ -68,8 +71,10 @@ public class DesafioDeUsuario {
 	public void setFechaAceptado(LocalDate fecha) {
 		this.fechaAceptado = fecha;
 	}
-
 	
+	public LocalDate getFechaAceptado() {
+		return fechaAceptado;
+	}
 	
 	public Desafio getDesafio() {
 		return this.desafio;

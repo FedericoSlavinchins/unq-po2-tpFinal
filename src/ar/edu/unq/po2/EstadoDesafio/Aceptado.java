@@ -9,10 +9,10 @@ public class Aceptado implements EstadoDesafio {
 	private DesafioDeUsuario desafioUsuario;
 
 	@Override
-	public void aceptar() {}
+	public void aceptar(DesafioDeUsuario desafioDeUsuario) {}
 
 	@Override
-	public void completar() {
+	public void completar(DesafioDeUsuario desafioDeUsuario) {
 		
 		//this.setDate(Date today)
 		desafioUsuario.setFechaCompletado(LocalDate.now());

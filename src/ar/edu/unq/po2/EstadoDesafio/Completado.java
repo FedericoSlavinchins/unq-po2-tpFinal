@@ -9,18 +9,15 @@ public class Completado implements EstadoDesafio {
 	
 	private DesafioDeUsuario desafioUsuario;
 	
-	@Override
-	public void aceptar() {
-		
-	}
 
 	@Override
-	public void completar() {
+	public void completar(DesafioDeUsuario desafioDeUsuario) {
 	
 	}
 
 	@Override
-	public void setDesafio(DesafioDeUsuario desafio) {
-		this.desafioUsuario = desafio;
+	public void aceptar(DesafioDeUsuario desafioDeUsuario) {		
 	}
+
+
 }

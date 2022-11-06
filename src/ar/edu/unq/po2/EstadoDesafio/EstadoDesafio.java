@@ -3,9 +3,8 @@ import ar.edu.unq.po2.Desafios.DesafioDeUsuario;
 
 public interface EstadoDesafio {
 	
-	public abstract void aceptar();
-	public abstract void completar();
 	
+	public void completar(DesafioDeUsuario desafioDeUsuario);
+	public void aceptar(DesafioDeUsuario desafioDeUsuario);
 	
-	public abstract void setDesafio(DesafioDeUsuario desafioDeUsuario);
 }
