@@ -30,6 +30,7 @@ public class Usuario {
 	public Usuario(String nombre) {
 		this.nombre = nombre;
 		this.preferenciaUsuario = new PreferenciaUsuario(0,0,0);
+		//this.setRecomendadorDeLudificacion();
 		this.recompensasAcumuladas = 0;
 		this.proyectos = new ArrayList<Proyecto>();
 		this.desafiosDisponibles = new ArrayList<DesafioDeUsuario>();
@@ -120,11 +121,16 @@ public class Usuario {
 	public boolean completoDesafio(DesafioDeUsuario desafioDeUsuario) {		//FS: Indica si completó un desafio del usuario.
 		return (desafioDeUsuario.porcentajeDeCompletitud() == 100);	
 	}
+
+	//Devuelve el porcentaje de completitud del desafio en cuestion
+	public int porcentajeDeCompletitud(DesafioDeUsuario desafio) {
+		return desafio.porcentajeDeCompletitud();
+	}
 	
 	public int porcentajeDeCompletitudGeneral() {			// FS: Entre desafios aceptados.
 		int resultado = 0; 
 		for (DesafioDeUsuario desafioDeUsuario : this.desafiosAceptados) {
-			resultado += desafioDeUsuario.porcentajeDeCompletitud();
+			resultado += this.porcentajeDeCompletitud(desafioDeUsuario);
 		}
 		return ((resultado + (this.desafiosCompletados.size() * 100))) 
 				/ 
@@ -161,24 +167,39 @@ public class Usuario {
 	public String getNombre() {
 		return nombre;
 	}
-
 	
+	public RecomendadorDeLudificacion getRecomendador() {
+		return this.recomendador;
+	}
+	
+	public void setRecomendadorDeLudificacion() {
+		ArrayList<DesafioDeUsuario> todosMisDesafios = new ArrayList<DesafioDeUsuario>();
+		todosMisDesafios.addAll(desafiosAceptados);
+		todosMisDesafios.addAll(desafiosCompletados);
+		recomendador = new RecomendadorDeLudificacion(todosMisDesafios, preferenciaUsuario);
+		System.out.println("Su recomendador en uso actual se guia por sus preferencias.");
+	}
+	
+	public void recomendarmeDesafios() {
+		this.recomendador.recomendarDesafios(this.desafiosDeMisProyectos());
+	}
+
+	public ArrayList<Desafio> desafiosDeMisProyectos() {
+        ArrayList<Desafio> desafiosDeProyectos = new ArrayList<Desafio>();
+        for (Proyecto proyecto : proyectos) {
+            desafiosDeProyectos.addAll(proyecto.getDesafios());
+        }
+        return desafiosDeProyectos;
+    }
+	
+	public void cambiarEstrategiaDeRecomendacion(EstrategiaDeRecomendacion estrategia) {
+		this.recomendador.cambiarEstrategiaDeRecomendacion(estrategia);
+	}
 	
 	
 }
 	
-	/* REALIZADO ANTERIORMENTE
-		
-	public List<DesafioDeUsuario> getDesafiosCompletados(){
-		return this.desafiosCompletados;
-	}
 	
 	
 	
-	public int porcentajeDeCompletitud(DesafioDeUsuario desafio) {
-		return desafio.porcentajeDeCompletitud();
-	}
-	
-	
-	*/
 

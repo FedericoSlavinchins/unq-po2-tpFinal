@@ -12,7 +12,7 @@ public class RecomendacionPorFavoritos implements EstrategiaDeRecomendacion {
 
 	
 	@Override
-	public ArrayList<DesafioDeUsuario> recomendar(List<DesafioDeUsuario> desafiosCompletados, PreferenciaUsuario preferencias) {
+	public ArrayList<DesafioDeUsuario> recomendar(List<DesafioDeUsuario> desafiosCompletados, PreferenciaUsuario preferencias, List<Desafio> desafiosDeProyectos) {
 		
 		return null;
 	}
