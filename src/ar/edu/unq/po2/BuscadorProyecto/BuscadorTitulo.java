@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import ar.edu.unq.po2.Proyecto.Proyecto;
 
-public class BuscadorTitulo extends BuscadorDeProyectos {
+public class BuscadorTitulo extends BuscadorSimple {
 	
 	private String textoABuscar;
 	
@@ -12,16 +12,10 @@ public class BuscadorTitulo extends BuscadorDeProyectos {
 		this.textoABuscar = textoABuscar;
 	}
 
-
-	@Override
-	public ArrayList<Proyecto> filtrar(ArrayList<Proyecto> proyectosAFiltrar) {
-		ArrayList<Proyecto> resultadoBusqueda = new ArrayList<Proyecto>();
-		for (Proyecto proyecto : proyectosAFiltrar) {
-			if (proyecto.getNombre().contains(this.textoABuscar)) {
-				resultadoBusqueda.add(proyecto);
-			}
+	protected void aplicarCriterioDeFiltro(ArrayList<Proyecto> resultadoBusqueda, Proyecto proyecto) {
+		if (proyecto.getNombre().contains(this.textoABuscar)) {
+			resultadoBusqueda.add(proyecto);
 		}
-		return resultadoBusqueda;
-	}	
+	}
 	
 }

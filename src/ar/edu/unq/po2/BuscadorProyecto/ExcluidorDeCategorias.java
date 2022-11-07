@@ -12,15 +12,11 @@ public class ExcluidorDeCategorias extends BuscadorCategoria {
 		this.setCategoriasObjetivo(categorias);
 	}
 
-	@Override
-	public ArrayList<Proyecto> filtrar(ArrayList<Proyecto> proyectosAFiltrar) {
-		ArrayList<Proyecto> resultadoBusqueda = new ArrayList<Proyecto>();
-		for (Proyecto proyecto : proyectosAFiltrar) {
-			if (!(proyecto.nombresDeCategorias().containsAll(this.getCategoriasObjetivo()))) {
-				resultadoBusqueda.add(proyecto);
-			}
+
+	protected void aplicarCriterioDeFiltro(ArrayList<Proyecto> resultadoBusqueda, Proyecto proyecto) {
+		if (!(proyecto.nombresDeCategorias().containsAll(this.getCategoriasObjetivo()))) {
+			resultadoBusqueda.add(proyecto);
 		}
-		return resultadoBusqueda;
 	}
 
 }

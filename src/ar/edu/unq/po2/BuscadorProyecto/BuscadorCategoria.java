@@ -5,7 +5,7 @@ import java.util.List;
 
 import ar.edu.unq.po2.Proyecto.Proyecto;
 
-public abstract class BuscadorCategoria extends BuscadorDeProyectos {
+public abstract class BuscadorCategoria extends BuscadorSimple {
 	
 	private List<String> categoriasObjetivo;
 	
