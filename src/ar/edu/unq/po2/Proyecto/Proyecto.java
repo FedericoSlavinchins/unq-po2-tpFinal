@@ -55,6 +55,10 @@ public class Proyecto {
 	public String getDescripcion() {
 		return this.descripcion;
 	}
+	
+	public void agregarDesafio(Desafio desafio) {
+		this.desafios.add(desafio);
+	}
 
 	public List<Desafio> getDesafios() {
 		return this.desafios;

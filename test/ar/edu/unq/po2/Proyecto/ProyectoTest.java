@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import ar.edu.unq.po2.Desafios.Desafio;
 import ar.edu.unq.po2.SistemaUsuario.Usuario;
 import static org.mockito.Mockito.*;
 
@@ -17,10 +18,12 @@ class ProyectoTest {
 	private Categoria categoria; //DOC
 	private Muestra muestra; //DOC
 	private Usuario usuario; //DOC
+	private Desafio desafio; //DOC
 	
 	
 	@BeforeEach
 	public void setUp() {
+		desafio = mock(Desafio.class);
 		usuario = mock(Usuario.class);
 		muestra = mock(Muestra.class);
 		listaDeCategorias = new ArrayList<Categoria>();
@@ -57,6 +60,12 @@ class ProyectoTest {
 	void cuandoSeAgregaUnaMuestraLaMismaPasaAFormarParteDelProyecto() {
 		proyecto.agregarMuestra(muestra);
 		assertTrue(proyecto.getMuestras().contains(muestra));
+	}
+	
+	@Test
+	void cuandoSeAgregaUnDesafioElMismoPasaAFormarParteDelProyecto() {
+		proyecto.agregarDesafio(desafio);
+		assertTrue(proyecto.getDesafios().contains(desafio));
 	}
 	
 	/*

@@ -30,6 +30,7 @@ public class Usuario {
 	public Usuario(String nombre) {
 		this.nombre = nombre;
 		this.preferenciaUsuario = new PreferenciaUsuario(0,0,0);
+		//this.setRecomendadorDeLudificacion();
 		this.recompensasAcumuladas = 0;
 		this.proyectos = new ArrayList<Proyecto>();
 		this.desafiosDisponibles = new ArrayList<DesafioDeUsuario>();
@@ -167,6 +168,18 @@ public class Usuario {
 		return nombre;
 	}
 	
+	public RecomendadorDeLudificacion getRecomendador() {
+		return this.recomendador;
+	}
+	
+	public void setRecomendadorDeLudificacion() {
+		ArrayList<DesafioDeUsuario> todosMisDesafios = new ArrayList<DesafioDeUsuario>();
+		todosMisDesafios.addAll(desafiosAceptados);
+		todosMisDesafios.addAll(desafiosCompletados);
+		recomendador = new RecomendadorDeLudificacion(todosMisDesafios, preferenciaUsuario);
+		System.out.println("Su recomendador en uso actual se guia por sus preferencias.");
+	}
+	
 	public void recomendarmeDesafios() {
 		this.recomendador.recomendarDesafios(this.desafiosDeMisProyectos());
 	}
@@ -185,13 +198,6 @@ public class Usuario {
 	
 	
 }
-	
-	/* REALIZADO ANTERIORMENTE
-		
-	public List<DesafioDeUsuario> getDesafiosCompletados(){
-		return this.desafiosCompletados;
-	}
-	*/
 	
 	
 	

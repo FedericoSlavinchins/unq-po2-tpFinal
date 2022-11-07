@@ -32,9 +32,9 @@ public class RecomendadorTest {
 	public void testRecomendar() {
 		//when(estrategia1.recomendar(recomendador.getDesafiosCompletados(), recomendador.getPreferencias())).thenReturn();
 		recomendador.cambiarEstrategiaDeRecomendacion(estrategia1);
-		this.recomendador.recomendarDesafios();
+		this.recomendador.recomendarDesafios(usuario.desafiosDeMisProyectos());
 		
-		verify(estrategia1).recomendar(recomendador.getDesafiosCompletados(), recomendador.getPreferencias());
+		verify(estrategia1).recomendar(recomendador.getDesafiosCompletados(), recomendador.getPreferencias(), usuario.desafiosDeMisProyectos());
 		
 	}
 	
