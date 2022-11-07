@@ -166,8 +166,22 @@ public class Usuario {
 	public String getNombre() {
 		return nombre;
 	}
-
 	
+	public void recomendarmeDesafios() {
+		this.recomendador.recomendarDesafios(this.desafiosDeMisProyectos());
+	}
+
+	public ArrayList<Desafio> desafiosDeMisProyectos() {
+        ArrayList<Desafio> desafiosDeProyectos = new ArrayList<Desafio>();
+        for (Proyecto proyecto : proyectos) {
+            desafiosDeProyectos.addAll(proyecto.getDesafios());
+        }
+        return desafiosDeProyectos;
+    }
+	
+	public void cambiarEstrategiaDeRecomendacion(EstrategiaDeRecomendacion estrategia) {
+		this.recomendador.cambiarEstrategiaDeRecomendacion(estrategia);
+	}
 	
 	
 }

@@ -15,9 +15,10 @@ public class RecomendacionPorPreferencias implements EstrategiaDeRecomendacion {
 
 	
 	@Override
-	public ArrayList<DesafioDeUsuario> recomendar(List<DesafioDeUsuario> desafiosCompletados, PreferenciaUsuario preferencias) {
-		//this.setPreferencias(preferencias);
-		//this.setDesafiosCompletados(desafiosCompletados);
+	public ArrayList<DesafioDeUsuario> recomendar(List<DesafioDeUsuario> desafiosCompletados, PreferenciaUsuario preferencias, List<Desafio> desafiosDeProyectos) {
+		this.setPreferencias(preferencias);
+		this.setDesafiosCompletados(desafiosCompletados);
+		this.setDesafiosRecomendados(desafiosDeProyectos);
 		return null; //this.filtrarDesafios();
 	}
 	
@@ -38,8 +39,12 @@ public class RecomendacionPorPreferencias implements EstrategiaDeRecomendacion {
 	}
 
 
-	public void setDesafiosCompletados(List<DesafioDeUsuario> desafiosCompletados2) {
+	public void setDesafiosCompletados(List<DesafioDeUsuario> desafiosCompletados) {
 		this.desafiosCompletados = desafiosCompletados;
+	}
+	
+	public void setDesafiosRecomendados(List<Desafio> desafios) {
+		this.desafiosRecomendados = desafios;
 	}
 
 
