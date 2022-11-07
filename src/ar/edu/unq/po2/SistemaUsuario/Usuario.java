@@ -70,7 +70,7 @@ public class Usuario {
 	// FS: Métodos aceptar y completar desafío.
 	public void aceptarDesafioDeUsuario(DesafioDeUsuario desafioDeUsuario) {
 		
-		desafioDeUsuario.serAceptado();	// FS: Setea instancia ACEPTADO en DesafioDeUsuario.
+		desafioDeUsuario.actualizarEstado();	// FS: Setea instancia ACEPTADO en DesafioDeUsuario.
 		// FS: Precondición: el desafio de usuario debe estar disponible para el usuario.
 		desafiosDisponibles.remove(desafioDeUsuario);
 		this.desafiosAceptados.add(desafioDeUsuario);

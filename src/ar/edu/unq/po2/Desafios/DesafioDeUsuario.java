@@ -37,7 +37,7 @@ public class DesafioDeUsuario {
 		this.estado = estado;
 	}
 
-	public void serAceptado() {
+	public void actualizarEstado() {
 		this.getEstado().actualizarEstado(this);
 	}
 		
