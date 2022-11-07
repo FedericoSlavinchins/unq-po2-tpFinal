@@ -25,5 +25,4 @@ public class BuscadorAnd extends BuscadorCompuesto{
 		return primerFiltro;
 	}
 	
-	
 }

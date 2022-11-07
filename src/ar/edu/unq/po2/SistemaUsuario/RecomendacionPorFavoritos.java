@@ -1,25 +1,32 @@
 package ar.edu.unq.po2.SistemaUsuario;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import ar.edu.unq.po2.Desafios.Desafio;
 import ar.edu.unq.po2.Desafios.DesafioDeUsuario;
 
-public class RecomendacionPorFavoritos implements RecomendacionStrategy {
-	private Preferencias preferenciasDelUsuario;
+public class RecomendacionPorFavoritos implements EstrategiaDeRecomendacion {
+	private PreferenciaUsuario preferenciaDelUsuario;
 	private List<DesafioDeUsuario> desafiosCompletadosDeUsuario;
 
-
+	
 	@Override
-	public int calcularCoincidencia(Desafio desafio) {
+	public ArrayList<DesafioDeUsuario> recomendar(List<DesafioDeUsuario> desafiosCompletados, PreferenciaUsuario preferencias, List<Desafio> desafiosDeProyectos) {
+		
+		return null;
+	}
+	
+	public double calcularCoincidencia(Desafio desafio) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
+/*
 	@Override
-	public List<Desafio> DesafiosRecomendados(List<Desafio> recomendados) {
+	public List<DesafioDeUsuario> DesafiosRecomendados() {
 		// TODO Auto-generated method stub
 		return null;
 	}
+*/
 
 }

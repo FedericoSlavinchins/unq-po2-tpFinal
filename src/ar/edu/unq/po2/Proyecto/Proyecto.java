@@ -1,18 +1,20 @@
 package ar.edu.unq.po2.Proyecto;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
+import ar.edu.unq.po2.Desafios.Desafio;
 import ar.edu.unq.po2.SistemaUsuario.Usuario;
 
 public class Proyecto {
 	
 	private String nombre;
 	private String descripcion;
-	private ArrayList<Usuario> participantesActivos;		// Participantes activos en este proyecto actualmente
-	private ArrayList<Muestra> muestras;					// Muestras subidas para este proyecto
-	private ArrayList<Categoria> categorias;				// Las categorias a las que pertenece el proyecto
-	
+	private ArrayList<Usuario> participantesActivos = new ArrayList<Usuario>();		// Participantes activos en este proyecto actualmente
+	private ArrayList<Muestra> muestras = new ArrayList<Muestra>();						// Muestras subidas para este proyecto
+	private ArrayList<Categoria> categorias = new ArrayList<Categoria>();				// Las categorias a las que pertenece el proyecto
+	private ArrayList<Desafio> desafios = new ArrayList<Desafio>();
 	
 	
 	public Proyecto(String nombre, String descripcion, ArrayList<Categoria> categorias) {	// Constructor
@@ -42,11 +44,23 @@ public class Proyecto {
 	}
 
 	
-	public List<String> getNombresDeCategorias() {
+	public List<String> nombresDeCategorias() {
 		ArrayList<String> nombres = new ArrayList<String>();
 		for (Categoria categoria : this.categorias) {
 			nombres.add(categoria.getNombre());
 		}
 		return nombres;
+	}
+
+	public String getDescripcion() {
+		return this.descripcion;
+	}
+	
+	public void agregarDesafio(Desafio desafio) {
+		this.desafios.add(desafio);
+	}
+
+	public List<Desafio> getDesafios() {
+		return this.desafios;
 	}
 }

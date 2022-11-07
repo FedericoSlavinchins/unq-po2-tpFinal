@@ -1,29 +1,20 @@
 package ar.edu.unq.po2.EstadoDesafio;
 
-import ar.edu.unq.po2.Desafios.Desafio;
+import java.time.LocalDate;
+
+import ar.edu.unq.po2.Desafios.DesafioDeUsuario;
 
 public class Completado implements EstadoDesafio {
 
 	// El protocolo de este estado es fijar que se completo el desafio 
 	// por ende los voids son vacios
 	
-	private Desafio desafio;
-	
-	@Override
-	public void aceptar() {
-		
-	}
+	private DesafioDeUsuario desafioDeUsuario;
 
 	@Override
-	public void completar() {
-	
-	}
-	public void valorar() { //Hace la votacion para ver cuanto le gusto el desafio
-		
+	public void actualizarEstado(DesafioDeUsuario desafioDeUsuario) {
+		// El comportamiento es hacer nada. El desafio debe quedarse en Completado.
 	}
 
-	@Override
-	public void setDesafio(Desafio desafio) {
-		this.desafio = desafio;
-	}
+
 }

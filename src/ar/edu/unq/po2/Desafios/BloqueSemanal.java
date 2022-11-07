@@ -1,8 +1,9 @@
 package ar.edu.unq.po2.Desafios;
 
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 
-public class BloqueSemanal extends RestriccionTemporal {
+public class BloqueSemanal implements RestriccionTemporal {
 
 	private boolean hayRestriccionesDiaSemana;
 	
@@ -10,31 +11,33 @@ public class BloqueSemanal extends RestriccionTemporal {
 		this.hayRestriccionesDiaSemana = hayRestriccionesDiaSemana;
 	}
 	
+	// F.S.: Fecha objetivo es una fecha que debe ser pasada como parámetro, y que corresponde a la fecha en que se completó el desafío.
+	
 	@Override 
-	public boolean cumplirPeriodo(LocalDate fechaObjetivo) {
-		if(hayRestriccionesDiaSemana) {
-			return cumplioDesafioEnDiaDeSemana(fechaObjetivo);
+	public boolean cumplioPeriodo(LocalDate fechaObjetivo) {
+		if (hayRestriccionesDiaSemana) {
+			return cumplioDesafioEnDiaDeSemana(fechaObjetivo);		// F.S.: Retorna true o false si realmente cumplió el desafío en día de semana.
 		} else {
-			return cumplioDesafioFinDeSemana(fechaObjetivo);
+			return cumplioDesafioFinDeSemana(fechaObjetivo);		// F.S.: Retorna true o false si realmente cumplió el desafío en fin de semana.
 		}	
 	}
 	
 	private boolean cumplioDesafioFinDeSemana(LocalDate fechaObjetivo) {		
-		return  (fechaObjetivo.getDayOfWeek().getValue() == 6) 
+		return  (fechaObjetivo.getDayOfWeek() == DayOfWeek.SATURDAY) 
 				||
-			    (fechaObjetivo.getDayOfWeek().getValue() == 7);
+			    (fechaObjetivo.getDayOfWeek() == DayOfWeek.SUNDAY);
 	}
 
 	private boolean cumplioDesafioEnDiaDeSemana(LocalDate fechaObjetivo) {
-		return  (fechaObjetivo.getDayOfWeek().getValue() == 1) 
+		return  (fechaObjetivo.getDayOfWeek() == DayOfWeek.MONDAY) 
 				||
-				(fechaObjetivo.getDayOfWeek().getValue() == 2) 
+				(fechaObjetivo.getDayOfWeek() == DayOfWeek.TUESDAY) 
 				||
-				(fechaObjetivo.getDayOfWeek().getValue() == 3) 
+				(fechaObjetivo.getDayOfWeek() == DayOfWeek.WEDNESDAY) 
 				||
-				(fechaObjetivo.getDayOfWeek().getValue() == 4) 
+				(fechaObjetivo.getDayOfWeek() == DayOfWeek.THURSDAY) 
 				||
-			    (fechaObjetivo.getDayOfWeek().getValue() == 5);
+			    (fechaObjetivo.getDayOfWeek() == DayOfWeek.FRIDAY);
 	}
 	
 }

@@ -1,36 +1,19 @@
 package ar.edu.unq.po2.EstadoDesafio;
 
-import java.sql.Date;
 import java.time.LocalDate;
 
-import ar.edu.unq.po2.Desafios.Desafio;
+import ar.edu.unq.po2.Desafios.DesafioDeUsuario;
 
 public class NoAceptado implements EstadoDesafio {
 	
-	private Desafio desafio;
-	private LocalDate date;
+	private DesafioDeUsuario desafioDeUsuario;
 
 	@Override  
-	public void aceptar() {
-		
-		desafio.setFechaAceptado(date.now()); // guarda la fecha en la que se acepto
-		desafio.setDesafiosAceptados( desafio.getDesafiosAceptados() + 1); // Se guardan los desafios aceptados una vez que se aceptan
-		desafio.setEstado(new Aceptado()); // Setea el estado Aceptados
-		
-	}
-
-	@Override
-	public void completar() {}
-
-	@Override
-	public void setDesafio(Desafio desafio) {
-		this.desafio = desafio;
-		
+	public void actualizarEstado(DesafioDeUsuario desafioDeUsuario) {
+		this.desafioDeUsuario = desafioDeUsuario;
+		desafioDeUsuario.setFechaAceptado(); // guarda la fecha en la que se acepto
+		desafioDeUsuario.setEstado(new Aceptado()); // Setea el estado Aceptados
 	}
 	
-	@Override
-	public void valorar() {
-
-		
-	}
 }
+
