@@ -1,6 +1,7 @@
 package ar.edu.unq.po2.Sistema;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import ar.edu.unq.po2.BuscadorProyecto.BuscadorDeProyectos;
 import ar.edu.unq.po2.Proyecto.Proyecto;

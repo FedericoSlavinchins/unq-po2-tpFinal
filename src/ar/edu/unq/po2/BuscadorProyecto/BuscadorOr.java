@@ -2,7 +2,6 @@ package ar.edu.unq.po2.BuscadorProyecto;
 
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
-import java.util.List;
 import java.util.Set;
 
 import ar.edu.unq.po2.Proyecto.Proyecto;

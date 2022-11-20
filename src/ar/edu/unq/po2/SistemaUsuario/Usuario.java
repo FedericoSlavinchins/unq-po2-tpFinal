@@ -45,10 +45,7 @@ public class Usuario {
 	}
 
 
-	public void suscribirseAProyecto(Proyecto proyecto) {
-		proyectos.add(proyecto);
-		proyecto.agregarParticipante(this);
-	}
+	
 	
 	public void recolectarMuestra(Muestra muestra, Proyecto proyecto) {
 		proyecto.agregarMuestra(muestra); 	// FS: Agregar la muestra al proyecto.
