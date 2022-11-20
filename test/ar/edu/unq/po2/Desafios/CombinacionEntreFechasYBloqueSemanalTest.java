@@ -41,8 +41,8 @@ class CombinacionEntreFechasYBloqueSemanalTest {
 	@Test
 	void cuandoElDesafioEsCompletadoSabadoODomingoEntre1y31DeDiciembreCumplePeriodo() {	
 		//FS: Este test contempla cumplir desafios diferentes en un periodo de entre fechas de un mes, en dos fines de semana diferentes.
-		boolean resultadoDeSabado24deSept  = restriccionCombinacion.cumplioPeriodo(sabado3Diciembre);
-		boolean resultadoDeDomingo25deSept = restriccionCombinacion.cumplioPeriodo(domingo25Diciembre);
+		boolean resultadoDeSabado24deSept  = restriccionCombinacion.cumpleRestriccion(sabado3Diciembre);
+		boolean resultadoDeDomingo25deSept = restriccionCombinacion.cumpleRestriccion(domingo25Diciembre);
 		assertTrue(resultadoDeSabado24deSept);
 		assertTrue(resultadoDeDomingo25deSept);
 	}

@@ -29,26 +29,26 @@ class BloqueSemanalTest {
 
 	@Test
 	void cuandoHayRestriccionDeDiaDeSemanaYSeCompletaEl3dic2022NoSeCumpleConElPeriodoDeRestriccion() {
-		boolean resultado = restriccionBloqueSemanalDiaSemana.cumplioPeriodo(sabado3Diciembre);
+		boolean resultado = restriccionBloqueSemanalDiaSemana.cumpleRestriccion(sabado3Diciembre);
 		assertFalse(resultado);
 	}
 	
 	@Test
 	void cuandoHayRestriccionDeDiaDeSemanaYSeCompletaEl1dic2022SeCumpleConElPeriodoDeRestriccion() {
-		boolean resultado = restriccionBloqueSemanalDiaSemana.cumplioPeriodo(jueves1Diciembre);
+		boolean resultado = restriccionBloqueSemanalDiaSemana.cumpleRestriccion(jueves1Diciembre);
 		assertTrue(resultado);
 	}
 	
 	@Test
 	void cuandoHayRestriccionDeFinDeSemanaYSeCompletaEl1dic2022NoSeCumpleConElPeriodoDeRestriccion() {
-		boolean resultado = restriccionBloqueSemanalFinDeSemana.cumplioPeriodo(jueves1Diciembre);
+		boolean resultado = restriccionBloqueSemanalFinDeSemana.cumpleRestriccion(jueves1Diciembre);
 		assertFalse(resultado);
 	}
 	
 
 	@Test
 	void cuandoHayRestriccionDeFinDeSemanaYSeCompletaEl3dic2022SeCumpleConElPeriodoDeRestriccion() {
-		boolean resultado = restriccionBloqueSemanalFinDeSemana.cumplioPeriodo(sabado3Diciembre);
+		boolean resultado = restriccionBloqueSemanalFinDeSemana.cumpleRestriccion(sabado3Diciembre);
 		assertTrue(resultado);
 	}
 

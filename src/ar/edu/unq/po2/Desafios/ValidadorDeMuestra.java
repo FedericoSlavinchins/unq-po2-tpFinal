@@ -16,7 +16,7 @@ public class ValidadorDeMuestra {
 	public boolean esMuestraValida(Muestra muestra) {
 		return (muestra.getFecha().isEqual(this.desafioDeUsuario.getFechaAceptado()) || muestra.getFecha().isAfter(this.desafioDeUsuario.getFechaAceptado())) //primera parte valida si las muestra es posterior a la fecha de aceptacion
 				&& 
-				this.desafioDeUsuario.getDesafio().getRestriccionTemporal().cumplioPeriodo(this.desafioDeUsuario.getFechaAceptado()) // segunda parte valida si cumple las restricciones temporales
+				this.desafioDeUsuario.getDesafio().getRestriccionTemporal().cumpleRestriccion(this.desafioDeUsuario.getFechaAceptado()) // segunda parte valida si cumple las restricciones temporales
 		        &&  
 		        this.desafioDeUsuario.getDesafio().getArea().estaEnRango(muestra.getGeocoordenada());		// Tercer parte valida el area de la muestra
 	}
