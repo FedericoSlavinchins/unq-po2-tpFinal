@@ -53,12 +53,6 @@ class UsuarioTest {
 		listaDeCategorias.add(categoria);
 		proyecto = new Proyecto("proyecto", "descripcion", listaDeCategorias);
 	}
-
-	@Test
-	void cuandoElUsuarioSeSuscribePasaAFormarParteDeLosProyectosEnLosQueParticipa() {
-		usuario.suscribirseAProyecto(proyecto);
-		assertTrue(usuario.getProyectos().contains(proyecto));
-	}
 	
 	
 	@Test
