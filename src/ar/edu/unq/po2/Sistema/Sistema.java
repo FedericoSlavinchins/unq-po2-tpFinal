@@ -12,10 +12,13 @@ public class Sistema {			// Representa al sistema de Ciencia Participativa.
 	private ArrayList<Usuario> 	usuarios;
 	private BuscadorDeProyectos buscadorDeProyectos;
 	
-	public Sistema(BuscadorDeProyectos buscador) {
+	public Sistema() {
 		this.proyectos = new ArrayList<Proyecto>();
 		this.usuarios = new ArrayList<Usuario>();
-		this.buscadorDeProyectos = buscador;
+	}
+	
+	public ArrayList<Proyecto> buscarProyectosUsando(ArrayList<Proyecto> proyectos) {
+		return this.buscadorDeProyectos.filtrar(proyectos);
 	}
 	
 	

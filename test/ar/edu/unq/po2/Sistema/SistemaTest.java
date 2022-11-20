@@ -23,7 +23,7 @@ class SistemaTest {
 	
 	@BeforeEach
 	public void setUp() {
-		sistema = new Sistema(buscadorTitulo);
+		sistema = new Sistema();
 		proyecto1 = mock(Proyecto.class);
 		buscadorTitulo = mock(BuscadorTitulo.class);
 		buscadorCategoria = mock(BuscadorCategoria.class);
@@ -53,6 +53,7 @@ class SistemaTest {
 		
 		assertEquals(buscadorCategoria, this.sistema.getBuscadorDeProyectos());
 	}
+	
 	
 
 }
