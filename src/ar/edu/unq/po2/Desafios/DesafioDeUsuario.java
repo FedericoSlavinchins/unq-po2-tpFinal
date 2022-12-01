@@ -30,14 +30,18 @@ public class DesafioDeUsuario {
 
 	public EstadoDesafio getEstado() {
 			return estado;
-		}
+	}
 		
 	
 	public void setEstado(EstadoDesafio estado) {
 		this.estado = estado;
 	}
+	
+	public void actualizarse() {
+		this.actualizarEstado();
+	}
 
-	public void actualizarEstado() {
+	private void actualizarEstado() {
 		this.getEstado().actualizarEstado(this);
 	}
 		

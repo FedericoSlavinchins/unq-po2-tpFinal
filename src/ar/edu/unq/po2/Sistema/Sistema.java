@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ar.edu.unq.po2.BuscadorProyecto.BuscadorDeProyectos;
+import ar.edu.unq.po2.BuscadorProyecto.FiltroDeBusqueda;
 import ar.edu.unq.po2.Proyecto.Proyecto;
 import ar.edu.unq.po2.SistemaUsuario.Usuario;
 
@@ -11,15 +12,16 @@ public class Sistema {			// Representa al sistema de Ciencia Participativa.
 	
 	private ArrayList<Proyecto> proyectos;
 	private ArrayList<Usuario> 	usuarios;
-	private BuscadorDeProyectos buscadorDeProyectos;
+	private FiltroDeBusqueda buscadorDeProyectos;
 	
 	public Sistema() {
 		this.proyectos = new ArrayList<Proyecto>();
 		this.usuarios = new ArrayList<Usuario>();
 	}
 	
-	public ArrayList<Proyecto> buscarProyectosUsando(ArrayList<Proyecto> proyectos) {
-		return this.buscadorDeProyectos.filtrar(proyectos);
+	public ArrayList<Proyecto> buscarProyectosUsando(FiltroDeBusqueda buscadorDeProyectos) {
+		this.buscadorDeProyectos = buscadorDeProyectos;
+		return this.buscadorDeProyectos.filtrar(this.proyectos);
 	}
 	
 	
@@ -31,13 +33,8 @@ public class Sistema {			// Representa al sistema de Ciencia Participativa.
 		this.usuarios.add(usuario);
 	}
 	
-	
-	public BuscadorDeProyectos getBuscadorDeProyectos() {
+	public FiltroDeBusqueda getBuscadorDeProyectos() {
 		return buscadorDeProyectos;
-	}
-	
-	public void setBuscadorDeProyectos(BuscadorDeProyectos buscadorDeProyectos) {
-		this.buscadorDeProyectos = buscadorDeProyectos;
 	}
 	
 	public ArrayList<Proyecto> getProyectos() {

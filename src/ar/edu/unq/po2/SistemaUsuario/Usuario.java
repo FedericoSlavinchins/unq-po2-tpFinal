@@ -65,43 +65,36 @@ public class Usuario {
 	
 	
 	// FS: Métodos aceptar y completar desafío.
-	public void aceptarDesafioDeUsuario(DesafioDeUsuario desafioDeUsuario) {
-		
-		desafioDeUsuario.actualizarEstado();	// FS: Setea instancia ACEPTADO en DesafioDeUsuario.
-		// FS: Precondición: el desafio de usuario debe estar disponible para el usuario.
-		desafiosDisponibles.remove(desafioDeUsuario);
-		this.desafiosAceptados.add(desafioDeUsuario);
-		
-	}
-	
-	
-	
-	public void completarDesafioDeUsuario(DesafioDeUsuario desafioDeUsuario,int valorVoto) {
-		// FS: Precondición: el desafio de usuario debe haber sido previamente aceptado.
-		if (this.completoDesafio(desafioDeUsuario)) {
-			this.desafiosAceptados.remove(desafioDeUsuario);
-			desafioDeUsuario.getEstado().actualizarEstado(desafioDeUsuario);
-			//Cambio de estado, deberia pasar de Aceptado a Completado.
-			this.desafiosCompletados.add(desafioDeUsuario);
-			this.recompensasAcumuladas += desafioDeUsuario.getDesafio().getRecompensa();	// FS: Otorga recompensa.
-			this.votar(desafioDeUsuario,valorVoto);	// El usuario debe elegir el voto.
+	public void aceptarDesafioDeUsuario(DesafioDeUsuario desafioDeUsuario) throws Exception {
+		if (this.desafiosDisponibles.contains(desafioDeUsuario)) {
+			desafioDeUsuario.actualizarse();
+			desafiosDisponibles.remove(desafioDeUsuario);
+			this.desafiosAceptados.add(desafioDeUsuario);
 		} else {
-			System.out.println("El desafio no está completo. Debés recolectar mas muestras!");
+			throw new Exception("El desafio no se encuentra disponible para tu usuario.");
 		}
 	}
 	
 	
-	/*
-	public void votarDesafio(DesafioDeUsuario desafioDeUsuario, int voto) {
-		Falta realizar.
+	
+	public void completarDesafioDeUsuario(DesafioDeUsuario desafioDeUsuario,int valorVoto) throws Exception {
+		if (this.desafiosAceptados.contains(desafioDeUsuario)) {
+			desafioDeUsuario.actualizarse();
+			this.desafiosAceptados.remove(desafioDeUsuario);
+			this.desafiosCompletados.add(desafioDeUsuario);
+			this.recompensasAcumuladas += desafioDeUsuario.getDesafio().getRecompensa();	// FS: Otorga recompensa.
+			this.votar(desafioDeUsuario,valorVoto);	// El usuario debe elegir el voto.
+		} else {
+			throw new Exception("El desafio no ha sido aceptado.");
+		}
 	}
-	*/
+	
 	
 	
 	//FS: Métodos para cambiar preferencias de jugabilidad del usuario.
 	
 	public void cambiarPreferenciaDeCantidadDeMuestrasARecolectar(int cantidadDeseada) {
-		this.preferenciaUsuario.setCantidadDeMestrasARecolectar(cantidadDeseada);
+		this.preferenciaUsuario.setCantidadDeMuestrasARecolectar(cantidadDeseada);
 	}
 	
 	public void cambiarPreferenciaDeDificultadPreferida(int dificultadDeseada) {

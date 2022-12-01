@@ -6,14 +6,15 @@ import ar.edu.unq.po2.Desafios.DesafioDeUsuario;
 
 public class NoAceptado implements EstadoDesafio {
 	
-	private DesafioDeUsuario desafioDeUsuario;
-
-	@Override  
-	public void actualizarEstado(DesafioDeUsuario desafioDeUsuario) {
-		this.desafioDeUsuario = desafioDeUsuario;
-		desafioDeUsuario.setFechaAceptado(); // guarda la fecha en la que se acepto
-		desafioDeUsuario.setEstado(new Aceptado()); // Setea el estado Aceptados
-	}
 	
+	@Override  
+	public void actualizarEstado(DesafioDeUsuario desafioDeUsuario) throws Exception {
+		if (desafioDeUsuario.porcentajeDeCompletitud() == 0) {
+			desafioDeUsuario.setFechaAceptado(); 					// Settea la fecha en la que se acepto.
+			desafioDeUsuario.setEstado(new Aceptado()); 			// Settea el estado Aceptado.
+		} else {
+			throw new Exception("El desafio ya fue iniciado anteriormente");
+		}
+	}
 }
 
