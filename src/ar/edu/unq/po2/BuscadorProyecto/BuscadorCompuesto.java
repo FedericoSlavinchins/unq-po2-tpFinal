@@ -9,6 +9,11 @@ public abstract class BuscadorCompuesto extends BuscadorDeProyectos {
 	private BuscadorDeProyectos primerBuscador;
 	private BuscadorDeProyectos segundoBuscador;
 	
+	public BuscadorCompuesto(BuscadorDeProyectos primerBuscador, BuscadorDeProyectos segundoBuscador) {
+		this.setPrimerBuscador(primerBuscador);
+		this.setSegundoBuscador(segundoBuscador);
+	}
+	
 	
 	public abstract ArrayList<Proyecto> filtrar(ArrayList<Proyecto> proyectosAFiltrar);
 	
