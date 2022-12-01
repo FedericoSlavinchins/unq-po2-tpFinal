@@ -22,11 +22,7 @@ public class Usuario {
 
 	private ArrayList<Proyecto> proyectos;
 	
-	
-
-	private ArrayList<DesafioDeUsuario>	desafiosDisponibles;	// FS: No aceptados.
-	private ArrayList<DesafioDeUsuario>	desafiosAceptados;		// FS: Aceptados.
-	private ArrayList<DesafioDeUsuario>	desafiosCompletados;	// FS: Completados.
+	private MenuDeDesafios menuDeDesafios = new MenuDeDesafios();
 	
 	
 	public Usuario(String nombre) {
@@ -35,9 +31,7 @@ public class Usuario {
 		//this.setRecomendadorDeLudificacion();
 		this.recompensasAcumuladas = 0;
 		this.proyectos = new ArrayList<Proyecto>();
-		this.desafiosDisponibles = new ArrayList<DesafioDeUsuario>();
-		this.desafiosAceptados 	= new ArrayList<DesafioDeUsuario>();
-		this.desafiosCompletados	= new ArrayList<DesafioDeUsuario>();
+		
 		
 	}
 
@@ -54,7 +48,7 @@ public class Usuario {
 
 
 	private void contabilizarMuestraParaDesafiosAceptados(Muestra muestra) {
-		for (DesafioDeUsuario desafioDeUsuario : this.desafiosAceptados) {
+		for (DesafioDeUsuario desafioDeUsuario : this.menuDeDesafios.getDesafiosAceptados()) {
 			if (desafioDeUsuario.getValidadorDeMuestra().esMuestraValida(muestra)) {
 				// FS: Contabiliza la muestra solo para los desafios aceptados y sin completar, y si es una muestra válida para el desafio.
 				desafioDeUsuario.getMuestrasRecolectadas().add(muestra);
@@ -66,27 +60,17 @@ public class Usuario {
 	
 	// FS: Métodos aceptar y completar desafío.
 	public void aceptarDesafioDeUsuario(DesafioDeUsuario desafioDeUsuario) throws Exception {
-		if (this.desafiosDisponibles.contains(desafioDeUsuario)) {
-			desafioDeUsuario.actualizarse();
-			desafiosDisponibles.remove(desafioDeUsuario);
-			this.desafiosAceptados.add(desafioDeUsuario);
-		} else {
-			throw new Exception("El desafio no se encuentra disponible para tu usuario.");
-		}
+		desafioDeUsuario.actualizarse();
+		this.menuDeDesafios.moverDesafioAAceptados(desafioDeUsuario);
 	}
 	
 	
 	
 	public void completarDesafioDeUsuario(DesafioDeUsuario desafioDeUsuario,int valorVoto) throws Exception {
-		if (this.desafiosAceptados.contains(desafioDeUsuario)) {
-			desafioDeUsuario.actualizarse();
-			this.desafiosAceptados.remove(desafioDeUsuario);
-			this.desafiosCompletados.add(desafioDeUsuario);
-			this.recompensasAcumuladas += desafioDeUsuario.getDesafio().getRecompensa();	// FS: Otorga recompensa.
-			this.votar(desafioDeUsuario, valorVoto);	// El usuario debe elegir el voto.
-		} else {
-			throw new Exception("El desafio no ha sido aceptado.");
-		}
+		desafioDeUsuario.actualizarse();
+		this.menuDeDesafios.moverDesafioACompletados(desafioDeUsuario);
+		this.recompensasAcumuladas += desafioDeUsuario.getDesafio().getRecompensa();	// FS: Otorga recompensa.
+		this.votar(desafioDeUsuario, valorVoto);	// El usuario debe elegir el voto.
 	}
 	
 	
@@ -119,32 +103,14 @@ public class Usuario {
 	
 	public int porcentajeDeCompletitudGeneral() {			// FS: Entre desafios aceptados.
 		int resultado = 0; 
-		for (DesafioDeUsuario desafioDeUsuario : this.desafiosAceptados) {
+		for (DesafioDeUsuario desafioDeUsuario : this.menuDeDesafios.getDesafiosAceptados()) {
 			resultado += this.porcentajeDeCompletitud(desafioDeUsuario);
 		}
-		return ((resultado + (this.desafiosCompletados.size() * 100))) 
+		return ((resultado + (this.menuDeDesafios.getDesafiosCompletados().size() * 100))) 
 				/ 
-				(this.desafiosAceptados.size() + this.desafiosCompletados.size());
+				(this.menuDeDesafios.getDesafiosAceptados().size() + this.menuDeDesafios.getDesafiosCompletados().size());
 	}
 
-
-
-	public ArrayList<DesafioDeUsuario> getDesafiosDisponibles() {
-		return desafiosDisponibles;
-	}
-	public void agregarDesafioDisponibles(DesafioDeUsuario desafioUsuario) {
-		 desafiosDisponibles.add(desafioUsuario);
-	}
-
-
-	public ArrayList<DesafioDeUsuario> getDesafiosAceptados() {
-		return desafiosAceptados;
-	}
-
-
-	public ArrayList<DesafioDeUsuario> getDesafiosCompletados() {
-		return desafiosCompletados;
-	}
 		
 	public void votar(DesafioDeUsuario desafioDeUsuario,int valorDeVoto) {
 		desafioDeUsuario.setVoto(valorDeVoto);
@@ -161,8 +127,8 @@ public class Usuario {
 	
 	public void setRecomendadorDeLudificacion() {
 		ArrayList<DesafioDeUsuario> todosMisDesafios = new ArrayList<DesafioDeUsuario>();
-		todosMisDesafios.addAll(desafiosAceptados);
-		todosMisDesafios.addAll(desafiosCompletados);
+		todosMisDesafios.addAll(this.menuDeDesafios.getDesafiosAceptados());
+		todosMisDesafios.addAll(this.menuDeDesafios.getDesafiosCompletados());
 		recomendador = new RecomendadorDeLudificacion(todosMisDesafios, preferenciaUsuario);
 		System.out.println("Su recomendador en uso actual se guia por sus preferencias.");
 	}
