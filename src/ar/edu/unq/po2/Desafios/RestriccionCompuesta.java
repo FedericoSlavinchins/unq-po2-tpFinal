@@ -10,7 +10,7 @@ public class RestriccionCompuesta implements RestriccionTemporal {
 	
 	@Override
 	public boolean cumpleRestriccion(LocalDate fechaObjetivo) {
-		boolean cumpleConTodasLasRestricciones = true; // Se settea en true para aprovechar el operador AND luego.
+		boolean cumpleConTodasLasRestricciones = true; // Se asigna en true para aprovechar el operador AND luego.
 		for (RestriccionTemporal restriccionTemporal : restricciones) {
 			cumpleConTodasLasRestricciones = (cumpleConTodasLasRestricciones && restriccionTemporal.cumpleRestriccion(fechaObjetivo));
 		} // En caso de que una de las restricciones no se cumpla, la variable local será FALSE debido al uso del AND.
