@@ -22,6 +22,8 @@ public class Usuario {
 
 	private ArrayList<Proyecto> proyectos;
 	
+	
+
 	private ArrayList<DesafioDeUsuario>	desafiosDisponibles;	// FS: No aceptados.
 	private ArrayList<DesafioDeUsuario>	desafiosAceptados;		// FS: Aceptados.
 	private ArrayList<DesafioDeUsuario>	desafiosCompletados;	// FS: Completados.
@@ -43,8 +45,6 @@ public class Usuario {
 	public ArrayList<Proyecto> getProyectos() {
 		return proyectos;
 	}
-
-
 	
 	
 	public void recolectarMuestra(Muestra muestra, Proyecto proyecto) {
@@ -83,7 +83,7 @@ public class Usuario {
 			this.desafiosAceptados.remove(desafioDeUsuario);
 			this.desafiosCompletados.add(desafioDeUsuario);
 			this.recompensasAcumuladas += desafioDeUsuario.getDesafio().getRecompensa();	// FS: Otorga recompensa.
-			this.votar(desafioDeUsuario,valorVoto);	// El usuario debe elegir el voto.
+			this.votar(desafioDeUsuario, valorVoto);	// El usuario debe elegir el voto.
 		} else {
 			throw new Exception("El desafio no ha sido aceptado.");
 		}
@@ -132,7 +132,7 @@ public class Usuario {
 	public ArrayList<DesafioDeUsuario> getDesafiosDisponibles() {
 		return desafiosDisponibles;
 	}
-	public void agregarDesafiosDisponibles(DesafioDeUsuario desafioUsuario) {
+	public void agregarDesafioDisponibles(DesafioDeUsuario desafioUsuario) {
 		 desafiosDisponibles.add(desafioUsuario);
 	}
 
@@ -154,9 +154,6 @@ public class Usuario {
 		return this.preferenciaUsuario;
 	}
 	
-	public String getNombre() {
-		return nombre;
-	}
 	
 	public RecomendadorDeLudificacion getRecomendador() {
 		return this.recomendador;
@@ -186,6 +183,15 @@ public class Usuario {
 		this.recomendador.cambiarEstrategiaDeRecomendacion(estrategia);
 	}
 	
+	
+	public double getRecompensasAcumuladas() {
+		return recompensasAcumuladas;
+	}
+
+
+	public void setRecompensasAcumuladas(double recompensasAcumuladas) {
+		this.recompensasAcumuladas = recompensasAcumuladas;
+	}
 	
 }
 	

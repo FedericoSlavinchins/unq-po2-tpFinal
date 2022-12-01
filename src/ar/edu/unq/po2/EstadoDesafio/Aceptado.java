@@ -11,6 +11,7 @@ public class Aceptado implements EstadoDesafio {
 	public void actualizarEstado(DesafioDeUsuario desafioDeUsuario) throws Exception {
 		if (desafioDeUsuario.porcentajeDeCompletitud() == 100) {
 			desafioDeUsuario.setFechaCompletado();
+			desafioDeUsuario.getOtorgadorDeRecompensa().otorgarRecompensa();
 			desafioDeUsuario.setEstado(new Completado()); // Settea estado completado
 		} else {
 			throw new Exception("El desafio de usuario no está listo para ser completado. Aún te faltan recolectar muestras!");

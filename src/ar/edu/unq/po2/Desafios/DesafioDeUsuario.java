@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import ar.edu.unq.po2.EstadoDesafio.EstadoDesafio;
 import ar.edu.unq.po2.EstadoDesafio.NoAceptado;
 import ar.edu.unq.po2.Proyecto.Muestra;
+import ar.edu.unq.po2.SistemaUsuario.Usuario;
 
 
 public class DesafioDeUsuario {
@@ -20,11 +21,17 @@ public class DesafioDeUsuario {
 	private EstadoDesafio estado;			//FS: El estado debe estar en esta clase, ya que es parte del progreso del usuario.	
 	private int voto;
 	private ValidadorDeMuestra validadorDeMuestra = new ValidadorDeMuestra(this);
+	private OtorgadorDeRecompensa otorgadorDeRecompensas = new OtorgadorDeRecompensa(this.desafio.getRecompensa());
 
 
-	public DesafioDeUsuario (Desafio desafio) {
+	public DesafioDeUsuario (Desafio desafio, Usuario usuario) {
 		this.desafio = desafio;
 		this.estado  = new NoAceptado();
+		this.otorgadorDeRecompensas.setUsuarioARecompensar(usuario);
+	}
+	
+	public OtorgadorDeRecompensa getOtorgadorDeRecompensa() {
+		return this.otorgadorDeRecompensas;
 	}
 	
 
@@ -37,11 +44,11 @@ public class DesafioDeUsuario {
 		this.estado = estado;
 	}
 	
-	public void actualizarse() {
+	public void actualizarse() throws Exception {
 		this.actualizarEstado();
 	}
 
-	private void actualizarEstado() {
+	private void actualizarEstado() throws Exception {
 		this.getEstado().actualizarEstado(this);
 	}
 		
