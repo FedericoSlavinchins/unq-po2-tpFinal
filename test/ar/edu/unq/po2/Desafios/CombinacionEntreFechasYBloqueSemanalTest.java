@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 
 class CombinacionEntreFechasYBloqueSemanalTest {
 	
-	private EntreFechas restriccionEntreFechas;
+	private RestriccionDeEntreFechas restriccionEntreFechas;
 	private LocalDate fechaInicioRestriccion;
 	private LocalDate fechaFinRestriccion;
 	
@@ -28,7 +28,7 @@ class CombinacionEntreFechasYBloqueSemanalTest {
 		fechaFinRestriccion = LocalDate.of(2022, 12, 31);
 		sabado3Diciembre = LocalDate.of(2022, 12, 3);
 		domingo25Diciembre = LocalDate.of(2022, 12, 25);
-		restriccionEntreFechas = new EntreFechas(fechaInicioRestriccion, fechaFinRestriccion);
+		restriccionEntreFechas = new RestriccionDeEntreFechas(fechaInicioRestriccion, fechaFinRestriccion);
 		// FS: Segunda restricción.
 		desafioDebeSerCompletadoDiaDeSemana = true;
 		desafioDebeSerCompletadoFinDeSemana = false;

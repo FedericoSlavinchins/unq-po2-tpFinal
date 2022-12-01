@@ -2,13 +2,13 @@ package ar.edu.unq.po2.Desafios;
 
 import java.time.LocalDate;
 
-public class EntreFechas implements RestriccionTemporal {
+public class RestriccionDeEntreFechas implements RestriccionTemporal {
 
 	private LocalDate fechaInicio;
 	private LocalDate fechaFin;
 	
 
-	public EntreFechas(LocalDate fechaInicio, LocalDate fechaFin) {
+	public RestriccionDeEntreFechas(LocalDate fechaInicio, LocalDate fechaFin) {
 		this.fechaInicio = fechaInicio;
 		this.fechaFin    = fechaFin;
 	}

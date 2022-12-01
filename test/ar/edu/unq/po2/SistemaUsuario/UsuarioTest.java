@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 import ar.edu.unq.po2.Desafios.BloqueSemanal;
 import ar.edu.unq.po2.Desafios.Desafio;
 import ar.edu.unq.po2.Desafios.DesafioDeUsuario;
-import ar.edu.unq.po2.Desafios.EntreFechas;
+import ar.edu.unq.po2.Desafios.RestriccionDeEntreFechas;
 import ar.edu.unq.po2.Proyecto.AreaGeografica;
 import ar.edu.unq.po2.Proyecto.Categoria;
 import ar.edu.unq.po2.Proyecto.Muestra;
@@ -32,13 +32,13 @@ class UsuarioTest {
 	private Muestra muestra;
 	private Muestra muestra2;
 	private Ubicacion geocoordenada;
-	private EntreFechas restriccionEntreFechas;
+	private RestriccionDeEntreFechas restriccionEntreFechas;
 	private AreaGeografica area;
 	
 	
 	@BeforeEach
 	public void setUp() {
-		restriccionEntreFechas = new EntreFechas(LocalDate.of(2022, 10, 10), LocalDate.of(2023, 10, 10));
+		restriccionEntreFechas = new RestriccionDeEntreFechas(LocalDate.of(2022, 10, 10), LocalDate.of(2023, 10, 10));
 		area = new AreaGeografica(500, 500, 500);
 		desafio = new Desafio(area, 1, 1, restriccionEntreFechas, 20000);
 		desafio2 = new Desafio(area, 1, 1, restriccionEntreFechas, 20000);

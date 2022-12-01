@@ -6,10 +6,10 @@ public class CombinacionEntreFechasYBloqueSemanal implements RestriccionTemporal
 	
 	// F.S.: Representa la restricción temporal que es combinacion de las variaciones de entre fechas y bloque semanal de la misma.
 	
-	private EntreFechas 	restriccionEntreFechas;
+	private RestriccionDeEntreFechas 	restriccionEntreFechas;
 	private BloqueSemanal 	restriccionBloqueSemanal;
 	
-	public CombinacionEntreFechasYBloqueSemanal(EntreFechas restriccionEntreFechas, BloqueSemanal restriccionBloqueSemanal) {
+	public CombinacionEntreFechasYBloqueSemanal(RestriccionDeEntreFechas restriccionEntreFechas, BloqueSemanal restriccionBloqueSemanal) {
 		this.restriccionEntreFechas   = restriccionEntreFechas;
 		this.restriccionBloqueSemanal = restriccionBloqueSemanal;
 	}

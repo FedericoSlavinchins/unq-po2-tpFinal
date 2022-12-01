@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 
 class EntreFechasTest {
 	
-	private EntreFechas restriccionEntreFechas;
+	private RestriccionDeEntreFechas restriccionEntreFechas;
 	private LocalDate fechaInicioRestriccion;
 	private LocalDate fechaFinRestriccion;
 	private LocalDate fechaEnQueSeCompletoDesafioTest1;
@@ -23,7 +23,7 @@ class EntreFechasTest {
 		fechaEnQueSeCompletoDesafioTest1 = LocalDate.of(2022, 9, 26);
 		fechaEnQueSeCompletoDesafioTest2 = LocalDate.of(2022, 9, 25);
 		fechaEnQueSeCompletoDesafioTest3 = LocalDate.of(2022, 9, 20);
-		restriccionEntreFechas = new EntreFechas(fechaInicioRestriccion, fechaFinRestriccion);
+		restriccionEntreFechas = new RestriccionDeEntreFechas(fechaInicioRestriccion, fechaFinRestriccion);
 	}
 
 	@Test
