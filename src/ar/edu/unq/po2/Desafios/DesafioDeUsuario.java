@@ -33,15 +33,15 @@ public class DesafioDeUsuario {
 	}
 	
 	// FS: Métodos aceptar y completar desafío.
-	public void aceptarDesafioDeUsuario(DesafioDeUsuario desafioDeUsuario) throws Exception {
+	public void aceptarDesafioDeUsuario() throws Exception {
 		this.actualizarse();
-		this.usuario.getMenuDeDesafios().moverDesafioAAceptados(desafioDeUsuario);
+		this.usuario.getMenuDeDesafios().moverDesafioAAceptados(this);
 	}
 		
-	public void completarDesafioDeUsuario(DesafioDeUsuario desafioDeUsuario,int valorVoto) throws Exception {
-		desafioDeUsuario.actualizarse();
-		this.usuario.getMenuDeDesafios().moverDesafioACompletados(desafioDeUsuario);
-		this.usuario.getValoradorDeDesafios().votar(desafioDeUsuario, valorVoto);	// El usuario debe elegir el voto.
+	public void completarDesafioDeUsuario(int valorVoto) throws Exception {
+		this.actualizarse();
+		this.usuario.getMenuDeDesafios().moverDesafioACompletados(this);
+		this.usuario.getValoradorDeDesafios().votar(this, valorVoto);	// El usuario debe elegir el voto.
 	}
 	//
 	
