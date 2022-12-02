@@ -54,14 +54,15 @@ class UsuarioTest {
 		proyecto = new Proyecto("proyecto", "descripcion", listaDeCategorias);
 	}
 	
-	
+	/* BORRAR TEST
 	@Test
 	void cuandoElUsuarioAceptaUnDesafioDeUsuarioElMismoSeGuardaEnSuListaDeDesafiosAceptados() {
 		usuario.aceptarDesafioDeUsuario(desafioDeUsuario);
 		assertTrue(usuario.getDesafiosAceptados().contains(desafioDeUsuario));
 		assertFalse(usuario.getDesafiosDisponibles().contains(desafioDeUsuario));
-	}
+	}*/
 	
+	/* BORRAR TEST
 	@Test
 	void cuandoElUsuarioCompletaUnDesafioDeUsuarioElMismoSeGuardaEnSuListaDeDesafiosCompletadosYDesapareceDeAceptados() {
 		desafio.setCantidadObjetivoDeMuestras(1);
@@ -70,8 +71,9 @@ class UsuarioTest {
 		usuario.completarDesafioDeUsuario(desafioDeUsuario, 5);
 		assertTrue(usuario.getDesafiosCompletados().contains(desafioDeUsuario));
 		assertFalse(usuario.getDesafiosAceptados().contains(desafioDeUsuario));
-	}
+	}*/
 	
+	/* BORRAR TEST
 	@Test
 	void cuandoElUsuarioCompletaUnDesafioDeUsuarioElMismoVotaAlUsuario() {
 		desafio.setCantidadObjetivoDeMuestras(1);
@@ -80,7 +82,7 @@ class UsuarioTest {
 		usuario.completarDesafioDeUsuario(desafioDeUsuario, 5);
 		boolean resultadoActual = (desafioDeUsuario.getVoto() == 5);
 		assertTrue(resultadoActual);
-	}
+	}*/
 	
 	@Test
 	void cuandoElUsuarioRecolectaUnaMuestraLaMismaFormaParteDelProyecto() {
@@ -112,6 +114,7 @@ class UsuarioTest {
 		assertEquals(resultadoEsperado, resultadoActual);
 	}
 	
+	/* BORRAR TEST
 	@Test
 	void siElPorcentajeDeCompletitudGeneralEs100CompletoElDesafio() {
 		desafio.setCantidadObjetivoDeMuestras(1);
@@ -119,8 +122,9 @@ class UsuarioTest {
 		usuario.recolectarMuestra(muestra, proyecto);
 		boolean usuarioCompletoDesafio = usuario.completoDesafio(desafioDeUsuario);
 		assertTrue(usuarioCompletoDesafio);
-	}
+	}*/
 	
+	/* BORRAR TEST
 	@Test
 	void siElUsuarioRecolectoLaMitadDeLasMuestrasDelDesafioElPorcentajeDeCompletitudEs50() {
 		desafio.setCantidadObjetivoDeMuestras(2);
@@ -129,8 +133,10 @@ class UsuarioTest {
 		int resultadoActual = desafioDeUsuario.porcentajeDeCompletitud();
 		int resultadoEsperado = 50;
 		assertEquals(resultadoEsperado, resultadoActual);
-	}
+	}*/
 	
+	
+	/* BORRAR TEST
 	@Test
 	void siElUsuarioRecolectoLaMitadDeLasMuestrasDeDosDesafiosElPorcentajeDeCompletitudGeneralEs50() {
 		desafio.setCantidadObjetivoDeMuestras(2);
@@ -141,7 +147,7 @@ class UsuarioTest {
 		int resultadoActual = usuario.porcentajeDeCompletitudGeneral();
 		int resultadoEsperado = 50;
 		assertEquals(resultadoEsperado, resultadoActual);
-	}
+	}*/
 	
 	@Test
 	void cuandoElUsuarioSeRegistraSuNombreEsUsuarioNombre() {

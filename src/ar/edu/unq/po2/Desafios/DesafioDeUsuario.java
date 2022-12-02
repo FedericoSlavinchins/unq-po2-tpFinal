@@ -118,5 +118,7 @@ public class DesafioDeUsuario {
 		return validadorDeMuestra;
 	}
 
-
+	public Voto getVoto() {
+		return this.voto;
+	}
 }

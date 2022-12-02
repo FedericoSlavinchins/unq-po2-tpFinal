@@ -131,6 +131,11 @@ public class Usuario {
 	public ValoradorDeDesafios getValoradorDeDesafios() {
 		return this.valoradorDeDesafios;
 	}
+
+
+	public String getNombre() {
+		return this.nombre;
+	}
 	
 }
 	
