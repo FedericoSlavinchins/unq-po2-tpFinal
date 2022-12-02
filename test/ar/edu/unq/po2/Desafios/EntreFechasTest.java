@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 
 class EntreFechasTest {
 	
-	private EntreFechas restriccionEntreFechas;
+	private RestriccionDeEntreFechas restriccionEntreFechas;
 	private LocalDate fechaInicioRestriccion;
 	private LocalDate fechaFinRestriccion;
 	private LocalDate fechaEnQueSeCompletoDesafioTest1;
@@ -23,24 +23,24 @@ class EntreFechasTest {
 		fechaEnQueSeCompletoDesafioTest1 = LocalDate.of(2022, 9, 26);
 		fechaEnQueSeCompletoDesafioTest2 = LocalDate.of(2022, 9, 25);
 		fechaEnQueSeCompletoDesafioTest3 = LocalDate.of(2022, 9, 20);
-		restriccionEntreFechas = new EntreFechas(fechaInicioRestriccion, fechaFinRestriccion);
+		restriccionEntreFechas = new RestriccionDeEntreFechas(fechaInicioRestriccion, fechaFinRestriccion);
 	}
 
 	@Test
 	void siSeCompletoElDesafioEl26Septiembre2022NoCumplioConElPeriodoDeRestriccion() {
-		boolean resultado   = restriccionEntreFechas.cumplioPeriodo(fechaEnQueSeCompletoDesafioTest1);
+		boolean resultado   = restriccionEntreFechas.cumpleRestriccion(fechaEnQueSeCompletoDesafioTest1);
 		assertFalse(resultado);
 	}
 	
 	@Test
 	void siSeCompletoElDesafioEl25Septiembre2022CumplioConElPeriodoDeRestriccion() {
-		boolean resultado   = restriccionEntreFechas.cumplioPeriodo(fechaEnQueSeCompletoDesafioTest2);
+		boolean resultado   = restriccionEntreFechas.cumpleRestriccion(fechaEnQueSeCompletoDesafioTest2);
 		assertTrue(resultado);
 	}
 	
 	@Test
 	void siSeCompletoElDesafioEl20Septiembre2022CumplioConElPeriodoDeRestriccion() {
-		boolean resultado   = restriccionEntreFechas.cumplioPeriodo(fechaEnQueSeCompletoDesafioTest3);
+		boolean resultado   = restriccionEntreFechas.cumpleRestriccion(fechaEnQueSeCompletoDesafioTest3);
 		assertTrue(resultado);
 	}
 

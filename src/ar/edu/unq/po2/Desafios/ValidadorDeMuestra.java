@@ -14,10 +14,22 @@ public class ValidadorDeMuestra {
 	}
 	
 	public boolean esMuestraValida(Muestra muestra) {
-		return (muestra.getFecha().isEqual(this.desafioDeUsuario.getFechaAceptado()) || muestra.getFecha().isAfter(this.desafioDeUsuario.getFechaAceptado())) //primera parte valida si las muestra es posterior a la fecha de aceptacion
+		return laMuestraSeTomoDespuesDeAceptarElDesafio(muestra) //primera parte valida si la muestra se tomó despues de aceptar el desafío. (FS: Ver el tema del horario)
 				&& 
-				this.desafioDeUsuario.getDesafio().getRestriccionTemporal().cumplioPeriodo(this.desafioDeUsuario.getFechaAceptado()) // segunda parte valida si cumple las restricciones temporales
+				laMuestraCumpleConRestriccionTemporal() // segunda parte valida si cumple las restricciones temporales
 		        &&  
-		        this.desafioDeUsuario.getDesafio().getArea().estaEnRango(muestra.getGeocoordenada());		// Tercer parte valida el area de la muestra
+		        laMuestraEstaEnRangoSolicitadoPorDesafio(muestra);		// Tercer parte valida el area de la muestra
+	}
+
+	private boolean laMuestraCumpleConRestriccionTemporal() {
+		return this.desafioDeUsuario.getDesafio().getRestriccionTemporal().cumpleRestriccion(this.desafioDeUsuario.getFechaAceptado());
+	}
+
+	private boolean laMuestraEstaEnRangoSolicitadoPorDesafio(Muestra muestra) {
+		return this.desafioDeUsuario.getDesafio().getArea().estaEnRango(muestra.getGeocoordenada());
+	}
+
+	private boolean laMuestraSeTomoDespuesDeAceptarElDesafio(Muestra muestra) {
+		return muestra.getFecha().isEqual(this.desafioDeUsuario.getFechaAceptado()) || muestra.getFecha().isAfter(this.desafioDeUsuario.getFechaAceptado());
 	}
 }

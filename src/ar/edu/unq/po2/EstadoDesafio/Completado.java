@@ -8,8 +8,6 @@ public class Completado implements EstadoDesafio {
 
 	// El protocolo de este estado es fijar que se completo el desafio 
 	// por ende los voids son vacios
-	
-	private DesafioDeUsuario desafioDeUsuario;
 
 	@Override
 	public void actualizarEstado(DesafioDeUsuario desafioDeUsuario) {

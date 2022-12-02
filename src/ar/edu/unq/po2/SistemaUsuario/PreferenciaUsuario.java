@@ -7,7 +7,7 @@ public class PreferenciaUsuario {
 	private double recompensaPreferida;
 	
 	public PreferenciaUsuario(int cantidadDeMuestrasARecolectar, int dificultadPreferida, double recompensaPreferida) {
-		this.setCantidadDeMestrasARecolectar(cantidadDeMuestrasARecolectar);
+		this.setCantidadDeMuestrasARecolectar(cantidadDeMuestrasARecolectar);
 		this.setDificultadPreferida(dificultadPreferida);
 		this.setRecompensaPreferida(recompensaPreferida);
 	}
@@ -18,8 +18,8 @@ public class PreferenciaUsuario {
 	}
 	
 	
-	public void setCantidadDeMestrasARecolectar(int cantidadDeMestrasARecolectar) {
-		this.cantidadDeMuestrasARecolectar = cantidadDeMestrasARecolectar;
+	public void setCantidadDeMuestrasARecolectar(int cantidadDeMuestrasARecolectar) {
+		this.cantidadDeMuestrasARecolectar = cantidadDeMuestrasARecolectar;
 	}
 	
 	

@@ -4,6 +4,6 @@ import java.time.LocalDate;
 
 public interface RestriccionTemporal {
 	
-	public boolean  cumplioPeriodo(LocalDate fechaObjetivo);
+	public boolean  cumpleRestriccion(LocalDate fechaObjetivo);
 	
 }

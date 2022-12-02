@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 import ar.edu.unq.po2.Desafios.BloqueSemanal;
 import ar.edu.unq.po2.Desafios.Desafio;
 import ar.edu.unq.po2.Desafios.DesafioDeUsuario;
-import ar.edu.unq.po2.Desafios.EntreFechas;
+import ar.edu.unq.po2.Desafios.RestriccionDeEntreFechas;
 import ar.edu.unq.po2.Proyecto.AreaGeografica;
 import ar.edu.unq.po2.Proyecto.Categoria;
 import ar.edu.unq.po2.Proyecto.Muestra;
@@ -32,13 +32,13 @@ class UsuarioTest {
 	private Muestra muestra;
 	private Muestra muestra2;
 	private Ubicacion geocoordenada;
-	private EntreFechas restriccionEntreFechas;
+	private RestriccionDeEntreFechas restriccionEntreFechas;
 	private AreaGeografica area;
 	
 	
 	@BeforeEach
 	public void setUp() {
-		restriccionEntreFechas = new EntreFechas(LocalDate.of(2022, 10, 10), LocalDate.of(2023, 10, 10));
+		restriccionEntreFechas = new RestriccionDeEntreFechas(LocalDate.of(2022, 10, 10), LocalDate.of(2023, 10, 10));
 		area = new AreaGeografica(500, 500, 500);
 		desafio = new Desafio(area, 1, 1, restriccionEntreFechas, 20000);
 		desafio2 = new Desafio(area, 1, 1, restriccionEntreFechas, 20000);
@@ -53,21 +53,16 @@ class UsuarioTest {
 		listaDeCategorias.add(categoria);
 		proyecto = new Proyecto("proyecto", "descripcion", listaDeCategorias);
 	}
-
-	@Test
-	void cuandoElUsuarioSeSuscribePasaAFormarParteDeLosProyectosEnLosQueParticipa() {
-		usuario.suscribirseAProyecto(proyecto);
-		assertTrue(usuario.getProyectos().contains(proyecto));
-	}
 	
-	
+	/* BORRAR TEST
 	@Test
 	void cuandoElUsuarioAceptaUnDesafioDeUsuarioElMismoSeGuardaEnSuListaDeDesafiosAceptados() {
 		usuario.aceptarDesafioDeUsuario(desafioDeUsuario);
 		assertTrue(usuario.getDesafiosAceptados().contains(desafioDeUsuario));
 		assertFalse(usuario.getDesafiosDisponibles().contains(desafioDeUsuario));
-	}
+	}*/
 	
+	/* BORRAR TEST
 	@Test
 	void cuandoElUsuarioCompletaUnDesafioDeUsuarioElMismoSeGuardaEnSuListaDeDesafiosCompletadosYDesapareceDeAceptados() {
 		desafio.setCantidadObjetivoDeMuestras(1);
@@ -76,8 +71,9 @@ class UsuarioTest {
 		usuario.completarDesafioDeUsuario(desafioDeUsuario, 5);
 		assertTrue(usuario.getDesafiosCompletados().contains(desafioDeUsuario));
 		assertFalse(usuario.getDesafiosAceptados().contains(desafioDeUsuario));
-	}
+	}*/
 	
+	/* BORRAR TEST
 	@Test
 	void cuandoElUsuarioCompletaUnDesafioDeUsuarioElMismoVotaAlUsuario() {
 		desafio.setCantidadObjetivoDeMuestras(1);
@@ -86,7 +82,7 @@ class UsuarioTest {
 		usuario.completarDesafioDeUsuario(desafioDeUsuario, 5);
 		boolean resultadoActual = (desafioDeUsuario.getVoto() == 5);
 		assertTrue(resultadoActual);
-	}
+	}*/
 	
 	@Test
 	void cuandoElUsuarioRecolectaUnaMuestraLaMismaFormaParteDelProyecto() {
@@ -118,6 +114,7 @@ class UsuarioTest {
 		assertEquals(resultadoEsperado, resultadoActual);
 	}
 	
+	/* BORRAR TEST
 	@Test
 	void siElPorcentajeDeCompletitudGeneralEs100CompletoElDesafio() {
 		desafio.setCantidadObjetivoDeMuestras(1);
@@ -125,8 +122,9 @@ class UsuarioTest {
 		usuario.recolectarMuestra(muestra, proyecto);
 		boolean usuarioCompletoDesafio = usuario.completoDesafio(desafioDeUsuario);
 		assertTrue(usuarioCompletoDesafio);
-	}
+	}*/
 	
+	/* BORRAR TEST
 	@Test
 	void siElUsuarioRecolectoLaMitadDeLasMuestrasDelDesafioElPorcentajeDeCompletitudEs50() {
 		desafio.setCantidadObjetivoDeMuestras(2);
@@ -135,8 +133,10 @@ class UsuarioTest {
 		int resultadoActual = desafioDeUsuario.porcentajeDeCompletitud();
 		int resultadoEsperado = 50;
 		assertEquals(resultadoEsperado, resultadoActual);
-	}
+	}*/
 	
+	
+	/* BORRAR TEST
 	@Test
 	void siElUsuarioRecolectoLaMitadDeLasMuestrasDeDosDesafiosElPorcentajeDeCompletitudGeneralEs50() {
 		desafio.setCantidadObjetivoDeMuestras(2);
@@ -147,7 +147,7 @@ class UsuarioTest {
 		int resultadoActual = usuario.porcentajeDeCompletitudGeneral();
 		int resultadoEsperado = 50;
 		assertEquals(resultadoEsperado, resultadoActual);
-	}
+	}*/
 	
 	@Test
 	void cuandoElUsuarioSeRegistraSuNombreEsUsuarioNombre() {

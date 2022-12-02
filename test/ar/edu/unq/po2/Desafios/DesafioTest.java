@@ -63,7 +63,7 @@ class DesafioTest {
 	}
 	@Test
 	void testRestriccionTemporal() {
-			boolean resultado = restriccionBloqueSemanalDiaSemana.cumplioPeriodo(diaDeSemana);
+			boolean resultado = restriccionBloqueSemanalDiaSemana.cumpleRestriccion(diaDeSemana);
 			assertTrue(resultado);
 		}
 	@Test

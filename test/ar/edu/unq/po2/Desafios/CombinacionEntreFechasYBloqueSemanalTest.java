@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 
 class CombinacionEntreFechasYBloqueSemanalTest {
 	
-	private EntreFechas restriccionEntreFechas;
+	private RestriccionDeEntreFechas restriccionEntreFechas;
 	private LocalDate fechaInicioRestriccion;
 	private LocalDate fechaFinRestriccion;
 	
@@ -28,7 +28,7 @@ class CombinacionEntreFechasYBloqueSemanalTest {
 		fechaFinRestriccion = LocalDate.of(2022, 12, 31);
 		sabado3Diciembre = LocalDate.of(2022, 12, 3);
 		domingo25Diciembre = LocalDate.of(2022, 12, 25);
-		restriccionEntreFechas = new EntreFechas(fechaInicioRestriccion, fechaFinRestriccion);
+		restriccionEntreFechas = new RestriccionDeEntreFechas(fechaInicioRestriccion, fechaFinRestriccion);
 		// FS: Segunda restricción.
 		desafioDebeSerCompletadoDiaDeSemana = true;
 		desafioDebeSerCompletadoFinDeSemana = false;
@@ -41,8 +41,8 @@ class CombinacionEntreFechasYBloqueSemanalTest {
 	@Test
 	void cuandoElDesafioEsCompletadoSabadoODomingoEntre1y31DeDiciembreCumplePeriodo() {	
 		//FS: Este test contempla cumplir desafios diferentes en un periodo de entre fechas de un mes, en dos fines de semana diferentes.
-		boolean resultadoDeSabado24deSept  = restriccionCombinacion.cumplioPeriodo(sabado3Diciembre);
-		boolean resultadoDeDomingo25deSept = restriccionCombinacion.cumplioPeriodo(domingo25Diciembre);
+		boolean resultadoDeSabado24deSept  = restriccionCombinacion.cumpleRestriccion(sabado3Diciembre);
+		boolean resultadoDeDomingo25deSept = restriccionCombinacion.cumpleRestriccion(domingo25Diciembre);
 		assertTrue(resultadoDeSabado24deSept);
 		assertTrue(resultadoDeDomingo25deSept);
 	}

@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import ar.edu.unq.po2.EstadoDesafio.EstadoDesafio;
 import ar.edu.unq.po2.EstadoDesafio.NoAceptado;
 import ar.edu.unq.po2.Proyecto.Muestra;
+import ar.edu.unq.po2.SistemaUsuario.Usuario;
 
 
 public class DesafioDeUsuario {
@@ -14,30 +15,57 @@ public class DesafioDeUsuario {
 	// FS: Realiza un seguimiento del progreso del usuario en el Desafio.
 	
 	private Desafio desafio;
+	private Usuario usuario;
 	private ArrayList<Muestra> muestrasRecolectadas = new ArrayList<Muestra>(); // Muestras recolectadas para el desafio.
 	private LocalDate fechaAceptado;
 	private LocalDate fechaCompletado;
 	private EstadoDesafio estado;			//FS: El estado debe estar en esta clase, ya que es parte del progreso del usuario.	
-	private int voto;
+	private Voto voto;
 	private ValidadorDeMuestra validadorDeMuestra = new ValidadorDeMuestra(this);
+	private OtorgadorDeRecompensa otorgadorDeRecompensas = new OtorgadorDeRecompensa(this.desafio.getRecompensa());
 
 
-	public DesafioDeUsuario (Desafio desafio) {
+	public DesafioDeUsuario (Desafio desafio, Usuario usuario) {
 		this.desafio = desafio;
 		this.estado  = new NoAceptado();
+		this.usuario = usuario;
+		this.otorgadorDeRecompensas.setUsuarioARecompensar(usuario);
+	}
+	
+	// FS: Métodos aceptar y completar desafío.
+	public void aceptarDesafioDeUsuario() throws Exception {
+		this.actualizarse();
+		this.usuario.getMenuDeDesafios().moverDesafioAAceptados(this);
+	}
+		
+	public void completarDesafioDeUsuario(int valorVoto) throws Exception {
+		this.actualizarse();
+		this.usuario.getMenuDeDesafios().moverDesafioACompletados(this);
+		this.usuario.getValoradorDeDesafios().votar(this, valorVoto);	// El usuario debe elegir el voto.
+	}
+	//
+	
+	public OtorgadorDeRecompensa getOtorgadorDeRecompensa() {
+		return this.otorgadorDeRecompensas;
 	}
 	
 
 	public EstadoDesafio getEstado() {
 			return estado;
-		}
+	}
 		
 	
 	public void setEstado(EstadoDesafio estado) {
 		this.estado = estado;
 	}
+	
+	
+	
+	public void actualizarse() throws Exception {
+		this.actualizarEstado();
+	}
 
-	public void actualizarEstado() {
+	private void actualizarEstado() throws Exception {
 		this.getEstado().actualizarEstado(this);
 	}
 		
@@ -68,11 +96,6 @@ public class DesafioDeUsuario {
 		return ((this.cantidadMuestrasRecolectadasParaEsteDesafio() * 100) / this.desafio.getCantidadObjetivoDeMuestras()) ;
 	}
 
-	
-	
-	public int getVoto() {
-		return voto;
-	}
 
 
 	public void setFechaAceptado() {
@@ -87,20 +110,15 @@ public class DesafioDeUsuario {
 		return this.desafio;
 	}
 	
-	
-	// guarda el numero n si esta entre 0 y 5 
-	// sino manda mensaje
-		public void setVoto(int numero) {
-			if(numero >= 0 && numero <= 5 ) {
-				voto = numero;
-			} else { System. out. println("El voto debe ser entre 0 y 5"); }
-		} 
+	public void setVoto(Voto voto) {
+		this.voto = voto;
+	}
 
-		
-	
-	
 	public ValidadorDeMuestra getValidadorDeMuestra() {
 		return validadorDeMuestra;
 	}
 
+	public Voto getVoto() {
+		return this.voto;
+	}
 }
