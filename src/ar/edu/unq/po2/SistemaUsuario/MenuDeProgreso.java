@@ -33,7 +33,7 @@ public class MenuDeProgreso {
 		return desafioDeUsuario.porcentajeDeCompletitud();
 	}
 
-	private boolean usuarioEstaRealizandoElDesafio(DesafioDeUsuario desafioDeUsuario) {
+	protected boolean usuarioEstaRealizandoElDesafio(DesafioDeUsuario desafioDeUsuario) {
 		return this.usuarioAConsultarProgreso.getMenuDeDesafios().getDesafiosAceptados().contains(desafioDeUsuario);
 	}
 	
