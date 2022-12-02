@@ -36,7 +36,7 @@ class MenuDeDesafiosTest {
 		menuDeDesafios.agregarDesafioADisponibles(desafioDeUsuario1);
 		menuDeDesafios.moverDesafioAAceptados(desafioDeUsuario1);
 		menuDeDesafios.moverDesafioACompletados(desafioDeUsuario1);
-		
+		//
 		assertTrue(menuDeDesafios.getDesafiosCompletados().contains(desafioDeUsuario1));
 		assertFalse(menuDeDesafios.getDesafiosAceptados().contains(desafioDeUsuario1));
 	}
