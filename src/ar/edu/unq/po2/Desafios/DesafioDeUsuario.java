@@ -15,6 +15,7 @@ public class DesafioDeUsuario {
 	// FS: Realiza un seguimiento del progreso del usuario en el Desafio.
 	
 	private Desafio desafio;
+	private Usuario usuario;
 	private ArrayList<Muestra> muestrasRecolectadas = new ArrayList<Muestra>(); // Muestras recolectadas para el desafio.
 	private LocalDate fechaAceptado;
 	private LocalDate fechaCompletado;
@@ -27,8 +28,22 @@ public class DesafioDeUsuario {
 	public DesafioDeUsuario (Desafio desafio, Usuario usuario) {
 		this.desafio = desafio;
 		this.estado  = new NoAceptado();
+		this.usuario = usuario;
 		this.otorgadorDeRecompensas.setUsuarioARecompensar(usuario);
 	}
+	
+	// FS: Métodos aceptar y completar desafío.
+	public void aceptarDesafioDeUsuario(DesafioDeUsuario desafioDeUsuario) throws Exception {
+		this.actualizarse();
+		this.usuario.getMenuDeDesafios().moverDesafioAAceptados(desafioDeUsuario);
+	}
+		
+	public void completarDesafioDeUsuario(DesafioDeUsuario desafioDeUsuario,int valorVoto) throws Exception {
+		desafioDeUsuario.actualizarse();
+		this.usuario.getMenuDeDesafios().moverDesafioACompletados(desafioDeUsuario);
+		this.usuario.votar(desafioDeUsuario, valorVoto);	// El usuario debe elegir el voto.
+	}
+	//
 	
 	public OtorgadorDeRecompensa getOtorgadorDeRecompensa() {
 		return this.otorgadorDeRecompensas;
@@ -43,6 +58,8 @@ public class DesafioDeUsuario {
 	public void setEstado(EstadoDesafio estado) {
 		this.estado = estado;
 	}
+	
+	
 	
 	public void actualizarse() throws Exception {
 		this.actualizarEstado();

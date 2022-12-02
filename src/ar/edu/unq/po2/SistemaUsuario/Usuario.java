@@ -58,20 +58,7 @@ public class Usuario {
 	
 	
 	
-	// FS: Métodos aceptar y completar desafío.
-	public void aceptarDesafioDeUsuario(DesafioDeUsuario desafioDeUsuario) throws Exception {
-		desafioDeUsuario.actualizarse();
-		this.menuDeDesafios.moverDesafioAAceptados(desafioDeUsuario);
-	}
-	
-	
-	
-	public void completarDesafioDeUsuario(DesafioDeUsuario desafioDeUsuario,int valorVoto) throws Exception {
-		desafioDeUsuario.actualizarse();
-		this.menuDeDesafios.moverDesafioACompletados(desafioDeUsuario);
-		this.recompensasAcumuladas += desafioDeUsuario.getDesafio().getRecompensa();	// FS: Otorga recompensa.
-		this.votar(desafioDeUsuario, valorVoto);	// El usuario debe elegir el voto.
-	}
+
 	
 	
 	
@@ -157,6 +144,11 @@ public class Usuario {
 
 	public void setRecompensasAcumuladas(double recompensasAcumuladas) {
 		this.recompensasAcumuladas = recompensasAcumuladas;
+	}
+
+
+	public MenuDeDesafios getMenuDeDesafios() {
+		return this.menuDeDesafios;
 	}
 	
 }
