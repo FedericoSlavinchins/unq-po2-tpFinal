@@ -23,6 +23,8 @@ public class Usuario {
 	private ArrayList<Proyecto> proyectos;
 	
 	private MenuDeDesafios menuDeDesafios = new MenuDeDesafios();
+	private MenuDeProgreso menuDeProgreso = new MenuDeProgreso(this);
+	private ValoradorDeDesafios valoradorDeDesafios = new ValoradorDeDesafios();
 	
 	
 	public Usuario(String nombre) {
@@ -77,32 +79,6 @@ public class Usuario {
 	}
 	
 	
-	// FS: Métodos de conocimiento de información acerca de Desafios del Usuario.
-	
-	public boolean completoDesafio(DesafioDeUsuario desafioDeUsuario) {		//FS: Indica si completó un desafio del usuario.
-		return (desafioDeUsuario.porcentajeDeCompletitud() == 100);	
-	}
-
-	//Devuelve el porcentaje de completitud del desafio en cuestion
-	public int porcentajeDeCompletitud(DesafioDeUsuario desafio) {
-		return desafio.porcentajeDeCompletitud();
-	}
-	
-	public int porcentajeDeCompletitudGeneral() {			// FS: Entre desafios aceptados.
-		int resultado = 0; 
-		for (DesafioDeUsuario desafioDeUsuario : this.menuDeDesafios.getDesafiosAceptados()) {
-			resultado += this.porcentajeDeCompletitud(desafioDeUsuario);
-		}
-		return ((resultado + (this.menuDeDesafios.getDesafiosCompletados().size() * 100))) 
-				/ 
-				(this.menuDeDesafios.getDesafiosAceptados().size() + this.menuDeDesafios.getDesafiosCompletados().size());
-	}
-
-		
-	public void votar(DesafioDeUsuario desafioDeUsuario,int valorDeVoto) {
-		desafioDeUsuario.setVoto(valorDeVoto);
-	}
-	
 	public PreferenciaUsuario getPreferenciaUsuario() {
 		return this.preferenciaUsuario;
 	}
@@ -149,6 +125,11 @@ public class Usuario {
 
 	public MenuDeDesafios getMenuDeDesafios() {
 		return this.menuDeDesafios;
+	}
+
+
+	public ValoradorDeDesafios getValoradorDeDesafios() {
+		return this.valoradorDeDesafios;
 	}
 	
 }
