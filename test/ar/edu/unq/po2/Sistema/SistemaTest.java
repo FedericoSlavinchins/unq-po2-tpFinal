@@ -12,6 +12,8 @@ import ar.edu.unq.po2.SistemaUsuario.Usuario;
 
 import static org.mockito.Mockito.*;
 
+import java.util.ArrayList;
+
 class SistemaTest {
 	
 	private Sistema sistema;
@@ -48,10 +50,21 @@ class SistemaTest {
 	}
 	
 	@Test
-	public void testNuevoBuscador() {
-		this.sistema.setBuscadorDeProyectos(buscadorCategoria);
+	public void testBuscarProyectosUsandoBuscador() {
+		ArrayList<Proyecto> proyectosAFiltrar = new ArrayList<Proyecto>();
+		ArrayList<Proyecto> resultadoDeBusqueda = new ArrayList<Proyecto>();
+		proyectosAFiltrar.add(proyecto1);
 		
-		assertEquals(buscadorCategoria, this.sistema.getBuscadorDeProyectos());
+		
+		when(buscadorTitulo.getTextoABuscar()).thenReturn("Biología");
+		when(proyecto1.getNombre()).thenReturn("Biología");
+		
+		
+		resultadoDeBusqueda = this.sistema.buscarProyectosUsando(buscadorTitulo);
+		
+		verify(buscadorTitulo).filtrar(proyectosAFiltrar);
+		verify(proyecto1).getNombre().contains(buscadorTitulo.getTextoABuscar());
+		assertEquals(resultadoDeBusqueda, proyectosAFiltrar);
 	}
 	
 	

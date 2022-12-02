@@ -13,9 +13,13 @@ public class BuscadorTitulo extends BuscadorSimple {
 	}
 
 	protected void aplicarCriterioDeFiltro(ArrayList<Proyecto> resultadoBusqueda, Proyecto proyecto) {
-		if (proyecto.getNombre().contains(this.textoABuscar)) {
+		if (proyecto.getNombre().contains(this.getTextoABuscar())) {
 			resultadoBusqueda.add(proyecto);
 		}
+	}
+
+	public String getTextoABuscar() {
+		return textoABuscar;
 	}
 	
 }
