@@ -57,6 +57,9 @@ class NoAceptadoTest {
 		
 		String mensajeDeExceptionEsperado = "El desafio ya fue iniciado anteriormente";
 		
+		when(desafioUsuario.getEstado()).thenReturn(noAceptado);
+		when(desafioUsuario.porcentajeDeCompletitud()).thenReturn(25); // Se simula que el desafío ya fue iniciado.
+		
 		Exception exception = assertThrows(Exception.class,
 	            () -> {this.noAceptado.actualizarEstado(desafioUsuario);} );
 		
