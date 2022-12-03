@@ -13,7 +13,7 @@ public class RestriccionCompuesta implements RestriccionTemporal {
 		boolean cumpleConRestriccionCompuesta = false; // Se asigna en true para aprovechar el operador OR luego.
 		for (RestriccionTemporal restriccionTemporal : restricciones) {
 			cumpleConRestriccionCompuesta = (cumpleConRestriccionCompuesta || restriccionTemporal.cumpleRestriccion(fechaObjetivo));
-		} // En caso de que una de las restricciones se cumpla, la variable local será TRUE debido al uso del OR.
+		} // En caso de que una de las restricciones se cumpla , la variable local será TRUE debido al uso del OR.
 		return cumpleConRestriccionCompuesta;
 	}
 	
