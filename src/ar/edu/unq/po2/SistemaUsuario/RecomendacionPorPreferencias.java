@@ -10,17 +10,19 @@ import ar.edu.unq.po2.Desafios.DesafioDeUsuario;
 
 public class RecomendacionPorPreferencias implements EstrategiaDeRecomendacion {
 	private PreferenciaUsuario preferenciasDelUsuario;
-	private List<Desafio> desafiosRecomendados;
-	private List<DesafioDeUsuario> desafiosCompletados;
+	private List<Desafio> desafiosPosibles;
+	private List<DesafioDeUsuario> desafiosYaAceptados;
 
 	
 	@Override
-	public ArrayList<DesafioDeUsuario> recomendar(List<DesafioDeUsuario> desafiosCompletados, PreferenciaUsuario preferencias, List<Desafio> desafiosDeProyectos) {
+	public List<DesafioDeUsuario> recomendar(List<DesafioDeUsuario> desafiosAceptados, PreferenciaUsuario preferencias, List<Desafio> desafiosPosibles) {
 		this.setPreferencias(preferencias);
-		this.setDesafiosCompletados(desafiosCompletados);
-		this.setDesafiosRecomendados(desafiosDeProyectos);
+		this.setDesafiosYaAceptados(desafiosAceptados);
+		this.setDesafiosPosibles(desafiosPosibles);
 		return null; //this.filtrarDesafios();
 	}
+	
+	
 
 	//Metodos que setean los atributos de la clase
 	
@@ -28,15 +30,17 @@ public class RecomendacionPorPreferencias implements EstrategiaDeRecomendacion {
 		this.preferenciasDelUsuario = preferencias;
 	}
 
-	public void setDesafiosCompletados(List<DesafioDeUsuario> desafiosCompletados) {
-		this.desafiosCompletados = desafiosCompletados;
+	public void setDesafiosYaAceptados(List<DesafioDeUsuario> desafiosCompletados) {
+		this.desafiosYaAceptados = desafiosCompletados;
 	}
 	
-	public void setDesafiosRecomendados(List<Desafio> desafios) {
-		this.desafiosRecomendados = desafios;
+	public void setDesafiosPosibles(List<Desafio> desafios) {
+		this.desafiosPosibles = desafios;
 	}
 
 
+	
+	
 	//Calcula el nivel de coincidencia con las preferencias del usuario haciendo una suma del valor absoluto de las diferencias
 	public double calcularCoincidencia(Desafio desafio) {
 		int resMuestras = 
@@ -59,16 +63,18 @@ public class RecomendacionPorPreferencias implements EstrategiaDeRecomendacion {
 		return numero > 0 ? numero : -numero; 
 	}
 	
-
-	private ArrayList<DesafioDeUsuario> filtrarDesafios() {
-		ArrayList<Desafio> desafiosValidos = new ArrayList<Desafio>();
-		for (DesafioDeUsuario desafioDeUsuario : this.desafiosCompletados) {
-			if(this.desafiosRecomendados.contains(desafioDeUsuario.getDesafio())) {} 
-			else {
-				
+	
+	
+	//Metodo que filtra desafios 
+	private List<Desafio> filtrarDesafios() {
+		List<Desafio> desafiosNoValidos = this.desafiosYaAceptados.stream().map(d -> d.getDesafio()).toList();
+		List<Desafio> desafiosValidos = new ArrayList<Desafio>();
+		for (Desafio desafio : desafiosPosibles) {
+			if(!(desafiosNoValidos.contains(desafio))) {
+				desafiosValidos.add(desafio);
 			}
 		}
-		return null;
+		return desafiosValidos;
 	}
 
 /*

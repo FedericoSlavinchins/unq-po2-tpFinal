@@ -1,6 +1,5 @@
 package ar.edu.unq.po2.SistemaUsuario;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import ar.edu.unq.po2.Desafios.Desafio;
@@ -36,7 +35,7 @@ public class RecomendadorDeLudificacion {
 		return estrategia;
 	}
 	
-	public ArrayList<DesafioDeUsuario> recomendarDesafios(List<Desafio> desafiosDeProyectos) {
+	public List<DesafioDeUsuario> recomendarDesafios(List<Desafio> desafiosDeProyectos) {
 		return this.estrategia.recomendar(desafiosDelUsuario, preferenciasDelUsuario, desafiosDeProyectos);
 	}
 }
