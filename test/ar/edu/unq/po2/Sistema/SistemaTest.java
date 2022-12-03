@@ -50,22 +50,16 @@ class SistemaTest {
 	}
 	
 	@Test
-	public void testBuscarProyectosUsandoBuscador() {
-		ArrayList<Proyecto> proyectosAFiltrar = new ArrayList<Proyecto>();
+	public void testCuandoSeBuscaUsandoUnBuscadorElMismoSeSetteaEnLaVariableInternaDelSistema() {
+
 		ArrayList<Proyecto> resultadoDeBusqueda = new ArrayList<Proyecto>();
-		proyectosAFiltrar.add(proyecto1);
-		
-		
-		when(buscadorTitulo.getTextoABuscar()).thenReturn("Biología");
-		when(proyecto1.getNombre()).thenReturn("Biología");
 		
 		
 		resultadoDeBusqueda = this.sistema.buscarProyectosUsando(buscadorTitulo);
 		
-		verify(buscadorTitulo).filtrar(proyectosAFiltrar);
-		verify(proyecto1).getNombre().contains(buscadorTitulo.getTextoABuscar());
-		assertEquals(resultadoDeBusqueda, proyectosAFiltrar);
+		assertEquals(buscadorTitulo, sistema.getBuscadorDeProyectos());
 	}
+	
 	
 	
 
