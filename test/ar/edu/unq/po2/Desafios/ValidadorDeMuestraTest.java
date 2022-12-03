@@ -52,11 +52,11 @@ class ValidadorDeMuestraTest {
 		desafio = new Desafio(area, 2, 3, restriccionEntreFechas, 1000);
 		usuario = new Usuario("nombreUsuario");
 		estadoAceptado = new Aceptado();
-		desafioUsuario = new DesafioDeUsuario(desafio);
+		desafioUsuario = new DesafioDeUsuario(desafio, usuario);
 		
 		fechaAceptado = LocalDate.of(2022, 11, 06);
 		
-		usuario.agregarDesafiosDisponibles(desafioUsuario);
+		// (?) usuario.agregarDesafiosDisponibles(desafioUsuario);
 		 
 		noAceptado = desafioUsuario.getEstado();
 		
@@ -69,8 +69,8 @@ class ValidadorDeMuestraTest {
 
 
 	@Test
-	void cuandoElUsuarioSubeUnaMuestraQueCumpleConLasCondicionesEsUnaMuestraValida() {
-		usuario.aceptarDesafioDeUsuario(desafioUsuario);
+	void cuandoElUsuarioSubeUnaMuestraQueCumpleConLasCondicionesEsUnaMuestraValida() throws Exception {
+		desafioUsuario.aceptarDesafioDeUsuario();;
 		usuario.recolectarMuestra(muestra, proyecto);
 		assertTrue(desafioUsuario.getValidadorDeMuestra().esMuestraValida(muestra));
 	}
