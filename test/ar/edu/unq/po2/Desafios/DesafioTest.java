@@ -20,7 +20,7 @@ class DesafioTest {
 	private Desafio desafio;
 	private AreaGeografica area;
 	private RestriccionTemporal restriccionTemporal;
-	private BloqueSemanal restriccionBloqueSemanalDiaSemana;
+	private RestriccionDeDiasDeSemana restriccionDeDiasDeSemana;
 	private Ubicacion ubicacion;
 	private LocalDate diaDeSemana;
 	private boolean esDiaDeSemana;
@@ -28,18 +28,18 @@ class DesafioTest {
 	
 	@BeforeEach
 	void setUp() throws Exception {
-	desafio = new Desafio(area, 5, 3,restriccionBloqueSemanalDiaSemana, 5);
+	desafio = new Desafio(area, 5, 3, restriccionDeDiasDeSemana, 5);
 	this.area = new AreaGeografica(2, 3, 15);
 	//this.restriccionTemporal = new RestriccionTemporal();
 	this.ubicacion = new Ubicacion(2, 3);
-	esDiaDeSemana = true;
-	restriccionBloqueSemanalDiaSemana = new BloqueSemanal(esDiaDeSemana);
-	diaDeSemana = LocalDate.of(2022, 12, 1);
-	restriccionTemporal = restriccionBloqueSemanalDiaSemana;
+	//esDiaDeSemana = true;
+	//restriccionBloqueSemanalDiaSemana = new BloqueSemanal(esDiaDeSemana);
+	//diaDeSemana = LocalDate.of(2022, 12, 1);
+	//restriccionTemporal = restriccionBloqueSemanalDiaSemana;
 	}
 	
 	@Test
-	void testComprobarQueAgregaMuestras() {
+	void testGetterMuestrasARecolectar() {
 		int resultadoObtenido = desafio.getCantidadObjetivoDeMuestras();
 		assertEquals(5 , resultadoObtenido);
 
@@ -51,25 +51,40 @@ class DesafioTest {
 		assertEquals(3 , resultadoObtenido);
 
 	}
+	
 	@Test 
 	void testGetRecompensa() {
 		double resultadoObtenido = desafio.getRecompensa();
 		assertEquals(5 , resultadoObtenido);
 	}
+	
+	@Test
+	void testGetArea() {
+		AreaGeografica resultadoEsperado = area;
+		AreaGeografica resultadoObtenido = desafio.getArea();
+		assertEquals(resultadoEsperado, resultadoObtenido);
+	}
+	
 	@Test
 	void testDelArea() {
 		assertTrue(area.estaEnRango(ubicacion));
 
 	}
+	
+	/* FS: Test debe ir en restriccion temporal.
 	@Test
 	void testRestriccionTemporal() {
 			boolean resultado = restriccionBloqueSemanalDiaSemana.cumpleRestriccion(diaDeSemana);
 			assertTrue(resultado);
-		}
+	}
+	*/
+	
 	@Test
 	void testSetRestriccionTemporal() {
 			desafio.setRestriccionTemporal(restriccionTemporal);
 			assertEquals(restriccionTemporal,desafio.getRestriccionTemporal());
-		}
+	}
+	
+	
 }
 	

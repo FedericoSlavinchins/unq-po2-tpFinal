@@ -42,8 +42,8 @@ class UsuarioTest {
 		area = new AreaGeografica(500, 500, 500);
 		desafio = new Desafio(area, 1, 1, restriccionEntreFechas, 20000);
 		desafio2 = new Desafio(area, 1, 1, restriccionEntreFechas, 20000);
-		desafioDeUsuario = new DesafioDeUsuario(desafio);
-		desafioDeUsuario2 = new DesafioDeUsuario(desafio2);
+		desafioDeUsuario = new DesafioDeUsuario(desafio, usuario);
+		desafioDeUsuario2 = new DesafioDeUsuario(desafio2, usuario);
 		usuario = new Usuario("nombreUsuario");
 		geocoordenada = new Ubicacion(500, 500);
 		muestra = new Muestra(usuario, geocoordenada);
