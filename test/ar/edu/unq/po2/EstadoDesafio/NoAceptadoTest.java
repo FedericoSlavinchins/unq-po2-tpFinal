@@ -1,5 +1,6 @@
 package ar.edu.unq.po2.EstadoDesafio;
 
+import static org.junit.Assert.assertThrows;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
@@ -49,6 +50,18 @@ class NoAceptadoTest {
 		verify(desafioUsuario).porcentajeDeCompletitud();
 		
 		assertEquals(estadoEsperado, desafioUsuario.getEstado());
+	}
+	
+	@Test
+	void testElDesafioYaFueIniciadoAnteriormente() throws Exception {
+		
+		String mensajeDeExceptionEsperado = "El desafio ya fue iniciado anteriormente";
+		
+		Exception exception = assertThrows(Exception.class,
+	            () -> {this.noAceptado.actualizarEstado(desafioUsuario);} );
+		
+		assertEquals(mensajeDeExceptionEsperado, exception.getMessage());
+		
 	}
 
 }
