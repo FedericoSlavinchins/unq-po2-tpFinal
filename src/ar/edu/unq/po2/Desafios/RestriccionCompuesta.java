@@ -10,11 +10,15 @@ public class RestriccionCompuesta implements RestriccionTemporal {
 	
 	@Override
 	public boolean cumpleRestriccion(LocalDate fechaObjetivo) {
-		boolean cumpleConTodasLasRestricciones = true; // Se asigna en true para aprovechar el operador AND luego.
+		boolean cumpleConRestriccionCompuesta = false; // Se asigna en true para aprovechar el operador OR luego.
 		for (RestriccionTemporal restriccionTemporal : restricciones) {
-			cumpleConTodasLasRestricciones = (cumpleConTodasLasRestricciones && restriccionTemporal.cumpleRestriccion(fechaObjetivo));
-		} // En caso de que una de las restricciones no se cumpla, la variable local será FALSE debido al uso del AND.
-		return cumpleConTodasLasRestricciones;
+			cumpleConRestriccionCompuesta = (cumpleConRestriccionCompuesta || restriccionTemporal.cumpleRestriccion(fechaObjetivo));
+		} // En caso de que una de las restricciones se cumpla, la variable local será TRUE debido al uso del OR.
+		return cumpleConRestriccionCompuesta;
+	}
+	
+	public void agregarRestriccionTemporal(RestriccionTemporal restriccionTemporal) {
+		this.restricciones.add(restriccionTemporal);
 	}
 
 }
