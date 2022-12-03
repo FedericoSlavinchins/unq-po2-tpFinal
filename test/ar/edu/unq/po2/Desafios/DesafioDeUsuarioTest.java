@@ -1,6 +1,7 @@
 package ar.edu.unq.po2.Desafios;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.mock;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -39,6 +40,7 @@ class DesafioDeUsuarioTest {
 	private Categoria categoria;
 	private ArrayList<Categoria> listaCategorias;
 	private Ubicacion geocoordenada;
+	private Voto voto;
 	
 	@BeforeEach
 	void setUp() throws Exception {
@@ -53,11 +55,11 @@ class DesafioDeUsuarioTest {
 		desafio = new Desafio(area, 2, 3, restriccionEntreFechas, 1000);
 		usuario = new Usuario("nombreUsuario");
 		estadoAceptado = new Aceptado();
-		desafioUsuario = new DesafioDeUsuario(desafio);
+		desafioUsuario = new DesafioDeUsuario(desafio, usuario);
 		
-		fechaAceptado = LocalDate.of(2022, 11, 06);
+		fechaAceptado = LocalDate.now();
 		
-		usuario.agregarDesafiosDisponibles(desafioUsuario);
+		//usuario.agregarDesafiosDisponibles(desafioUsuario);
 		 
 		noAceptado = desafioUsuario.getEstado();
 		
@@ -66,20 +68,43 @@ class DesafioDeUsuarioTest {
 		muestra = new Muestra(usuario, geocoordenada);
 		
 		proyecto = new Proyecto("proyecto", "descripcion", listaCategorias);
+		
+		voto = mock(Voto.class);
+		
 	}
 	
 	@Test
-	void testgetDesafio() {
+	void testCompletarDesafioDeUsuario() throws Exception {
+		EstadoDesafio estadoCompletado = new Completado();
+		desafioUsuario.completarDesafioDeUsuario(5);
+		
+		assertEquals(estadoCompletado, desafioUsuario.getEstado());
+		assertTrue(usuario.getMenuDeDesafios().getDesafiosCompletados().contains(this));
+	}
+	
+	
+	@Test
+	void testGetMuestrasRecolectadas() throws Exception {
+		desafioUsuario.aceptarDesafioDeUsuario();
+		usuario.recolectarMuestra(muestra, proyecto);
+		
+		assertEquals(1, desafioUsuario.getMuestrasRecolectadas());
+	}
+	
+	
+	@Test
+	void testGetDesafio() {
 		assertEquals(desafioUsuario.getDesafio(), desafio);
 		assertEquals(desafioUsuario.getEstado(), noAceptado);
 	}
 	
 	@Test
-	void testGetFechaAceptado() {
-		usuario.aceptarDesafioDeUsuario(desafioUsuario);
+	void testGetFechaAceptado() throws Exception {
+		desafioUsuario.aceptarDesafioDeUsuario();
 		assertEquals(fechaAceptado, desafioUsuario.getFechaAceptado()) ;
 	}
 	
+	/*
 	@Test
 	void testDeEstadoDesafioActualCorrectoDebeSerCompletado() {
 		usuario.aceptarDesafioDeUsuario(desafioUsuario);
@@ -93,14 +118,26 @@ class DesafioDeUsuarioTest {
 		assertEquals(estadoCompletado.getClass(), estadoObtenido.getClass());
 		
 	}
+	*/
 	
-	
-	
+	/*
 	@Test
 	void testSetVoto() {
 		desafioUsuario.setVoto(5);
 		int resultadoEsperado = desafioUsuario.getVoto();
 		assertTrue(resultadoEsperado == 5);
+	}*/
+	
+	@Test
+	void testSetVoto() {
+		desafioUsuario.setVoto(voto);
+		assertEquals(voto, desafioUsuario.getVoto());
+	}
+	
+	@Test
+	void testSetFechaCompletado() {
+		desafioUsuario.setFechaCompletado();
+		assertEquals(LocalDate.now(), desafioUsuario.getFechaCompletado());
 	}
 	
 }

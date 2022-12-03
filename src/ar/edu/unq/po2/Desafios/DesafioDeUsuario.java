@@ -22,13 +22,14 @@ public class DesafioDeUsuario {
 	private EstadoDesafio estado;			//FS: El estado debe estar en esta clase, ya que es parte del progreso del usuario.	
 	private Voto voto;
 	private ValidadorDeMuestra validadorDeMuestra = new ValidadorDeMuestra(this);
-	private OtorgadorDeRecompensa otorgadorDeRecompensas = new OtorgadorDeRecompensa(this.desafio.getRecompensa());
+	private OtorgadorDeRecompensa otorgadorDeRecompensas;
 
 
-	public DesafioDeUsuario (Desafio desafio, Usuario usuario) {
+	public DesafioDeUsuario(Desafio desafio, Usuario usuario) {
 		this.desafio = desafio;
 		this.estado  = new NoAceptado();
 		this.usuario = usuario;
+		this.otorgadorDeRecompensas = new OtorgadorDeRecompensa(this.desafio.getRecompensa());
 		this.otorgadorDeRecompensas.setUsuarioARecompensar(usuario);
 	}
 	

@@ -46,9 +46,9 @@ public class Desafio implements ElementoDeLudificacion {
 		this.restriccionTemporal = restriccionTemporal;
 	}
 
-	public void setCantidadObjetivoDeMuestras(int cantidadObjetivoDeMuestras) {
+	/*public void setCantidadObjetivoDeMuestras(int cantidadObjetivoDeMuestras) {
 		this.cantidadObjetivoDeMuestras = cantidadObjetivoDeMuestras;
-	}
+	}*/
 
 	public int getDificultad() {
 		return dificultad;
