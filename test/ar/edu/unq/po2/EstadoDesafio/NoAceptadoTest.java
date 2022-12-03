@@ -39,10 +39,16 @@ class NoAceptadoTest {
 	}
 	
 	@Test
-	void testSeAceptaDesafio() {
+	void testSeAceptaDesafio() throws Exception {
+		Aceptado estadoEsperado = new Aceptado();
+		
 		this.noAceptado.actualizarEstado(desafioUsuario);
 		
+		when(desafioUsuario.getEstado()).thenReturn(estadoEsperado);
 		verify(desafioUsuario).setFechaAceptado();
+		verify(desafioUsuario).porcentajeDeCompletitud();
+		
+		assertEquals(estadoEsperado, desafioUsuario.getEstado());
 	}
 
 }
