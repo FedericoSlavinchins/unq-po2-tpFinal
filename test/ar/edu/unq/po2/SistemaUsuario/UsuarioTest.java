@@ -1,6 +1,7 @@
 package ar.edu.unq.po2.SistemaUsuario;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.verify;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -133,6 +134,7 @@ class UsuarioTest {
 		
 		assertEquals(resultadoEsperado, resultadoActual);
 	}
+	
 	
 	
 	

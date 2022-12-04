@@ -35,8 +35,7 @@ public class Usuario {
 		//this.setRecomendadorDeLudificacion();
 		this.recompensasAcumuladas = 0;
 		this.proyectos = new ArrayList<Proyecto>();
-		
-		
+		this.setRecomendadorDeLudificacion();
 	}
 
 
@@ -94,7 +93,7 @@ public class Usuario {
 		ArrayList<DesafioDeUsuario> todosMisDesafios = new ArrayList<DesafioDeUsuario>();
 		todosMisDesafios.addAll(this.menuDeDesafios.getDesafiosAceptados());
 		todosMisDesafios.addAll(this.menuDeDesafios.getDesafiosCompletados());
-		recomendador = new RecomendadorDeLudificacion(todosMisDesafios, preferenciaUsuario);
+		recomendador = new RecomendadorDeLudificacion(todosMisDesafios, preferenciaUsuario, menuDeDesafios);
 		System.out.println("Su recomendador en uso actual se guia por sus preferencias.");
 	}
 	

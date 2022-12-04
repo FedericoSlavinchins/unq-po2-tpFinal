@@ -1,12 +1,14 @@
 package ar.edu.unq.po2.SistemaUsuario;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import ar.edu.unq.po2.Desafios.Desafio;
 import ar.edu.unq.po2.Desafios.DesafioDeUsuario;
 
 public class MenuDeDesafios {
 	
-	private ArrayList<DesafioDeUsuario>	desafiosDisponibles = new ArrayList<DesafioDeUsuario>();	// FS: No aceptados.
+	private List<Desafio>				desafiosDisponibles;	// FS: No aceptados.
 	private ArrayList<DesafioDeUsuario>	desafiosAceptados 	= new ArrayList<DesafioDeUsuario>();	// FS: Aceptados.
 	private ArrayList<DesafioDeUsuario>	desafiosCompletados = new ArrayList<DesafioDeUsuario>();	// FS: Completados.
 	
@@ -34,9 +36,7 @@ public class MenuDeDesafios {
 		return this.desafiosDisponibles.contains(desafioDeUsuario);
 	}
 	
-	public void agregarDesafioADisponibles(DesafioDeUsuario desafioDeUsuario) {
-		this.desafiosDisponibles.add(desafioDeUsuario);
-	}
+	
 
 	public ArrayList<DesafioDeUsuario> getDesafiosAceptados() {
 		return desafiosAceptados;
@@ -46,6 +46,12 @@ public class MenuDeDesafios {
 
 	public ArrayList<DesafioDeUsuario> getDesafiosCompletados() {
 		return desafiosCompletados;
+	}
+
+
+
+	public void setDesafiosDisponibles(List<Desafio> desafiosRecomendadosPorEstrategia) {
+		this.desafiosDisponibles = desafiosRecomendadosPorEstrategia;
 	}
 
 }
