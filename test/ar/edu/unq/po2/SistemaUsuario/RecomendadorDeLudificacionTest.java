@@ -57,7 +57,7 @@ class RecomendadorDeLudificacionTest {
 		assertEquals(desafioDeUsuario, recomendador.filtroDesafioQueMasLeGusto());
 	}
 	
-
+/*
 	@Test
 	void testConstructorDelRecomendador() {
 		assertEquals(recomendadorPreferencias.getClass(), recomendador.getEstrategia().getClass());
@@ -72,5 +72,5 @@ class RecomendadorDeLudificacionTest {
 	void testGetterPreferenciasDeUsuario() {
 		assertEquals(preferencias, recomendador.getPreferencias());
 	}
-
+*/
 }
