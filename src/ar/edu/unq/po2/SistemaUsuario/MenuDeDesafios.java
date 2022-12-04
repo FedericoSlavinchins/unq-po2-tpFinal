@@ -19,7 +19,7 @@ public class MenuDeDesafios {
 	
 	public void moverDesafioAAceptados(DesafioDeUsuario desafioDeUsuario) {
 		if (esDesafioDisponible(desafioDeUsuario)) {
-			this.desafiosDisponibles.remove(this.desafiosDisponibles.indexOf(desafioDeUsuario));
+			this.desafiosDisponibles.remove(desafioDeUsuario);
 			this.desafiosAceptados.add(desafioDeUsuario);
 		}
 	}
@@ -28,7 +28,7 @@ public class MenuDeDesafios {
 	
 	public void moverDesafioACompletados(DesafioDeUsuario desafioDeUsuario) {
 		if (esDesafioAceptado(desafioDeUsuario)) {
-			this.desafiosAceptados.remove(this.desafiosAceptados.indexOf(desafioDeUsuario));
+			this.desafiosAceptados.remove(desafioDeUsuario);
 			this.desafiosCompletados.add(desafioDeUsuario);
 		}
 	}
@@ -66,7 +66,7 @@ public class MenuDeDesafios {
 	}
 	
 	public void removerDeDisponibles(Desafio desafio) {
-		this.desafiosAceptados.remove(desafio);
+		this.desafiosDisponibles.remove(desafio);
 	}
 
 
