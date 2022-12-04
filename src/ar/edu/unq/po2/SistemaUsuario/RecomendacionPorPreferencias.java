@@ -32,22 +32,6 @@ public class RecomendacionPorPreferencias extends EstrategiaDeRecomendacion {
 
 
 
-
-	//Metodos que setean los atributos de la clase
-	
-	public void setPreferencias(PreferenciaUsuario preferencias) {
-		this.setPreferenciasDelUsuario(preferencias);
-	}
-
-	public void setDesafiosYaAceptados(List<DesafioDeUsuario> desafiosAceptados) {
-		this.setDesafiosYaAceptados(desafiosAceptados);
-	}
-	
-	public void setDesafiosPosibles(List<Desafio> desafios) {
-		this.setDesafiosPosibles(desafios);
-	}
-
-
 	
 	
 	

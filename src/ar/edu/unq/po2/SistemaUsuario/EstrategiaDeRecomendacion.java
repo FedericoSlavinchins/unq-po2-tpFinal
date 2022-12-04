@@ -1,5 +1,6 @@
 package ar.edu.unq.po2.SistemaUsuario;
 
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -32,25 +33,31 @@ public abstract class EstrategiaDeRecomendacion {
 
 	//Calcula el nivel de coincidencia con las preferencias del usuario haciendo una suma del valor absoluto de las diferencias
 	public double calcularCoincidencia(Desafio desafio) {
-		int resMuestras = 
+		double resMuestras = 
 				this.valorAbsoluto(this.preferenciasDelUsuario.getCantidadDeMuestrasARecolectar()
 						- desafio.getCantidadObjetivoDeMuestras()); //Calcula el valor absoluto de la diferencia de muestras
-		int resDificultad = 
+		double resDificultad = 
 				this.valorAbsoluto(this.preferenciasDelUsuario.getDificultadPreferida() 
 						- desafio.getDificultad()); //Calcula el valor absoluto de la diferencia de dificultades.
 		double resRecompensas =
-				this.valorAbsolutoDouble(this.preferenciasDelUsuario.getRecompensaPreferida() 
+				this.valorAbsoluto(this.preferenciasDelUsuario.getRecompensaPreferida() 
 						- desafio.getRecompensa()); //Calcula el valor absoluto de la diferencia de recompensas.
 		return (resMuestras + resDificultad + resRecompensas);
 	}
-
-	private int valorAbsoluto(int numero) { 
+	
+	private double valorAbsoluto(double numero) { 
+		return (Math.abs(numero));
+	}
+	
+	/*
+	private double valorAbsoluto(int numero) { 
 		return numero > 0 ? numero : -numero; 
 	}
 	
+	
 	private double valorAbsolutoDouble (double numero) { 
 		return numero > 0 ? numero : -numero; 
-	}
+	}*/
 
 
 
@@ -60,7 +67,7 @@ public abstract class EstrategiaDeRecomendacion {
 
 
 
-	public void setDesafiosYaAceptados(List<DesafioDeUsuario> desafiosYaAceptados) {
+	public void setDesafiosYaAceptados(ArrayList<DesafioDeUsuario> desafiosYaAceptados) {
 		this.desafiosYaAceptados = desafiosYaAceptados;
 	}
 
@@ -70,5 +77,12 @@ public abstract class EstrategiaDeRecomendacion {
 		this.desafiosPosibles = desafiosPosibles;
 	}
 	
+	public List<Desafio> getDesafiosPosibles() {
+		return desafiosPosibles;
+	}
+	
+	public void setPreferencias(PreferenciaUsuario preferencias) {
+		this.preferenciasDelUsuario = preferencias;
+	}
 	
 }
