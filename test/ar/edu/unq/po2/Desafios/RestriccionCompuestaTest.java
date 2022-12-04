@@ -9,8 +9,8 @@ import org.junit.jupiter.api.Test;
 
 class RestriccionCompuestaTest {
 
-	private RestriccionDeEntreFechas restriccionEntreFechas;
-	private RestriccionDeEntreFechas restriccionEntreFechas2;
+	private RestriccionDeEntreFechasSimple restriccionEntreFechas;
+	private RestriccionDeEntreFechasSimple restriccionEntreFechas2;
 	private LocalDate fechaInicioRestriccion2;
 	private LocalDate fechaFinRestriccion2;
 	private LocalDate fechaInicioRestriccion1;
@@ -26,7 +26,7 @@ class RestriccionCompuestaTest {
 		//FS: Primera restricción.
 		fechaInicioRestriccion1 = LocalDate.of(2022, 8, 1);
 		fechaFinRestriccion1 = LocalDate.of(2022, 8, 31);
-		restriccionEntreFechas2 = new RestriccionDeEntreFechas(fechaInicioRestriccion1, fechaFinRestriccion1); // del 1/11/22 al 31/12/22
+		restriccionEntreFechas2 = new RestriccionDeEntreFechasSimple(fechaInicioRestriccion1, fechaFinRestriccion1); // del 1/11/22 al 31/12/22
 		
 		// FS: Segunda restricción.
 		restriccionFinDeSemana = new RestriccionDeFinDeSemana();
@@ -34,7 +34,7 @@ class RestriccionCompuestaTest {
 		//FS: Tercera restriccion
 		fechaInicioRestriccion2 = LocalDate.of(2022, 12, 1);
 		fechaFinRestriccion2 = LocalDate.of(2022, 12, 31);
-		restriccionEntreFechas = new RestriccionDeEntreFechas(fechaInicioRestriccion2, fechaFinRestriccion2); // del 1/11/22 al 31/12/22
+		restriccionEntreFechas = new RestriccionDeEntreFechasSimple(fechaInicioRestriccion2, fechaFinRestriccion2); // del 1/11/22 al 31/12/22
 		
 		// FS: Restricción de combinación.
 		restriccionCompuesta = new RestriccionCompuesta();
