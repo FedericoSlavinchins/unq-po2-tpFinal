@@ -26,6 +26,7 @@ public class DesafioDeUsuario {
 
 
 	public DesafioDeUsuario(Desafio desafio, Usuario usuario) {
+		this.usuario = usuario;
 		this.desafio = desafio;
 		this.estado  = new NoAceptado();
 		this.otorgadorDeRecompensas = new OtorgadorDeRecompensa(this.desafio.getRecompensa());
@@ -35,7 +36,8 @@ public class DesafioDeUsuario {
 	// FS: Métodos aceptar y completar desafío.
 	public void aceptarDesafioDeUsuario() throws Exception {
 		this.actualizarse();
-		this.usuario.getMenuDeDesafios().moverDesafioAAceptados(this);
+		this.usuario.getMenuDeDesafios().removerDeDisponibles(this.getDesafio());
+		this.usuario.getMenuDeDesafios().agregarAAceptados(this);
 	}
 		
 	public void completarDesafioDeUsuario(int valorVoto) throws Exception {
@@ -110,6 +112,10 @@ public class DesafioDeUsuario {
 		return this.desafio;
 	}
 	
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
 	public void setVoto(Voto voto) {
 		this.voto = voto;
 	}

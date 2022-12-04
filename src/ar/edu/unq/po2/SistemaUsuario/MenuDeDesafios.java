@@ -8,9 +8,14 @@ import ar.edu.unq.po2.Desafios.DesafioDeUsuario;
 
 public class MenuDeDesafios {
 	
-	private List<Desafio>				desafiosDisponibles;	// FS: No aceptados.
+	private ArrayList<Desafio>			desafiosDisponibles = new ArrayList<Desafio>();	// FS: No aceptados.
 	private ArrayList<DesafioDeUsuario>	desafiosAceptados 	= new ArrayList<DesafioDeUsuario>();	// FS: Aceptados.
 	private ArrayList<DesafioDeUsuario>	desafiosCompletados = new ArrayList<DesafioDeUsuario>();	// FS: Completados.
+	
+	
+	public void setDesafiosDisponibles(List<Desafio> desafiosRecomendadosPorEstrategia) {
+		this.desafiosDisponibles = (ArrayList<Desafio>) desafiosRecomendadosPorEstrategia;
+	}
 	
 	public void moverDesafioAAceptados(DesafioDeUsuario desafioDeUsuario) {
 		if (esDesafioDisponible(desafioDeUsuario)) {
@@ -18,7 +23,7 @@ public class MenuDeDesafios {
 			this.desafiosAceptados.add(desafioDeUsuario);
 		}
 	}
-
+	
 	
 	
 	public void moverDesafioACompletados(DesafioDeUsuario desafioDeUsuario) {
@@ -41,8 +46,12 @@ public class MenuDeDesafios {
 	public ArrayList<DesafioDeUsuario> getDesafiosAceptados() {
 		return desafiosAceptados;
 	}
+	
+	public List<Desafio> getDesafiosDisponibles() {
+		return desafiosDisponibles;
+	}
 
-
+	
 
 	public ArrayList<DesafioDeUsuario> getDesafiosCompletados() {
 		return desafiosCompletados;
@@ -50,8 +59,21 @@ public class MenuDeDesafios {
 
 
 
-	public void setDesafiosDisponibles(List<Desafio> desafiosRecomendadosPorEstrategia) {
-		this.desafiosDisponibles = desafiosRecomendadosPorEstrategia;
+	
+	
+	public void agregarAAceptados(DesafioDeUsuario desafioDeUsuario) {
+		this.desafiosAceptados.add(desafioDeUsuario);
 	}
+	
+	public void removerDeDisponibles(Desafio desafio) {
+		this.desafiosAceptados.remove(desafio);
+	}
+
+
+
+	public void agregarADisponible(Desafio desafio) {
+		this.desafiosDisponibles.add(desafio);
+	}
+
 
 }

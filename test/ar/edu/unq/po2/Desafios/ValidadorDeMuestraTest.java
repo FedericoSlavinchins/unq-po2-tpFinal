@@ -70,7 +70,7 @@ class ValidadorDeMuestraTest {
 
 	@Test
 	void cuandoElUsuarioSubeUnaMuestraQueCumpleConLasCondicionesEsUnaMuestraValida() throws Exception {
-		desafioUsuario.aceptarDesafio();;
+		desafioUsuario.aceptarDesafioDeUsuario();
 		usuario.recolectarMuestra(muestra, proyecto);
 		assertTrue(desafioUsuario.getValidadorDeMuestra().esMuestraValida(muestra));
 	}

@@ -29,8 +29,8 @@ public class Desafio implements ElementoDeLudificacion {
 	}
 	
 	
-	public void aceptarDesafio(Desafio desafio, Usuario usuario) throws Exception {
-		DesafioDeUsuario DesafioDeUsuario = new DesafioDeUsuario(desafio, usuario);
+	public void aceptarDesafio(Usuario usuario) throws Exception {
+		DesafioDeUsuario DesafioDeUsuario = new DesafioDeUsuario(this, usuario);
 		DesafioDeUsuario.aceptarDesafioDeUsuario();
 	}
 

@@ -1,9 +1,14 @@
 package ar.edu.unq.po2.Desafios;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -24,6 +29,7 @@ class DesafioTest {
 	private Ubicacion ubicacion;
 	private LocalDate diaDeSemana;
 	private boolean esDiaDeSemana;
+	private Usuario usuario;
 
 	
 	@BeforeEach
@@ -32,10 +38,20 @@ class DesafioTest {
 	this.area = new AreaGeografica(2, 3, 15);
 	//this.restriccionTemporal = new RestriccionTemporal();
 	this.ubicacion = new Ubicacion(2, 3);
+	usuario = new Usuario("usuario");
 	//esDiaDeSemana = true;
 	//restriccionBloqueSemanalDiaSemana = new BloqueSemanal(esDiaDeSemana);
 	//diaDeSemana = LocalDate.of(2022, 12, 1);
 	//restriccionTemporal = restriccionBloqueSemanalDiaSemana;
+	}
+	
+	@Test
+	void testAceptarDesafio() throws Exception {
+		
+		
+		usuario.getMenuDeDesafios().agregarADisponible(desafio);
+		desafio.aceptarDesafio(usuario);
+		assertTrue(usuario.getMenuDeDesafios().getDesafiosAceptados().contains(desafio));
 	}
 	
 	@Test
@@ -70,6 +86,8 @@ class DesafioTest {
 		assertTrue(area.estaEnRango(ubicacion));
 
 	}
+	
+	
 	
 	/* FS: Test debe ir en restriccion temporal.
 	@Test
