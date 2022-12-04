@@ -55,9 +55,9 @@ class SistemaTest {
 		ArrayList<Proyecto> resultadoDeBusqueda = new ArrayList<Proyecto>();
 		
 		
-		resultadoDeBusqueda = this.sistema.buscarProyectosUsando(buscadorTitulo);
+		resultadoDeBusqueda = this.sistema.buscarProyectosUsando(buscadorCategoria);
 		
-		assertEquals(buscadorTitulo, sistema.getBuscadorDeProyectos());
+		assertEquals(buscadorCategoria, sistema.getBuscadorDeProyectos());
 	}
 	
 	

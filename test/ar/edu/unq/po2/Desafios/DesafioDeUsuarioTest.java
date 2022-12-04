@@ -85,7 +85,7 @@ class DesafioDeUsuarioTest {
 	
 	@Test
 	void testGetMuestrasRecolectadas() throws Exception {
-		desafioUsuario.aceptarDesafioDeUsuario();
+		desafioUsuario.aceptarDesafio();
 		usuario.recolectarMuestra(muestra, proyecto);
 		
 		assertEquals(1, desafioUsuario.getMuestrasRecolectadas());
@@ -100,7 +100,7 @@ class DesafioDeUsuarioTest {
 	
 	@Test
 	void testGetFechaAceptado() throws Exception {
-		desafioUsuario.aceptarDesafioDeUsuario();
+		desafioUsuario.aceptarDesafio();
 		assertEquals(fechaAceptado, desafioUsuario.getFechaAceptado()) ;
 	}
 	

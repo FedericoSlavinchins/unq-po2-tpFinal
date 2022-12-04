@@ -19,11 +19,12 @@ import ar.edu.unq.po2.Proyecto.AreaGeografica;
 class ValoradorDeDesafiosTest {
 	
 	private ValoradorDeDesafios valoradorDeDesafios;
-	private DesafioDeUsuario desafioDeUsuario1;
+	private DesafioDeUsuario desafioDeUsuario;
 	private Desafio desafio;
 	private Usuario usuario;
 	private AreaGeografica area;
 	private RestriccionDeEntreFechasSimple restriccion;
+	private Voto voto;
 	
 	@BeforeEach
 	public void setUp() {
@@ -31,10 +32,10 @@ class ValoradorDeDesafiosTest {
 		//desafio = mock(Desafio.class);
 		area = mock(AreaGeografica.class);
 		restriccion = mock(RestriccionDeEntreFechasSimple.class);
-		
+		voto = mock(Voto.class);
 		usuario = mock(Usuario.class);
 		desafio = new Desafio(area, 3, 3, restriccion, 500.2);
-		desafioDeUsuario1 = new DesafioDeUsuario(desafio, usuario);
+		desafioDeUsuario = mock(DesafioDeUsuario.class);
 		valoradorDeDesafios = new ValoradorDeDesafios();
 		
 	}
@@ -42,11 +43,12 @@ class ValoradorDeDesafiosTest {
 	@Test
 	void testVotarDesafioDeUsuario() throws Exception {
 		int valorDeVoto = 5;
-		when(desafio.getRecompensa()).thenReturn(500.2);
-		valoradorDeDesafios.votar(desafioDeUsuario1, valorDeVoto);
-		//when(desafioDeUsuario1.getVoto()).thenReturn(voto);
-		//when(desafioDeUsuario1.getVoto().getValorVoto()).thenReturn(valorDeVoto);
-		verify(desafioDeUsuario1, times(1)).setVoto(new Voto(valorDeVoto));
+		
+		valoradorDeDesafios.votar(desafioDeUsuario, valorDeVoto);
+		
+		when(desafioDeUsuario.getVoto()).thenReturn(voto);
+		when(voto.getValorVoto()).thenReturn(5);
+		assertEquals(valorDeVoto, desafioDeUsuario.getVoto().getValorVoto());
 		
 	}
 

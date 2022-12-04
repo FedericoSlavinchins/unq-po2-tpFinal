@@ -1,6 +1,8 @@
 package ar.edu.unq.po2.SistemaUsuario;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.verify;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -39,56 +41,34 @@ class UsuarioTest {
 	
 	@BeforeEach
 	public void setUp() {
-		restriccionEntreFechas = new RestriccionDeEntreFechasSimple(LocalDate.of(2022, 10, 10), LocalDate.of(2023, 10, 10));
-		area = new AreaGeografica(500, 500, 500);
-		desafio = new Desafio(area, 1, 1, restriccionEntreFechas, 20000);
-		desafio2 = new Desafio(area, 1, 1, restriccionEntreFechas, 20000);
-		desafioDeUsuario = new DesafioDeUsuario(desafio, usuario);
-		desafioDeUsuario2 = new DesafioDeUsuario(desafio2, usuario);
+		restriccionEntreFechas = mock(RestriccionDeEntreFechasSimple.class);
+		area = mock(AreaGeografica.class);
+		desafio = mock(Desafio.class);
+		desafio2 = mock(Desafio.class);
+		desafioDeUsuario = mock(DesafioDeUsuario.class);
+		desafioDeUsuario2 = mock(DesafioDeUsuario.class);
 		usuario = new Usuario("nombreUsuario");
-		geocoordenada = new Ubicacion(500, 500);
-		muestra = new Muestra(usuario, geocoordenada);
-		muestra2 = new Muestra(usuario, geocoordenada);
+		geocoordenada = mock(Ubicacion.class);;
+		muestra = mock(Muestra.class);
+		muestra2 = mock(Muestra.class);
 		listaDeCategorias = new ArrayList<Categoria>();
-		categoria = new Categoria("Biología");
+		categoria = mock(Categoria.class);
 		listaDeCategorias.add(categoria);
-		proyecto = new Proyecto("proyecto", "descripcion", listaDeCategorias);
+		proyecto = mock(Proyecto.class);
 	}
 	
-	/* BORRAR TEST
-	@Test
-	void cuandoElUsuarioAceptaUnDesafioDeUsuarioElMismoSeGuardaEnSuListaDeDesafiosAceptados() {
-		usuario.aceptarDesafioDeUsuario(desafioDeUsuario);
-		assertTrue(usuario.getDesafiosAceptados().contains(desafioDeUsuario));
-		assertFalse(usuario.getDesafiosDisponibles().contains(desafioDeUsuario));
-	}*/
 	
-	/* BORRAR TEST
-	@Test
-	void cuandoElUsuarioCompletaUnDesafioDeUsuarioElMismoSeGuardaEnSuListaDeDesafiosCompletadosYDesapareceDeAceptados() {
-		desafio.setCantidadObjetivoDeMuestras(1);
-		usuario.aceptarDesafioDeUsuario(desafioDeUsuario);
-		usuario.recolectarMuestra(muestra, proyecto);
-		usuario.completarDesafioDeUsuario(desafioDeUsuario, 5);
-		assertTrue(usuario.getDesafiosCompletados().contains(desafioDeUsuario));
-		assertFalse(usuario.getDesafiosAceptados().contains(desafioDeUsuario));
-	}*/
-	
-	/* BORRAR TEST
-	@Test
-	void cuandoElUsuarioCompletaUnDesafioDeUsuarioElMismoVotaAlUsuario() {
-		desafio.setCantidadObjetivoDeMuestras(1);
-		usuario.aceptarDesafioDeUsuario(desafioDeUsuario);
-		usuario.recolectarMuestra(muestra, proyecto);
-		usuario.completarDesafioDeUsuario(desafioDeUsuario, 5);
-		boolean resultadoActual = (desafioDeUsuario.getVoto() == 5);
-		assertTrue(resultadoActual);
-	}*/
 	
 	@Test
 	void cuandoElUsuarioRecolectaUnaMuestraLaMismaFormaParteDelProyecto() {
+		List<Muestra> muestras = Arrays.asList(muestra);
+		
 		usuario.recolectarMuestra(muestra, proyecto);
+		when(proyecto.getMuestras()).thenReturn(muestras);
+		
 		assertTrue(proyecto.getMuestras().contains(muestra));
+		verify(proyecto).agregarMuestra(muestra);
+
 	}
 	
 	@Test
@@ -128,49 +108,21 @@ class UsuarioTest {
 		proyecto.agregarDesafio(desafio2);
 		proyecto.agregarParticipante(usuario);
 		
+		List<Desafio> desafios = Arrays.asList(desafio, desafio2);
+		
+		when(proyecto.getDesafios()).thenReturn(desafios);
+		
 		List<Desafio> resultadoEsperado = Arrays.asList(desafio, desafio2);
 		List<Desafio> resultadoActual = usuario.desafiosDeMisProyectos();
 		
 		assertEquals(resultadoEsperado, resultadoActual);
 	}
 	
-	
-	
-	/* BORRAR TEST
 	@Test
-	void siElPorcentajeDeCompletitudGeneralEs100CompletoElDesafio() {
-		desafio.setCantidadObjetivoDeMuestras(1);
-		usuario.aceptarDesafioDeUsuario(desafioDeUsuario);
-		usuario.recolectarMuestra(muestra, proyecto);
-		boolean usuarioCompletoDesafio = usuario.completoDesafio(desafioDeUsuario);
-		assertTrue(usuarioCompletoDesafio);
-	}*/
-	
-	/* BORRAR TEST
-	@Test
-	void siElUsuarioRecolectoLaMitadDeLasMuestrasDelDesafioElPorcentajeDeCompletitudEs50() {
-		desafio.setCantidadObjetivoDeMuestras(2);
-		usuario.aceptarDesafioDeUsuario(desafioDeUsuario);
-		usuario.recolectarMuestra(muestra, proyecto);
-		int resultadoActual = desafioDeUsuario.porcentajeDeCompletitud();
-		int resultadoEsperado = 50;
-		assertEquals(resultadoEsperado, resultadoActual);
-	}*/
-	
-	
-	/* BORRAR TEST
-	@Test
-	void siElUsuarioRecolectoLaMitadDeLasMuestrasDeDosDesafiosElPorcentajeDeCompletitudGeneralEs50() {
-		desafio.setCantidadObjetivoDeMuestras(2);
-		desafio2.setCantidadObjetivoDeMuestras(2);
-		usuario.aceptarDesafioDeUsuario(desafioDeUsuario);
-		usuario.aceptarDesafioDeUsuario(desafioDeUsuario2);
-		usuario.recolectarMuestra(muestra, proyecto);
-		int resultadoActual = usuario.porcentajeDeCompletitudGeneral();
-		int resultadoEsperado = 50;
-		assertEquals(resultadoEsperado, resultadoActual);
-	}*/
-	
-	
+	void testSetterRecomendadorDeLudificacion() {
+		RecomendadorDeLudificacion recomendador = new RecomendadorDeLudificacion(null, null, null);
+		usuario.setRecomendadorDeLudificacion();
+		assertEquals(recomendador.getClass() , usuario.getRecomendador().getClass());
+	}
 	
 }
