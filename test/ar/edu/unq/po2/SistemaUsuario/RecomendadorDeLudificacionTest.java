@@ -24,6 +24,8 @@ class RecomendadorDeLudificacionTest {
 	private PreferenciaUsuario preferencias;
 	private MenuDeDesafios menuDeDesafios;
 	private Voto voto;
+	private Usuario usuario;
+	private Desafio desafio;
 	
 	
 	
@@ -34,8 +36,11 @@ class RecomendadorDeLudificacionTest {
 		menuDeDesafios = mock(MenuDeDesafios.class);
 		recomendador = new RecomendadorDeLudificacion(desafiosDeUsuario, preferencias, menuDeDesafios);
 		recomendador.cambiarEstrategiaDeRecomendacion(recomendadorPreferencias);
-		desafioDeUsuario = mock(DesafioDeUsuario.class);
+		desafio = mock(Desafio.class);
+		usuario = mock(Usuario.class);
+		desafioDeUsuario = new DesafioDeUsuario(desafio, usuario);
 		voto = mock(Voto.class);
+		
 	}
 	
 	@Test
@@ -47,6 +52,7 @@ class RecomendadorDeLudificacionTest {
 	
 	@Test
 	void testDesafioFavorito() {
+		ArrayList<DesafioDeUsuario> desafiosDeUsuario = new ArrayList<DesafioDeUsuario>();
 		desafiosDeUsuario.add(desafioDeUsuario);
 		when(menuDeDesafios.getDesafiosCompletados()).thenReturn(desafiosDeUsuario);
 		when(desafioDeUsuario.getVoto()).thenReturn(voto);
@@ -57,12 +63,8 @@ class RecomendadorDeLudificacionTest {
 		assertEquals(desafioDeUsuario, recomendador.filtroDesafioQueMasLeGusto());
 	}
 	
-
-	@Test
-	void testConstructorDelRecomendador() {
-		assertEquals(recomendadorPreferencias.getClass(), recomendador.getEstrategia().getClass());
-	}
 	
+	/*
 	@Test
 	void testGetterDesafiosDeUsuario() {
 		assertEquals(desafiosDeUsuario, recomendador.getDesafiosDelUsuario());
@@ -71,6 +73,6 @@ class RecomendadorDeLudificacionTest {
 	@Test
 	void testGetterPreferenciasDeUsuario() {
 		assertEquals(preferencias, recomendador.getPreferencias());
-	}
+	}*/
 
 }

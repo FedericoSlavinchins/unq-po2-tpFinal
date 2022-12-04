@@ -19,7 +19,7 @@ public class MenuDeDesafios {
 	
 	public void moverDesafioAAceptados(DesafioDeUsuario desafioDeUsuario) {
 		if (esDesafioDisponible(desafioDeUsuario)) {
-			this.desafiosDisponibles.remove(desafioDeUsuario);
+			this.desafiosDisponibles.remove(desafioDeUsuario.getDesafio());
 			this.desafiosAceptados.add(desafioDeUsuario);
 		}
 	}
@@ -38,7 +38,7 @@ public class MenuDeDesafios {
 	}
 	
 	private boolean esDesafioDisponible(DesafioDeUsuario desafioDeUsuario) {
-		return this.desafiosDisponibles.contains(desafioDeUsuario);
+		return this.desafiosDisponibles.contains(desafioDeUsuario.getDesafio());
 	}
 	
 	

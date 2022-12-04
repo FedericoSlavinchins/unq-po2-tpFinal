@@ -38,23 +38,23 @@ class MenuDeDesafiosTest {
 	}
 
 	@Test
-	void testMoverDesafioAAceptados() throws Exception {
-		/*
-		
-		
-		List<Desafio> desafios = Arrays.asList(desafio);
-		menuDeDesafios.setDesafiosDisponibles(desafios);
-		
-		desafio.aceptarDesafio(usuario);
-		//menuDeDesafios.moverDesafioAAceptados(desafioDeUsuario1);*/
-		
-		
+	void testMoverDesafioAAceptados() throws Exception {		
 		when(usuario.getMenuDeDesafios()).thenReturn(menuDeDesafios);
 		menuDeDesafios.agregarADisponible(desafio);
 		desafio.aceptarDesafio(usuario);
 		
 		assertEquals(1, menuDeDesafios.getDesafiosAceptados().size());
 		assertEquals(0, menuDeDesafios.getDesafiosDisponibles().size());
+	}
+	
+	@Test
+	void testMoverDesafioAAceptados2() throws Exception {
+		
+		menuDeDesafios.agregarADisponible(desafioDeUsuario1.getDesafio());
+		menuDeDesafios.moverDesafioAAceptados(desafioDeUsuario1);
+		
+		assertEquals(1, menuDeDesafios.getDesafiosAceptados().size());
+
 	}
 	
 	
