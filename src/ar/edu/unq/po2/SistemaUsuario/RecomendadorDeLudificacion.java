@@ -1,5 +1,6 @@
 package ar.edu.unq.po2.SistemaUsuario;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import ar.edu.unq.po2.Desafios.Desafio;
@@ -12,6 +13,7 @@ public class RecomendadorDeLudificacion {
 	private EstrategiaDeRecomendacion estrategia;
 	private MenuDeDesafios menuDeDesafiosDelUsuario;
 	
+	
 	public RecomendadorDeLudificacion(List<DesafioDeUsuario> desafios, PreferenciaUsuario preferencias, MenuDeDesafios menuDeDesafios) {
 		this.desafiosDelUsuario = desafios;
 		this.preferenciasDelUsuario = preferencias;
@@ -22,6 +24,7 @@ public class RecomendadorDeLudificacion {
 	
 	public void cambiarEstrategiaDeRecomendacion(EstrategiaDeRecomendacion estrategia) {
 		this.estrategia = estrategia;
+		estrategia.setDesafioQueMasLeGusto(this.filtroDesafioQueMasLeGusto());
 	}
 
 	public EstrategiaDeRecomendacion getEstrategia() {
@@ -33,4 +36,22 @@ public class RecomendadorDeLudificacion {
 						this.estrategia.recomendar(desafiosDelUsuario, preferenciasDelUsuario, desafiosDeProyectos);
 		this.menuDeDesafiosDelUsuario.setDesafiosDisponibles(desafiosRecomendadosPorEstrategia);
 	}
+	
+	public Desafio filtroDesafioQueMasLeGusto() {
+		List<DesafioDeUsuario> desafiosCompletados = menuDeDesafiosDelUsuario.getDesafiosCompletados();
+		
+		return desafioQueMasLeGusto(desafiosCompletados);
+	}
+
+	private Desafio desafioQueMasLeGusto(List<DesafioDeUsuario> desafiosCompletados) {
+		DesafioDeUsuario desafioDeUsuarioQueMasLeGusto = desafiosCompletados.get(0);
+		
+		for (DesafioDeUsuario desafioDeUsuario : desafiosCompletados) {
+			if (desafioDeUsuario.getVoto().getValorVoto() > desafioDeUsuarioQueMasLeGusto.getVoto().getValorVoto()) {
+				desafioDeUsuarioQueMasLeGusto = desafioDeUsuario;
+			}
+		}
+		return desafioDeUsuarioQueMasLeGusto.getDesafio();
+	}
+	
 }

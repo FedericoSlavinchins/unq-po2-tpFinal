@@ -26,8 +26,13 @@ public class RecomendacionPorPreferencias extends EstrategiaDeRecomendacion {
 	
 	
 
-	private List<Desafio> primeros5DesafiosDeLaLista(List<Desafio> desafiosOrdenadosPorCoincidencia) {
-		return desafiosOrdenadosPorCoincidencia.stream().limit(5).toList();
+	
+
+
+
+	@Override
+	protected void setDesafioQueMasLeGusto(Desafio desafioQueMasLeGustoAlUsuario) {
+		//No hace nada.
 	}
 
 

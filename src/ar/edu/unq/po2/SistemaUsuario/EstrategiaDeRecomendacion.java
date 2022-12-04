@@ -11,6 +11,9 @@ public abstract class EstrategiaDeRecomendacion {
 	private PreferenciaUsuario preferenciasDelUsuario;
 	private List<Desafio> desafiosPosibles;
 	private List<DesafioDeUsuario> desafiosYaAceptados;
+
+	
+	
 	
 	
 	
@@ -24,6 +27,8 @@ public abstract class EstrategiaDeRecomendacion {
 		desafiosOrdenados.sort((d1,d2) -> Double.compare(this.calcularCoincidencia(d1), this.calcularCoincidencia(d2)));
 		return desafiosOrdenados;
 	}
+	
+	
 	
 	
 	
@@ -47,7 +52,7 @@ public abstract class EstrategiaDeRecomendacion {
 	}
 
 	//Metodo que filtra desafios 
-	private List<Desafio> desafiosFiltradosDisponiblesParaRealizar() {
+	protected List<Desafio> desafiosFiltradosDisponiblesParaRealizar() {
 		List<Desafio> desafiosNoValidos = this.desafiosYaAceptados.stream().map(d -> d.getDesafio()).toList();
 		List<Desafio> desafiosValidos = new ArrayList<Desafio>();
 		for (Desafio desafio : desafiosPosibles) {
@@ -58,6 +63,10 @@ public abstract class EstrategiaDeRecomendacion {
 		return desafiosValidos;
 	}
 	
+	
+	protected List<Desafio> primeros5DesafiosDeLaLista(List<Desafio> desafiosOrdenadosPorCoincidencia) {
+		return desafiosOrdenadosPorCoincidencia.stream().limit(5).toList();
+	}
 	
 	public void setPreferenciasDelUsuario(PreferenciaUsuario preferenciasDelUsuario) {
 		this.preferenciasDelUsuario = preferenciasDelUsuario;
@@ -79,5 +88,9 @@ public abstract class EstrategiaDeRecomendacion {
 	public void setPreferencias(PreferenciaUsuario preferencias) {
 		this.preferenciasDelUsuario = preferencias;
 	}
+
+
+
+	protected abstract void setDesafioQueMasLeGusto(Desafio desafioQueMasLeGustoAlUsuario);
 
 }

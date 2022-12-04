@@ -44,6 +44,7 @@ class RecomendacionPorPreferenciasTest {
 		listaDeDesafiosPosibles.add(desafio);
 		
 		estrategiaPreferencias.setDesafiosPosibles(listaDeDesafiosPosibles);
+		estrategiaPreferencias.setDesafiosYaAceptados(listaDeDesafiosDeUsuario);
 		estrategiaPreferencias.setPreferencias(preferenciasDelUsuario);
 		
 		when(preferenciasDelUsuario.getCantidadDeMuestrasARecolectar()).thenReturn(5);
