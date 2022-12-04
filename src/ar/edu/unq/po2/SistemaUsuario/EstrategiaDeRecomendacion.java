@@ -7,6 +7,6 @@ import ar.edu.unq.po2.Desafios.DesafioDeUsuario;
 
 public interface EstrategiaDeRecomendacion {
 	
-	List<DesafioDeUsuario> recomendar(List<DesafioDeUsuario> desafiosDelUsuario, PreferenciaUsuario preferencias, List<Desafio> desafiosDeProyectos);
+	List<DesafioDeUsuario> recomendar(List<Desafio> desafiosDelUsuario, PreferenciaUsuario preferencias, List<Desafio> desafiosDeProyectos);
 	double calcularCoincidencia(Desafio desafio);
 }

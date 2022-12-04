@@ -1,5 +1,6 @@
 package ar.edu.unq.po2.SistemaUsuario;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import ar.edu.unq.po2.Desafios.Desafio;
@@ -19,7 +20,7 @@ public class RecomendadorDeLudificacion {
 		this.cambiarEstrategiaDeRecomendacion(new RecomendacionPorPreferencias());
 	}
 
-	public List<DesafioDeUsuario> getDesafiosCompletados(){
+	public List<DesafioDeUsuario> getDesafiosDelUsuario(){
 		return this.desafiosDelUsuario;
 	}
 	
@@ -36,6 +37,16 @@ public class RecomendadorDeLudificacion {
 	}
 	
 	public List<DesafioDeUsuario> recomendarDesafios(List<Desafio> desafiosDeProyectos) {
-		return this.estrategia.recomendar(desafiosDelUsuario, preferenciasDelUsuario, desafiosDeProyectos);
+		ArrayList<Desafio> desafiosYaAceptados = desafiosBaseYaAceptadosPorElUsuario();
+		// Se le pasa los desafíos "base" (o "receta"), y no DesafioDeUsuario's.
+		return this.estrategia.recomendar(desafiosYaAceptados, preferenciasDelUsuario, desafiosDeProyectos);
+	}
+
+	private ArrayList<Desafio> desafiosBaseYaAceptadosPorElUsuario() {
+		ArrayList<Desafio> desafiosYaAceptados = new ArrayList<Desafio>();
+		for (DesafioDeUsuario desafioDeUsuario : this.desafiosDelUsuario) {
+			desafiosYaAceptados.add(desafioDeUsuario.getDesafio());
+		}
+		return desafiosYaAceptados;
 	}
 }

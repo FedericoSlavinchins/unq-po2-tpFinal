@@ -11,11 +11,11 @@ import ar.edu.unq.po2.Desafios.DesafioDeUsuario;
 public class RecomendacionPorPreferencias implements EstrategiaDeRecomendacion {
 	private PreferenciaUsuario preferenciasDelUsuario;
 	private List<Desafio> desafiosPosibles;
-	private List<DesafioDeUsuario> desafiosYaAceptados;
+	private List<Desafio> desafiosYaAceptados;
 
 	
 	@Override
-	public List<DesafioDeUsuario> recomendar(List<DesafioDeUsuario> desafiosAceptados, PreferenciaUsuario preferencias, List<Desafio> desafiosPosibles) {
+	public List<DesafioDeUsuario> recomendar(List<Desafio> desafiosAceptados, PreferenciaUsuario preferencias, List<Desafio> desafiosPosibles) {
 		this.setPreferencias(preferencias);
 		this.setDesafiosYaAceptados(desafiosAceptados);
 		this.setDesafiosPosibles(desafiosPosibles);
@@ -30,8 +30,8 @@ public class RecomendacionPorPreferencias implements EstrategiaDeRecomendacion {
 		this.preferenciasDelUsuario = preferencias;
 	}
 
-	public void setDesafiosYaAceptados(List<DesafioDeUsuario> desafiosCompletados) {
-		this.desafiosYaAceptados = desafiosCompletados;
+	public void setDesafiosYaAceptados(List<Desafio> desafiosYaAceptados) {
+		this.desafiosYaAceptados = desafiosYaAceptados;
 	}
 	
 	public void setDesafiosPosibles(List<Desafio> desafios) {
@@ -52,7 +52,7 @@ public class RecomendacionPorPreferencias implements EstrategiaDeRecomendacion {
 		double resRecompensas =
 				this.valorAbsolutoDouble(this.preferenciasDelUsuario.getRecompensaPreferida() 
 						- desafio.getRecompensa()); //Calcula el valor absoluto de la diferencia de recompensas.
-		return resMuestras + resDificultad + resRecompensas;
+		return (resMuestras + resDificultad + resRecompensas);
 	}
 
 	private int valorAbsoluto(int numero) { 
