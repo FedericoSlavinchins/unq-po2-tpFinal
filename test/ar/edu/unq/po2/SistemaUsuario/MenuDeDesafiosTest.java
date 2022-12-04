@@ -57,6 +57,8 @@ class MenuDeDesafiosTest {
 		assertEquals(0, menuDeDesafios.getDesafiosDisponibles().size());
 	}
 	
+	
+	
 	@Test
 	void testMoverDesafioACompletados() throws Exception {
 	
@@ -68,5 +70,9 @@ class MenuDeDesafiosTest {
 		assertTrue(menuDeDesafios.getDesafiosCompletados().contains(desafioDeUsuario1));
 		assertFalse(menuDeDesafios.getDesafiosAceptados().contains(desafioDeUsuario1));
 	}
+	
+	
+	
+	
 
 }

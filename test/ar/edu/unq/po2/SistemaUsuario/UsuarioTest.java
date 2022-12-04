@@ -1,7 +1,7 @@
 package ar.edu.unq.po2.SistemaUsuario;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.*;
 import static org.mockito.Mockito.verify;
 
 import java.time.LocalDate;
@@ -37,34 +37,38 @@ class UsuarioTest {
 	private Ubicacion geocoordenada;
 	private RestriccionDeEntreFechasSimple restriccionEntreFechas;
 	private AreaGeografica area;
-	private RecomendadorDeLudificacion recomendadorLudificacion;
 	
 	
 	@BeforeEach
 	public void setUp() {
-		restriccionEntreFechas = new RestriccionDeEntreFechasSimple(LocalDate.of(2022, 10, 10), LocalDate.of(2023, 10, 10));
-		area = new AreaGeografica(500, 500, 500);
-		desafio = new Desafio(area, 1, 1, restriccionEntreFechas, 20000);
-		desafio2 = new Desafio(area, 1, 1, restriccionEntreFechas, 20000);
-		desafioDeUsuario = new DesafioDeUsuario(desafio, usuario);
-		desafioDeUsuario2 = new DesafioDeUsuario(desafio2, usuario);
+		restriccionEntreFechas = mock(RestriccionDeEntreFechasSimple.class);
+		area = mock(AreaGeografica.class);
+		desafio = mock(Desafio.class);
+		desafio2 = mock(Desafio.class);
+		desafioDeUsuario = mock(DesafioDeUsuario.class);
+		desafioDeUsuario2 = mock(DesafioDeUsuario.class);
 		usuario = new Usuario("nombreUsuario");
-		geocoordenada = new Ubicacion(500, 500);
-		muestra = new Muestra(usuario, geocoordenada);
-		muestra2 = new Muestra(usuario, geocoordenada);
+		geocoordenada = mock(Ubicacion.class);;
+		muestra = mock(Muestra.class);
+		muestra2 = mock(Muestra.class);
 		listaDeCategorias = new ArrayList<Categoria>();
-		categoria = new Categoria("Biología");
+		categoria = mock(Categoria.class);
 		listaDeCategorias.add(categoria);
-		proyecto = new Proyecto("proyecto", "descripcion", listaDeCategorias);
-		recomendadorLudificacion = mock(RecomendadorDeLudificacion.class);
+		proyecto = mock(Proyecto.class);
 	}
 	
 	
 	
 	@Test
 	void cuandoElUsuarioRecolectaUnaMuestraLaMismaFormaParteDelProyecto() {
+		List<Muestra> muestras = Arrays.asList(muestra);
+		
 		usuario.recolectarMuestra(muestra, proyecto);
+		when(proyecto.getMuestras()).thenReturn(muestras);
+		
 		assertTrue(proyecto.getMuestras().contains(muestra));
+		verify(proyecto).agregarMuestra(muestra);
+
 	}
 	
 	@Test
@@ -104,6 +108,10 @@ class UsuarioTest {
 		proyecto.agregarDesafio(desafio2);
 		proyecto.agregarParticipante(usuario);
 		
+		List<Desafio> desafios = Arrays.asList(desafio, desafio2);
+		
+		when(proyecto.getDesafios()).thenReturn(desafios);
+		
 		List<Desafio> resultadoEsperado = Arrays.asList(desafio, desafio2);
 		List<Desafio> resultadoActual = usuario.desafiosDeMisProyectos();
 		
@@ -112,8 +120,9 @@ class UsuarioTest {
 	
 	@Test
 	void testSetterRecomendadorDeLudificacion() {
+		RecomendadorDeLudificacion recomendador = new RecomendadorDeLudificacion(null, null, null);
 		usuario.setRecomendadorDeLudificacion();
-		assertEquals(recomendadorLudificacion.getClass() , usuario.getRecomendador().getClass());
+		assertEquals(recomendador.getClass() , usuario.getRecomendador().getClass());
 	}
 	
 }

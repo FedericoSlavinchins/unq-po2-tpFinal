@@ -18,7 +18,7 @@ public class RecomendadorDeLudificacion {
 		this.desafiosDelUsuario = desafios;
 		this.preferenciasDelUsuario = preferencias;
 		//El recomendador basico es por preferencias
-		this.cambiarEstrategiaDeRecomendacion(new RecomendacionPorPreferencias());
+		this.estrategia = new RecomendacionPorPreferencias();
 		this.menuDeDesafiosDelUsuario = menuDeDesafios;
 	}
 	
