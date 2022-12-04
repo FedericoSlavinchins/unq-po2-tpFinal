@@ -1,17 +1,19 @@
 package ar.edu.unq.po2.SistemaUsuario;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.verify;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import ar.edu.unq.po2.Desafios.BloqueSemanal;
 import ar.edu.unq.po2.Desafios.Desafio;
 import ar.edu.unq.po2.Desafios.DesafioDeUsuario;
-import ar.edu.unq.po2.Desafios.RestriccionDeEntreFechas;
+import ar.edu.unq.po2.Desafios.RestriccionDeEntreFechasSimple;
 import ar.edu.unq.po2.Proyecto.AreaGeografica;
 import ar.edu.unq.po2.Proyecto.Categoria;
 import ar.edu.unq.po2.Proyecto.Muestra;
@@ -32,13 +34,13 @@ class UsuarioTest {
 	private Muestra muestra;
 	private Muestra muestra2;
 	private Ubicacion geocoordenada;
-	private RestriccionDeEntreFechas restriccionEntreFechas;
+	private RestriccionDeEntreFechasSimple restriccionEntreFechas;
 	private AreaGeografica area;
 	
 	
 	@BeforeEach
 	public void setUp() {
-		restriccionEntreFechas = new RestriccionDeEntreFechas(LocalDate.of(2022, 10, 10), LocalDate.of(2023, 10, 10));
+		restriccionEntreFechas = new RestriccionDeEntreFechasSimple(LocalDate.of(2022, 10, 10), LocalDate.of(2023, 10, 10));
 		area = new AreaGeografica(500, 500, 500);
 		desafio = new Desafio(area, 1, 1, restriccionEntreFechas, 20000);
 		desafio2 = new Desafio(area, 1, 1, restriccionEntreFechas, 20000);
@@ -114,6 +116,28 @@ class UsuarioTest {
 		assertEquals(resultadoEsperado, resultadoActual);
 	}
 	
+	@Test
+	void cuandoElUsuarioSeRegistraSuNombreEsUsuarioNombre() {
+		String resultadoActual = usuario.getNombre();
+		String resultadoEsperado = "nombreUsuario";
+		assertEquals(resultadoEsperado, resultadoActual);
+	}
+	
+	@Test
+	void testDesafiosDeProyectosDelUsuario() {
+		proyecto.agregarDesafio(desafio);
+		proyecto.agregarDesafio(desafio2);
+		proyecto.agregarParticipante(usuario);
+		
+		List<Desafio> resultadoEsperado = Arrays.asList(desafio, desafio2);
+		List<Desafio> resultadoActual = usuario.desafiosDeMisProyectos();
+		
+		assertEquals(resultadoEsperado, resultadoActual);
+	}
+	
+	
+	
+	
 	/* BORRAR TEST
 	@Test
 	void siElPorcentajeDeCompletitudGeneralEs100CompletoElDesafio() {
@@ -149,11 +173,6 @@ class UsuarioTest {
 		assertEquals(resultadoEsperado, resultadoActual);
 	}*/
 	
-	@Test
-	void cuandoElUsuarioSeRegistraSuNombreEsUsuarioNombre() {
-		String resultadoActual = usuario.getNombre();
-		String resultadoEsperado = "nombreUsuario";
-		assertEquals(resultadoEsperado, resultadoActual);
-	}
+	
 	
 }

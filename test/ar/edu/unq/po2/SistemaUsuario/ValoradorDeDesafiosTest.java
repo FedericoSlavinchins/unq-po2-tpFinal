@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 
 import ar.edu.unq.po2.Desafios.Desafio;
 import ar.edu.unq.po2.Desafios.DesafioDeUsuario;
-import ar.edu.unq.po2.Desafios.RestriccionDeEntreFechas;
+import ar.edu.unq.po2.Desafios.RestriccionDeEntreFechasSimple;
 import ar.edu.unq.po2.Desafios.RestriccionTemporal;
 import ar.edu.unq.po2.Desafios.Voto;
 import ar.edu.unq.po2.Proyecto.AreaGeografica;
@@ -23,14 +23,14 @@ class ValoradorDeDesafiosTest {
 	private Desafio desafio;
 	private Usuario usuario;
 	private AreaGeografica area;
-	private RestriccionDeEntreFechas restriccion;
+	private RestriccionDeEntreFechasSimple restriccion;
 	
 	@BeforeEach
 	public void setUp() {
 		
 		//desafio = mock(Desafio.class);
 		area = mock(AreaGeografica.class);
-		restriccion = mock(RestriccionDeEntreFechas.class);
+		restriccion = mock(RestriccionDeEntreFechasSimple.class);
 		
 		usuario = mock(Usuario.class);
 		desafio = new Desafio(area, 3, 3, restriccion, 500.2);

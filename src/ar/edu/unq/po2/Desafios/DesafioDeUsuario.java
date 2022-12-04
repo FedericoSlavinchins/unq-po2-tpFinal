@@ -28,7 +28,6 @@ public class DesafioDeUsuario {
 	public DesafioDeUsuario(Desafio desafio, Usuario usuario) {
 		this.desafio = desafio;
 		this.estado  = new NoAceptado();
-		this.usuario = usuario;
 		this.otorgadorDeRecompensas = new OtorgadorDeRecompensa(this.desafio.getRecompensa());
 		this.otorgadorDeRecompensas.setUsuarioARecompensar(usuario);
 	}

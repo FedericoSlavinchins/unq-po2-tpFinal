@@ -8,6 +8,7 @@ import ar.edu.unq.po2.EstadoDesafio.EstadoDesafio;
 import ar.edu.unq.po2.EstadoDesafio.NoAceptado;
 
 import ar.edu.unq.po2.Proyecto.AreaGeografica;
+import ar.edu.unq.po2.SistemaUsuario.Usuario;
 
 public class Desafio implements ElementoDeLudificacion {
 	
@@ -26,7 +27,12 @@ public class Desafio implements ElementoDeLudificacion {
 		this.restriccionTemporal = restriccionTemporal;
 		this.recompensa = recompensa;
 	}
-
+	
+	
+	public void aceptarDesafio(Desafio desafio, Usuario usuario) throws Exception {
+		DesafioDeUsuario DesafioDeUsuario = new DesafioDeUsuario(desafio, usuario);
+		DesafioDeUsuario.aceptarDesafioDeUsuario();
+	}
 
 	
 	public int getCantidadObjetivoDeMuestras() {

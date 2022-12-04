@@ -1,6 +1,5 @@
 package ar.edu.unq.po2.SistemaUsuario;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import ar.edu.unq.po2.Desafios.Desafio;
@@ -12,7 +11,7 @@ public class RecomendacionPorFavoritos implements EstrategiaDeRecomendacion {
 
 	
 	@Override
-	public ArrayList<DesafioDeUsuario> recomendar(List<DesafioDeUsuario> desafiosCompletados, PreferenciaUsuario preferencias, List<Desafio> desafiosDeProyectos) {
+	public List<Desafio> recomendar(List<Desafio> desafiosCompletados, PreferenciaUsuario preferencias, List<Desafio> desafiosDeProyectos) {
 		
 		return null;
 	}
