@@ -16,14 +16,14 @@ public abstract class EstrategiaDeRecomendacion {
 	
 	
 	
-	public abstract List<DesafioDeUsuario> recomendar(List<DesafioDeUsuario> desafiosDelUsuario, PreferenciaUsuario preferencias, List<Desafio> desafiosDeProyectos);
+	public abstract List<Desafio> recomendar(List<DesafioDeUsuario> desafiosDelUsuario, PreferenciaUsuario preferencias, List<Desafio> desafiosDeProyectos);
 	
 	
 	
 	public List<Desafio> desafiosOrdenadosPorCoincidencia() {
 		List<Desafio> desafiosOrdenados = this.desafiosPosibles;
-		desafiosOrdenados.sort((d1,d2) -> Double.compare(this.calcularCoincidencia(d1), this.calcularCoincidencia(d2)));
 		
+		desafiosOrdenados.sort((d1,d2) -> Double.compare(this.calcularCoincidencia(d1), this.calcularCoincidencia(d2)));
 		return desafiosOrdenados;
 	}
 	
@@ -50,6 +50,24 @@ public abstract class EstrategiaDeRecomendacion {
 	
 	private double valorAbsolutoDouble (double numero) { 
 		return numero > 0 ? numero : -numero; 
+	}
+
+
+
+	public void setPreferenciasDelUsuario(PreferenciaUsuario preferenciasDelUsuario) {
+		this.preferenciasDelUsuario = preferenciasDelUsuario;
+	}
+
+
+
+	public void setDesafiosYaAceptados(List<DesafioDeUsuario> desafiosYaAceptados) {
+		this.desafiosYaAceptados = desafiosYaAceptados;
+	}
+
+
+
+	public void setDesafiosPosibles(List<Desafio> desafiosPosibles) {
+		this.desafiosPosibles = desafiosPosibles;
 	}
 	
 	

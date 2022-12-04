@@ -1,6 +1,7 @@
 package ar.edu.unq.po2.SistemaUsuario;
 
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.stream.DoubleStream;
 import java.util.stream.Stream;
@@ -8,65 +9,52 @@ import java.util.stream.Stream;
 import ar.edu.unq.po2.Desafios.Desafio;
 import ar.edu.unq.po2.Desafios.DesafioDeUsuario;
 
-public class RecomendacionPorPreferencias implements EstrategiaDeRecomendacion {
-	private PreferenciaUsuario preferenciasDelUsuario;
-	private List<Desafio> desafiosPosibles;
-	private List<Desafio> desafiosYaAceptados;
+public class RecomendacionPorPreferencias extends EstrategiaDeRecomendacion {
+	
 
 	
 	@Override
-	public List<DesafioDeUsuario> recomendar(List<Desafio> desafiosAceptados, PreferenciaUsuario preferencias, List<Desafio> desafiosPosibles) {
+	public List<Desafio> recomendar(List<DesafioDeUsuario> desafiosAceptados, PreferenciaUsuario preferencias, List<Desafio> desafiosPosibles) {
 		this.setPreferencias(preferencias);
 		this.setDesafiosYaAceptados(desafiosAceptados);
 		this.setDesafiosPosibles(desafiosPosibles);
-		return null; //this.filtrarDesafios();
+		
+		List<Desafio> desafiosRecomendados = primeros5DesafiosDeLaLista(this.desafiosOrdenadosPorCoincidencia());
+		
+		return desafiosRecomendados;
 	}
 	
 	
+
+	private List<Desafio> primeros5DesafiosDeLaLista(List<Desafio> desafiosOrdenadosPorCoincidencia) {
+		return desafiosOrdenadosPorCoincidencia.stream().limit(5).toList();
+	}
+
+
+
 
 	//Metodos que setean los atributos de la clase
 	
 	public void setPreferencias(PreferenciaUsuario preferencias) {
-		this.preferenciasDelUsuario = preferencias;
+		this.setPreferenciasDelUsuario(preferencias);
 	}
 
-	public void setDesafiosYaAceptados(List<Desafio> desafiosYaAceptados) {
-		this.desafiosYaAceptados = desafiosYaAceptados;
+	public void setDesafiosYaAceptados(List<DesafioDeUsuario> desafiosAceptados) {
+		this.setDesafiosYaAceptados(desafiosAceptados);
 	}
 	
 	public void setDesafiosPosibles(List<Desafio> desafios) {
-		this.desafiosPosibles = desafios;
+		this.setDesafiosPosibles(desafios);
 	}
 
 
 	
 	
-	//Calcula el nivel de coincidencia con las preferencias del usuario haciendo una suma del valor absoluto de las diferencias
-	public double calcularCoincidencia(Desafio desafio) {
-		int resMuestras = 
-				this.valorAbsoluto(this.preferenciasDelUsuario.getCantidadDeMuestrasARecolectar()
-						- desafio.getCantidadObjetivoDeMuestras()); //Calcula el valor absoluto de la diferencia de muestras
-		int resDificultad = 
-				this.valorAbsoluto(this.preferenciasDelUsuario.getDificultadPreferida() 
-						- desafio.getDificultad()); //Calcula el valor absoluto de la diferencia de dificultades.
-		double resRecompensas =
-				this.valorAbsolutoDouble(this.preferenciasDelUsuario.getRecompensaPreferida() 
-						- desafio.getRecompensa()); //Calcula el valor absoluto de la diferencia de recompensas.
-		return (resMuestras + resDificultad + resRecompensas);
-	}
-
-	private int valorAbsoluto(int numero) { 
-		return numero > 0 ? numero : -numero; 
-	}
 	
-	private double valorAbsolutoDouble (double numero) { 
-		return numero > 0 ? numero : -numero; 
-	}
-	
-	
+	/*
 	
 	//Metodo que filtra desafios 
-	private List<Desafio> filtrarDesafios() {
+	private List<Desafio> desafiosFiltradosDisponiblesParaRealizar() {
 		List<Desafio> desafiosNoValidos = this.desafiosYaAceptados.stream().map(d -> d.getDesafio()).toList();
 		List<Desafio> desafiosValidos = new ArrayList<Desafio>();
 		for (Desafio desafio : desafiosPosibles) {
@@ -76,6 +64,8 @@ public class RecomendacionPorPreferencias implements EstrategiaDeRecomendacion {
 		}
 		return desafiosValidos;
 	}
+	*/
+
 
 /*
 	@Override
