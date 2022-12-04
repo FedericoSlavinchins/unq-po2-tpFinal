@@ -35,7 +35,7 @@ public class RecomendadorDeLudificacion {
 		return estrategia;
 	}
 	
-	public List<DesafioDeUsuario> recomendarDesafios(List<Desafio> desafiosDeProyectos) {
+	public List<Desafio> recomendarDesafios(List<Desafio> desafiosDeProyectos) {
 		return this.estrategia.recomendar(desafiosDelUsuario, preferenciasDelUsuario, desafiosDeProyectos);
 	}
 }

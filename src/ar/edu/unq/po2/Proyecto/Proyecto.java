@@ -14,7 +14,7 @@ public class Proyecto {
 	private List<Usuario> participantesActivos 	= 	new ArrayList<Usuario>();		// Participantes activos en este proyecto actualmente
 	private List<Muestra> muestras 				=	new ArrayList<Muestra>();		// Muestras subidas para este proyecto
 	private List<Categoria> categorias 			=	new ArrayList<Categoria>();		// Las categorias a las que pertenece el proyecto
-	private List<Desafio> desafios 				= 	new ArrayList<Desafio>();		// Los desafios que cumplen los requerimientos del proyecto.
+	private ArrayList<Desafio> desafios 				= 	new ArrayList<Desafio>();		// Los desafios que cumplen los requerimientos del proyecto.
 	
 	
 	public Proyecto(String nombre, String descripcion, ArrayList<Categoria> categorias) {	// Constructor
@@ -58,7 +58,7 @@ public class Proyecto {
 		this.desafios.add(desafio);
 	}
 
-	public List<Desafio> getDesafios() {
+	public ArrayList<Desafio> getDesafios() {
 		return this.desafios;
 	}
 }
