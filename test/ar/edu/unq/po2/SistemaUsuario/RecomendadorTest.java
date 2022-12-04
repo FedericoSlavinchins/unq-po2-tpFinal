@@ -18,7 +18,7 @@ public class RecomendadorTest {
 		usuario = mock(Usuario.class);
 		estrategia1 = mock(EstrategiaDeRecomendacion.class);
 		estrategia2 = mock(EstrategiaDeRecomendacion.class);
-		recomendador = new RecomendadorDeLudificacion(usuario.getDesafiosCompletados(), usuario.getPreferenciaUsuario());
+		recomendador = new RecomendadorDeLudificacion(usuario.getDesafiosDelUsuario(), usuario.getPreferenciaUsuario());
 	}
 	
 	@Test
@@ -34,7 +34,7 @@ public class RecomendadorTest {
 		recomendador.cambiarEstrategiaDeRecomendacion(estrategia1);
 		this.recomendador.recomendarDesafios(usuario.desafiosDeMisProyectos());
 		
-		verify(estrategia1).recomendar(recomendador.getDesafiosCompletados(), recomendador.getPreferencias(), usuario.desafiosDeMisProyectos());
+		verify(estrategia1).recomendar(recomendador.getDesafiosDelUsuario(), recomendador.getPreferencias(), usuario.desafiosDeMisProyectos());
 		
 	}
 	

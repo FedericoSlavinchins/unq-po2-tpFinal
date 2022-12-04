@@ -4,11 +4,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import ar.edu.unq.po2.Desafios.BloqueSemanal;
 import ar.edu.unq.po2.Desafios.Desafio;
 import ar.edu.unq.po2.Desafios.DesafioDeUsuario;
 import ar.edu.unq.po2.Desafios.RestriccionDeEntreFechasSimple;
@@ -114,6 +115,27 @@ class UsuarioTest {
 		assertEquals(resultadoEsperado, resultadoActual);
 	}
 	
+	@Test
+	void cuandoElUsuarioSeRegistraSuNombreEsUsuarioNombre() {
+		String resultadoActual = usuario.getNombre();
+		String resultadoEsperado = "nombreUsuario";
+		assertEquals(resultadoEsperado, resultadoActual);
+	}
+	
+	@Test
+	void testDesafiosDeProyectosDelUsuario() {
+		proyecto.agregarDesafio(desafio);
+		proyecto.agregarDesafio(desafio2);
+		proyecto.agregarParticipante(usuario);
+		
+		List<Desafio> resultadoEsperado = Arrays.asList(desafio, desafio2);
+		List<Desafio> resultadoActual = usuario.desafiosDeMisProyectos();
+		
+		assertEquals(resultadoEsperado, resultadoActual);
+	}
+	
+	
+	
 	/* BORRAR TEST
 	@Test
 	void siElPorcentajeDeCompletitudGeneralEs100CompletoElDesafio() {
@@ -149,11 +171,6 @@ class UsuarioTest {
 		assertEquals(resultadoEsperado, resultadoActual);
 	}*/
 	
-	@Test
-	void cuandoElUsuarioSeRegistraSuNombreEsUsuarioNombre() {
-		String resultadoActual = usuario.getNombre();
-		String resultadoEsperado = "nombreUsuario";
-		assertEquals(resultadoEsperado, resultadoActual);
-	}
+	
 	
 }

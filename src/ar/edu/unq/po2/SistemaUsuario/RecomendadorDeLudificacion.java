@@ -19,7 +19,7 @@ public class RecomendadorDeLudificacion {
 		this.cambiarEstrategiaDeRecomendacion(new RecomendacionPorPreferencias());
 	}
 
-	public List<DesafioDeUsuario> getDesafiosCompletados(){
+	public List<DesafioDeUsuario> getDesafiosDelUsuario(){
 		return this.desafiosDelUsuario;
 	}
 	
@@ -35,7 +35,7 @@ public class RecomendadorDeLudificacion {
 		return estrategia;
 	}
 	
-	public List<DesafioDeUsuario> recomendarDesafios(List<Desafio> desafiosDeProyectos) {
+	public List<Desafio> recomendarDesafios(List<Desafio> desafiosDeProyectos) {
 		return this.estrategia.recomendar(desafiosDelUsuario, preferenciasDelUsuario, desafiosDeProyectos);
 	}
 }
