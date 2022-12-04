@@ -7,7 +7,7 @@ import java.time.LocalDate;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class RestriccionCompuestaTest {
+class RestriccionTemporalCompuestaTest {
 
 	private RestriccionDeEntreFechasSimple restriccionEntreFechas;
 	private RestriccionDeEntreFechasSimple restriccionEntreFechas2;
@@ -18,7 +18,10 @@ class RestriccionCompuestaTest {
 	
 	private RestriccionDeFinDeSemana restriccionFinDeSemana;
 	
-	private RestriccionCompuesta restriccionCompuesta;
+	private RestriccionTemporalCompuesta restriccionCompuesta;
+	
+	private RestriccionDeEntreFechasCompuesta restriccionDeEntreFechasCompuesta;
+	private RestriccionTemporalCompuesta restriccionCompuesta2;
 	
 	@BeforeEach
 	public void setUp() {
@@ -37,23 +40,40 @@ class RestriccionCompuestaTest {
 		restriccionEntreFechas = new RestriccionDeEntreFechasSimple(fechaInicioRestriccion2, fechaFinRestriccion2); // del 1/11/22 al 31/12/22
 		
 		// FS: Restricción de combinación.
-		restriccionCompuesta = new RestriccionCompuesta();
+		restriccionCompuesta = new RestriccionTemporalCompuesta();
 		restriccionCompuesta.agregarRestriccionTemporal(restriccionEntreFechas2);
 		restriccionCompuesta.agregarRestriccionTemporal(restriccionEntreFechas);
 		restriccionCompuesta.agregarRestriccionTemporal(restriccionFinDeSemana);
 		// La restriccion compuesta pide todos los fines de semana del mes de Agosto y Diciembre.
+	
+	
+		// PARA SEGUNDO TEST
+		restriccionDeEntreFechasCompuesta = new RestriccionDeEntreFechasCompuesta();
+		restriccionCompuesta2 = new RestriccionTemporalCompuesta();
+		restriccionDeEntreFechasCompuesta.agregarRestriccionDeEntreFechas(restriccionEntreFechas);
+		restriccionDeEntreFechasCompuesta.agregarRestriccionDeEntreFechas(restriccionEntreFechas2);
+		restriccionCompuesta2.agregarRestriccionTemporal(restriccionDeEntreFechasCompuesta);
+		restriccionCompuesta2.agregarRestriccionTemporal(restriccionFinDeSemana);
 	}
 	
+	
 	@Test
-	void cuandoElDesafioEsCompletadoSabadoODomingoEntre1y31DeDiciembreCumplePeriodo() {	
-		//FS: Este test contempla cumplir desafios diferentes en un periodo de entre fechas de un mes, en dos fines de semana diferentes.
-		boolean resultadoDeSabado3DeDic  = restriccionCompuesta.cumpleRestriccion(LocalDate.of(2022, 12, 3));
-		boolean resultadoDeDomingo25DeDic = restriccionCompuesta.cumpleRestriccion(LocalDate.of(2022, 12, 25));
-		assertTrue(resultadoDeSabado3DeDic);
-		assertTrue(resultadoDeDomingo25DeDic);
+	void testDiferentesPeriodosDeEntreFechasConRestriccionFinDeSemana() {	
+		
+		assertTrue(restriccionCompuesta2.cumpleRestriccion(LocalDate.of(2022, 12, 31)));
 	}
 
 }
+/*
+@Test
+void cuandoElDesafioEsCompletadoSabadoODomingoEntre1y31DeDiciembreCumplePeriodo() {	
+	//FS: Este test contempla cumplir desafios diferentes en un periodo de entre fechas de un mes, en dos fines de semana diferentes.
+	boolean resultadoDeSabado3DeDic  = restriccionCompuesta.cumpleRestriccion(LocalDate.of(2022, 12, 3));
+	boolean resultadoDeDomingo25DeDic = restriccionCompuesta.cumpleRestriccion(LocalDate.of(2022, 12, 25));
+	assertTrue(resultadoDeSabado3DeDic);
+	assertTrue(resultadoDeDomingo25DeDic);
+}*/
+
 
 /*
  * 
