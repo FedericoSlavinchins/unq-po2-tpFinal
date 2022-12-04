@@ -31,42 +31,20 @@ class AceptadoTest {
 
 
 	private DesafioDeUsuario desafioUsuario;
-	private Desafio desafio;
-	private NoAceptado noAceptado;
-	private Usuario usuario;
-	private LocalDate fechaEsperada;
 	private Aceptado aceptado;
-	private RestriccionDeDiasDeSemana restriccionDeDiasDeSemana;
-	private Muestra	muestra;
-	private Muestra	muestra2;
-	private AreaGeografica area;
-	private Proyecto proyecto;
 	private Categoria categoria;
 	private ArrayList<Categoria> listaCategorias;
 	private OtorgadorDeRecompensa otorgadorDeRecompensa;
-	private Completado estadoCompletado;
 	
 	@BeforeEach
 	void setUp() throws Exception {
-		restriccionDeDiasDeSemana = new RestriccionDeDiasDeSemana();
-		categoria = new Categoria("Biología");
+		categoria = mock(Categoria.class);
 		listaCategorias = new ArrayList<Categoria>();
 		listaCategorias.add(categoria);
-		area = new AreaGeografica(500, 500, 500);
-		desafio = new Desafio(area, 1, 3, restriccionDeDiasDeSemana, 1000);
-		//desafioUsuario = new DesafioDeUsuario(desafio, usuario);
 		desafioUsuario = mock(DesafioDeUsuario.class);
 		aceptado = new Aceptado();
 		desafioUsuario.setEstado(aceptado);
-		usuario = new Usuario("pepe");
-		//usuario = mock(Usuario.class);
-		//usuario.agregarDesafiosDisponibles(desafioUsuario);
-		fechaEsperada = LocalDate.now();
-		proyecto = new Proyecto("proyecto", "descripcion", listaCategorias);
-		muestra = mock(Muestra.class);
-		muestra2 = mock(Muestra.class);
 		otorgadorDeRecompensa = mock(OtorgadorDeRecompensa.class);
-		estadoCompletado = mock(Completado.class);
 	}
 	
 	/*
