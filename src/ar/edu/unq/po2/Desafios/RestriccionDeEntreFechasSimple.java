@@ -2,7 +2,7 @@ package ar.edu.unq.po2.Desafios;
 
 import java.time.LocalDate;
 
-public class RestriccionDeEntreFechasSimple implements RestriccionTemporal {
+public class RestriccionDeEntreFechasSimple extends RestriccionDeEntreFechas {
 
 	private LocalDate fechaInicio;
 	private LocalDate fechaFin;

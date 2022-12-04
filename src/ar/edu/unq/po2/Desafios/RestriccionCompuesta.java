@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class RestriccionCompuesta implements RestriccionTemporal {
+public class RestriccionCompuesta extends RestriccionDeEntreFechas {
 	
 	private ArrayList<RestriccionTemporal> restricciones = new ArrayList<RestriccionTemporal>();
 	
