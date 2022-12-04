@@ -1,24 +1,13 @@
 package ar.edu.unq.po2.Desafios;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import ar.edu.unq.po2.EstadoDesafio.Aceptado;
 import ar.edu.unq.po2.Proyecto.AreaGeografica;
-import ar.edu.unq.po2.Proyecto.Categoria;
-import ar.edu.unq.po2.Proyecto.Proyecto;
-import ar.edu.unq.po2.Proyecto.Ubicacion;
-import ar.edu.unq.po2.SistemaUsuario.Usuario;
 
 class DesafioTest {
 	
@@ -26,33 +15,16 @@ class DesafioTest {
 	private AreaGeografica area;
 	private RestriccionTemporal restriccionTemporal;
 	private RestriccionDeDiasDeSemana restriccionDeDiasDeSemana;
-	private Ubicacion ubicacion;
-	private LocalDate diaDeSemana;
-	private boolean esDiaDeSemana;
-	private Usuario usuario;
 
 	
 	@BeforeEach
 	void setUp() throws Exception {
+	area = mock(AreaGeografica.class);
 	desafio = new Desafio(area, 5, 3, restriccionDeDiasDeSemana, 5);
-	this.area = new AreaGeografica(2, 3, 15);
-	//this.restriccionTemporal = new RestriccionTemporal();
-	this.ubicacion = new Ubicacion(2, 3);
-	usuario = new Usuario("usuario");
-	//esDiaDeSemana = true;
-	//restriccionBloqueSemanalDiaSemana = new BloqueSemanal(esDiaDeSemana);
-	//diaDeSemana = LocalDate.of(2022, 12, 1);
-	//restriccionTemporal = restriccionBloqueSemanalDiaSemana;
+	restriccionTemporal = mock(RestriccionTemporal.class);
 	}
 	
-	@Test
-	void testAceptarDesafio() throws Exception {
-		
-		
-		usuario.getMenuDeDesafios().agregarADisponible(desafio);
-		desafio.aceptarDesafio(usuario);
-		assertTrue(usuario.getMenuDeDesafios().getDesafiosAceptados().contains(desafio));
-	}
+	
 	
 	@Test
 	void testGetterMuestrasARecolectar() {
@@ -81,11 +53,6 @@ class DesafioTest {
 		assertEquals(resultadoEsperado, resultadoObtenido);
 	}
 	
-	@Test
-	void testDelArea() {
-		assertTrue(area.estaEnRango(ubicacion));
-
-	}
 	
 	
 	
