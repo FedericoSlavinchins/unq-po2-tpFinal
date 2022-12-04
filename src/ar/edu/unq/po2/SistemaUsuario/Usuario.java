@@ -24,7 +24,7 @@ public class Usuario {
 
 	private ArrayList<Proyecto> proyectos;
 	
-	private MenuDeDesafios menuDeDesafios = new MenuDeDesafios();
+	private MenuDeDesafios menuDeDesafios;
 	private MenuDeProgreso menuDeProgreso = new MenuDeProgreso(this);
 	private ValoradorDeDesafios valoradorDeDesafios = new ValoradorDeDesafios();
 	
@@ -32,9 +32,9 @@ public class Usuario {
 	public Usuario(String nombre) {
 		this.nombre = nombre;
 		this.preferenciaUsuario = new PreferenciaUsuario(0,0,0);
-		//this.setRecomendadorDeLudificacion();
 		this.recompensasAcumuladas = 0;
 		this.proyectos = new ArrayList<Proyecto>();
+		this.menuDeDesafios = new MenuDeDesafios();
 		this.setRecomendadorDeLudificacion();
 	}
 
