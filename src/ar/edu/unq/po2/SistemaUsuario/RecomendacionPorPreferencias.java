@@ -65,7 +65,7 @@ public class RecomendacionPorPreferencias implements EstrategiaDeRecomendacion {
 	
 	
 	
-	//Metodo que filtra desafios 
+	//Metodo que filtra los desafios y retorna aquellos que el usuario no haya tomado
 	private List<Desafio> filtrarDesafios() {
 		List<Desafio> desafiosNoValidos = this.desafiosYaAceptados.stream().map(d -> d.getDesafio()).toList();
 		List<Desafio> desafiosValidos = new ArrayList<Desafio>();
@@ -76,6 +76,8 @@ public class RecomendacionPorPreferencias implements EstrategiaDeRecomendacion {
 		}
 		return desafiosValidos;
 	}
+	
+
 
 /*
 	@Override
@@ -96,7 +98,7 @@ public class RecomendacionPorPreferencias implements EstrategiaDeRecomendacion {
 			resultado.add(desafio);
 			resultado.stream().sorted().toList();
 		}
-		return this.desafiosRecomendados = resultado;
+		return resultado;
 	}*/
 	/*
 	private Desafio filtrarMasCoincidente(Desafio desafio1, Desafio desafio2) {
