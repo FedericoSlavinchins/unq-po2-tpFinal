@@ -7,7 +7,7 @@ import java.time.LocalDate;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class EntreFechasTest {
+class RestriccionDeEntreFechasSimpleTest {
 	
 	private RestriccionDeEntreFechasSimple restriccionEntreFechas;
 	private LocalDate fechaInicioRestriccion;
