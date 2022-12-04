@@ -67,7 +67,7 @@ public abstract class EstrategiaDeRecomendacion {
 
 
 
-	public void setDesafiosYaAceptados(ArrayList<DesafioDeUsuario> desafiosYaAceptados) {
+	public void setDesafiosYaAceptados(List<DesafioDeUsuario> desafiosYaAceptados) {
 		this.desafiosYaAceptados = desafiosYaAceptados;
 	}
 

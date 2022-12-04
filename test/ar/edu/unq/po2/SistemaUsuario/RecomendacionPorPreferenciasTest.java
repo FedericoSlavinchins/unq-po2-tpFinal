@@ -24,6 +24,7 @@ class RecomendacionPorPreferenciasTest {
 	private Desafio desafio;
 	private Desafio desafio2;
 	
+	
 	@BeforeEach
 	public void setUp() {
 		estrategiaPreferencias = new RecomendacionPorPreferencias();
@@ -31,6 +32,7 @@ class RecomendacionPorPreferenciasTest {
 		listaDeDesafiosDeUsuario = new ArrayList<DesafioDeUsuario>();
 		desafio = mock(Desafio.class);
 		desafio2 = mock(Desafio.class);
+
 		
 	}
 	
@@ -66,9 +68,13 @@ class RecomendacionPorPreferenciasTest {
 	
 	@Test
 	public void testRecomendarPorPreferencias() {
-		estrategiaPreferencias.recomendar(listaDeDesafiosDeUsuario, preferenciasDelUsuario, listaDeDesafios);
+		List<Desafio> listaDeDesafiosPosibles = Arrays.asList(desafio, desafio2);
 		
-		assertEquals(listaDeDesafios, estrategiaPreferencias.getDesafiosPosibles());
+		List<Desafio> desafiosRecomendados =
+		estrategiaPreferencias.recomendar(listaDeDesafiosDeUsuario, preferenciasDelUsuario, listaDeDesafiosPosibles);
+		
+		assertEquals(listaDeDesafiosPosibles, desafiosRecomendados);
+		assertEquals(listaDeDesafiosPosibles, estrategiaPreferencias.getDesafiosPosibles());
 	}
 	
 	
@@ -78,13 +84,17 @@ class RecomendacionPorPreferenciasTest {
 		when(preferenciasDelUsuario.getDificultadPreferida()).thenReturn(2);
 		when(preferenciasDelUsuario.getRecompensaPreferida()).thenReturn(6.5);
 		
+		when(desafio.getCantidadObjetivoDeMuestras()).thenReturn(5);
+		when(desafio.getDificultad()).thenReturn(2);
+		when(desafio.getRecompensa()).thenReturn(6.5);
+		
 		estrategiaPreferencias.setPreferencias(preferenciasDelUsuario);
-		estrategiaPreferencias.calcularCoincidencia(desafio);
 		
-		
+		assertEquals(0, estrategiaPreferencias.calcularCoincidencia(desafio));
 		verify(desafio).getCantidadObjetivoDeMuestras();
 		verify(desafio).getDificultad();
 		verify(desafio).getRecompensa();
+		
 	}
 	
 	@Test
