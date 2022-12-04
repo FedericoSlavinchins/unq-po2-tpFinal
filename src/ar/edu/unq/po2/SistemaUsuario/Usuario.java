@@ -92,7 +92,7 @@ public class Usuario {
 		ArrayList<DesafioDeUsuario> todosMisDesafios = new ArrayList<DesafioDeUsuario>();
 		todosMisDesafios.addAll(this.menuDeDesafios.getDesafiosAceptados());
 		todosMisDesafios.addAll(this.menuDeDesafios.getDesafiosCompletados());
-		recomendador = new RecomendadorDeLudificacion(todosMisDesafios, preferenciaUsuario, menuDeDesafios);
+		recomendador = new RecomendadorDeLudificacion(todosMisDesafios, this.preferenciaUsuario, this.menuDeDesafios);
 		System.out.println("Su recomendador en uso actual se guia por sus preferencias.");
 	}
 	
