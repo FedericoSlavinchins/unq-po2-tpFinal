@@ -2,6 +2,8 @@ package ar.edu.unq.po2.SistemaUsuario;
 
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 import ar.edu.unq.po2.Desafios.Desafio;
 import ar.edu.unq.po2.Desafios.DesafioDeUsuario;
@@ -17,13 +19,14 @@ public abstract class EstrategiaDeRecomendacion {
 	public abstract List<DesafioDeUsuario> recomendar(List<DesafioDeUsuario> desafiosDelUsuario, PreferenciaUsuario preferencias, List<Desafio> desafiosDeProyectos);
 	
 	
-	public LinkedHashMap<Desafio, Integer> desafiosConSusCoincidencias() {
-		LinkedHashMap<Desafio, Integer> desafiosConSusCoincidencias = new LinkedHashMap<Desafio, Integer>();
-		for (Desafio desafio : this.desafiosPosibles) {
-			desafiosConSusCoincidencias.put(desafio, (int) this.calcularCoincidencia(desafio));
-		}
-		return desafiosConSusCoincidencias;
+	
+	public List<Desafio> desafiosOrdenadosPorCoincidencia() {
+		List<Desafio> desafiosOrdenados = this.desafiosPosibles;
+		desafiosOrdenados.sort((d1,d2) -> Double.compare(this.calcularCoincidencia(d1), this.calcularCoincidencia(d2)));
+		
+		return desafiosOrdenados;
 	}
+	
 	
 	
 
