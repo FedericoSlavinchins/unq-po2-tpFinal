@@ -34,7 +34,7 @@ public class RecomendacionPreferenciasTest {
 		when(preferenciasDelUsuario.getRecompensaPreferida()).thenReturn(6.5);
 		
 		estrategiaPreferencias.setPreferencias(preferenciasDelUsuario);
-		estrategiaPreferencias.setDesafiosCompletados(desafiosCompletados);
+		estrategiaPreferencias.setDesafiosYaAceptados(desafiosCompletados);
 		estrategiaPreferencias.calcularCoincidencia(desafio);
 
 		

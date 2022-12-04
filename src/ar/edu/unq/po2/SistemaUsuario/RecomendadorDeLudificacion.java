@@ -1,6 +1,5 @@
 package ar.edu.unq.po2.SistemaUsuario;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import ar.edu.unq.po2.Desafios.Desafio;
@@ -8,20 +7,20 @@ import ar.edu.unq.po2.Desafios.DesafioDeUsuario;
 
 public class RecomendadorDeLudificacion {
 	
-	private List<DesafioDeUsuario> desafiosCompletadosDelUsuario;
+	private List<DesafioDeUsuario> desafiosDelUsuario;
 	private PreferenciaUsuario preferenciasDelUsuario;
 	
 	private EstrategiaDeRecomendacion estrategia;
 	
-	public RecomendadorDeLudificacion(List<DesafioDeUsuario> desafiosCompletados, PreferenciaUsuario preferencias) {
-		this.desafiosCompletadosDelUsuario = desafiosCompletados;
+	public RecomendadorDeLudificacion(List<DesafioDeUsuario> desafios, PreferenciaUsuario preferencias) {
+		this.desafiosDelUsuario = desafios;
 		this.preferenciasDelUsuario = preferencias;
 		//El recomendador basico es por preferencias
 		this.cambiarEstrategiaDeRecomendacion(new RecomendacionPorPreferencias());
 	}
 
 	public List<DesafioDeUsuario> getDesafiosCompletados(){
-		return this.desafiosCompletadosDelUsuario;
+		return this.desafiosDelUsuario;
 	}
 	
 	public PreferenciaUsuario getPreferencias() {
@@ -36,7 +35,7 @@ public class RecomendadorDeLudificacion {
 		return estrategia;
 	}
 	
-	public ArrayList<DesafioDeUsuario> recomendarDesafios(List<Desafio> desafiosDeProyectos) {
-		return this.estrategia.recomendar(desafiosCompletadosDelUsuario, preferenciasDelUsuario, desafiosDeProyectos);
+	public List<DesafioDeUsuario> recomendarDesafios(List<Desafio> desafiosDeProyectos) {
+		return this.estrategia.recomendar(desafiosDelUsuario, preferenciasDelUsuario, desafiosDeProyectos);
 	}
 }

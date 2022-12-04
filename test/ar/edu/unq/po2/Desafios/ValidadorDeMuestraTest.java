@@ -27,7 +27,7 @@ class ValidadorDeMuestraTest {
 	private LocalDate fechaAceptado;
 	private LocalDate fechaEnQueSeCompletoDesafioTest1;
 	private LocalDate fechaObtenida;
-	private RestriccionDeEntreFechas restriccionEntreFechas;
+	private RestriccionDeEntreFechasSimple restriccionEntreFechas;
 	private Muestra	muestra;
 	private AreaGeografica area;
 	private RestriccionTemporal restriccionTemporal;
@@ -48,7 +48,7 @@ class ValidadorDeMuestraTest {
 		listaCategorias = new ArrayList<Categoria>();
 		listaCategorias.add(categoria);
 		area = new AreaGeografica(500, 500, 500);
-		restriccionEntreFechas = new RestriccionDeEntreFechas(LocalDate.of(2022, 10, 10), LocalDate.of(2023, 10, 10));
+		restriccionEntreFechas = new RestriccionDeEntreFechasSimple(LocalDate.of(2022, 10, 10), LocalDate.of(2023, 10, 10));
 		desafio = new Desafio(area, 2, 3, restriccionEntreFechas, 1000);
 		usuario = new Usuario("nombreUsuario");
 		estadoAceptado = new Aceptado();

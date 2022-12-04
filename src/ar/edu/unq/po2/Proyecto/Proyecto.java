@@ -11,10 +11,10 @@ public class Proyecto {
 	
 	private String nombre;
 	private String descripcion;
-	private ArrayList<Usuario> participantesActivos = new ArrayList<Usuario>();		// Participantes activos en este proyecto actualmente
-	private ArrayList<Muestra> muestras = new ArrayList<Muestra>();						// Muestras subidas para este proyecto
-	private ArrayList<Categoria> categorias = new ArrayList<Categoria>();				// Las categorias a las que pertenece el proyecto
-	private ArrayList<Desafio> desafios = new ArrayList<Desafio>();
+	private List<Usuario> participantesActivos 	= 	new ArrayList<Usuario>();		// Participantes activos en este proyecto actualmente
+	private List<Muestra> muestras 				=	new ArrayList<Muestra>();		// Muestras subidas para este proyecto
+	private List<Categoria> categorias 			=	new ArrayList<Categoria>();		// Las categorias a las que pertenece el proyecto
+	private List<Desafio> desafios 				= 	new ArrayList<Desafio>();		// Los desafios que cumplen los requerimientos del proyecto.
 	
 	
 	public Proyecto(String nombre, String descripcion, ArrayList<Categoria> categorias) {	// Constructor
@@ -31,11 +31,11 @@ public class Proyecto {
 		this.muestras.add(muestra);
 	}
 	
-	public ArrayList<Muestra> getMuestras() {					// Retorna lista de Muestras del proyecto
+	public List<Muestra> getMuestras() {					// Retorna lista de Muestras del proyecto
 		return this.muestras;
 	}
 	
-	public ArrayList<Usuario> getParticipantesActivos() {		// Retorna lista de Participantes activos del proyecto
+	public List<Usuario> getParticipantesActivos() {		// Retorna lista de Participantes activos del proyecto
 		return this.participantesActivos;
 	}
 	
@@ -45,10 +45,8 @@ public class Proyecto {
 
 	
 	public List<String> nombresDeCategorias() {
-		ArrayList<String> nombres = new ArrayList<String>();
-		for (Categoria categoria : this.categorias) {
-			nombres.add(categoria.getNombre());
-		}
+		List<String> nombres = new ArrayList<String>();
+		nombres = this.categorias.stream().map(c -> c.getNombre()).toList();
 		return nombres;
 	}
 
