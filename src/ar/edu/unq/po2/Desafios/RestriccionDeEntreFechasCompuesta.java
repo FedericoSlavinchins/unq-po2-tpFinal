@@ -3,7 +3,7 @@ package ar.edu.unq.po2.Desafios;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class RestriccionDeEntreFechasCompuesta implements RestriccionTemporal {
+public class RestriccionDeEntreFechasCompuesta extends RestriccionDeEntreFechas {
 	
 	private ArrayList<RestriccionDeEntreFechasCompuesta> restriccionesDeEntreFechas = new ArrayList<RestriccionDeEntreFechasCompuesta>();
 
