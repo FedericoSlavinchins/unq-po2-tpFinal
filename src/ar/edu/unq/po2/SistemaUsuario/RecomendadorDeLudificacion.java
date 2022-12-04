@@ -19,14 +19,6 @@ public class RecomendadorDeLudificacion {
 		this.cambiarEstrategiaDeRecomendacion(new RecomendacionPorPreferencias());
 		this.menuDeDesafiosDelUsuario = menuDeDesafios;
 	}
-
-	public List<DesafioDeUsuario> getDesafiosDelUsuario(){
-		return this.desafiosDelUsuario;
-	}
-	
-	public PreferenciaUsuario getPreferencias() {
-		return this.preferenciasDelUsuario;
-	}
 	
 	public void cambiarEstrategiaDeRecomendacion(EstrategiaDeRecomendacion estrategia) {
 		this.estrategia = estrategia;

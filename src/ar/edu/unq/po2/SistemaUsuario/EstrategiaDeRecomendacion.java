@@ -1,10 +1,7 @@
 package ar.edu.unq.po2.SistemaUsuario;
 
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 import ar.edu.unq.po2.Desafios.Desafio;
 import ar.edu.unq.po2.Desafios.DesafioDeUsuario;
@@ -22,7 +19,7 @@ public abstract class EstrategiaDeRecomendacion {
 	
 	
 	public List<Desafio> desafiosOrdenadosPorCoincidencia() {
-		List<Desafio> desafiosOrdenados = this.desafiosPosibles;
+		List<Desafio> desafiosOrdenados = this.desafiosFiltradosDisponiblesParaRealizar();
 		
 		desafiosOrdenados.sort((d1,d2) -> Double.compare(this.calcularCoincidencia(d1), this.calcularCoincidencia(d2)));
 		return desafiosOrdenados;
@@ -48,29 +45,27 @@ public abstract class EstrategiaDeRecomendacion {
 	private double valorAbsoluto(double numero) { 
 		return (Math.abs(numero));
 	}
-	
-	/*
-	private double valorAbsoluto(int numero) { 
-		return numero > 0 ? numero : -numero; 
+
+	//Metodo que filtra desafios 
+	private List<Desafio> desafiosFiltradosDisponiblesParaRealizar() {
+		List<Desafio> desafiosNoValidos = this.desafiosYaAceptados.stream().map(d -> d.getDesafio()).toList();
+		List<Desafio> desafiosValidos = new ArrayList<Desafio>();
+		for (Desafio desafio : desafiosPosibles) {
+			if(!(desafiosNoValidos.contains(desafio))) {
+				desafiosValidos.add(desafio);
+			}
+		}
+		return desafiosValidos;
 	}
 	
 	
-	private double valorAbsolutoDouble (double numero) { 
-		return numero > 0 ? numero : -numero; 
-	}*/
-
-
-
 	public void setPreferenciasDelUsuario(PreferenciaUsuario preferenciasDelUsuario) {
 		this.preferenciasDelUsuario = preferenciasDelUsuario;
 	}
 
-
-
 	public void setDesafiosYaAceptados(List<DesafioDeUsuario> desafiosYaAceptados) {
 		this.desafiosYaAceptados = desafiosYaAceptados;
 	}
-
 
 
 	public void setDesafiosPosibles(List<Desafio> desafiosPosibles) {
@@ -84,5 +79,5 @@ public abstract class EstrategiaDeRecomendacion {
 	public void setPreferencias(PreferenciaUsuario preferencias) {
 		this.preferenciasDelUsuario = preferencias;
 	}
-	
+
 }
