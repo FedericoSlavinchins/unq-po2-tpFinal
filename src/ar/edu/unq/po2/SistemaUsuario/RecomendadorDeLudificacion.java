@@ -51,6 +51,8 @@ public class RecomendadorDeLudificacion {
 				desafioDeUsuarioQueMasLeGusto = desafioDeUsuario;
 			}
 		}
+		
+		
 		return desafioDeUsuarioQueMasLeGusto.getDesafio();
 	}
 	

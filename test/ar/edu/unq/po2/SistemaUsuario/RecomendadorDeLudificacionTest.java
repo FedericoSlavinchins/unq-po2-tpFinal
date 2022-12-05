@@ -33,14 +33,13 @@ class RecomendadorDeLudificacionTest {
 	public void setUp() {
 		recomendadorPreferencias = mock(RecomendacionPorPreferencias.class);
 		preferencias = mock(PreferenciaUsuario.class);
-		menuDeDesafios = mock(MenuDeDesafios.class);
-		recomendador = new RecomendadorDeLudificacion(desafiosDeUsuario, preferencias, menuDeDesafios);
-		recomendador.cambiarEstrategiaDeRecomendacion(recomendadorPreferencias);
+		menuDeDesafios = new MenuDeDesafios();
 		desafio = mock(Desafio.class);
 		usuario = mock(Usuario.class);
 		desafioDeUsuario = new DesafioDeUsuario(desafio, usuario);
 		voto = mock(Voto.class);
-		
+		recomendador = new RecomendadorDeLudificacion(desafiosDeUsuario, preferencias, menuDeDesafios);
+		recomendador.cambiarEstrategiaDeRecomendacion(recomendadorPreferencias);
 	}
 	
 	@Test
@@ -52,13 +51,11 @@ class RecomendadorDeLudificacionTest {
 	
 	@Test
 	void testDesafioFavorito() {
-		ArrayList<DesafioDeUsuario> desafiosDeUsuario = new ArrayList<DesafioDeUsuario>();
-		desafiosDeUsuario.add(desafioDeUsuario);
-		when(menuDeDesafios.getDesafiosCompletados()).thenReturn(desafiosDeUsuario);
 		when(desafioDeUsuario.getVoto()).thenReturn(voto);
 		when(voto.getValorVoto()).thenReturn(5);
-		
-		
+		ArrayList<DesafioDeUsuario> desafiosDeUsuario = new ArrayList<DesafioDeUsuario>();
+		desafiosDeUsuario.add(desafioDeUsuario);
+		menuDeDesafios.agregarACompletados(desafiosDeUsuario);
 		
 		assertEquals(desafioDeUsuario, recomendador.filtroDesafioQueMasLeGusto());
 	}
