@@ -62,9 +62,9 @@ class IncluidorDeCategoriasTest {
 
 	@Test
 	void elProyectoCorrespondienteAlCriterioDeBusquedaIncluidorDeCategoriasEsElProyecto1() {
-		ArrayList<Proyecto> resultadoEsperado = new ArrayList<Proyecto>();
+		List<Proyecto> resultadoEsperado = new ArrayList<Proyecto>();
 		resultadoEsperado.add(proyecto1);
-		ArrayList<Proyecto> resultadoBusqueda = buscadorIncluidorCategorias.filtrar(proyectosAFiltrar);
+		List<Proyecto> resultadoBusqueda = buscadorIncluidorCategorias.filtrar(proyectosAFiltrar);
 		assertEquals(resultadoEsperado, resultadoBusqueda);
 	}
 }

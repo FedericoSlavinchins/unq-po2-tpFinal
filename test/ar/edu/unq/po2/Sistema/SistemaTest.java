@@ -13,6 +13,7 @@ import ar.edu.unq.po2.SistemaUsuario.Usuario;
 import static org.mockito.Mockito.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 class SistemaTest {
 	
@@ -52,7 +53,7 @@ class SistemaTest {
 	@Test
 	public void testCuandoSeBuscaUsandoUnBuscadorElMismoSeSetteaEnLaVariableInternaDelSistema() {
 
-		ArrayList<Proyecto> resultadoDeBusqueda = new ArrayList<Proyecto>();
+		List<Proyecto> resultadoDeBusqueda = new ArrayList<Proyecto>();
 		
 		
 		resultadoDeBusqueda = this.sistema.buscarProyectosUsando(buscadorCategoria);

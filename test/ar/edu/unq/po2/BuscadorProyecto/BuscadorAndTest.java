@@ -101,19 +101,19 @@ class BuscadorAndTest {
 
 	@Test
 	void losProyectosCorrespondientesAlCriterioDeBusquedaAndSonEl1yEl4() {
-		ArrayList<Proyecto> resultadoEsperado = new ArrayList<Proyecto>();
+		List<Proyecto> resultadoEsperado = new ArrayList<Proyecto>();
 		resultadoEsperado.add(proyecto1);
 		resultadoEsperado.add(proyecto4);
-		ArrayList<Proyecto> resultadoBusqueda = buscadorAnd.filtrar(proyectosAFiltrar);
+		List<Proyecto> resultadoBusqueda = buscadorAnd.filtrar(proyectosAFiltrar);
 		assertEquals(resultadoEsperado, resultadoBusqueda);
 	}
 	
 	@Test
 	void losProyectosCorrespondientesAlCriterioDeBusquedaAndRecursivoSonEl1yEl4() {	//El objetivo es que de tres proyectos, retorne un array list con el proyecto1 y proyecto2.
-		ArrayList<Proyecto> resultadoEsperado = new ArrayList<Proyecto>();
+		List<Proyecto> resultadoEsperado = new ArrayList<Proyecto>();
 		resultadoEsperado.add(proyecto1);
 		resultadoEsperado.add(proyecto4);
-		ArrayList<Proyecto> resultadoBusqueda = buscadorAnd1.filtrar(proyectosAFiltrar);
+		List<Proyecto> resultadoBusqueda = buscadorAnd1.filtrar(proyectosAFiltrar);
 		assertEquals(resultadoEsperado, resultadoBusqueda);
 	}
 

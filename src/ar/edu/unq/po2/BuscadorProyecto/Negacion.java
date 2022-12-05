@@ -1,6 +1,7 @@
 package ar.edu.unq.po2.BuscadorProyecto;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import ar.edu.unq.po2.Proyecto.Proyecto;
 
@@ -15,9 +16,9 @@ private	BuscadorDeProyectos buscadorANegar;
 	
 	
 	@Override
-	public ArrayList<Proyecto> filtrar(ArrayList<Proyecto> proyectosAFiltrar) {
-		ArrayList<Proyecto> proyectosASacar 	= this.buscadorANegar.filtrar(proyectosAFiltrar);
-		ArrayList<Proyecto> resultadoBusqueda 	= new ArrayList<Proyecto>();
+	public List<Proyecto> filtrar(List<Proyecto> proyectosAFiltrar) {
+		List<Proyecto> proyectosASacar 	= this.buscadorANegar.filtrar(proyectosAFiltrar);
+		List<Proyecto> resultadoBusqueda = new ArrayList<Proyecto>();
 		for (Proyecto proyecto : proyectosAFiltrar) {
 			if ( ! (proyectosASacar.contains(proyecto)) ) {		// Retorna todos los proyectos pasados por el parámetro, excepto los
 				resultadoBusqueda.add(proyecto);				// del resultado de búsqueda del buscador sin el 'not'.
@@ -34,5 +35,8 @@ private	BuscadorDeProyectos buscadorANegar;
 	public BuscadorDeProyectos getBuscadorANegar() {
 		return buscadorANegar;
 	}
+
+
+	
 	
 }

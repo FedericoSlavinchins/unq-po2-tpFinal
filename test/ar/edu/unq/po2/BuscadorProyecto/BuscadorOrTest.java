@@ -99,20 +99,20 @@ class BuscadorOrTest {
 
 	@Test
 	void losProyectosCorrespondientesAlCriterioDeBusquedaOrEsElProyecto1y2() {
-		ArrayList<Proyecto> resultadoEsperado = new ArrayList<Proyecto>();
+		List<Proyecto> resultadoEsperado = new ArrayList<Proyecto>();
 		resultadoEsperado.add(proyecto1);
 		resultadoEsperado.add(proyecto2);
-		ArrayList<Proyecto> resultadoBusqueda = buscadorOr.filtrar(proyectosAFiltrar);
+		List<Proyecto> resultadoBusqueda = buscadorOr.filtrar(proyectosAFiltrar);
 		assertEquals(resultadoEsperado, resultadoBusqueda);
 	}
 	
 	@Test
 	void losProyectosCorrespondientesAlCriterioDeBusquedaOrRecursivoSonEl1El2yEl3() {
-		ArrayList<Proyecto> resultadoEsperado = new ArrayList<Proyecto>();
+		List<Proyecto> resultadoEsperado = new ArrayList<Proyecto>();
 		resultadoEsperado.add(proyecto1);
 		resultadoEsperado.add(proyecto2);
 		resultadoEsperado.add(proyecto3);
-		ArrayList<Proyecto> resultadoBusqueda = buscadorOr1.filtrar(proyectosAFiltrar);
+		List<Proyecto> resultadoBusqueda = buscadorOr1.filtrar(proyectosAFiltrar);
 		assertEquals(resultadoEsperado, resultadoBusqueda);
 	}
 }

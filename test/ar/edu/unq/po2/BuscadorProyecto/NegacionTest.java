@@ -3,6 +3,7 @@ package ar.edu.unq.po2.BuscadorProyecto;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -41,9 +42,9 @@ class NegacionTest {
 
 	@Test
 	void cuandoSeUsaNegacionSobreBusquedaPorTituloEstrellaRetornaProyectoQueNoContieneEseTitulo() {
-		ArrayList<Proyecto> resultadoEsperado = new ArrayList<Proyecto>();
+		List<Proyecto> resultadoEsperado = new ArrayList<Proyecto>();
 		resultadoEsperado.add(proyecto2);
-		ArrayList<Proyecto> resultadoBusqueda = buscadorNegacion.filtrar(proyectosAFiltrar);
+		List<Proyecto> resultadoBusqueda = buscadorNegacion.filtrar(proyectosAFiltrar);
 		assertEquals(resultadoEsperado, resultadoBusqueda);
 	}
 	

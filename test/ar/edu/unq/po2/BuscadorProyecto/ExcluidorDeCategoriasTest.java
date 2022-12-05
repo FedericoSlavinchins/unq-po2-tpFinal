@@ -72,9 +72,9 @@ class ExcluidorDeCategoriasTest {
 
 	@Test
 	void elProyectoCorrespondienteAlCriterioDeBusquedaDeExcluidorDeCategoriasEsElProyecto1() {
-		ArrayList<Proyecto> resultadoEsperado = new ArrayList<Proyecto>();
+		List<Proyecto> resultadoEsperado = new ArrayList<Proyecto>();
 		resultadoEsperado.add(proyecto2);
-		ArrayList<Proyecto> resultadoBusqueda = buscadorExcluidorCategorias.filtrar(proyectosAFiltrar);
+		List<Proyecto> resultadoBusqueda = buscadorExcluidorCategorias.filtrar(proyectosAFiltrar);
 		assertEquals(resultadoEsperado, resultadoBusqueda);
 	}
 

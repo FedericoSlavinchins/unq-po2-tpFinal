@@ -14,7 +14,7 @@ public class IncluidorDeCategorias extends BuscadorCategoria {
 		this.setCategoriasObjetivo(categorias);
 	}
 	
-	protected void aplicarCriterioDeFiltro(ArrayList<Proyecto> resultadoBusqueda, Proyecto proyecto) {
+	protected void aplicarCriterioDeFiltro(List<Proyecto> resultadoBusqueda, Proyecto proyecto) {
 		if (proyecto.nombresDeCategorias().containsAll(this.getCategoriasObjetivo())) {
 			resultadoBusqueda.add(proyecto);
 		}
