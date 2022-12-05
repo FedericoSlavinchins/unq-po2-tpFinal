@@ -26,6 +26,9 @@ class RecomendadorDeLudificacionTest {
 	private Voto voto;
 	private Usuario usuario;
 	private Desafio desafio;
+	private Desafio desafio2;
+	private Desafio desafio3;
+	private Desafio desafio4;
 	
 	
 	
@@ -33,20 +36,27 @@ class RecomendadorDeLudificacionTest {
 	public void setUp() {
 		recomendadorPreferencias = mock(RecomendacionPorPreferencias.class);
 		preferencias = mock(PreferenciaUsuario.class);
-		menuDeDesafios = new MenuDeDesafios();
+		menuDeDesafios = mock(MenuDeDesafios.class);
 		desafio = mock(Desafio.class);
+		desafio2 = mock(Desafio.class);
+		desafio3 = mock(Desafio.class);
+		desafio4 = mock(Desafio.class);
 		usuario = mock(Usuario.class);
-		desafioDeUsuario = new DesafioDeUsuario(desafio, usuario);
+		desafioDeUsuario = mock(DesafioDeUsuario.class);
+		desafios = new ArrayList<Desafio>();
+		desafios.add(desafio2);
+		desafios.add(desafio3);
+		desafiosDeUsuario = new ArrayList<DesafioDeUsuario>();
 		voto = mock(Voto.class);
 		recomendador = new RecomendadorDeLudificacion(desafiosDeUsuario, preferencias, menuDeDesafios);
-		recomendador.cambiarEstrategiaDeRecomendacion(recomendadorPreferencias);
 	}
 	
 	@Test
 	void testDesafiosRecomendados() {
 		recomendador.recomendarDesafios(desafios);
 		
-		verify(recomendador.getEstrategia()).recomendar(desafiosDeUsuario, preferencias, desafios);
+		
+		verify(menuDeDesafios).setDesafiosDisponibles(desafios);
 	}
 	
 	@Test
