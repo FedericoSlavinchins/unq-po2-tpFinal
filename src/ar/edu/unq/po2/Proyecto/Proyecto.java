@@ -25,6 +25,7 @@ public class Proyecto {
 	
 	public void agregarParticipante(Usuario participante) {		// Agrega participante activo al proyecto
 		this.participantesActivos.add(participante);
+		participante.agregarProyectoEnLosQueParticipa(this);
 	}
 	
 	public void agregarMuestra(Muestra muestra) {				// Agrega una muestra al proyecto

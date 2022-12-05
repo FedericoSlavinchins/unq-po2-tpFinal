@@ -140,6 +140,11 @@ public class Usuario {
 	public String getNombre() {
 		return this.nombre;
 	}
+
+
+	public void agregarProyectoEnLosQueParticipa(Proyecto proyecto) {
+		this.proyectos.add(proyecto);
+	}
 	
 	
 	
