@@ -75,5 +75,9 @@ public class MenuDeDesafios {
 		this.desafiosDisponibles.add(desafio);
 	}
 
+	public void agregarACompletados(ArrayList<DesafioDeUsuario> desafiosDeUsuario) {
+		this.desafiosCompletados = desafiosDeUsuario;
+	}
+
 
 }
