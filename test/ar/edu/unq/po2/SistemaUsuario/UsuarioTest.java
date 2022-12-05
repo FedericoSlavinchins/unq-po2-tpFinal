@@ -54,7 +54,7 @@ class UsuarioTest {
 		listaDeCategorias = new ArrayList<Categoria>();
 		categoria = mock(Categoria.class);
 		listaDeCategorias.add(categoria);
-		proyecto = mock(Proyecto.class);
+		proyecto = new Proyecto("a", "a", listaDeCategorias);
 	}
 	
 	
@@ -64,10 +64,10 @@ class UsuarioTest {
 		List<Muestra> muestras = Arrays.asList(muestra);
 		
 		usuario.recolectarMuestra(muestra, proyecto);
-		when(proyecto.getMuestras()).thenReturn(muestras);
+		//when(proyecto.getMuestras()).thenReturn(muestras);
 		
 		assertTrue(proyecto.getMuestras().contains(muestra));
-		verify(proyecto).agregarMuestra(muestra);
+		//verify(proyecto).agregarMuestra(muestra);
 
 	}
 	
@@ -109,8 +109,9 @@ class UsuarioTest {
 		proyecto.agregarParticipante(usuario);
 		
 		List<Desafio> desafios = Arrays.asList(desafio, desafio2);
-		
-		when(proyecto.getDesafios()).thenReturn(desafios);
+		List<Usuario> usuarios = Arrays.asList(usuario);
+		//when(proyecto.getDesafios()).thenReturn(desafios);
+		//when(proyecto.getParticipantesActivos()).thenReturn(usuarios);
 		
 		List<Desafio> resultadoEsperado = Arrays.asList(desafio, desafio2);
 		List<Desafio> resultadoActual = usuario.desafiosDeMisProyectos();

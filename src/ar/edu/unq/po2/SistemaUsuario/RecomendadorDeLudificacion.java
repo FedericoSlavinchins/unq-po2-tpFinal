@@ -44,7 +44,7 @@ public class RecomendadorDeLudificacion {
 	}
 
 	private Desafio desafioQueMasLeGusto(List<DesafioDeUsuario> desafiosCompletados) {
-		DesafioDeUsuario desafioDeUsuarioQueMasLeGusto = desafiosCompletados.get(0);
+		DesafioDeUsuario desafioDeUsuarioQueMasLeGusto = desafiosCompletados.stream().findFirst().get();
 		
 		for (DesafioDeUsuario desafioDeUsuario : desafiosCompletados) {
 			if (desafioDeUsuario.getVoto().getValorVoto() > desafioDeUsuarioQueMasLeGusto.getVoto().getValorVoto()) {

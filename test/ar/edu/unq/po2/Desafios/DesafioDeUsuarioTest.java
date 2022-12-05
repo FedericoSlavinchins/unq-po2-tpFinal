@@ -1,7 +1,7 @@
 package ar.edu.unq.po2.Desafios;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.*;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -41,6 +41,8 @@ class DesafioDeUsuarioTest {
 	private ArrayList<Categoria> listaCategorias;
 	private Ubicacion geocoordenada;
 	private Voto voto;
+	private Desafio desafio2;
+	private DesafioDeUsuario desafioUsuario2;
 	
 	@BeforeEach
 	void setUp() throws Exception {
@@ -55,7 +57,9 @@ class DesafioDeUsuarioTest {
 		desafio = new Desafio(area, 2, 3, restriccionEntreFechas, 1000);
 		usuario = new Usuario("nombreUsuario");
 		estadoAceptado = new Aceptado();
+		desafio2 = new Desafio(area, 1, 3, restriccionEntreFechas, 1000);
 		desafioUsuario = new DesafioDeUsuario(desafio, usuario);
+		desafioUsuario2 = new DesafioDeUsuario(desafio2, usuario);
 		
 		fechaAceptado = LocalDate.now();
 		
@@ -76,19 +80,22 @@ class DesafioDeUsuarioTest {
 	@Test
 	void testCompletarDesafioDeUsuario() throws Exception {
 		EstadoDesafio estadoCompletado = new Completado();
-		desafioUsuario.completarDesafioDeUsuario(5);
+		//when(desafio.getCantidadObjetivoDeMuestras()).thenReturn(1);
+		desafioUsuario2.aceptarDesafioDeUsuario();
+		usuario.recolectarMuestra(muestra, proyecto);
+		desafioUsuario2.completarDesafioDeUsuario(5);
 		
-		assertEquals(estadoCompletado, desafioUsuario.getEstado());
-		assertTrue(usuario.getMenuDeDesafios().getDesafiosCompletados().contains(this));
+		assertEquals(estadoCompletado.getClass(), desafioUsuario2.getEstado().getClass());
+		assertTrue(usuario.getMenuDeDesafios().getDesafiosCompletados().contains(desafioUsuario2));
 	}
 	
 	
 	@Test
 	void testGetMuestrasRecolectadas() throws Exception {
-		desafioUsuario.aceptarDesafio();
+		desafioUsuario.aceptarDesafioDeUsuario();
 		usuario.recolectarMuestra(muestra, proyecto);
 		
-		assertEquals(1, desafioUsuario.getMuestrasRecolectadas());
+		assertEquals(1, desafioUsuario.getMuestrasRecolectadas().size());
 	}
 	
 	
@@ -100,7 +107,7 @@ class DesafioDeUsuarioTest {
 	
 	@Test
 	void testGetFechaAceptado() throws Exception {
-		desafioUsuario.aceptarDesafio();
+		desafioUsuario.aceptarDesafioDeUsuario();
 		assertEquals(fechaAceptado, desafioUsuario.getFechaAceptado()) ;
 	}
 	
