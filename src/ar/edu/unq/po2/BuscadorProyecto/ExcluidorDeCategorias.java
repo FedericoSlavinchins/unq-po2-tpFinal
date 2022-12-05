@@ -13,7 +13,7 @@ public class ExcluidorDeCategorias extends BuscadorCategoria {
 	}
 
 
-	protected void aplicarCriterioDeFiltro(ArrayList<Proyecto> resultadoBusqueda, Proyecto proyecto) {
+	protected void aplicarCriterioDeFiltro(List<Proyecto> resultadoBusqueda, Proyecto proyecto) {
 		if (!(proyecto.nombresDeCategorias().containsAll(this.getCategoriasObjetivo()))) {
 			resultadoBusqueda.add(proyecto);
 		}

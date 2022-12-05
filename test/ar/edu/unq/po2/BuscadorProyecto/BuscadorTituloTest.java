@@ -3,6 +3,7 @@ package ar.edu.unq.po2.BuscadorProyecto;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -39,9 +40,9 @@ class BuscadorTituloTest {
 
 	@Test
 	void elProyectoCorrespondienteAlCriterioDeBusquedaEsElProyecto1() {
-		ArrayList<Proyecto> resultadoEsperado = new ArrayList<Proyecto>();
+		List<Proyecto> resultadoEsperado = new ArrayList<Proyecto>();
 		resultadoEsperado.add(proyecto1);
-		ArrayList<Proyecto> resultadoBusqueda = buscadorTitulo.filtrar(proyectosAFiltrar);
+		List<Proyecto> resultadoBusqueda = buscadorTitulo.filtrar(proyectosAFiltrar);
 		assertEquals(resultadoEsperado, resultadoBusqueda);
 	}
 
