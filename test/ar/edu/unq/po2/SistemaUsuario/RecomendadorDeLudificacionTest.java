@@ -34,21 +34,11 @@ class RecomendadorDeLudificacionTest {
 	
 	
 	
-	
 	@BeforeEach
 	public void setUp() throws Exception {
-		desafio = mock(Desafio.class);
-		desafio2 = mock(Desafio.class);
 		
-		desafio3 = mock(Desafio.class);
-		desafio4 = mock(Desafio.class);
-		
-		desafiosARecomendar = new ArrayList<Desafio>();
-		desafiosARecomendar.add(desafio3);
-		desafiosARecomendar.add(desafio4);
-		
-		desafioDeUsuario = new DesafioDeUsuario(desafio, usuario);
-		desafioDeUsuario2 = new DesafioDeUsuario(desafio, usuario);
+		desafioDeUsuario = mock(DesafioDeUsuario.class);
+		desafioDeUsuario2 = mock(DesafioDeUsuario.class);
 		
 		desafiosDeUsuario = new ArrayList<DesafioDeUsuario>();
 		desafiosDeUsuario.add(desafioDeUsuario);
@@ -56,19 +46,26 @@ class RecomendadorDeLudificacionTest {
 		
 		recomendadorPreferencias = mock(RecomendacionPorPreferencias.class);
 		preferencias = mock(PreferenciaUsuario.class);
-		menuDeDesafios = new MenuDeDesafios();
+		menuDeDesafios = mock(MenuDeDesafios.class);
+		desafio = mock(Desafio.class);
+		desafio2 = mock(Desafio.class);
+		desafio3 = mock(Desafio.class);
+		desafio4 = mock(Desafio.class);
 		usuario = mock(Usuario.class);
-		voto = new Voto(5);
+		desafios = new ArrayList<Desafio>();
+		desafios.add(desafio2);
+		desafios.add(desafio3);
+		desafiosDeUsuario = new ArrayList<DesafioDeUsuario>();
+		voto = mock(Voto.class);
 		recomendador = new RecomendadorDeLudificacion(desafiosDeUsuario, preferencias, menuDeDesafios);
-		recomendador.cambiarEstrategiaDeRecomendacion(recomendadorPreferencias);
-
 	}
 	
 	@Test
 	void testDesafiosRecomendados() {
 		recomendador.recomendarDesafios(desafios);
 		
-		verify(recomendadorPreferencias).recomendar(desafiosDeUsuario, preferencias, desafiosARecomendar);
+		
+		verify(menuDeDesafios).setDesafiosDisponibles(desafios);
 	}
 	
 	
@@ -81,6 +78,7 @@ class RecomendadorDeLudificacionTest {
 		desafiosDeUsuario.add(desafioDeUsuario2);
 		
 		menuDeDesafios.agregarACompletados(desafiosDeUsuario);
+		when(menuDeDesafios.getDesafiosCompletados()).thenReturn(desafiosDeUsuario);
 		
 		assertEquals(desafioDeUsuario, recomendador.filtroDesafioQueMasLeGusto());
 	}
