@@ -78,6 +78,7 @@ class RecomendadorDeLudificacionTest {
 		desafiosDeUsuario.add(desafioDeUsuario2);
 		
 		menuDeDesafios.agregarACompletados(desafiosDeUsuario);
+		when(menuDeDesafios.getDesafiosCompletados()).thenReturn(desafiosDeUsuario);
 		
 		assertEquals(desafioDeUsuario, recomendador.filtroDesafioQueMasLeGusto());
 	}
