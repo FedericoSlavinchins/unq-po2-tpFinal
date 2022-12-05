@@ -20,41 +20,66 @@ class RecomendadorDeLudificacionTest {
 	private RecomendacionPorPreferencias recomendadorPreferencias;
 	private ArrayList<DesafioDeUsuario> desafiosDeUsuario;
 	private DesafioDeUsuario desafioDeUsuario;
+	private DesafioDeUsuario desafioDeUsuario2;
 	private List<Desafio> desafios;
 	private PreferenciaUsuario preferencias;
 	private MenuDeDesafios menuDeDesafios;
 	private Voto voto;
 	private Usuario usuario;
 	private Desafio desafio;
+	private Desafio desafio2;
+	private Desafio desafio3;
+	private Desafio desafio4;
+	private List<Desafio> desafiosARecomendar;
+	
 	
 	
 	
 	@BeforeEach
-	public void setUp() {
+	public void setUp() throws Exception {
+		desafio = mock(Desafio.class);
+		desafio2 = mock(Desafio.class);
+		
+		desafio3 = mock(Desafio.class);
+		desafio4 = mock(Desafio.class);
+		
+		desafiosARecomendar = new ArrayList<Desafio>();
+		desafiosARecomendar.add(desafio3);
+		desafiosARecomendar.add(desafio4);
+		
+		desafioDeUsuario = new DesafioDeUsuario(desafio, usuario);
+		desafioDeUsuario2 = new DesafioDeUsuario(desafio, usuario);
+		
+		desafiosDeUsuario = new ArrayList<DesafioDeUsuario>();
+		desafiosDeUsuario.add(desafioDeUsuario);
+		desafiosDeUsuario.add(desafioDeUsuario2);
+		
 		recomendadorPreferencias = mock(RecomendacionPorPreferencias.class);
 		preferencias = mock(PreferenciaUsuario.class);
 		menuDeDesafios = new MenuDeDesafios();
-		desafio = mock(Desafio.class);
 		usuario = mock(Usuario.class);
-		desafioDeUsuario = new DesafioDeUsuario(desafio, usuario);
-		voto = mock(Voto.class);
+		voto = new Voto(5);
 		recomendador = new RecomendadorDeLudificacion(desafiosDeUsuario, preferencias, menuDeDesafios);
 		recomendador.cambiarEstrategiaDeRecomendacion(recomendadorPreferencias);
+
 	}
 	
 	@Test
 	void testDesafiosRecomendados() {
 		recomendador.recomendarDesafios(desafios);
 		
-		verify(recomendador.getEstrategia()).recomendar(desafiosDeUsuario, preferencias, desafios);
+		verify(recomendadorPreferencias).recomendar(desafiosDeUsuario, preferencias, desafiosARecomendar);
 	}
+	
 	
 	@Test
 	void testDesafioFavorito() {
-		when(desafioDeUsuario.getVoto()).thenReturn(voto);
-		when(voto.getValorVoto()).thenReturn(5);
+		desafioDeUsuario.setVoto(voto);
+		
 		ArrayList<DesafioDeUsuario> desafiosDeUsuario = new ArrayList<DesafioDeUsuario>();
 		desafiosDeUsuario.add(desafioDeUsuario);
+		desafiosDeUsuario.add(desafioDeUsuario2);
+		
 		menuDeDesafios.agregarACompletados(desafiosDeUsuario);
 		
 		assertEquals(desafioDeUsuario, recomendador.filtroDesafioQueMasLeGusto());

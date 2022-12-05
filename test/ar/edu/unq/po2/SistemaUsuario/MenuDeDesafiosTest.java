@@ -3,6 +3,7 @@ package ar.edu.unq.po2.SistemaUsuario;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -71,7 +72,26 @@ class MenuDeDesafiosTest {
 		assertFalse(menuDeDesafios.getDesafiosAceptados().contains(desafioDeUsuario1));
 	}
 	
+	@Test
+	void testAgregarCompletados() {
+		ArrayList<DesafioDeUsuario> desafiosDeUsuario = new ArrayList<DesafioDeUsuario>();
+		desafiosDeUsuario.add(desafioDeUsuario1);
+		
+		menuDeDesafios.agregarACompletados(desafiosDeUsuario);
+		//
+		assertTrue(menuDeDesafios.getDesafiosCompletados().contains(desafioDeUsuario1));
+	}
 	
+	
+	@Test
+	void testSetDesafiosDisponibles() {
+		List<Desafio> desafiosDisponibles = new ArrayList<Desafio>();
+		desafiosDisponibles.add(desafio);
+		
+		menuDeDesafios.setDesafiosDisponibles(desafiosDisponibles);
+		//
+		assertEquals(desafiosDisponibles, menuDeDesafios.getDesafiosDisponibles());
+	}
 	
 	
 
